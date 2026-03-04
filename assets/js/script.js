@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in-section, .stagger-item').forEach(el => observer.observe(el));
 
-    // Умные модалки (Видео не грузят Мак в фоне) + фасады
+    // Умные модалки (динамическая загрузка iframe)
     function lockBodyScroll() {
         document.body.style.overflow = 'hidden';
         document.body.style.touchAction = 'none';
@@ -37,37 +37,40 @@ document.addEventListener("DOMContentLoaded", function() {
         document.body.style.touchAction = 'auto';
     }
 
-    // Подготовка data-src для Vimeo по наведению (video facade)
-    const caseCards = document.querySelectorAll('.case[data-video]');
-    caseCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            const id = card.getAttribute('onclick')?.match(/\d+/)?.[0];
-            const videoUrl = card.getAttribute('data-video');
-            if (!id || !videoUrl) return;
-            const modal = document.getElementById('case-' + id);
-            if (!modal) return;
-            const iframe = modal.querySelector('iframe');
-            if (iframe && !iframe.getAttribute('data-src')) {
-                iframe.setAttribute('data-src', videoUrl);
-            }
-        }, { once: true });
-    });
+    function createAndAttachVideoIframe(modalElement, videoUrl) {
+        const videoContainer = modalElement.querySelector('.m-video-container');
+        if (!videoContainer || !videoUrl) return;
+
+        const existingIframe = videoContainer.querySelector('iframe');
+        if (existingIframe) existingIframe.remove();
+
+        const iframe = document.createElement('iframe');
+        iframe.src = videoUrl;
+        iframe.setAttribute('allow', 'autoplay; fullscreen');
+        iframe.setAttribute('frameborder', '0');
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        videoContainer.appendChild(iframe);
+    }
+
+    function destroyVideoIframe(modalElement) {
+        const videoContainer = modalElement.querySelector('.m-video-container');
+        if (!videoContainer) return;
+        const iframe = videoContainer.querySelector('iframe');
+        if (iframe) iframe.remove();
+    }
 
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
         if (modal) {
             modal.classList.add('active');
             lockBodyScroll();
-            const iframe = modal.querySelector('iframe');
-            // Fallback: если data-src ещё не задан через hover (например, на тач-устройствах)
-            if (iframe && !iframe.getAttribute('data-src')) {
-                const relatedCard = document.querySelector('.case[onclick*="openCase(' + id + ')"][data-video]');
-                if (relatedCard && relatedCard.getAttribute('data-video')) {
-                    iframe.setAttribute('data-src', relatedCard.getAttribute('data-video'));
-                }
-            }
-            if (iframe && iframe.getAttribute('data-src')) {
-                iframe.src = iframe.getAttribute('data-src');
+            const relatedCard = document.querySelector('.case[onclick*="openCase(' + id + ')"][data-video]');
+            const videoUrl = relatedCard ? relatedCard.getAttribute('data-video') : null;
+            if (videoUrl) {
+                createAndAttachVideoIframe(modal, videoUrl);
+            } else {
+                destroyVideoIframe(modal);
             }
         }
     };
@@ -77,10 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (modal) {
             modal.classList.remove('active');
             unlockBodyScroll();
-            const iframe = modal.querySelector('iframe');
-            if (iframe) {
-                iframe.src = ''; // Уничтожаем видео при закрытии (строгий lifecycle)
-            }
+            destroyVideoIframe(modal);
         }
     };
 

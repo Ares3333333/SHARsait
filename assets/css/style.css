@@ -21,7 +21,7 @@ a { color: #fff !important; text-decoration: none !important; transition: 0.3s; 
 @keyframes pulse-glow { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
 
 /* ========== НАВИГАЦИЯ (БЕЗ РАЗМЫТИЯ, ХОЛОДНАЯ) ========== */
-nav { position: fixed; top: 0; width: 100%; padding: 25px 4%; display: flex; justify-content: space-between; align-items: center; z-index: 1000000; background: #030303; border-bottom: 1px solid rgba(255,255,255,0.05); }
+nav { position: fixed; top: 0; width: 100%; padding: 25px 4%; display: flex; justify-content: space-between; align-items: center; z-index: 999999; background: #030303; border-bottom: 1px solid rgba(255,255,255,0.05); }
 .logo { font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #fff !important; }
 .logo span { color: var(--brand-red); }
 .nav-right { display: flex; align-items: center; gap: 40px; }
@@ -64,28 +64,28 @@ nav { position: fixed; top: 0; width: 100%; padding: 25px 4%; display: flex; jus
 .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2vw; }
 .case { position: relative; aspect-ratio: 16/9; background: #111; overflow: hidden; border-radius: 4px; cursor: pointer; transition: transform 0.4s ease; }
 .case:hover { transform: scale(1.02); z-index: 2; box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 30px var(--aura-base); }
-.case img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s ease; filter: grayscale(0.5) brightness(0.6); }
+.case img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s ease; filter: grayscale(0.5) brightness(0.6); background-color: #111; }
 .case:hover img { filter: grayscale(0) brightness(1); transform: scale(1.05); }
 .case-info { position: absolute; inset: 0; padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 50%); opacity: 0; transition: opacity 0.4s; }
 .case:hover .case-info { opacity: 1; }
 .case-info h3 { font-size: clamp(1.5rem, 2vw, 2.5rem); font-weight: 500; margin-bottom: 5px; }
 .case-info p { font-size: 10px; color: var(--grey); text-transform: uppercase; letter-spacing: 0.1em; }
 
-/* ========== КОМАНДА И ЖУРНАЛ (СЕТКА 3x НА ПК) ========== */
+/* ========== КОМАНДА И ЖУРНАЛ (3 НА РЯД НА ПК, FLEX) ========== */
 .horizontal-scroll { 
-    display: grid; 
-    grid-template-columns: repeat(3, minmax(0, 1fr)); 
-    gap: 30px; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 .horizontal-scroll::-webkit-scrollbar { display: none; }
 
-.team-member { border-top: 1px solid var(--line); padding-top: 30px; }
+.team-member { border-top: 1px solid var(--line); padding-top: 30px; flex: 0 0 calc(33.333% - 20px); }
 .team-member::before { content: ''; display: block; width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-red) 0%, rgba(156, 4, 4, 0.2) 100%); margin-bottom: 20px; }
 .team-member h4 { font-size: 20px; font-weight: 500; margin-bottom: 10px; }
 .team-member p { font-size: 11px; text-transform: uppercase; color: var(--brand-red); letter-spacing: 0.1em; }
 
-.journal-card { display: flex; flex-direction: column; cursor: pointer; }
-.j-img-wrap { width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 4px; margin-bottom: 20px; }
+.journal-card { display: flex; flex-direction: column; cursor: pointer; flex: 0 0 calc(33.333% - 20px); }
+.j-img-wrap { width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 4px; margin-bottom: 20px; background-color: #111; }
 .j-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; }
 .journal-card:hover .j-img-wrap img { transform: scale(1.05); }
 .j-tag { font-size: 10px; color: var(--brand-red); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; display: block; }
@@ -151,7 +151,7 @@ nav { position: fixed; top: 0; width: 100%; padding: 25px 4%; display: flex; jus
 .modal.active { display: block; animation: fadeIn 0.3s ease; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.close-case { position: fixed; top: 25px; right: 4%; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #fff !important; cursor: pointer; z-index: 1000001; background: rgba(255,255,255,0.1); padding: 12px 20px; border-radius: 4px; transition: 0.3s; text-transform: uppercase; }
+.close-case { position: fixed; top: 90px; right: 4%; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #fff !important; cursor: pointer; z-index: 999995; background: rgba(255,255,255,0.1); padding: 12px 20px; border-radius: 4px; transition: 0.3s; text-transform: uppercase; }
 .close-case:hover { background: var(--brand-red); border-color: var(--brand-red); }
 
 .m-hero { max-width: 1000px; margin: 0 auto 40px; text-align: center; }
