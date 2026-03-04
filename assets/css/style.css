@@ -14,6 +14,7 @@
 html { scroll-behavior: smooth; }
 body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--white); font-weight: 300; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 a { color: #fff !important; text-decoration: none !important; transition: 0.3s; }
+img { image-rendering: -webkit-optimize-contrast; }
 
 /* АНИМАЦИИ (Оптимизировано для GPU) */
 .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s var(--ease-luxe), transform 0.8s var(--ease-luxe); will-change: opacity, transform; }
@@ -21,7 +22,7 @@ a { color: #fff !important; text-decoration: none !important; transition: 0.3s; 
 @keyframes pulse-glow { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
 
 /* ========== НАВИГАЦИЯ (БЕЗ РАЗМЫТИЯ, ХОЛОДНАЯ) ========== */
-nav { position: fixed; top: 0; width: 100%; padding: 25px 4%; display: flex; justify-content: space-between; align-items: center; z-index: 1000000; background: #030303; border-bottom: 1px solid rgba(255,255,255,0.05); }
+nav { position: fixed; top: 0; width: 100%; padding: 25px 4%; display: flex; justify-content: space-between; align-items: center; z-index: 2000000; background: #030303; border-bottom: 1px solid rgba(255,255,255,0.05); }
 .logo { font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #fff !important; }
 .logo span { color: var(--brand-red); }
 .nav-right { display: flex; align-items: center; gap: 40px; }
@@ -60,11 +61,26 @@ nav { position: fixed; top: 0; width: 100%; padding: 25px 4%; display: flex; jus
 .stat-number { font-size: clamp(3rem, 6vw, 5rem); font-weight: 500; color: var(--brand-red); line-height: 1; margin-bottom: 10px; }
 .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--grey); }
 
+.clients-row {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 40px;
+    align-items: center;
+}
+.client-name {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    white-space: nowrap;
+}
+
 /* ========== ПРОЕКТЫ (СЕТКА) ========== */
 .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2vw; }
-.case { position: relative; aspect-ratio: 16/9; background: #111; overflow: hidden; border-radius: 4px; cursor: pointer; transition: transform 0.4s ease; }
+.case { position: relative; aspect-ratio: 16/9; background: #111; overflow: hidden; border-radius: 4px; cursor: pointer; transition: transform 0.4s ease; transform: translateZ(0); }
 .case:hover { transform: scale(1.02); z-index: 2; box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 30px var(--aura-base); }
-.case img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s ease; filter: grayscale(0.5) brightness(0.6); }
+.case img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s ease; filter: grayscale(0.5) brightness(0.6); transform: translateZ(0); }
 .case:hover img { filter: grayscale(0) brightness(1); transform: scale(1.05); }
 .case-info { position: absolute; inset: 0; padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 50%); opacity: 0; transition: opacity 0.4s; }
 .case:hover .case-info { opacity: 1; }
@@ -86,7 +102,7 @@ nav { position: fixed; top: 0; width: 100%; padding: 25px 4%; display: flex; jus
 
 .journal-card { display: flex; flex-direction: column; cursor: pointer; }
 .j-img-wrap { width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 4px; margin-bottom: 20px; }
-.j-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; }
+.j-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; transform: translateZ(0); }
 .journal-card:hover .j-img-wrap img { transform: scale(1.05); }
 .j-tag { font-size: 10px; color: var(--brand-red); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; display: block; }
 .j-title { font-size: 18px; font-weight: 400; line-height: 1.4; }
@@ -116,6 +132,7 @@ nav { position: fixed; top: 0; width: 100%; padding: 25px 4%; display: flex; jus
     transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s; 
     cursor: pointer; 
     background: transparent; 
+    transform: translateZ(0);
 }
 .btn-minimal:hover { background: var(--brand-red); box-shadow: 0 0 20px var(--aura-base); }
 
