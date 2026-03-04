@@ -140,11 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const target = document.querySelector(href);
                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-        }, { passive: false });
+        });
     });
-
-    // Пассивные слушатели для скролла и тач-событий
-    window.addEventListener('scroll', () => {}, { passive: true });
-    window.addEventListener('touchmove', () => {}, { passive: true });
 });
 
