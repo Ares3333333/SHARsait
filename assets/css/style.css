@@ -131,6 +131,19 @@ nav { position: fixed; top: 0; width: 100%; padding: 25px 4%; display: flex; jus
 .form-input { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--line); color: #fff; padding: 20px 0; font-size: 16px; margin-bottom: 40px; outline: none; transition: 0.3s; font-family: inherit;}
 .form-input:focus { border-bottom-color: var(--brand-red); }
 
+.form-legal { 
+    font-size: 11px; 
+    color: var(--grey); 
+    margin-top: 10px; 
+    line-height: 1.5; 
+}
+.form-legal-link { 
+    color: var(--brand-red); 
+    text-decoration: underline; 
+    text-decoration-thickness: 1px; 
+    text-underline-offset: 3px; 
+}
+
 /* ============================================================== */
 /* МОДАЛКИ КЕЙСОВ (ФИКСИРОВАННЫЙ ФОН)                             */
 /* ============================================================== */

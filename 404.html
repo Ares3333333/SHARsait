@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница не найдена | SHAR Production</title>
+    <meta name="robots" content="noindex,follow">
+    <style>
+        :root {
+            --brand-red: #9c0404;
+            --bg: #030303;
+            --white: #FFFFFF;
+            --grey: rgba(255, 255, 255, 0.5);
+            --line: rgba(255, 255, 255, 0.12);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-font-smoothing: antialiased;
+        }
+        .frame {
+            width: 100%;
+            max-width: 900px;
+            padding: 40px 4%;
+        }
+        .nav-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--grey);
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 18px;
+            margin-bottom: 80px;
+        }
+        .nav-line span.brand {
+            letter-spacing: 0.2em;
+        }
+        .nav-line span.brand span {
+            color: var(--brand-red);
+        }
+        .code {
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--brand-red);
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--grey);
+            max-width: 520px;
+        }
+        .actions {
+            margin-top: 40px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: 999px;
+            border: 1px solid var(--brand-red);
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: transparent;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background: var(--brand-red);
+        }
+    </style>
+</head>
+<body>
+    <main class="frame">
+        <div class="nav-line">
+            <span class="brand"><span>SHAR</span> PRODUCTION</span>
+            <span>AI &amp; CGI Studio</span>
+        </div>
+        <div class="code">Ошибка 404</div>
+        <h1>Страница не найдена.</h1>
+        <p>Видимо, вы попали в виртуальный сет, который ещё не построен. Вернитесь на главную, чтобы продолжить работу с командой SHAR Production.</p>
+        <div class="actions">
+            <a href="index.html" class="btn">Вернуться на главную</a>
+        </div>
+    </main>
+</body>
+</html>
+
