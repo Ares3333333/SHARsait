@@ -58,7 +58,7 @@
         <div class="client-logo">ЛУКОЙЛ</div><div class="client-logo">NESTEA</div>
         <div class="client-logo">NESTLE</div><div class="client-logo">S7 AIRLINES</div>
         <div class="client-logo">MERCEDES-BENZ</div><div class="client-logo">PINSKIY & CO</div>
-        <div class="client-logo">CLICK UZBEK</div><div class="client-logo">M-TECHNO</div>
+        <div class="client-logo">CLICK UZBEKISTAN</div><div class="client-logo">M-TECHNO</div>
     </div>
 </section>
 
@@ -66,21 +66,42 @@
     <h2 class="label">ИЗБРАННЫЕ КЕЙСЫ</h2>
     <div class="grid">
         <div class="case" onclick="openCase(1)">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920" alt="Pinskiy & Co" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920" alt="Pinskiy & Co">
             <div class="case-info"><h3>PINSKIY & CO</h3><p>AI-Production / Food</p></div>
         </div>
         <div class="case" onclick="openCase(2)">
-            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920" alt="Click City" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920" alt="Click City">
             <div class="case-info"><h3>CLICK CITY</h3><p>Sci-Fi / Fintech</p></div>
         </div>
         <div class="case" onclick="openCase(3)">
-            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1920" alt="Илюхин Гроб" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1920" alt="Илюхин Гроб">
             <div class="case-info"><h3>ИЛЮХИН ГРОБ</h3><p>Cinema / Short Film</p></div>
         </div>
         <div class="case" onclick="openCase(4)">
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920" alt="M-TECHNO" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920" alt="M-Techno">
             <div class="case-info"><h3>M-TECHNO</h3><p>B2B Commercial</p></div>
         </div>
+        
+        <div class="case hidden-case" onclick="openCase(5)">
+            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1920" alt="AI Rev">
+            <div class="case-info"><h3>AI REVOLUTION</h3><p>Concept Art</p></div>
+        </div>
+        <div class="case hidden-case" onclick="openCase(6)">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920" alt="Cyber">
+            <div class="case-info"><h3>CYBERPUNK ERA</h3><p>VFX / CGI</p></div>
+        </div>
+        <div class="case hidden-case" onclick="openCase(7)">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1920" alt="Meta">
+            <div class="case-info"><h3>VIRTUAL SHOWROOM</h3><p>Metaverse / Web3</p></div>
+        </div>
+        <div class="case hidden-case" onclick="openCase(8)">
+            <img src="https://images.unsplash.com/photo-1535016120720-40c7467d4aac?q=80&w=1920" alt="Retail">
+            <div class="case-info"><h3>FUTURE OF RETAIL</h3><p>Enterprise CGI</p></div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 60px;">
+        <button id="show-more-btn" class="btn-minimal" style="max-width: 300px; cursor: pointer;">РАЗВЕРНУТЬ ПОРТФОЛИО ↓</button>
     </div>
 </section>
 
@@ -102,17 +123,17 @@
         <div class="price-card">
             <h3>01 / Интеграция</h3><div class="val">от 150 000 ₽</div>
             <ul><li>AI-элементы в видео</li><li>Срок: до 5 дней</li></ul>
-            <a href="#order" class="btn-minimal">Заказать</a>
+            <a href="#order" class="btn-minimal" style="cursor: pointer;">Заказать</a>
         </div>
         <div class="price-card premium-pack">
             <h3>02 / Full Production</h3><div class="val">от 350 000 ₽</div>
             <ul><li>Рекламный ролик «под ключ»</li><li>Срок: до 10 дней</li></ul>
-            <a href="#order" class="btn-minimal">Заказать</a>
+            <a href="#order" class="btn-minimal" style="cursor: pointer;">Заказать</a>
         </div>
         <div class="price-card">
             <h3>03 / Enterprise</h3><div class="val">Индивидуально</div>
             <ul><li>Виртуальные амбассадоры</li><li>Индивидуальный пайплайн</li></ul>
-            <a href="#order" class="btn-minimal">Обсудить</a>
+            <a href="#order" class="btn-minimal" style="cursor: pointer;">Обсудить</a>
         </div>
     </div>
 </section>
@@ -127,6 +148,10 @@
         <a href="#" class="journal-card">
             <div class="j-img-wrap"><img src="https://images.unsplash.com/photo-1535016120720-40c7467d4aac?q=80&w=800" alt="Evo"></div>
             <div class="j-content"><span class="j-tag">Мнение</span><h3 class="j-title">Эволюция продакшна: От съемок к 3D мирам</h3></div>
+        </a>
+        <a href="#" class="journal-card">
+            <div class="j-img-wrap"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800" alt="Click"></div>
+            <div class="j-content"><span class="j-tag">Разбор кейса</span><h3 class="j-title">Как мы создали аниме-киберпанк вселенную за 14 дней</h3></div>
         </a>
     </div>
 </section>
@@ -143,13 +168,13 @@
         <form id="contactForm">
             <input type="email" class="form-input" placeholder="Ваш Email" required>
             <textarea class="form-input" placeholder="Кратко о задаче" required style="min-height: 100px;"></textarea>
-            <button type="submit" class="btn-minimal">ОТПРАВИТЬ ЗАЯВКУ</button>
+            <button type="submit" class="btn-minimal" style="cursor: pointer;">ОТПРАВИТЬ ЗАЯВКУ</button>
             <p class="form-legal">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html" class="form-legal-link">Политикой конфиденциальности</a>.</p>
         </form>
     </div>
 </section>
 
-<footer style="padding: 50px 4%; text-align: center; font-size: 10px; color: var(--grey); letter-spacing: 0.2em; text-transform: uppercase; border-top: 1px solid rgba(255,255,255,0.05);">
+<footer style="padding: 50px 4%; text-align: center; font-size: 10px; color: var(--grey); letter-spacing: 0.2em; text-transform: uppercase; border-top: 1px solid var(--line);">
     © 2026 SHAR PRODUCTION
 </footer>
 
@@ -160,8 +185,8 @@
     <div class="m-case-body">
         <div class="m-sidebar"><div class="m-stat"><h4>Клиент</h4><p>Pinskiy & Co</p></div><div class="m-stat"><h4>Сроки</h4><p>72 часа</p></div></div>
         <div class="m-content-text">
-            <h2>Бизнес-задача</h2><p>Создать серию рекламных роликов, полностью исключив съемочный процесс и логистические затраты.</p>
-            <h2>Решение</h2><p>Команда SHAR разработала кастомный AI-пайплайн, имитирующий эффект дорогой stop-motion анимации.</p>
+            <h2>Бизнес-задача</h2><p>Создать серию рекламных роликов, полностью исключив съемочный процесс и логистические затраты на фуд-стилистов.</p>
+            <h2>Технологическое решение</h2><p>Команда SHAR разработала кастомный AI-пайплайн, имитирующий эффект дорогой stop-motion анимации.</p>
         </div>
     </div>
 </div>
@@ -173,8 +198,8 @@
     <div class="m-case-body">
         <div class="m-sidebar"><div class="m-stat"><h4>Клиент</h4><p>Click Uzbekistan</p></div><div class="m-stat"><h4>Сроки</h4><p>14 дней</p></div></div>
         <div class="m-content-text">
-            <h2>Бизнес-задача</h2><p>Трансформировать имидж платежной системы, создав визуальный язык для цифрового поколения.</p>
-            <h2>Решение</h2><p>Создание вселенной «Click World» в стилистике высокобюджетного Sci-Fi аниме с помощью AI.</p>
+            <h2>Бизнес-задача</h2><p>Трансформировать имидж крупнейшей платежной системы, создав визуальный язык, понятный цифровому поколению.</p>
+            <h2>Технологическое решение</h2><p>Создание вселенной «Click World» в стилистике высокобюджетного Sci-Fi аниме с помощью AI.</p>
         </div>
     </div>
 </div>
@@ -186,8 +211,8 @@
     <div class="m-case-body">
         <div class="m-sidebar"><div class="m-stat"><h4>Проект</h4><p>Авторское кино</p></div></div>
         <div class="m-content-text">
-            <h2>Задача</h2><p>Создать глубокое авторское кино, раскрывающее режиссерский потенциал студии.</p>
-            <h2>Решение</h2><p>Ставка на чистый кинематограф без VFX. Ювелирная работа с актерами и светом.</p>
+            <h2>Творческая задача</h2><p>Создать глубокое авторское кино, раскрывающее классический режиссерский потенциал студии SHAR. Передать абсурдную и тонкую психологическую ситуацию похорон у закрытого гроба.</p>
+            <h2>Решение</h2><p>Ставка на чистый кинематограф без использования VFX. Ювелирная работа с актерами и светом.</p>
         </div>
     </div>
 </div>
@@ -199,10 +224,15 @@
     <div class="m-case-body">
         <div class="m-sidebar"><div class="m-stat"><h4>Клиент</h4><p>Завод M-Techno</p></div></div>
         <div class="m-content-text">
-            <h2>Задача</h2><p>Разработать премиальный имиджевый фильм для высокотехнологичного производства.</p>
+            <h2>Бизнес-задача</h2><p>Разработать премиальный имиджевый фильм для высокотехнологичного производства. Необходимо было превратить рутинный процесс создания деталей в завораживающее визуальное зрелище.</p>
         </div>
     </div>
 </div>
+
+<div class="modal" id="case-5"><div class="close-case" onclick="closeCase(5)">✕</div><div class="m-hero"><h1 class="m-hero-title">AI Revolution</h1></div><div class="m-video-container" data-url="https://player.vimeo.com/video/1169951312?autoplay=1"></div></div>
+<div class="modal" id="case-6"><div class="close-case" onclick="closeCase(6)">✕</div><div class="m-hero"><h1 class="m-hero-title">Cyberpunk Era</h1></div><div class="m-video-container" data-url="https://player.vimeo.com/video/1169962544?autoplay=1"></div></div>
+<div class="modal" id="case-7"><div class="close-case" onclick="closeCase(7)">✕</div><div class="m-hero"><h1 class="m-hero-title">Virtual Showroom</h1></div><div class="m-video-container" data-url="https://player.vimeo.com/video/1169962484?autoplay=1"></div></div>
+<div class="modal" id="case-8"><div class="close-case" onclick="closeCase(8)">✕</div><div class="m-hero"><h1 class="m-hero-title">Future of Retail</h1></div><div class="m-video-container" data-url="https://player.vimeo.com/video/1169951312?autoplay=1"></div></div>
 
 <div class="toast" id="toast"></div>
 <script src="assets/js/script.js"></script>
