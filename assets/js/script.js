@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
             cursor.style.top = e.clientY + 'px';
         });
         
-        const interactives = document.querySelectorAll('a, button, .case, .journal-card, .close-case, input, textarea, .logo, .client-logo');
+        // Магнитный эффект наведения
+        const interactives = document.querySelectorAll('a, button, .case, .journal-card, .close-case, input, textarea, .logo, .client-logo, .watch-case-btn');
         interactives.forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
             navRight.classList.toggle('active');
         });
         
+        // Закрытие по клику на ссылки
         document.querySelectorAll('.smart-close, .nav-closer').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -36,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 3. АНИМАЦИИ ПОЯВЛЕНИЯ
+    // 3. АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -47,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     document.querySelectorAll('.fade-in-section, .stagger-item').forEach(el => observer.observe(el));
 
-    // 4. СЧЕТЧИКИ
+    // 4. СЧЕТЧИКИ ЦИФР
     function animateCounter(el, target) {
         let start = 0; 
         const inc = target / 30; 
@@ -72,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
 
-    // 5. РАЗВЕРНУТЬ ПОРТФОЛИО
+    // 5. КНОПКА "РАЗВЕРНУТЬ ПОРТФОЛИО"
     const showMoreBtn = document.getElementById('show-more-btn');
     if(showMoreBtn) {
         showMoreBtn.addEventListener('click', function() {
@@ -84,17 +86,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО (ПРОБЛЕМА С ЗАВИСАНИЕМ БРАУЗЕРА РЕШЕНА!)
+    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО (ЗАГРУЗКА ИЗ DATA-SRC)
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
         if(modal) {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             
+            // Находим iframe и перекидываем data-src в src
             const iframe = modal.querySelector('iframe');
             if (iframe) {
                 const dataSrc = iframe.getAttribute('data-src');
-                // Подгружаем видео только тогда, когда открывается модалка
                 if (dataSrc && iframe.getAttribute('src') !== dataSrc) {
                     iframe.setAttribute('src', dataSrc);
                 }
@@ -106,17 +108,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const modal = document.getElementById('case-' + id);
         if(modal) {
             modal.classList.remove('active');
-            document.body.style.overflow = '';
+            document.body.style.overflow = 'auto';
             
+            // Физически удаляем src, чтобы убить видео
             const iframe = modal.querySelector('iframe');
             if (iframe) {
-                // Безопасно убиваем видео при закрытии
-                iframe.setAttribute('src', 'about:blank');
+                iframe.removeAttribute('src');
             }
         }
     }
 
-    // 7. TOAST (ФОРМА)
+    // 7. ИМИТАЦИЯ ОТПРАВКИ ФОРМЫ (TOAST)
     const form = document.getElementById('contactForm');
     if(form) {
         form.addEventListener('submit', (e) => {
