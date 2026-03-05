@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // Логика кастомного курсора
+    // Кастомный курсор
     const cursor = document.querySelector('.custom-cursor');
     if (window.innerWidth > 900 && cursor) {
         document.addEventListener('mousemove', (e) => {
@@ -33,13 +33,25 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Кнопка показа скрытых кейсов (которую я потерял!)
+    const showMoreBtn = document.getElementById('show-more-btn');
+    if(showMoreBtn) {
+        showMoreBtn.addEventListener('click', function() {
+            document.querySelectorAll('.hidden-case').forEach(el => {
+                el.style.display = 'block';
+                setTimeout(() => el.classList.add('show'), 50);
+            });
+            this.style.display = 'none';
+        });
+    }
+
     // Анимация появления
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('is-visible');
         });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in-section, .case, .journal-card, .price-card, .client-logo').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in-section, .case:not(.hidden-case), .journal-card, .price-card, .client-logo').forEach(el => observer.observe(el));
 
     // Анимация счетчиков
     function animateCounter(el, target) {
@@ -55,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
 
-    // Умные модалки
+    // Модалки + Динамическое Видео
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
         if(modal) {
