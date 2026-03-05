@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
             cursor.style.top = e.clientY + 'px';
         });
         
-        // Магнитный эффект наведения
         const interactives = document.querySelectorAll('a, button, .case, .journal-card, .close-case, input, textarea, .logo, .client-logo');
         interactives.forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
@@ -19,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. МОБИЛЬНОЕ МЕНЮ (Твоя логика)
+    // 2. МОБИЛЬНОЕ МЕНЮ
     const hamburger = document.getElementById('hamburger');
     const navRight = document.getElementById('nav-links');
     
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
             navRight.classList.toggle('active');
         });
         
-        // Закрытие по клику на ссылки
         document.querySelectorAll('.smart-close, .nav-closer').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -38,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 3. АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
+    // 3. АНИМАЦИИ ПОЯВЛЕНИЯ
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -49,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     document.querySelectorAll('.fade-in-section, .stagger-item').forEach(el => observer.observe(el));
 
-    // 4. СЧЕТЧИКИ ЦИФР
+    // 4. СЧЕТЧИКИ
     function animateCounter(el, target) {
         let start = 0; 
         const inc = target / 30; 
@@ -74,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
 
-    // 5. КНОПКА "РАЗВЕРНУТЬ ПОРТФОЛИО"
+    // 5. РАЗВЕРНУТЬ ПОРТФОЛИО
     const showMoreBtn = document.getElementById('show-more-btn');
     if(showMoreBtn) {
         showMoreBtn.addEventListener('click', function() {
@@ -86,17 +84,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО (ЗАГРУЗКА ИЗ DATA-SRC)
+    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО (ПРОБЛЕМА С ЗАГРУЗКОЙ РЕШЕНА)
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
         if(modal) {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             
-            // Находим iframe и перекидываем data-src в src
             const iframe = modal.querySelector('iframe');
-            if (iframe && !iframe.src) {
-                iframe.src = iframe.getAttribute('data-src');
+            if (iframe) {
+                const dataSrc = iframe.getAttribute('data-src');
+                if (dataSrc && iframe.getAttribute('src') !== dataSrc) {
+                    iframe.setAttribute('src', dataSrc);
+                }
             }
         }
     }
@@ -107,15 +107,14 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
             
-            // Физически удаляем src, чтобы убить видео и остудить Мак
             const iframe = modal.querySelector('iframe');
             if (iframe) {
-                iframe.src = '';
+                iframe.setAttribute('src', ''); // Жестко убиваем видео
             }
         }
     }
 
-    // 7. ИМИТАЦИЯ ОТПРАВКИ ФОРМЫ (TOAST)
+    // 7. TOAST (ФОРМА)
     const form = document.getElementById('contactForm');
     if(form) {
         form.addEventListener('submit', (e) => {
