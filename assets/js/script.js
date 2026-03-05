@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // Логика кастомного курсора (Магнитный эффект sgaer)
+    // Логика кастомного курсора
     const cursor = document.querySelector('.custom-cursor');
     if (window.innerWidth > 900 && cursor) {
         document.addEventListener('mousemove', (e) => {
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Бургер меню (Для мобилок)
+    // Бургер меню
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
     const closers = document.querySelectorAll('.nav-closer');
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
 
-    // Умные модалки (Динамическая загрузка видео, чтобы не грузить CPU)
+    // Умные модалки (видео уничтожается при закрытии)
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
         if(modal) {
@@ -77,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function() {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
             
-            // Физически удаляем iframe из памяти
             const container = modal.querySelector('.m-video-container');
             if (container) {
                 container.innerHTML = '';
@@ -85,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Имитация отправки формы с красивым Toast-уведомлением
+    // Имитация отправки формы
     const form = document.getElementById('contactForm');
     if(form) {
         form.addEventListener('submit', (e) => {
