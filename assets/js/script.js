@@ -1,39 +1,80 @@
-document.addEventListener("DOMContentLoaded", function() {
-
-    // Логика кастомного курсора
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // 1. КАСТОМНЫЙ КУРСОР
     const cursor = document.querySelector('.custom-cursor');
     if (window.innerWidth > 900 && cursor) {
         document.addEventListener('mousemove', (e) => {
+            if (!cursor.classList.contains('active')) {
+                cursor.classList.add('active');
+            }
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
         
-        const interactives = document.querySelectorAll('a, button, .case, .journal-card, .close-case, input, textarea');
+        // Магнитный эффект наведения
+        const interactives = document.querySelectorAll('a, button, .case, .journal-card, .close-case, input, textarea, .logo, .client-logo');
         interactives.forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
         });
     }
 
-    // Бургер меню
+    // 2. МОБИЛЬНОЕ МЕНЮ (Твоя логика)
     const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    const closers = document.querySelectorAll('.nav-closer');
-
-    if(hamburger) {
+    const navRight = document.getElementById('nav-links');
+    
+    if (hamburger && navRight) {
         hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
+            navRight.classList.toggle('active');
         });
-        closers.forEach(closer => {
-            closer.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+        
+        // Закрытие по клику на ссылки
+        document.querySelectorAll('.smart-close, .nav-closer').forEach(link => {
+            link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
+                navRight.classList.remove('active');
             });
         });
     }
 
-    // Кнопка показа скрытых кейсов
+    // 3. АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.fade-in-section, .stagger-item').forEach(el => observer.observe(el));
+
+    // 4. СЧЕТЧИКИ ЦИФР
+    function animateCounter(el, target) {
+        let start = 0; 
+        const inc = target / 30; 
+        const timer = setInterval(() => {
+            start += inc;
+            if (start >= target) { 
+                start = target; 
+                clearInterval(timer); 
+            }
+            if (el.parentElement.classList.contains('stat-item')) {
+                el.textContent = Math.floor(start) + (target === 99 ? '%' : '+');
+            }
+        }, 30);
+    }
+    const countObs = new IntersectionObserver((entries) => { 
+        entries.forEach(e => { 
+            if(e.isIntersecting) { 
+                animateCounter(e.target, parseInt(e.target.dataset.count)); 
+                countObs.unobserve(e.target); 
+            } 
+        }); 
+    });
+    document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+
+    // 5. КНОПКА "РАЗВЕРНУТЬ ПОРТФОЛИО"
     const showMoreBtn = document.getElementById('show-more-btn');
     if(showMoreBtn) {
         showMoreBtn.addEventListener('click', function() {
@@ -45,40 +86,17 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Анимация появления блоков
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('is-visible');
-        });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in-section, .case:not(.hidden-case), .journal-card, .price-card, .client-logo').forEach(el => observer.observe(el));
-
-    // Анимация счетчиков
-    function animateCounter(el, target) {
-        let start = 0; const inc = target / 30; 
-        const timer = setInterval(() => {
-            start += inc;
-            if (start >= target) { start = target; clearInterval(timer); }
-            if (el.parentElement.classList.contains('stat-item')) el.textContent = Math.floor(start) + (target === 99 ? '%' : '+');
-        }, 30);
-    }
-    const countObs = new IntersectionObserver((entries) => { 
-        entries.forEach(e => { if(e.isIntersecting) { animateCounter(e.target, parseInt(e.target.dataset.count)); countObs.unobserve(e.target); } }); 
-    });
-    document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
-
-    // Умные модалки (Динамическая загрузка видео)
+    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО (ЗАГРУЗКА ИЗ DATA-SRC)
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
         if(modal) {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             
-            const container = modal.querySelector('.m-video-container');
-            const videoUrl = container.getAttribute('data-url');
-            
-            if (videoUrl && !container.querySelector('iframe')) {
-                container.innerHTML = `<iframe src="${videoUrl}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+            // Находим iframe и перекидываем data-src в src
+            const iframe = modal.querySelector('iframe');
+            if (iframe && !iframe.src) {
+                iframe.src = iframe.getAttribute('data-src');
             }
         }
     }
@@ -89,15 +107,15 @@ document.addEventListener("DOMContentLoaded", function() {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
             
-            // Удаляем iframe из памяти браузера
-            const container = modal.querySelector('.m-video-container');
-            if (container) {
-                container.innerHTML = '';
+            // Физически удаляем src, чтобы убить видео и остудить Мак
+            const iframe = modal.querySelector('iframe');
+            if (iframe) {
+                iframe.src = '';
             }
         }
     }
 
-    // Имитация отправки формы
+    // 7. ИМИТАЦИЯ ОТПРАВКИ ФОРМЫ (TOAST)
     const form = document.getElementById('contactForm');
     if(form) {
         form.addEventListener('submit', (e) => {
@@ -117,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Плавный скролл
+    // 8. ПЛАВНЫЙ СКРОЛЛ
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
