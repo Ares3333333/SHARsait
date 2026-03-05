@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО (ПРОБЛЕМА С ЗАГРУЗКОЙ РЕШЕНА)
+    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО (ПРОБЛЕМА С ЗАВИСАНИЕМ БРАУЗЕРА РЕШЕНА!)
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
         if(modal) {
@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const iframe = modal.querySelector('iframe');
             if (iframe) {
                 const dataSrc = iframe.getAttribute('data-src');
+                // Подгружаем видео только тогда, когда открывается модалка
                 if (dataSrc && iframe.getAttribute('src') !== dataSrc) {
                     iframe.setAttribute('src', dataSrc);
                 }
@@ -105,11 +106,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const modal = document.getElementById('case-' + id);
         if(modal) {
             modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = '';
             
             const iframe = modal.querySelector('iframe');
             if (iframe) {
-                iframe.setAttribute('src', ''); // Жестко убиваем видео
+                // Безопасно убиваем видео при закрытии
+                iframe.setAttribute('src', 'about:blank');
             }
         }
     }
