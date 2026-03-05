@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // Логика кастомного курсора (Магнитный эффект)
+    // Логика кастомного курсора
     const cursor = document.querySelector('.custom-cursor');
     if (window.innerWidth > 900 && cursor) {
         document.addEventListener('mousemove', (e) => {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Анимация появления блоков
+    // Анимация появления
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('is-visible');
@@ -55,12 +55,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
 
-    // Умные модалки (Динамическая загрузка видео, чтобы не грузить CPU)
+    // Умные модалки
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
         if(modal) {
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // лочим скролл тела сайта
+            document.body.style.overflow = 'hidden';
             
             const container = modal.querySelector('.m-video-container');
             const videoUrl = container.getAttribute('data-url');
@@ -75,9 +75,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const modal = document.getElementById('case-' + id);
         if(modal) {
             modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // возвращаем скролл
+            document.body.style.overflow = 'auto';
             
-            // Физически удаляем iframe из памяти
             const container = modal.querySelector('.m-video-container');
             if (container) {
                 container.innerHTML = '';
@@ -85,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Имитация отправки формы
+    // Форма
     const form = document.getElementById('contactForm');
     if(form) {
         form.addEventListener('submit', (e) => {
@@ -94,16 +93,18 @@ document.addEventListener("DOMContentLoaded", function() {
             btn.textContent = 'ОТПРАВКА...';
             setTimeout(() => {
                 const toast = document.getElementById('toast');
-                toast.textContent = 'Заявка успешно отправлена!';
-                toast.classList.add('show');
-                setTimeout(() => toast.classList.remove('show'), 3000);
+                if(toast) {
+                    toast.textContent = 'Заявка успешно отправлена!';
+                    toast.classList.add('show');
+                    setTimeout(() => toast.classList.remove('show'), 3000);
+                }
                 form.reset();
                 btn.textContent = 'ОТПРАВИТЬ ЗАЯВКУ';
             }, 1000);
         });
     }
 
-    // Плавный скролл к якорям
+    // Плавный скролл
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
