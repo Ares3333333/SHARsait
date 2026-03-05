@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО (ПРОБЛЕМА ЗАВИСАНИЯ БРАУЗЕРА РЕШЕНА)
+    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
         if(modal) {
