@@ -1,15 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. КАСТОМНЫЙ КУРСОР
+    // 1. ОПТИМИЗИРОВАННЫЙ КУРСОР (Работает через GPU, не вешает браузер)
     const cursor = document.querySelector('.custom-cursor');
     if (window.innerWidth > 900 && cursor) {
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        
+        function renderCursor() {
+            cursor.style.transform = `translate3d(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%), 0)`;
+            requestAnimationFrame(renderCursor);
+        }
+        requestAnimationFrame(renderCursor);
+
         document.addEventListener('mousemove', (e) => {
-            if (!cursor.classList.contains('active')) {
-                cursor.classList.add('active');
-            }
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
+            if (!cursor.classList.contains('active')) cursor.classList.add('active');
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        }, { passive: true });
         
         const interactives = document.querySelectorAll('a, button, .case, .journal-card, .close-case, input, textarea, .logo, .client-logo, .watch-case-btn');
         interactives.forEach(el => {
@@ -47,8 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
     document.querySelectorAll('.fade-in-section, .stagger-item').forEach(el => observer.observe(el));
 
-    // 4. СЧЕТЧИКИ
+    // 4. СЧЕТЧИКИ (Защита от NaN)
     function animateCounter(el, target) {
+        if (!target || target === 0) return;
         let start = 0; 
         const inc = target / 30; 
         const timer = setInterval(() => {
@@ -84,19 +92,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО
+    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО (ЗАЩИТА ОТ ИФРЕЙМ-БОМБЫ)
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
         if(modal) {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             
-            const iframe = modal.querySelector('iframe');
-            if (iframe) {
-                const dataSrc = iframe.getAttribute('data-src');
-                if (dataSrc && iframe.getAttribute('src') !== dataSrc) {
-                    iframe.setAttribute('src', dataSrc);
-                }
+            const container = modal.querySelector('.m-video-container');
+            const dataSrc = container.getAttribute('data-src');
+            
+            // Вставляем iframe ТОЛЬКО при клике
+            if (dataSrc && !container.innerHTML.includes('iframe')) {
+                container.innerHTML = `<iframe src="${dataSrc}" frameborder="0" allow="autoplay; fullscreen" style="width:100%; height:100%;"></iframe>`;
             }
         }
     }
@@ -107,9 +115,10 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.classList.remove('active');
             document.body.style.overflow = '';
             
-            const iframe = modal.querySelector('iframe');
-            if (iframe) {
-                iframe.removeAttribute('src'); // Безопасно убиваем видео
+            const container = modal.querySelector('.m-video-container');
+            if (container) {
+                // Жестко удаляем плеер из памяти при закрытии
+                container.innerHTML = ''; 
             }
         }
     }
