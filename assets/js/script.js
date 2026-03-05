@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО
+    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО (ПРОБЛЕМА ЗАВИСАНИЯ БРАУЗЕРА РЕШЕНА)
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
         if(modal) {
@@ -105,11 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const modal = document.getElementById('case-' + id);
         if(modal) {
             modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = '';
             
             const iframe = modal.querySelector('iframe');
             if (iframe) {
-                iframe.removeAttribute('src'); // Безопасно убиваем видео при закрытии
+                iframe.removeAttribute('src'); // Безопасно убиваем видео
             }
         }
     }
