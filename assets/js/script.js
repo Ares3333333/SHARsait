@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // Кастомный курсор
+    // Логика кастомного курсора
     const cursor = document.querySelector('.custom-cursor');
     if (window.innerWidth > 900 && cursor) {
         document.addEventListener('mousemove', (e) => {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Кнопка показа скрытых кейсов (которую я потерял!)
+    // Кнопка показа скрытых кейсов
     const showMoreBtn = document.getElementById('show-more-btn');
     if(showMoreBtn) {
         showMoreBtn.addEventListener('click', function() {
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Анимация появления
+    // Анимация появления блоков
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('is-visible');
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
 
-    // Модалки + Динамическое Видео
+    // Умные модалки (Динамическая загрузка видео)
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
         if(modal) {
@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
             
+            // Удаляем iframe из памяти браузера
             const container = modal.querySelector('.m-video-container');
             if (container) {
                 container.innerHTML = '';
@@ -96,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Форма
+    // Имитация отправки формы
     const form = document.getElementById('contactForm');
     if(form) {
         form.addEventListener('submit', (e) => {
