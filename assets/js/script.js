@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // Логика кастомного курсора
+    // Логика кастомного курсора (Магнитный эффект)
     const cursor = document.querySelector('.custom-cursor');
     if (window.innerWidth > 900 && cursor) {
         document.addEventListener('mousemove', (e) => {
@@ -55,12 +55,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
 
-    // Умные модалки (видео уничтожается при закрытии)
+    // Умные модалки (Динамическая загрузка видео, чтобы не грузить CPU)
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
         if(modal) {
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden'; // лочим скролл тела сайта
             
             const container = modal.querySelector('.m-video-container');
             const videoUrl = container.getAttribute('data-url');
@@ -75,8 +75,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const modal = document.getElementById('case-' + id);
         if(modal) {
             modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto'; // возвращаем скролл
             
+            // Физически удаляем iframe из памяти
             const container = modal.querySelector('.m-video-container');
             if (container) {
                 container.innerHTML = '';
@@ -101,4 +102,16 @@ document.addEventListener("DOMContentLoaded", function() {
             }, 1000);
         });
     }
+
+    // Плавный скролл к якорям
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && href !== '') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
 });
