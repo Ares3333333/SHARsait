@@ -24,13 +24,14 @@
         <a href="#pricing" class="nav-link nav-closer">Стоимость</a>
         <a href="#journal" class="nav-link nav-closer">Журнал</a>
         <a href="#order" class="nav-link nav-closer">Связаться</a>
+        <a href="https://shar-production.ru/" target="_blank" class="nav-link nav-closer">Портфолио</a>
         <a href="tel:+79319815484" class="phone-link nav-closer">+7 931 981-54-84</a>
     </div>
 </nav>
 
 <section class="hero">
     <div class="video-bg">
-        <iframe src="https://player.vimeo.com/video/1169951312?background=1&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; fullscreen"></iframe>
+        <iframe src="https://player.vimeo.com/video/1169951312?background=1&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; fullscreen" loading="eager"></iframe>
     </div>
     <div class="overlay"></div>
     <div class="hero-content fade-in-section">
@@ -72,19 +73,19 @@
     <h2 class="label">ИЗБРАННЫЕ КЕЙСЫ</h2>
     <div class="grid">
         <div class="case" onclick="openCase(1)">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920" alt="Pinskiy & Co">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920" alt="Pinskiy & Co" loading="lazy">
             <div class="case-info"><h3>PINSKIY & CO</h3><p>AI-Production / Food</p></div>
         </div>
         <div class="case" onclick="openCase(2)">
-            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920" alt="Click City">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920" alt="Click City" loading="lazy">
             <div class="case-info"><h3>CLICK CITY</h3><p>Sci-Fi / Fintech</p></div>
         </div>
         <div class="case" onclick="openCase(3)">
-            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1920" alt="Илюхин Гроб">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1920" alt="Илюхин Гроб" loading="lazy">
             <div class="case-info"><h3>ИЛЮХИН ГРОБ</h3><p>Cinema / Short Film</p></div>
         </div>
         <div class="case" onclick="openCase(4)">
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920" alt="M-TECHNO">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920" alt="M-TECHNO" loading="lazy">
             <div class="case-info"><h3>M-TECHNO</h3><p>B2B Commercial</p></div>
         </div>
     </div>
@@ -127,11 +128,11 @@
     <h2 class="label">ЖУРНАЛ / ТЕХНОЛОГИИ</h2>
     <div class="horizontal-scroll">
         <a href="#" class="journal-card">
-            <div class="j-img-wrap"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800" alt="AI"></div>
+            <div class="j-img-wrap"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800" alt="AI" loading="lazy"></div>
             <div class="j-content"><span class="j-tag">Аналитика</span><h3 class="j-title">AI-генерация в B2B: Как снизить бюджет на CGI до 40%</h3></div>
         </a>
         <a href="#" class="journal-card">
-            <div class="j-img-wrap"><img src="https://images.unsplash.com/photo-1535016120720-40c7467d4aac?q=80&w=800" alt="Evo"></div>
+            <div class="j-img-wrap"><img src="https://images.unsplash.com/photo-1535016120720-40c7467d4aac?q=80&w=800" alt="Evo" loading="lazy"></div>
             <div class="j-content"><span class="j-tag">Мнение</span><h3 class="j-title">Эволюция продакшна: От съемок к 3D мирам</h3></div>
         </a>
     </div>
@@ -170,10 +171,14 @@
         </div>
         <div class="m-content-text">
             <h2>Бизнес-задача</h2>
-            <p>Создать серию рекламных роликов, полностью исключив съемочный процесс и логистические затраты на фуд-стилистов.</p>
+            <p>Создать серию рекламных роликов, транслирующих гастрономическую эстетику. Главный вызов — добиться гиперреалистичной AI-генерации, полностью исключив съемочный процесс и логистические затраты на фуд-стилистов.</p>
             <h2>Технологическое решение</h2>
-            <p>Команда SHAR разработала кастомный AI-пайплайн, имитирующий эффект дорогой stop-motion анимации.</p>
+            <p>Команда SHAR разработала кастомный AI-пайплайн, имитирующий эффект дорогой stop-motion анимации. Были воссозданы знаковые локации Москвы и детализированные блюда с сохранением 100% читаемости брендинга.</p>
         </div>
+    </div>
+    <div class="m-cta-wrap">
+        <h2>Внедрить AI в ваш бизнес?</h2>
+        <a href="#order" onclick="closeCase(1)" class="btn-minimal">ОБСУДИТЬ ПРОЕКТ</a>
     </div>
 </div>
 
@@ -188,8 +193,14 @@
         </div>
         <div class="m-content-text">
             <h2>Бизнес-задача</h2>
-            <p>Трансформировать имидж крупнейшей платежной системы, создав визуальный язык, понятный цифровому поколению.</p>
+            <p>Трансформировать имидж крупнейшей платежной системы, создав визуальный язык, понятный цифровому поколению, и подчеркнуть масштаб экосистемы.</p>
+            <h2>Технологическое решение</h2>
+            <p>Создание вселенной «Click World» в стилистике высокобюджетного Sci-Fi аниме. С помощью AI были отрисованы сложнейшие панорамы города будущего, где национальные архитектурные коды гармонично вплетены в киберпанк.</p>
         </div>
+    </div>
+    <div class="m-cta-wrap">
+        <h2>Внедрить AI в ваш бизнес?</h2>
+        <a href="#order" onclick="closeCase(2)" class="btn-minimal">ОБСУДИТЬ ПРОЕКТ</a>
     </div>
 </div>
 
@@ -202,7 +213,10 @@
             <div class="m-stat"><h4>Проект</h4><p>Авторское кино</p></div>
         </div>
         <div class="m-content-text">
-            <h2>Творческая задача</h2><p>Создать глубокое авторское кино, раскрывающее классический режиссерский потенциал студии SHAR.</p>
+            <h2>Творческая задача</h2>
+            <p>Создать глубокое авторское кино, раскрывающее классический режиссерский потенциал студии SHAR. Передать абсурдную и тонкую психологическую ситуацию похорон у закрытого гроба.</p>
+            <h2>Решение</h2>
+            <p>Ставка на чистый кинематограф без использования VFX. Глубокая проработка сценария, ювелирная работа с актерами. Визуальный ряд выстроен на драматичном освещении и выразительных крупных планах.</p>
         </div>
     </div>
 </div>
@@ -216,7 +230,8 @@
             <div class="m-stat"><h4>Клиент</h4><p>Завод M-Techno</p></div>
         </div>
         <div class="m-content-text">
-            <h2>Бизнес-задача</h2><p>Разработать премиальный имиджевый фильм для высокотехнологичного производства.</p>
+            <h2>Бизнес-задача</h2>
+            <p>Разработать премиальный имиджевый фильм для высокотехнологичного производства. Необходимо было превратить рутинный процесс создания деталей в завораживающее визуальное зрелище.</p>
         </div>
     </div>
 </div>
