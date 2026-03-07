@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. ОПТИМИЗИРОВАННЫЙ КУРСОР (Работает через GPU, не вешает браузер)
+    // 1. КУРСОР (GPU: translate3d для аппаратного ускорения)
     const cursor = document.querySelector('.custom-cursor');
     if (window.innerWidth > 900 && cursor) {
         let mouseX = window.innerWidth / 2;
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mouseY = e.clientY;
         }, { passive: true });
         
-        const interactives = document.querySelectorAll('a, button, .case, .journal-card, .close-case, input, textarea, .logo, .client-logo, .watch-case-btn');
+        const interactives = document.querySelectorAll('a, button, .case, .journal-card, .close-case, input, textarea, .logo, .client-logo, .watch-case-btn, .btn-nav-premium');
         interactives.forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
