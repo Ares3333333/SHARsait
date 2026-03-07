@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    let lastFocusedElement = null;
     
     // 1. КУРСОР (GPU: translate3d для аппаратного ускорения)
     const cursor = document.querySelector('.custom-cursor');
@@ -55,15 +56,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 4. АНИМАЦИИ ПОЯВЛЕНИЯ
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    document.querySelectorAll('.fade-in-section, .stagger-item').forEach(el => observer.observe(el));
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-section, .stagger-item').forEach(el => observer.observe(el));
+    } else {
+        document.querySelectorAll('.fade-in-section, .stagger-item').forEach((el) => el.classList.add('is-visible'));
+    }
 
     // 5. СЧЕТЧИКИ (Защита от NaN)
     function animateCounter(el, target) {
@@ -81,15 +86,45 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }, 30);
     }
-    const countObs = new IntersectionObserver((entries) => { 
-        entries.forEach(e => { 
-            if(e.isIntersecting) { 
-                animateCounter(e.target, parseInt(e.target.dataset.count)); 
-                countObs.unobserve(e.target); 
-            } 
-        }); 
+    if ('IntersectionObserver' in window) {
+        const countObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    animateCounter(e.target, parseInt(e.target.dataset.count));
+                    countObs.unobserve(e.target);
+                }
+            });
+        });
+        document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+    } else {
+        document.querySelectorAll('[data-count]').forEach((el) => animateCounter(el, parseInt(el.dataset.count)));
+    }
+
+    document.querySelectorAll('.case').forEach((card) => {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.addEventListener('keydown', (event) => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            card.click();
+        });
     });
-    document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+
+    document.querySelectorAll('.close-case').forEach((button) => {
+        button.setAttribute('tabindex', '0');
+        button.setAttribute('role', 'button');
+        button.addEventListener('keydown', (event) => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            button.click();
+        });
+    });
+
+    document.querySelectorAll('.modal').forEach((modal) => {
+        modal.setAttribute('role', 'dialog');
+        modal.setAttribute('aria-modal', 'true');
+        modal.setAttribute('aria-hidden', 'true');
+    });
 
     // 6. РАЗВЕРНУТЬ ПОРТФОЛИО
     const showMoreBtn = document.getElementById('show-more-btn');
@@ -104,6 +139,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 7. УМНЫЕ МОДАЛКИ С ВИДЕО (iframe создается только по клику и удаляется при закрытии)
+    function mountVideo(container) {
+        if (!container) return;
+        const dataSrc = container.dataset.src;
+        container.innerHTML = "";
+        if (!dataSrc) return;
+
+        const iframe = document.createElement('iframe');
+        iframe.src = dataSrc;
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'autoplay; fullscreen');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('title', 'Видео проекта');
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.border = '0';
+        container.appendChild(iframe);
+    }
+
     window.openCase = function(id) {
         const modal = document.getElementById(`case-${id}`);
         if (!modal) return;
@@ -111,23 +164,33 @@ document.addEventListener("DOMContentLoaded", () => {
         const container = modal.querySelector('.m-video-container');
         if (!container) return;
 
-        const dataSrc = container.dataset.src;
-        container.innerHTML = '';
+        mountVideo(container);
 
-        if (dataSrc) {
-            container.innerHTML = `
-                <iframe
-                    src="${dataSrc}"
-                    frameborder="0"
-                    allow="autoplay; fullscreen"
-                    style="width:100%;height:100%;border:0;"
-                ></iframe>
-            `;
-        }
-
+        lastFocusedElement = document.activeElement;
         modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        const closeBtn = modal.querySelector('.close-case');
+        if (closeBtn) closeBtn.focus();
     };
+
+
+    document.querySelectorAll('.modal').forEach((modal) => {
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                const id = modal.id.replace('case-', '');
+                closeCase(id);
+            }
+        });
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') return;
+        const activeModal = document.querySelector('.modal.active');
+        if (!activeModal) return;
+        const id = activeModal.id.replace('case-', '');
+        closeCase(id);
+    });
 
     window.closeCase = function(id) {
         const modal = document.getElementById(`case-${id}`);
@@ -137,7 +200,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 container.innerHTML = '';
             }
             modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
+            if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+                lastFocusedElement.focus();
+            }
         }
     };
 
@@ -147,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const btn = form.querySelector('button[type="submit"]');
+            if (!btn) return;
             btn.textContent = 'ОТПРАВКА...';
             setTimeout(() => {
                 const toast = document.getElementById('toast');
