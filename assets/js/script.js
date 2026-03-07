@@ -360,15 +360,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 9. ПЛАВНЫЙ СКРОЛЛ
+    // 9. ПЛАВНЫЙ СКРОЛЛ (из модалки — скролл к якорю после закрытия, чтобы не уводило не туда)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href !== '#' && href !== '') {
+            if (href === '#' || href === '') return;
+            if (this.closest('.modal')) {
                 e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        const target = document.querySelector(href);
+                        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    });
+                });
+                return;
             }
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
 });
