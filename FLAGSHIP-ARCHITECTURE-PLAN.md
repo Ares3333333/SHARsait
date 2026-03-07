@@ -1,138 +1,182 @@
-# PHASE B — Flagship Architecture Plan
+# Flagship Architecture Plan — SHAR Production
 
-## Philosophy
-
-A **flagship** site for an AI production brand should feel: **authoritative** (one voice), **restrained** (premium = less, not more), and **consistent** (every touchpoint uses the same grammar). The plan below is opinionated: it defines a single system and excludes alternatives that would dilute it.
-
----
-
-## 1. Design tokens (single source of truth)
-
-### 1.1 Color
-
-- **Primary:** Keep `#9c0404` as the only brand accent. Do not add a second accent; use opacity and context (border vs. glow vs. text) for variation.
-- **Surfaces:** Define explicitly:
-  - **Background:** `#030303` (keep).
-  - **Surface raised:** e.g. `rgba(255,255,255,0.03)` fill, `rgba(255,255,255,0.06)` border — for cards (price, journal, client). No “0.01” — either visible or omit.
-  - **Surface overlay:** e.g. `rgba(3,3,3,0.97)` for modals (keep).
-- **Text:**
-  - **Primary:** `#FFFFFF`.
-  - **Secondary:** `rgba(255,255,255,0.6)` (body, captions).
-  - **Tertiary / muted:** `rgba(255,255,255,0.35)` (labels, meta).
-- **Borders:** One variable for “divider” (e.g. `--line`) and one for “card border” (e.g. `--surface-border`). Do not use 10 different opacities; use 2–3.
-
-### 1.2 Typography scale
-
-- **Adopt a scale** (e.g. 1.25 or 1.2). Example (rem): `0.5625, 0.75, 0.875, 1, 1.125, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6`. Map these to roles, do not invent sizes per component.
-- **Roles:**
-  - **Display:** Hero wordmark only. One size (e.g. 4–6rem for “SHAR”), one weight (600), one tracking (e.g. 0.12em). No gradient or animation on the hero wordmark in the canonical lock; optional subtle gradient in nav only.
-  - **H1:** Section titles (e.g. “ОБСУДИТЬ ПРОЕКТ”). One step down from display, same weight (500–600).
-  - **H2:** Block titles (e.g. manifesto headline, modal title). Defined scale step.
-  - **H3:** Card titles (case name, price pack name). Smaller, still heading font.
-  - **Body:** Long copy. One size (e.g. 1rem–1.0625rem), line-height 1.65–1.75, weight 300–400.
-  - **Caption / meta:** Smaller (e.g. 0.875rem), muted color.
-  - **Label:** 9px or 0.5625rem, uppercase, letter-spacing 0.2–0.28em, weight 600. **Hierarchy within labels:** section label (e.g. “ИЗБРАННЫЕ КЕЙСЫ”) vs. card tag (e.g. “Гастрономия”) — same style, optional slight size or color difference so section > card.
-- **Fonts:** Keep Plus Jakarta Sans (headings, labels, buttons) and Inter (body). Do not add a third font. Optional: use a single “display” weight (e.g. 600) for wordmark only everywhere.
-
-### 1.3 Spacing and layout
-
-- **Spacing scale:** Keep or refine the 8px base (--space-xs through --space-4xl). Use it everywhere; no magic numbers in components.
-- **Content width:** Define one **content max-width** (e.g. 1200px or 1280px) for: manifesto, work grid, pricing, order, modal content. Apply consistently. Hero can be full-bleed; sections below use max-width + horizontal margin auto.
-- **Section rhythm:** Differentiate:
-  - **Hero:** 100vh, content at bottom with generous padding.
-  - **Manifesto:** Tighter top/bottom (e.g. space-2xl) so it feels like a “statement block”, not a full section.
-  - **Work / pricing / order:** Standard section padding (e.g. space-3xl) so they breathe.
-  - **Footer:** Compact (e.g. space-xl), same content width.
-- **Grids:** Define rules. E.g. work grid: 2 cols desktop, 1 mobile; gap from scale. Pricing: 3 cols; clients: 4 or 2. One “featured” slot (e.g. first case) can be full-width or 2-col span if the content model allows — so the grid has a clear focal point.
-
-### 1.4 Motion
-
-- **Principle:** Default = rest. Motion = response to user (hover, focus, scroll) or one-time (page load, modal open).
-- **Remove or gate:**
-  - Logo: Shimmer optional on hover only, or remove. No infinite animation.
-  - Buttons: No infinite breath. Use hover/focus only (soft glow, border, background transition).
-- **Keep but refine:**
-  - Scroll-triggered fade-in: OK. Define one stagger delay (e.g. 60–80ms) and one transform (e.g. translateY 16px → 0) for all “reveal” elements.
-  - Modal open: One short animation (e.g. 0.4s opacity + slight Y). No decoration inside.
-- **Card hover:** Prefer subtle (border color, slight lift, maybe shadow). Remove or drastically reduce “lens ray” — it is a template trope. If a highlight is needed, use a very subtle gradient overlay, not a moving beam.
-- **Duration:** One “fast” (e.g. 0.25s) for micro (hover), one “normal” (0.4–0.5s) for transitions, one “slow” (0.6–0.8s) for modal. All with same easing (e.g. cubic-bezier(0.16, 1, 0.3, 1)).
-
-### 1.5 Buttons (one grammar)
-
-- **Primary:** One treatment for “main action” (e.g. Contact, Submit, “Обсудить проект”). Rules: no black in box-shadow; border from token (e.g. brand 0.3 opacity); background: very subtle gradient or transparent; hover: slight border + glow; optional very subtle pulse only on CTA in hero or modal, not everywhere.
-- **Secondary:** Outline only or very light fill (e.g. “СМОТРЕТЬ КЕЙС”, “Развернуть портфель”). Same border/glow language, less emphasis.
-- **Nav:** Same grammar. “СВЯЗАТЬСЯ” = secondary; “ТЕЛЕФОН” = primary (filled). **Remove heavy black shadows from nav buttons** so they match body buttons (glow + inset, or transparent + border).
-- **Close / ghost:** Modal close, language switcher — minimal (border or text only). No need for same glow as primary.
-- **Apply everywhere:** Nav, body, modals, footer CTAs. One set of variables (border, glow, inset, hover state).
+**No code. Structure and flow only.**  
+Preserves existing content and business meaning. Same design direction. No new brand, no text rewrites, journal and all cases kept. No SaaS, no noisy/trendy.
 
 ---
 
-## 2. Component hierarchy
+## 1. New Sitemap
 
-### 2.1 Global
+```
+/ (index.html)                    — Homepage: short cinematic storefront
+/cases/ (cases/index.html)        — Cases index: all projects, one grid
+/cases/case-1.html … case-8.html  — Individual case pages (one template, same structure)
+/journal/ (journal/index.html)    — Journal index: list of articles (optional; or keep journal as section + links)
+/news-1.html, news-2.html, news-3.html — Journal articles (unchanged; linked from journal index or homepage teaser)
+/contact/ (contact.html)          — Dedicated contact page: form, phone, Telegram, email, address, fast paths
+/privacy.html                     — Privacy policy (unchanged)
+/404.html                         — Error page (unchanged)
+```
 
-- **Header:** One component. Logo (wordmark lock), nav links, lang switcher, two buttons (Contact, Phone). Transparent by default; “scrolled” state with backdrop and border. **Buttons in header use the same token set as body primary/secondary** — no separate “nav button” style with black shadows.
-- **Footer:** One component. Same content width, same type (caption), same border token. No inline styles; use design tokens.
+**Localization:** Same URLs. Locale via `data-i18n` + `locales.js` + lang switcher. No `/en/` subpaths in this phase; one DOM, switched strings. Future: optional `/en/` mirror if needed.
 
-### 2.2 Hero
-
-- **Role:** Establish brand and one line of value. No stats, no extra CTAs in hero block.
-- **Content:** Wordmark (SHAR + PRODUCTION) as the single typographic lock; one subtitle line; optional one CTA (e.g. “Связаться” or scroll). Video background and overlay stay; ensure overlay does not compete with wordmark (contrast, position).
-- **Wordmark lock:** Same tracking and weight as nav logo; size scales for viewport. If nav uses gradient/shimmer, hero can be solid or very subtle gradient — but the **shape** (letter-spacing, weight) must match.
-
-### 2.3 Sections (manifesto, social proof, work, team, pricing, journal, order)
-
-- **Section structure:** Optional section label (e.g. “О СТУДИИ”, “ИЗБРАННЫЕ КЕЙСЫ”) + content. Label uses label token; content uses grid or stack from layout rules.
-- **Manifesto:** One block. Title + headline + sub. No extra widgets.
-- **Social proof:** Stats + clients. If stats stay, style as “editorial fact” (e.g. larger type, less widget-like). Clients: same surface token as other cards; optional “featured” slot.
-- **Work:** Grid with one optional featured case (first item larger or full-width). “Expand” keeps current behavior; expanded items use same card style.
-- **Team / journal:** Horizontal scroll OK. Cards use surface token; no mixed styles.
-- **Pricing:** Three cards, same surface token. “Premium” pack can have border/glow accent, not a different component.
-- **Order:** Two-column layout; form and contact info. Same button and input tokens.
-
-### 2.4 Modals (cases)
-
-- **Structure:** Global close (one style, ghost); case header (tag + title); video; body (sidebar + text); optional metrics; gallery; CTA. **Apply to all 8 cases** — same structure. Cases 5–8 currently minimal; add at least tag + title + body block (can be short) so depth is consistent.
-- **Inner components:** Same tokens (labels, body text, buttons). Close button = ghost; CTA = primary. No extra decorative motion.
-
-### 2.5 Secondary pages (404, privacy)
-
-- **Same system:** Same content width, same type scale and tokens, same header/footer. Page shell uses section padding and title/caption from scale. No one-off font sizes or spacing.
+**Notes:**
+- `contact.html` in root (or `/contact/index.html` if you prefer a folder). Nav “Связаться” and all “Обсудить проект” CTAs point here (or open contact modal that mirrors this content).
+- Journal: either a small `journal/index.html` that lists news-1, news-2, news-3, or homepage keeps one “Журнал” teaser line that links to the first article or to a journal index. No removal of journal; only structural clarity.
 
 ---
 
-## 3. Content and hierarchy (recommendations)
+## 2. Homepage Block Structure
 
-- **Hero:** Wordmark + one line. No numbers, no secondary CTA block.
-- **Manifesto:** Keep as “about” in one block. Headline + short sub.
-- **Stats:** Either keep and restyle as editorial (larger, calmer) or move lower / reduce. Avoid “dashboard” look.
-- **Work:** One hero case (e.g. first) if content allows; rest in grid. Same card component.
-- **Modals:** Full structure for all 8 (tag, title, video, body, metrics if relevant, gallery if relevant, CTA). Minimal cases (5–8) feel like unfinished product.
-- **Footer:** One line, token-based. Optional: small nav or legal link; keep minimal.
+**Goal:** Shorter, controlled, premium, cinematic, conversion-focused. No “patched one-pager” feel.
 
----
+**Order and content:**
 
-## 4. Implementation order (suggested)
+| Order | Block | Content | Purpose |
+|-------|--------|---------|--------|
+| 1 | **Hero** | Full-viewport video background. Wordmark (SHAR + PRODUCTION). One subtitle line. **No CTA button.** | Single statement; hero is not a conversion strip. Nav already has “Связаться” and “Телефон”. |
+| 2 | **Trust** | One compact section: “Доверие в цифрах” + 3 metrics (50, 15, 99). Optional: “Клиенты” row (PINSKIY, CLICK, M-TECHNO, YUGA). | Credibility without dashboard feel. Fix: metrics must not show “0” on first paint (static final values or animate before visible). |
+| 3 | **Featured cases** | Section label (e.g. “Избранные кейсы”). **3 cards** (not 4) to reduce length. Each card: image, title, tag, “Смотреть кейс” → case page. One link: “Все кейсы” → `/cases/`. | Proof of work; clear path to full portfolio. |
+| 4 | **Manifesto** | “О студии” + headline + short paragraph (existing copy). Tighter padding; one clear block. | Positioning in one breath. |
+| 5 | **Team** | Section label + horizontal scroll of team members (existing). Compact. | Credibility. |
+| 6 | **Pricing teaser** | Section label + **one line or one card** (e.g. “От 150 000 ₽ — интеграция ИИ. От 350 000 ₽ — полное производство. Индивидуально — корпоративный уровень.”) + one CTA “Обсудить проект” → contact. Optional: keep 3 price cards but in a more compact layout. | Teaser only; detail on request or on contact page. |
+| 7 | **Journal teaser** | One line: “Журнал” + 1–3 article links (titles only or small cards) → news-1, news-2, news-3. Or link “Журнал” to `journal/index.html` if that page exists. | Journal present, not a long block. |
+| 8 | **Primary CTA** | One block: “Обсудить проект” / “Связаться с нами” + single primary button → `/contact/` (or open contact modal). Optional: repeat phone and Telegram here. | One clear conversion target; no “scroll to footer.” |
+| 9 | **Footer** | Copyright, minimal. Same as now. | |
 
-1. **Tokens:** Document and implement color (surfaces, borders), type scale and roles, spacing, motion durations. No new visuals yet — just variables and one place that defines them.
-2. **Buttons:** Unify. Remove black from nav buttons; make nav use same primary/secondary grammar as body. Remove infinite breath; keep hover/focus only.
-3. **Typography:** Apply scale to all headings, body, labels. Differentiate label levels if needed (section vs. card).
-4. **Wordmark:** Lock logo and hero to same tracking/weight; hero gets space and silence (no competing motion).
-5. **Surfaces:** Apply surface tokens to cards (price, journal, client). Clear border/fill; remove 0.01.
-6. **Motion:** Remove or gate shimmer and breath; define one reveal stagger; simplify card hover (no or minimal lens ray).
-7. **Layout:** Apply content max-width and section rhythm consistently; optional hero case in work grid.
-8. **Modals:** Align cases 5–8 to same structure as 1–4 (at least tag, title, short body, CTA).
-9. **Footer and secondary pages:** Move to tokens and same component logic.
+**Removed or reduced from current homepage:**
+- **Hero CTA button** — Remove. It duplicates nav and weakens the hero as one statement.
+- **Long order section** — Replaced by dedicated contact page. Homepage keeps one CTA block that points to `/contact/` (or opens contact modal). Form lives on contact page (or in modal), not in footer of homepage.
+- **Four featured cases** — Prefer 3 to shorten; or keep 4 if layout stays tight.
+- **Full pricing grid** — Either compact teaser (one line + one CTA) or keep 3 cards in a tighter block; avoid long scroll.
+- **Full contact form in footer** — Move to contact page (and/or contact modal). Homepage does not “dump” users into a long footer form.
 
----
-
-## 5. Out of scope (by choice)
-
-- **No second accent color.** One red is enough; variation via opacity and context.
-- **No new fonts.** Plus Jakarta + Inter; wordmark can be same family, different weight/size.
-- **No new sections or IA change.** Plan assumes current sections and order; only consistency and depth (modals) are in scope.
-- **No heavy new effects.** No parallax, no 3D, no new cursor behavior. Rest and clarity over decoration.
+**Result:** Homepage is 7–8 clear blocks, one hero statement, one primary CTA to contact. No unnecessary hero CTA; intentional CTA logic only.
 
 ---
 
-*Document: PHASE B — Flagship Architecture Plan. Opinionated, specific. No code changes. Implementation to follow in later phases.*
+## 3. Cases Index Structure
+
+**URL:** `/cases/` (cases/index.html).
+
+**Identity:** Own title: “Кейсы” or “Проекты” (not “Избранные кейсы” — that label stays on homepage). Optional one-line intro (e.g. “Избранные работы студии”) from existing tone.
+
+**Content:**
+- Same global header and footer as rest of site.
+- One section: grid of **all 8 cases**. Same card component as homepage featured cases (image, title, tag, “Смотреть кейс”). Each card links to the corresponding case page (case-1 … case-8).
+- No “featured” vs “rest”; one grid, one level.
+- Optional: small CTA strip at bottom “Обсудить свой проект” → `/contact/`.
+
+**Navigation:** “Кейсы” in main nav points here. From homepage, “Все кейсы” points here. Journal and other secondary pages use the same nav: “Кейсы” → `/cases/`.
+
+---
+
+## 4. Standard Case Page Template
+
+**Principle:** Every case is a **full** page. One **consistent** structure for all 8. No “half” cases (no thin 5–8 vs full 1–4).
+
+**Single template structure (all cases):**
+
+| Block | Content | Notes |
+|-------|--------|--------|
+| **Back** | “← Все кейсы” → `/cases/`. Ghost style. | Orientation. |
+| **Hero** | Tag (e.g. “ИИ, производство. Гастрономия”) + title (e.g. “Видеопроизводство с ИИ для Pinskiy & Co”). | Same for all. |
+| **Video** | One iframe (or lazy-loaded player). Same aspect and chrome. | Required for all. |
+| **Sidebar + body** | Sidebar: 2–3 stats (Client/Project, Service, Deadline/Duration/Goal — as applicable). Body: **three blocks** where content exists (e.g. “Бизнес-задача”, “Решение”, “Результат” or “О проекте”); for lighter cases, one “О проекте” + one paragraph is the minimum; structure stays (heading + text). | Normalize so every case has the same sections; for cases 5–8, use “О проекте” and fill from existing modal/locale copy. |
+| **Metrics** | Block “project-metrics”: 3 metric items (value + label). For cases that have no metrics, use “—” or one line (“По запросу” / “Индивидуально”) so the block exists but is minimal. | One consistent block; no “sometimes present, sometimes missing.” |
+| **Gallery** | Block “m-gallery”: 0–N images. Cases 1–2 keep current gallery; 3–4 can have 0 or 1 image; 5–8 can have 0 or 1 key visual. Same markup, optional images. | One block; empty or 1 image is valid. |
+| **CTA** | One heading (e.g. “Обсудить проект” / “Нужен похожий проект?”) + one primary button “ОБСУДИТЬ ПРОЕКТ” → `/contact/` (or open contact modal). Optional: “from=case-N” or context so contact page/modal can reference the case. | No link to homepage #order; link to contact page or modal. |
+
+**Normalization:**
+- Cases 1–4: Keep current content; ensure they use the same template (sidebar + body + metrics + gallery + CTA). Add `cta-primary` and correct CTA target (contact page or modal).
+- Cases 5–8: Bring into same template. Add sidebar (2 stats), one “О проекте” body block (existing copy), metrics block (minimal or “—”), gallery (0 or 1 image), same CTA block. No “thin” variant; only optional empty/minimal blocks.
+
+**Missing cases:** All 8 exist. No new case IDs. Only structure and content depth are normalized.
+
+---
+
+## 5. Contact Flow Architecture
+
+**Requirement:** “Связаться с нами” must not only dump users into the footer. Premium contact flow: dedicated page and/or modal/drawer, with form, phone, Telegram, email, fast inquiry.
+
+**Option A — Dedicated contact page (recommended baseline)**  
+- **URL:** `/contact/` (contact.html in root).  
+- **Content:** Same header/footer as site. One page: heading “Обсудить проект” / “Связаться с нами”. Then:  
+  - **Direct paths:** Phone (tel:), Telegram (link), Email (mailto:), Address (text).  
+  - **Form:** Email + message (and optional name). Form submits to backend or (short term) mailto/Telegram link with prefill; no fake toast-only submit.  
+  - **Fast inquiry:** One line + button “Краткий запрос” or “Написать в Telegram” → Telegram link.  
+- **Nav:** “Связаться” → `/contact/`. “Телефон” → tel:.  
+- **Case and price CTAs:** “Обсудить проект” → `/contact/` (optional `?from=case-3` or similar for context).
+
+**Option B — Contact modal/drawer (optional layer)**  
+- **Trigger:** “Связаться” in nav and/or “Обсудить проект” on cases and price cards open a modal or drawer instead of navigating.  
+- **Content inside:** Same as contact page: phone, Telegram, email, address, form, fast inquiry. Visually premium (overlay, focus trap, close).  
+- **Advantage:** User stays on current page; good for “quick discuss” from a case.  
+- **Implementation:** One shared fragment (HTML) or component; contact page and modal both use it. Form submission and backend logic live once.
+
+**Recommended:**  
+- **Primary:** Dedicated `/contact/` page. All “Связаться” and “Обсудить проект” links go here (or open modal that mirrors this content).  
+- **Optional:** Modal/drawer that opens from nav and from case/price CTAs, with same form and links; “Close” returns to current page.  
+- **No more:** Homepage footer with long form as the only contact. Homepage has one CTA block that links to `/contact/` (or opens the modal).
+
+**Form behavior:** Plan for real submission (backend, form service, or mailto/Telegram as fallback). No “toast only” as the only behavior.
+
+---
+
+## 6. CTA Logic Map
+
+| Context | Element | Action | Destination |
+|--------|--------|--------|-------------|
+| **Nav (all pages)** | “Связаться” | Primary or secondary CTA | `/contact/` or open contact modal |
+| **Nav (all pages)** | “Телефон” | Primary CTA | `tel:+79319815484` |
+| **Homepage** | Hero | — | No CTA button |
+| **Homepage** | Featured case card | Secondary | Case page (e.g. `/cases/case-1.html`) |
+| **Homepage** | “Все кейсы” | Secondary | `/cases/` |
+| **Homepage** | Pricing CTA | Primary | `/contact/` or contact modal |
+| **Homepage** | Primary CTA block | Primary | `/contact/` or contact modal |
+| **Cases index** | Case card | Secondary | Corresponding case page |
+| **Cases index** | Optional strip CTA | Primary | `/contact/` or contact modal |
+| **Case page** | “← Все кейсы” | Ghost | `/cases/` |
+| **Case page** | “ОБСУДИТЬ ПРОЕКТ” | Primary | `/contact/` or contact modal (optional ?from=case-N) |
+| **Journal** | Article link | — | news-1 / news-2 / news-3 |
+| **Contact page** | Phone / Telegram / Email | — | tel:, Telegram, mailto: |
+| **Contact page** | Form submit | — | Backend or fallback (no toast-only) |
+
+**Rules:**
+- One primary conversion path: contact (page or modal). No “scroll to footer” as the main path.
+- Hero: no CTA; wordmark + subtitle only.
+- Case and price CTAs: always to contact (page or modal), never to `index.html#order`.
+
+---
+
+## 7. Migration Plan from Current Structure
+
+**Phase 1 — Homepage**
+- Remove hero CTA block (the button under the subtitle).
+- Shorten homepage: reduce featured cases to 3 (or keep 4 in a tighter layout); compress pricing to teaser + one CTA or keep 3 cards compact; replace long order section with one CTA block linking to contact.
+- Move or copy contact form and contact details to contact page (and optionally to modal). Remove or minimize contact form from homepage footer.
+- Fix trust block so metrics never show “0” on first paint.
+
+**Phase 2 — Contact**
+- Add `contact.html` (or `/contact/index.html`) with: heading, phone, Telegram, email, address, form, fast-inquiry link.
+- Point all “Связаться” and “Обсудить проект” links to `/contact/` (or to a contact modal).
+- (Optional) Implement contact modal/drawer; reuse same content as contact page. Wire nav and case/price CTAs to open it where desired.
+
+**Phase 3 — Cases**
+- Define one case page template (back, hero, video, sidebar+body, metrics, gallery, CTA). All blocks always present; gallery and metrics can be minimal or empty.
+- Normalize case-1 … case-4: ensure CTA target is contact (not index#order); ensure CTA has primary class; align to template.
+- Normalize case-5 … case-8: add missing blocks (sidebar with 2 stats, one body block “О проекте”, metrics block minimal, gallery 0 or 1 image, CTA → contact). Use existing locale/copy; no new copy.
+- Ensure every case page uses the same layout and component classes.
+
+**Phase 4 — Cases index**
+- Give cases index its own title (“Кейсы” or “Проекты”) and optional intro line. Ensure all 8 cards link to the correct case pages. Optional bottom CTA to contact.
+- Update nav everywhere so “Кейсы” → `/cases/`.
+
+**Phase 5 — Journal and secondary pages**
+- Add `journal/index.html` if desired (list of news-1, news-2, news-3). Or keep journal as homepage teaser + direct links to articles.
+- Align news and 404 nav with main site: same links (Кейсы → `/cases/`, Связаться → `/contact/` or modal), same button styles and CTA classes, same fonts/preloads.
+
+**Phase 6 — Cleanup**
+- Remove dead code (e.g. unused keyframes). Ensure one design system across all pages.
+
+**Content:** No removal of cases or journal. No text rewrites in this plan. Only structure, links, and one shared case template. Copy and media stay; they are moved or duplicated into the new contact and case structure as needed.

@@ -148,46 +148,13 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll('.fade-in-section, .stagger-item').forEach((el) => el.classList.add('is-visible'));
     }
 
-    // 5. СЧЕТЧИКИ (защита от NaN/нуля, fallback)
-    function animateCounter(el, targetOrNaN) {
+    // 5. СЧЕТЧИКИ — статические значения (без анимации от 0, чтобы не показывать нули)
+    document.querySelectorAll('[data-count]').forEach((el) => {
         const raw = el.dataset.count;
-        const num = typeof targetOrNaN === 'number' && !isNaN(targetOrNaN) ? targetOrNaN : parseInt(raw, 10);
-        if (isNaN(num) || num < 0) {
-            el.textContent = raw === '99' ? '0%' : '0+';
-            return;
-        }
-        if (num === 0) {
-            el.textContent = raw === '99' ? '0%' : '0+';
-            return;
-        }
-        const target = num;
-        let start = 0;
-        const inc = target / 30;
-        const suffix = target === 99 ? '%' : '+';
-        const timer = setInterval(() => {
-            start += inc;
-            if (start >= target) {
-                start = target;
-                clearInterval(timer);
-            }
-            if (el.parentElement && el.parentElement.classList.contains('stat-item')) {
-                el.textContent = Math.floor(start) + suffix;
-            }
-        }, 30);
-    }
-    if ('IntersectionObserver' in window) {
-        const countObs = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    animateCounter(e.target, parseInt(e.target.dataset.count, 10));
-                    countObs.unobserve(e.target);
-                }
-            });
-        });
-        document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
-    } else {
-        document.querySelectorAll('[data-count]').forEach((el) => animateCounter(el, parseInt(el.dataset.count, 10)));
-    }
+        const num = parseInt(raw, 10);
+        if (isNaN(num) || num < 0) return;
+        el.textContent = num === 99 ? '99%' : String(num);
+    });
 
     document.querySelectorAll('.case').forEach((card) => {
         card.setAttribute('tabindex', '0');

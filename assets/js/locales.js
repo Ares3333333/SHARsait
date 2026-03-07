@@ -97,6 +97,10 @@ window.SHAR_LOCALES = {
       legal: 'Нажимая кнопку, вы соглашаетесь с ',
       legalLink: 'Политикой конфиденциальности'
     },
+    cta: {
+      toContact: 'Обсудить проект, получить расчёт или связаться с командой — на отдельной странице контактов.',
+      discuss: 'Обсудить проект'
+    },
     footer: {
       copyright: '© 2026 SHAR PRODUCTION'
     },
@@ -277,6 +281,10 @@ window.SHAR_LOCALES = {
       submit: 'SEND REQUEST',
       legal: 'By submitting you agree to our ',
       legalLink: 'Privacy policy'
+    },
+    cta: {
+      toContact: 'Discuss your project, get a quote or reach the team — on the contact page.',
+      discuss: 'Discuss project'
     },
     footer: {
       copyright: '© 2026 SHAR PRODUCTION'
