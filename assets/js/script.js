@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     let lastFocusedElement = null;
 
-<<<<<<< HEAD
     // 0. ЛОКАЛИЗАЦИЯ (default: ru, EN — отдельный набор строк)
     const LOCALE_STORAGE_KEY = 'shar_locale';
     const DEFAULT_LOCALE = 'ru';
@@ -67,22 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-=======
-    const heroVideoBg = document.querySelector('.video-bg');
-    const heroIframe = document.getElementById('hero-showreel');
-    if (heroVideoBg && heroIframe) {
-        let heroReady = false;
-        const markHeroReady = () => {
-            if (heroReady) return;
-            heroReady = true;
-            heroVideoBg.classList.add('ready');
-        };
-
-        heroIframe.addEventListener('load', markHeroReady, { once: true });
-        setTimeout(markHeroReady, 3500);
-    }
-    
->>>>>>> e7430068aba0b3a3d4818973fe3eba59337b8685
     // 1. КУРСОР (GPU: translate3d для аппаратного ускорения)
     const cursor = document.querySelector('.custom-cursor');
     if (window.innerWidth > 900 && cursor) {
