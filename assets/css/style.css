@@ -233,6 +233,7 @@ section#order { scroll-margin-top: 100px; }
 .case {
     position: relative; aspect-ratio: 16/9; background: #050505;
     overflow: hidden; border-radius: 3px; cursor: pointer;
+    display: block;
     transition: transform var(--dur-slow) var(--ease-luxe), box-shadow var(--dur-slow) var(--ease-luxe), border-color var(--dur) var(--ease-luxe); transform: translateZ(0);
     border: 1px solid var(--surface-border);
 }
@@ -400,6 +401,12 @@ section#order { scroll-margin-top: 100px; }
 /* ТОСТ */
 .toast { position: fixed; bottom: var(--space-lg); right: var(--space-lg); padding: var(--space-md) var(--space-md); background: rgba(3,3,3,0.95); backdrop-filter: blur(12px); border: 1px solid rgba(156, 4, 4, 0.35); border-radius: 2px; font-size: 11px; z-index: 500000; opacity: 0; transform: translate3d(0, 12px, 0); transition: opacity 0.5s var(--ease-luxe), transform 0.5s var(--ease-luxe); box-shadow: 0 0 24px var(--aura-base); color: #fff; text-transform: uppercase; letter-spacing: var(--ls-tag); font-weight: 600; }
 .toast.show { opacity: 1; transform: translate3d(0, 0, 0); }
+
+/* === CASE PAGES (standalone) === */
+.case-page-wrap { padding: calc(var(--nav-height) + var(--space-3xl)) 4% var(--space-2xl); min-height: 100vh; }
+.case-back { font-family: var(--font-heading); font-size: 10px; letter-spacing: var(--ls-tag); font-weight: 600; text-transform: uppercase; color: var(--text-secondary) !important; display: inline-block; margin-bottom: var(--space-xl); transition: color var(--dur) var(--ease-luxe); }
+.case-back:hover { color: #fff !important; }
+.case-page-wrap .m-hero { position: relative; top: auto; }
 
 /* === 404 И PRIVACY === */
 .page-shell { min-height: 100vh; padding: 140px 4% 80px; max-width: 900px; margin: 0 auto; position: relative; z-index: 10; }

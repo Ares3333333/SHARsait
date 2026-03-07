@@ -33,6 +33,8 @@ window.SHAR_LOCALES = {
     },
     work: {
       label: 'ИЗБРАННЫЕ КЕЙСЫ',
+      allCases: '← Все кейсы',
+      viewAllCases: 'Все кейсы →',
       watchCase: 'СМОТРЕТЬ КЕЙС',
       showMore: 'РАЗВЕРНУТЬ ПОРТФОЛИО ↓',
       case1Tag: 'ИИ, производство. Гастрономия',
@@ -212,6 +214,8 @@ window.SHAR_LOCALES = {
     },
     work: {
       label: 'SELECTED CASES',
+      allCases: '← All cases',
+      viewAllCases: 'All cases →',
       watchCase: 'WATCH CASE',
       showMore: 'EXPAND PORTFOLIO ↓',
       case1Tag: 'AI, production. Food',
