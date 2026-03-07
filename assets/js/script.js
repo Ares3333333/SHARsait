@@ -115,6 +115,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { passive: true });
     }
 
+    // 2.1 HERO SHOWREEL READY STATE (faster perceived load)
+    const heroShowreel = document.getElementById('hero-showreel');
+    if (heroShowreel) {
+        const heroVideoWrap = heroShowreel.closest('.video-bg');
+        const markReady = () => {
+            if (heroVideoWrap) heroVideoWrap.classList.add('video-ready');
+        };
+        heroShowreel.addEventListener('load', markReady, { once: true });
+        // Fallback: hide loader even if Vimeo event is delayed.
+        setTimeout(() => {
+            if (heroVideoWrap && !heroVideoWrap.classList.contains('video-ready')) {
+                heroVideoWrap.classList.add('video-timeout');
+            }
+        }, 4500);
+    }
+
     // 3. МОБИЛЬНОЕ МЕНЮ
     const hamburger = document.getElementById('hamburger');
     const navRight = document.getElementById('nav-links');
