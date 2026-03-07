@@ -26,11 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. NAV GLASS ON SCROLL
+    // 2. NAV GLASS ON SCROLL (scrolled при scrollY > 50)
     const nav = document.querySelector('nav');
     if (nav) {
         const updateNavState = () => {
-            if (window.scrollY > 20) nav.classList.add('scrolled');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         };
         updateNavState();

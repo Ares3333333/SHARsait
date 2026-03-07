@@ -52,20 +52,23 @@ h1, h2, h3 { letter-spacing: 0.25em; }
     100%     { transform: translate3d(220%, -220%, 0) rotate(28deg); opacity: 0; }
 }
 
-/* ========== НАВИГАЦИЯ — кинематографическое стекло ========== */
+/* ========== НАВИГАЦИЯ — эталонная прозрачность ========== */
 nav {
     position: fixed; top: 0; left: 0; width: 100%; padding: 28px 4%;
     display: flex; justify-content: space-between; align-items: center;
     z-index: 1000000;
     background: transparent;
-    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: none;
     transform: translateZ(0); will-change: transform;
-    transition: background 0.45s var(--ease-luxe), backdrop-filter 0.45s var(--ease-luxe), -webkit-backdrop-filter 0.45s var(--ease-luxe);
+    transition: background 0.4s, backdrop-filter 0.4s;
 }
 nav.scrolled {
-    background: transparent;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: rgba(3, 3, 3, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 .nav-actions { display: flex; align-items: center; gap: 16px; }
 .logo { font-size: 14px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; background: linear-gradient(90deg, #fff 0%, #fff 20%, var(--brand-red) 42%, var(--brand-red) 58%, #fff 80%, #fff 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 8s linear infinite; position: relative; z-index: 1000001; cursor: pointer; }
@@ -91,7 +94,7 @@ nav.scrolled {
     transition: 0.4s var(--ease-luxe); cursor: pointer; position: relative; overflow: hidden;
 }
 .btn-nav-premium::after { content: ''; position: absolute; top: 0; left: 0; width: 55%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); pointer-events: none; animation: lens-ray 10s var(--ease-luxe) infinite; animation-delay: 1s; }
-.btn-nav-premium:hover { background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%); border-color: rgba(255, 255, 255, 0.18); box-shadow: 0 2px 8px rgba(0,0,0,0.45), 0 6px 20px rgba(156, 4, 4, 0.12), 0 0 30px rgba(156, 4, 4, 0.1), inset 0 0 18px rgba(156, 4, 4, 0.15), inset 0 1px 1px rgba(255,255,255,0.12); }
+.btn-nav-premium:hover { border-color: rgba(156, 4, 4, 0.8); box-shadow: 0 0 10px rgba(156,4,4,0.5), 0 0 20px rgba(156,4,4,0.3), 0 0 40px rgba(156,4,4,0.1), inset 0 0 15px rgba(156,4,4,0.2); }
 
 /* SGAER: ТЕЛЕФОН — мягкое бордовое заполнение */
 .phone-link {
@@ -137,8 +140,9 @@ nav.scrolled {
 
 .overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(3,3,3,0.97) 0%, rgba(3,3,3,0.4) 40%, transparent 65%), linear-gradient(90deg, rgba(3,3,3,0.75) 0%, transparent 65%); z-index: 3; }
 .hero-content { position: relative; z-index: 10; max-width: 900px; }
-.hero-content h1 { font-size: clamp(2rem, 4.5vw, 4rem); font-weight: 600; letter-spacing: 0.25em; line-height: 0.92; margin-bottom: 22px; color: #fff; }
-.hero-content h1 span { color: var(--brand-red); text-shadow: 0 0 30px var(--aura-base), 0 0 60px rgba(156, 4, 4, 0.15); }
+.hero-content h1 { margin-bottom: 22px; color: #fff; line-height: 1.1; }
+.hero-content h1 > span:first-child { display: block; font-size: clamp(3rem, 7vw, 6rem); font-weight: 600; letter-spacing: 0.2em; color: var(--brand-red); text-shadow: 0 0 30px var(--aura-base), 0 0 60px rgba(156, 4, 4, 0.15); }
+.hero-content h1 .hero-production { display: block; font-size: clamp(1.5rem, 3.5vw, 3rem); font-weight: 300; letter-spacing: 0.2em; opacity: 0.8; }
 .hero-content p { font-size: clamp(0.95rem, 1.8vw, 1.1rem); color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 480px; font-weight: 300; letter-spacing: 0.03em; }
 
 /* ========== СЕКЦИИ ========== */
@@ -198,25 +202,19 @@ nav.scrolled {
 .case-info h3 { font-size: clamp(1.5rem, 2vw, 2rem); font-weight: 600; color: #fff; margin-bottom: 6px; letter-spacing: 0.25em; }
 .case-info p { font-size: 10px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 4px; }
 
-/* СМОТРЕТЬ КЕЙС — SGAER, глубина стекла */
+/* СМОТРЕТЬ КЕЙС — SGAER */
 .watch-case-btn {
     display: inline-block; margin-top: 18px; padding: 13px 28px;
-    border: 1px solid rgba(156, 4, 4, 0.45);
+    border: 1px solid rgba(156, 4, 4, 0.4);
     border-radius: 2px;
     font-size: 9px; text-transform: uppercase; letter-spacing: 0.25em;
     color: #fff !important; width: max-content;
-    background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 50%, rgba(156, 4, 4, 0.08) 100%);
-    box-shadow:
-        0 1px 4px rgba(0,0,0,0.5),
-        0 4px 16px rgba(0,0,0,0.35),
-        0 0 24px rgba(156, 4, 4, 0.12),
-        0 0 48px rgba(156, 4, 4, 0.05),
-        inset 0 1px 1px rgba(255,255,255,0.1),
-        inset 0 0 16px rgba(156, 4, 4, 0.18);
+    background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
     position: relative; overflow: hidden; transition: 0.4s var(--ease-luxe); will-change: transform; transform: translateZ(0);
 }
 .watch-case-btn::after { content: ''; position: absolute; top: 0; left: 0; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); animation: lens-ray 10s var(--ease-luxe) infinite; pointer-events: none; }
-.watch-case-btn:hover { border-color: rgba(156, 4, 4, 0.7); box-shadow: 0 0 10px rgba(156,4,4,0.4), 0 0 20px rgba(156,4,4,0.3), 0 0 40px rgba(156,4,4,0.2), inset 0 0 15px rgba(156,4,4,0.2); }
+.watch-case-btn:hover { border-color: rgba(156, 4, 4, 0.8); box-shadow: 0 0 10px rgba(156,4,4,0.5), 0 0 20px rgba(156,4,4,0.3), 0 0 40px rgba(156,4,4,0.1), inset 0 0 15px rgba(156,4,4,0.2); }
 
 .hidden-case { display: none; opacity: 0; transform: translate3d(0, 20px, 0); transition: 0.6s var(--ease-luxe); }
 .hidden-case.show { display: block; opacity: 1; transform: translate3d(0, 0, 0); }
@@ -249,30 +247,24 @@ nav.scrolled {
 .price-card li { font-size: 12.5px; color: rgba(255,255,255,0.55); margin-bottom: 18px; line-height: 1.65; border-bottom: 1px solid rgba(255,255,255,0.03); padding-bottom: 12px; }
 .premium-pack { border-color: rgba(156, 4, 4, 0.3); box-shadow: 0 0 50px rgba(156, 4, 4, 0.12), inset 0 0 40px rgba(156, 4, 4, 0.03); transform: scale(1.02) translateZ(0); }
 
-/* Основные кнопки — без плоских заливок, 5 слоёв тени, фаска */
+/* Основные кнопки — микро-текстура, luxury hover */
 .btn-minimal {
     display: inline-block; padding: 16px 0; width: 100%; text-align: center;
-    border: 1px solid rgba(156, 4, 4, 0.45);
+    border: 1px solid rgba(156, 4, 4, 0.4);
     border-radius: 2px;
     font-size: 10px; text-transform: uppercase; letter-spacing: 0.25em; font-weight: 600;
     color: #fff !important; cursor: pointer;
     animation: premium-pulse 5s infinite var(--ease-luxe);
     transition: 0.45s var(--ease-luxe);
-    background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 40%, rgba(156, 4, 4, 0.1) 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
     position: relative; overflow: hidden;
-    box-shadow:
-        0 1px 4px rgba(0, 0, 0, 0.5),
-        0 4px 16px rgba(0, 0, 0, 0.35),
-        0 0 28px rgba(156, 4, 4, 0.12),
-        0 0 56px rgba(156, 4, 4, 0.06),
-        inset 0 1px 1px rgba(255,255,255,0.1),
-        inset 0 0 18px rgba(156, 4, 4, 0.18);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
     will-change: transform; transform: translateZ(0);
 }
 .btn-minimal::after { content: ''; position: absolute; top: 0; left: 0; width: 55%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); pointer-events: none; animation: lens-ray 10s var(--ease-luxe) infinite; }
 .btn-minimal:hover {
-    border-color: rgba(156, 4, 4, 0.75) !important;
-    box-shadow: 0 0 10px rgba(156,4,4,0.4), 0 0 20px rgba(156,4,4,0.3), 0 0 40px rgba(156,4,4,0.2), inset 0 0 15px rgba(156,4,4,0.2);
+    border-color: rgba(156, 4, 4, 0.8) !important;
+    box-shadow: 0 0 10px rgba(156,4,4,0.5), 0 0 20px rgba(156,4,4,0.3), 0 0 40px rgba(156,4,4,0.1), inset 0 0 15px rgba(156,4,4,0.2);
     transform: translate3d(0, -2px, 0);
 }
 .premium-btn { border-color: rgba(156, 4, 4, 0.55) !important; }
@@ -345,7 +337,8 @@ nav.scrolled {
 /* ========== COMPLIANCE 2026 — техническая разметка переводов ========== */
 .ru-translate {
     font-size: 8px;
-    color: rgba(255,255,255,0.3);
+    opacity: 0.4;
+    color: rgba(255,255,255,0.9);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: 400;
