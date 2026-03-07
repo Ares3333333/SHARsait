@@ -260,8 +260,6 @@ document.addEventListener("DOMContentLoaded", () => {
         lastFocusedElement = document.activeElement && document.body.contains(document.activeElement) ? document.activeElement : null;
         modal.classList.add('active');
         modal.scrollTop = 0;
-        const hero = modal.querySelector('.m-hero');
-        if (hero) hero.classList.remove('is-scrolled');
         modal.setAttribute('aria-hidden', 'false');
         const scrollY = window.scrollY || window.pageYOffset;
         document.body.style.overflow = 'hidden';
@@ -292,13 +290,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         modal.addEventListener('keydown', focusTrap);
         modal._focusTrap = focusTrap;
-
-        function onModalScroll() {
-            const h = modal.querySelector('.m-hero');
-            if (h) h.classList.toggle('is-scrolled', modal.scrollTop > 30);
-        }
-        modal.addEventListener('scroll', onModalScroll, { passive: true });
-        modal._onModalScroll = onModalScroll;
     };
 
 
@@ -328,12 +319,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 modal.removeEventListener('keydown', modal._focusTrap);
                 delete modal._focusTrap;
             }
-            if (modal._onModalScroll) {
-                modal.removeEventListener('scroll', modal._onModalScroll);
-                delete modal._onModalScroll;
-            }
-            const hero = modal.querySelector('.m-hero');
-            if (hero) hero.classList.remove('is-scrolled');
             modal.classList.remove('active');
             modal.setAttribute('aria-hidden', 'true');
             const scrollY = document.body.dataset.scrollY ? parseInt(document.body.dataset.scrollY, 10) : 0;
