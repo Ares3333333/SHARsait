@@ -92,34 +92,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО (ЗАЩИТА ОТ ИФРЕЙМ-БОМБЫ)
+    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО (защита от iframe-бомбы: iframe только по клику, полная очистка при закрытии)
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
-        if(modal) {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            const container = modal.querySelector('.m-video-container');
-            const dataSrc = container.getAttribute('data-src');
-            
-            // Вставляем iframe ТОЛЬКО при клике
-            if (dataSrc && !container.innerHTML.includes('iframe')) {
-                container.innerHTML = `<iframe src="${dataSrc}" frameborder="0" allow="autoplay; fullscreen" style="width:100%; height:100%;"></iframe>`;
-            }
+        if (!modal) return;
+        const container = modal.querySelector('.m-video-container');
+        if (!container) return;
+        const dataSrc = container.getAttribute('data-src');
+        container.innerHTML = '';
+        if (dataSrc) {
+            container.innerHTML = '<iframe src="' + dataSrc + '" frameborder="0" allow="autoplay; fullscreen" style="width:100%; height:100%;"></iframe>';
         }
-    }
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
 
     window.closeCase = function(id) {
         const modal = document.getElementById('case-' + id);
-        if(modal) {
+        if (modal) {
+            const container = modal.querySelector('.m-video-container');
+            if (container) container.innerHTML = '';
             modal.classList.remove('active');
             document.body.style.overflow = '';
-            
-            const container = modal.querySelector('.m-video-container');
-            if (container) {
-                // Жестко удаляем плеер из памяти при закрытии
-                container.innerHTML = ''; 
-            }
         }
     }
 
