@@ -1,6 +1,71 @@
 document.addEventListener("DOMContentLoaded", () => {
     let lastFocusedElement = null;
-    
+
+    // 0. ЛОКАЛИЗАЦИЯ (default: ru, EN — отдельный набор строк)
+    const LOCALE_STORAGE_KEY = 'shar_locale';
+    const DEFAULT_LOCALE = 'ru';
+
+    function getNested(obj, path) {
+        if (!obj || !path) return undefined;
+        return path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : undefined), obj);
+    }
+
+    function getCurrentLocale() {
+        const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
+        return (stored === 'en' || stored === 'ru') ? stored : DEFAULT_LOCALE;
+    }
+
+    function applyLocale(locale) {
+        const L = window.SHAR_LOCALES && window.SHAR_LOCALES[locale];
+        if (!L) return;
+        window.SHAR_CURRENT_LOCALE = locale;
+        document.documentElement.lang = locale === 'en' ? 'en' : 'ru';
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc && L.meta) metaDesc.setAttribute('content', L.meta.description || '');
+        if (document.title !== undefined && L.meta) document.title = L.meta.title || document.title;
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            const val = getNested(L, key);
+            if (val != null) el.textContent = val;
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+            const key = el.getAttribute('data-i18n-html');
+            const val = getNested(L, key);
+            if (val != null) el.innerHTML = val;
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            const val = getNested(L, key);
+            if (val != null) el.placeholder = val;
+        });
+
+        const switcher = document.getElementById('lang-switcher');
+        if (switcher) {
+            switcher.querySelectorAll('.lang-btn').forEach(btn => {
+                const lang = btn.getAttribute('data-lang');
+                btn.classList.toggle('active', lang === locale);
+                btn.setAttribute('aria-pressed', lang === locale ? 'true' : 'false');
+            });
+        }
+    }
+
+    const currentLocale = getCurrentLocale();
+    applyLocale(currentLocale);
+
+    const langSwitcher = document.getElementById('lang-switcher');
+    if (langSwitcher) {
+        langSwitcher.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                if (lang !== getCurrentLocale()) {
+                    localStorage.setItem(LOCALE_STORAGE_KEY, lang);
+                    applyLocale(lang);
+                }
+            });
+        });
+    }
+
     // 1. КУРСОР (GPU: translate3d для аппаратного ускорения)
     const cursor = document.querySelector('.custom-cursor');
     if (window.innerWidth > 900 && cursor) {
@@ -70,19 +135,30 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll('.fade-in-section, .stagger-item').forEach((el) => el.classList.add('is-visible'));
     }
 
-    // 5. СЧЕТЧИКИ (Защита от NaN)
-    function animateCounter(el, target) {
-        if (!target || target === 0) return;
-        let start = 0; 
-        const inc = target / 30; 
+    // 5. СЧЕТЧИКИ (защита от NaN/нуля, fallback)
+    function animateCounter(el, targetOrNaN) {
+        const raw = el.dataset.count;
+        const num = typeof targetOrNaN === 'number' && !isNaN(targetOrNaN) ? targetOrNaN : parseInt(raw, 10);
+        if (isNaN(num) || num < 0) {
+            el.textContent = raw === '99' ? '0%' : '0+';
+            return;
+        }
+        if (num === 0) {
+            el.textContent = raw === '99' ? '0%' : '0+';
+            return;
+        }
+        const target = num;
+        let start = 0;
+        const inc = target / 30;
+        const suffix = target === 99 ? '%' : '+';
         const timer = setInterval(() => {
             start += inc;
-            if (start >= target) { 
-                start = target; 
-                clearInterval(timer); 
+            if (start >= target) {
+                start = target;
+                clearInterval(timer);
             }
-            if (el.parentElement.classList.contains('stat-item')) {
-                el.textContent = Math.floor(start) + (target === 99 ? '%' : '+');
+            if (el.parentElement && el.parentElement.classList.contains('stat-item')) {
+                el.textContent = Math.floor(start) + suffix;
             }
         }, 30);
     }
@@ -90,14 +166,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const countObs = new IntersectionObserver((entries) => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
-                    animateCounter(e.target, parseInt(e.target.dataset.count));
+                    animateCounter(e.target, parseInt(e.target.dataset.count, 10));
                     countObs.unobserve(e.target);
                 }
             });
         });
         document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
     } else {
-        document.querySelectorAll('[data-count]').forEach((el) => animateCounter(el, parseInt(el.dataset.count)));
+        document.querySelectorAll('[data-count]').forEach((el) => animateCounter(el, parseInt(el.dataset.count, 10)));
     }
 
     document.querySelectorAll('.case').forEach((card) => {
@@ -166,12 +242,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
         mountVideo(container);
 
-        lastFocusedElement = document.activeElement;
+        lastFocusedElement = document.activeElement && document.body.contains(document.activeElement) ? document.activeElement : null;
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
+        const scrollY = window.scrollY || window.pageYOffset;
         document.body.style.overflow = 'hidden';
-        const closeBtn = modal.querySelector('.close-case');
-        if (closeBtn) closeBtn.focus();
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.width = '100%';
+        document.body.dataset.scrollY = String(scrollY);
+
+        requestAnimationFrame(() => {
+            const closeBtn = modal.querySelector('.close-case');
+            if (closeBtn && typeof closeBtn.focus === 'function') closeBtn.focus();
+        });
+
+        function focusTrap(e) {
+            if (e.key !== 'Tab') return;
+            const focusables = modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+            const list = Array.from(focusables).filter(el => el.offsetParent !== null && !el.disabled);
+            if (list.length === 0) return;
+            const first = list[0];
+            const last = list[list.length - 1];
+            if (e.shiftKey) {
+                if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+            } else {
+                if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+            }
+        }
+        modal.addEventListener('keydown', focusTrap);
+        modal._focusTrap = focusTrap;
     };
 
 
@@ -196,35 +298,49 @@ document.addEventListener("DOMContentLoaded", () => {
         const modal = document.getElementById(`case-${id}`);
         if (modal) {
             const container = modal.querySelector('.m-video-container');
-            if (container) {
-                container.innerHTML = '';
+            if (container) container.innerHTML = '';
+            if (modal._focusTrap) {
+                modal.removeEventListener('keydown', modal._focusTrap);
+                delete modal._focusTrap;
             }
             modal.classList.remove('active');
             modal.setAttribute('aria-hidden', 'true');
+            const scrollY = document.body.dataset.scrollY ? parseInt(document.body.dataset.scrollY, 10) : 0;
             document.body.style.overflow = '';
-            if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-                lastFocusedElement.focus();
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.left = '';
+            document.body.style.right = '';
+            document.body.style.width = '';
+            delete document.body.dataset.scrollY;
+            if (!isNaN(scrollY)) window.scrollTo(0, scrollY);
+            if (lastFocusedElement && document.body.contains(lastFocusedElement) && typeof lastFocusedElement.focus === 'function') {
+                requestAnimationFrame(() => lastFocusedElement.focus());
             }
         }
     };
 
-    // 8. TOAST (ФОРМА)
+    // 8. TOAST (ФОРМА) — текст из текущей локали
     const form = document.getElementById('contactForm');
     if(form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const btn = form.querySelector('button[type="submit"]');
             if (!btn) return;
-            btn.textContent = 'ОТПРАВКА...';
+            const loc = window.SHAR_LOCALES && window.SHAR_LOCALES[getCurrentLocale()];
+            const sending = (loc && loc.toast && loc.toast.sending) ? loc.toast.sending : 'ОТПРАВКА...';
+            const success = (loc && loc.toast && loc.toast.success) ? loc.toast.success : 'Заявка успешно отправлена!';
+            const submitLabel = (loc && loc.toast && loc.toast.submit) ? loc.toast.submit : 'ОТПРАВИТЬ ЗАЯВКУ';
+            btn.textContent = sending;
             setTimeout(() => {
                 const toast = document.getElementById('toast');
                 if(toast) {
-                    toast.textContent = 'Заявка успешно отправлена!';
+                    toast.textContent = success;
                     toast.classList.add('show');
                     setTimeout(() => toast.classList.remove('show'), 3000);
                 }
                 form.reset();
-                btn.textContent = 'ОТПРАВИТЬ ЗАЯВКУ';
+                btn.textContent = submitLabel;
             }, 1000);
         });
     }
