@@ -66,29 +66,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 1. КУРСОР (GPU: translate3d для аппаратного ускорения)
+    // 1. КУРСОР (GPU: translate3d, без вечного rAF-цикла — обновление только по mousemove)
     const cursor = document.querySelector('.custom-cursor');
     if (window.innerWidth > 900 && cursor) {
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
-        
-        function renderCursor() {
-            cursor.style.transform = `translate3d(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%), 0)`;
-            requestAnimationFrame(renderCursor);
-        }
-        requestAnimationFrame(renderCursor);
+        let rafScheduled = false;
 
-        let cursorQueued = false;
+        function updateCursorPosition() {
+            rafScheduled = false;
+            cursor.style.transform = `translate3d(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%), 0)`;
+        }
+
         document.addEventListener('mousemove', (e) => {
             if (!cursor.classList.contains('active')) cursor.classList.add('active');
-            if (cursorQueued) return;
-            cursorQueued = true;
-            requestAnimationFrame(() => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                cursorQueued = false;
-            });
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (!rafScheduled) {
+                rafScheduled = true;
+                requestAnimationFrame(updateCursorPosition);
+            }
         }, { passive: true });
+        updateCursorPosition();
         
         const interactives = document.querySelectorAll('a, button, .case, .journal-card, .close-case, input, textarea, .logo, .client-logo, .watch-case-btn, .btn-nav-premium');
         interactives.forEach(el => {
