@@ -104,6 +104,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 7. УМНЫЕ МОДАЛКИ С ВИДЕО (iframe создается только по клику и удаляется при закрытии)
+    function mountVideo(container) {
+        if (!container) return;
+        const dataSrc = container.dataset.src;
+        container.innerHTML = "";
+        if (!dataSrc) return;
+
+        const iframe = document.createElement('iframe');
+        iframe.src = dataSrc;
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'autoplay; fullscreen');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('title', 'Видео проекта');
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.border = '0';
+        container.appendChild(iframe);
+    }
+
     window.openCase = function(id) {
         const modal = document.getElementById(`case-${id}`);
         if (!modal) return;
@@ -111,23 +129,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const container = modal.querySelector('.m-video-container');
         if (!container) return;
 
-        const dataSrc = container.dataset.src;
-        container.innerHTML = '';
-
-        if (dataSrc) {
-            container.innerHTML = `
-                <iframe
-                    src="${dataSrc}"
-                    frameborder="0"
-                    allow="autoplay; fullscreen"
-                    style="width:100%;height:100%;border:0;"
-                ></iframe>
-            `;
-        }
+        mountVideo(container);
 
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     };
+
+
+    document.querySelectorAll('.modal').forEach((modal) => {
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                const id = modal.id.replace('case-', '');
+                closeCase(id);
+            }
+        });
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') return;
+        const activeModal = document.querySelector('.modal.active');
+        if (!activeModal) return;
+        const id = activeModal.id.replace('case-', '');
+        closeCase(id);
+    });
 
     window.closeCase = function(id) {
         const modal = document.getElementById(`case-${id}`);
