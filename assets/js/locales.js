@@ -100,6 +100,7 @@ window.SHAR_LOCALES = {
     },
     modal: {
       close: 'ЗАКРЫТЬ ✕',
+      aboutProject: 'О проекте',
       client: 'Клиент',
       service: 'Услуга',
       deadline: 'Сроки',
@@ -163,9 +164,17 @@ window.SHAR_LOCALES = {
       case4Cta: 'Покажем ваше производство красиво?',
       case4Btn: 'ОБСУДИТЬ ПРОЕКТ',
       case5Title: 'Революция ИИ',
+      case5Body: 'Концепт-арт и визуальные исследования на стыке ИИ и кинематографа. Демонстрация возможностей нейросетевой генерации для рекламы и арт-проектов.',
+      case5Cta: 'Нужен концепт или визуальная разработка?',
       case6Title: 'Эра киберпанка',
+      case6Body: 'Визуальные эффекты и компьютерная графика в стилистике киберпанка. Полный цикл от концепции до постпродакшена для рекламы и контента.',
+      case6Cta: 'Создадим ваш визуальный мир?',
       case7Title: 'Виртуальный шоурум',
-      case8Title: 'Будущее ритейла'
+      case7Body: 'Метавселенная и Web3: виртуальные пространства для брендов. Интеграция 3D, ИИ и интерактива для шоурумов и презентаций.',
+      case7Cta: 'Нужен виртуальный шоурум?',
+      case8Title: 'Будущее ритейла',
+      case8Body: 'Корпоративный уровень: кинотеатральное качество и компьютерная графика для ритейла и enterprise. Индивидуальный процесс и масштабирование.',
+      case8Cta: 'Обсудим корпоративный проект?'
     },
     toast: {
       success: 'Заявка успешно отправлена!',
@@ -332,10 +341,19 @@ window.SHAR_LOCALES = {
       case4M3: 'ROI growth',
       case4Cta: 'Show your production at its best?',
       case4Btn: 'DISCUSS PROJECT',
+      aboutProject: 'About the project',
       case5Title: 'AI Revolution',
+      case5Body: 'Concept art and visual R&D at the intersection of AI and cinema. Showcasing neural generation for advertising and art projects.',
+      case5Cta: 'Need concept or visual development?',
       case6Title: 'Cyberpunk era',
+      case6Body: 'VFX and CGI in cyberpunk style. Full pipeline from concept to post for advertising and content.',
+      case6Cta: 'Create your visual world?',
       case7Title: 'Virtual showroom',
-      case8Title: 'Future of retail'
+      case7Body: 'Metaverse and Web3: virtual spaces for brands. 3D, AI and interactivity for showrooms and presentations.',
+      case7Cta: 'Need a virtual showroom?',
+      case8Title: 'Future of retail',
+      case8Body: 'Enterprise level: theatrical quality and CGI for retail. Custom process and scale.',
+      case8Cta: 'Discuss a corporate project?'
     },
     toast: {
       success: 'Request sent successfully!',
