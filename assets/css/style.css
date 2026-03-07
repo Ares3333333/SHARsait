@@ -15,6 +15,7 @@
 html { scroll-behavior: smooth; }
 body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--white); font-weight: 300; overflow-x: hidden; -webkit-tap-highlight-color: transparent !important; cursor: none; }
 a { color: #fff !important; text-decoration: none !important; transition: 0.3s var(--ease-luxe); cursor: pointer; pointer-events: auto; }
+h1, h2, h3 { letter-spacing: 0.25em; }
 
 /* ========== КАСТОМНЫЙ КУРСОР (GPU) ========== */
 .custom-cursor { width: 10px; height: 10px; border-radius: 50%; background: var(--brand-red); position: fixed; left: 0; top: 0; pointer-events: none; z-index: 9999999; transition: width 0.25s var(--ease-luxe), height 0.25s var(--ease-luxe), background 0.25s var(--ease-luxe); box-shadow: 0 0 16px var(--glow), 0 0 32px var(--aura-base); opacity: 0; will-change: transform; transform: translate3d(-50%, -50%, 0); }
@@ -56,10 +57,17 @@ nav {
     position: fixed; top: 0; left: 0; width: 100%; padding: 28px 4%;
     display: flex; justify-content: space-between; align-items: center;
     z-index: 1000000;
-    background: linear-gradient(180deg, rgba(3,3,3,0.55) 0%, rgba(3,3,3,0) 100%);
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    background: transparent;
+    backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-    transform: translateZ(0); will-change: transform;
+    transform: translateZ(0); will-change: transform, background, backdrop-filter;
+    transition: background 0.45s var(--ease-luxe), backdrop-filter 0.45s var(--ease-luxe), -webkit-backdrop-filter 0.45s var(--ease-luxe), border-color 0.45s var(--ease-luxe);
+}
+nav.scrolled {
+    background: linear-gradient(180deg, rgba(3,3,3,0.58) 0%, rgba(3,3,3,0.05) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 .logo { font-size: 14px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; background: linear-gradient(90deg, #fff 0%, #fff 20%, var(--brand-red) 42%, var(--brand-red) 58%, #fff 80%, #fff 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 8s linear infinite; position: relative; z-index: 1000001; cursor: pointer; }
 
@@ -67,19 +75,19 @@ nav {
 .nav-link { font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 500; opacity: 0.75; cursor: pointer; transition: opacity 0.3s var(--ease-luxe), text-shadow 0.3s var(--ease-luxe); }
 .nav-link:hover { opacity: 1; animation: text-aura-hover 0.5s var(--ease-luxe) forwards; }
 
-/* Акцентная кнопка навигации — капсула */
+/* Акцентная кнопка навигации — строгий премиум */
 .btn-nav-premium {
     padding: 10px 24px;
-    border: 1px solid rgba(156, 4, 4, 0.45);
-    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
     font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600;
     color: #fff !important;
-    background: linear-gradient(180deg, rgba(156, 4, 4, 0.14) 0%, rgba(156, 4, 4, 0.06) 100%);
-    box-shadow: 0 2px 14px rgba(0,0,0,0.35), 0 0 20px rgba(156, 4, 4, 0.1), inset 0 1px 0 rgba(255,255,255,0.07), inset 0 0 12px rgba(156, 4, 4, 0.18);
+    background: transparent;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.35), 0 0 12px rgba(156, 4, 4, 0.08), inset 0 1px 0 rgba(255,255,255,0.04);
     transition: 0.4s var(--ease-luxe); cursor: pointer; position: relative; overflow: hidden;
 }
-.btn-nav-premium::after { content: ''; position: absolute; top: 0; left: 0; width: 55%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); pointer-events: none; animation: lens-ray 10s ease-in-out infinite; animation-delay: 1.5s; }
-.btn-nav-premium:hover { background: linear-gradient(180deg, rgba(156, 4, 4, 0.28) 0%, rgba(156, 4, 4, 0.14) 100%); border-color: rgba(156, 4, 4, 0.75); box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 35px rgba(156, 4, 4, 0.22), inset 0 1px 0 rgba(255,255,255,0.1), inset 0 0 18px rgba(156, 4, 4, 0.28); }
+.btn-nav-premium::after { content: ''; position: absolute; top: 0; left: 0; width: 55%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); pointer-events: none; animation: lens-ray 7s ease-in-out infinite; animation-delay: 1.2s; }
+.btn-nav-premium:hover { background: rgba(156, 4, 4, 0.08); border-color: rgba(255, 255, 255, 0.16); box-shadow: 0 2px 14px rgba(0,0,0,0.4), 0 0 22px rgba(156, 4, 4, 0.16), inset 0 0 16px rgba(156, 4, 4, 0.22), inset 0 1px 0 rgba(255,255,255,0.06); }
 
 /* Телефон — пульсирующая капсула */
 .phone-link { padding: 10px 22px; border-radius: 50px; border: 1px solid rgba(156, 4, 4, 0.4); font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; animation: premium-pulse 5s infinite cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; background: rgba(156, 4, 4, 0.05); transition: 0.4s var(--ease-luxe); }
@@ -130,7 +138,7 @@ nav {
     border: 1px solid rgba(255,255,255,0.03);
 }
 .case:hover {
-    transform: scale(1.025) translateZ(0); z-index: 2;
+    transform: scale(1.03) translateZ(0); z-index: 2;
     box-shadow:
         0 0 0 1px rgba(156, 4, 4, 0.22),
         0 2px 12px rgba(156, 4, 4, 0.14),
@@ -141,7 +149,7 @@ nav {
     border-color: rgba(156, 4, 4, 0.2);
 }
 /* Блик кинообъектива */
-.case::after { content: ''; position: absolute; top: -60%; left: -60%; width: 38%; height: 220%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.055), rgba(255,255,255,0.1), rgba(255,255,255,0.055), transparent); pointer-events: none; z-index: 5; animation: card-ray 8s ease-in-out infinite; }
+.case::after { content: ''; position: absolute; top: -60%; left: -60%; width: 38%; height: 220%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.055), rgba(255,255,255,0.1), rgba(255,255,255,0.055), transparent); pointer-events: none; z-index: 5; animation: card-ray 7s ease-in-out infinite; }
 .case:nth-child(1)::after { animation-delay: 0s; }
 .case:nth-child(2)::after { animation-delay: 2s; }
 .case:nth-child(3)::after { animation-delay: 4s; }
@@ -161,21 +169,21 @@ nav {
 /* СМОТРЕТЬ КЕЙС — стеклянная капсула */
 .watch-case-btn {
     display: inline-block; margin-top: 18px; padding: 13px 28px;
-    border: 1px solid rgba(156, 4, 4, 0.5);
-    border-radius: 50px;
+    border: 1px solid rgba(156, 4, 4, 0.52);
+    border-radius: 2px;
     font-size: 9px; text-transform: uppercase; letter-spacing: 0.25em;
     color: #fff !important; width: max-content;
-    background: linear-gradient(180deg, rgba(156, 4, 4, 0.15) 0%, rgba(156, 4, 4, 0.07) 100%);
+    background: linear-gradient(180deg, rgba(156, 4, 4, 0.14) 0%, rgba(156, 4, 4, 0.06) 100%);
     box-shadow:
-        0 2px 10px rgba(0,0,0,0.5),
-        0 6px 22px rgba(0,0,0,0.3),
-        0 0 20px rgba(156, 4, 4, 0.1),
-        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 0 0 1px rgba(156, 4, 4, 0.08),
+        0 2px 10px rgba(0,0,0,0.52),
+        0 6px 24px rgba(0,0,0,0.35),
+        0 0 28px rgba(156, 4, 4, 0.16),
         inset 0 0 15px rgba(156, 4, 4, 0.2);
-    position: relative; overflow: hidden; transition: 0.4s var(--ease-luxe);
+    position: relative; overflow: hidden; transition: 0.4s var(--ease-luxe); will-change: transform;
 }
-.watch-case-btn::after { content: ''; position: absolute; top: 0; left: 0; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); animation: lens-ray 8s ease-in-out infinite; pointer-events: none; }
-.watch-case-btn:hover { background: linear-gradient(180deg, rgba(156, 4, 4, 0.32) 0%, rgba(156, 4, 4, 0.16) 100%); border-color: rgba(156, 4, 4, 0.8); box-shadow: 0 4px 18px rgba(0,0,0,0.6), 0 0 35px rgba(156, 4, 4, 0.28), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 0 18px rgba(156, 4, 4, 0.3); }
+.watch-case-btn::after { content: ''; position: absolute; top: 0; left: 0; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); animation: lens-ray 7s ease-in-out infinite; pointer-events: none; }
+.watch-case-btn:hover { background: linear-gradient(180deg, rgba(156, 4, 4, 0.3) 0%, rgba(156, 4, 4, 0.14) 100%); border-color: rgba(156, 4, 4, 0.82); box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.2), 0 4px 16px rgba(0,0,0,0.62), 0 10px 34px rgba(156, 4, 4, 0.2), 0 0 46px rgba(156, 4, 4, 0.3), inset 0 0 22px rgba(156, 4, 4, 0.34); }
 
 .hidden-case { display: none; opacity: 0; transform: translate3d(0, 20px, 0); transition: 0.6s var(--ease-luxe); }
 .hidden-case.show { display: block; opacity: 1; transform: translate3d(0, 0, 0); }
@@ -211,31 +219,32 @@ nav {
 /* Стеклянная капсула — основные кнопки */
 .btn-minimal {
     display: inline-block; padding: 16px 0; width: 100%; text-align: center;
-    border: 1px solid rgba(156, 4, 4, 0.4);
-    border-radius: 50px;
+    border: 1px solid rgba(156, 4, 4, 0.5);
+    border-radius: 2px;
     font-size: 10px; text-transform: uppercase; letter-spacing: 0.25em; font-weight: 600;
     color: #fff !important; cursor: pointer;
     animation: premium-pulse 5s infinite cubic-bezier(0.16, 1, 0.3, 1);
     transition: 0.45s var(--ease-luxe);
-    background: linear-gradient(180deg, rgba(156, 4, 4, 0.12) 0%, rgba(156, 4, 4, 0.05) 100%);
+    background: linear-gradient(180deg, rgba(156, 4, 4, 0.14) 0%, rgba(156, 4, 4, 0.06) 100%);
     position: relative; overflow: hidden;
     box-shadow:
-        0 0 0 1px rgba(156, 4, 4, 0.06),
-        0 2px 14px rgba(0, 0, 0, 0.5),
-        0 0 28px rgba(156, 4, 4, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 0 0 1px rgba(156, 4, 4, 0.08),
+        0 2px 12px rgba(0, 0, 0, 0.55),
+        0 8px 26px rgba(0, 0, 0, 0.32),
+        0 0 32px rgba(156, 4, 4, 0.15),
         inset 0 0 15px rgba(156, 4, 4, 0.2);
+    will-change: transform;
 }
-.btn-minimal::after { content: ''; position: absolute; top: 0; left: 0; width: 55%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); pointer-events: none; animation: lens-ray 8s ease-in-out infinite; }
+.btn-minimal::after { content: ''; position: absolute; top: 0; left: 0; width: 55%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); pointer-events: none; animation: lens-ray 7s ease-in-out infinite; }
 .btn-minimal:hover {
-    background: linear-gradient(180deg, rgba(156, 4, 4, 0.28) 0%, rgba(156, 4, 4, 0.14) 100%) !important;
-    border-color: rgba(156, 4, 4, 0.75) !important;
+    background: linear-gradient(180deg, rgba(156, 4, 4, 0.3) 0%, rgba(156, 4, 4, 0.14) 100%) !important;
+    border-color: rgba(156, 4, 4, 0.82) !important;
     box-shadow:
-        0 0 0 1px rgba(156, 4, 4, 0.28),
-        0 6px 26px rgba(156, 4, 4, 0.2),
-        0 0 50px rgba(156, 4, 4, 0.22),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12),
-        inset 0 0 20px rgba(156, 4, 4, 0.28) !important;
+        0 0 0 1px rgba(156, 4, 4, 0.2),
+        0 4px 14px rgba(0, 0, 0, 0.6),
+        0 12px 34px rgba(156, 4, 4, 0.18),
+        0 0 52px rgba(156, 4, 4, 0.28),
+        inset 0 0 24px rgba(156, 4, 4, 0.34) !important;
     transform: translate3d(0, -2px, 0);
 }
 .premium-btn { border-color: rgba(156, 4, 4, 0.55) !important; }

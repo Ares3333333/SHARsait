@@ -25,7 +25,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. МОБИЛЬНОЕ МЕНЮ
+    // 2. NAV GLASS ON SCROLL
+    const nav = document.querySelector('nav');
+    if (nav) {
+        const updateNavState = () => {
+            if (window.scrollY > 20) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        };
+        updateNavState();
+        window.addEventListener('scroll', updateNavState, { passive: true });
+    }
+
+    // 3. МОБИЛЬНОЕ МЕНЮ
     const hamburger = document.getElementById('hamburger');
     const navRight = document.getElementById('nav-links');
     
@@ -43,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 3. АНИМАЦИИ ПОЯВЛЕНИЯ
+    // 4. АНИМАЦИИ ПОЯВЛЕНИЯ
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -54,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     document.querySelectorAll('.fade-in-section, .stagger-item').forEach(el => observer.observe(el));
 
-    // 4. СЧЕТЧИКИ (Защита от NaN)
+    // 5. СЧЕТЧИКИ (Защита от NaN)
     function animateCounter(el, target) {
         if (!target || target === 0) return;
         let start = 0; 
@@ -80,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
 
-    // 5. РАЗВЕРНУТЬ ПОРТФОЛИО
+    // 6. РАЗВЕРНУТЬ ПОРТФОЛИО
     const showMoreBtn = document.getElementById('show-more-btn');
     if(showMoreBtn) {
         showMoreBtn.addEventListener('click', function() {
@@ -92,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 6. УМНЫЕ МОДАЛКИ С ВИДЕО (защита от iframe-бомбы: iframe только по клику, полная очистка при закрытии)
+    // 7. УМНЫЕ МОДАЛКИ С ВИДЕО (защита от iframe-бомбы: iframe только по клику, полная очистка при закрытии)
     window.openCase = function(id) {
         const modal = document.getElementById('case-' + id);
         if (!modal) return;
@@ -117,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // 7. TOAST (ФОРМА)
+    // 8. TOAST (ФОРМА)
     const form = document.getElementById('contactForm');
     if(form) {
         form.addEventListener('submit', (e) => {
@@ -137,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 8. ПЛАВНЫЙ СКРОЛЛ
+    // 9. ПЛАВНЫЙ СКРОЛЛ
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
