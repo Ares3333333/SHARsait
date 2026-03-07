@@ -260,6 +260,8 @@ document.addEventListener("DOMContentLoaded", () => {
         lastFocusedElement = document.activeElement && document.body.contains(document.activeElement) ? document.activeElement : null;
         modal.classList.add('active');
         modal.scrollTop = 0;
+        const navEl = document.querySelector('nav');
+        if (navEl) navEl.classList.add('scrolled');
         modal.setAttribute('aria-hidden', 'false');
         const scrollY = window.scrollY || window.pageYOffset;
         document.body.style.overflow = 'hidden';
@@ -330,9 +332,14 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.style.width = '';
             delete document.body.dataset.scrollY;
             if (!isNaN(scrollY)) window.scrollTo(0, scrollY);
-            if (lastFocusedElement && document.body.contains(lastFocusedElement) && typeof lastFocusedElement.focus === 'function') {
-                requestAnimationFrame(() => lastFocusedElement.focus());
-            }
+            requestAnimationFrame(() => {
+                const navEl = document.querySelector('nav');
+                if (navEl) {
+                    if (window.scrollY > 50) navEl.classList.add('scrolled');
+                    else navEl.classList.remove('scrolled');
+                }
+                if (lastFocusedElement && document.body.contains(lastFocusedElement) && typeof lastFocusedElement.focus === 'function') lastFocusedElement.focus();
+            });
         }
     };
 
