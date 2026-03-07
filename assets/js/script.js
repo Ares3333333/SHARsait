@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     let lastFocusedElement = null;
 
+<<<<<<< HEAD
     // 0. ЛОКАЛИЗАЦИЯ (default: ru, EN — отдельный набор строк)
     const LOCALE_STORAGE_KEY = 'shar_locale';
     const DEFAULT_LOCALE = 'ru';
@@ -66,6 +67,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+=======
+    const heroVideoBg = document.querySelector('.video-bg');
+    const heroIframe = document.getElementById('hero-showreel');
+    if (heroVideoBg && heroIframe) {
+        let heroReady = false;
+        const markHeroReady = () => {
+            if (heroReady) return;
+            heroReady = true;
+            heroVideoBg.classList.add('ready');
+        };
+
+        heroIframe.addEventListener('load', markHeroReady, { once: true });
+        setTimeout(markHeroReady, 3500);
+    }
+    
+>>>>>>> e7430068aba0b3a3d4818973fe3eba59337b8685
     // 1. КУРСОР (GPU: translate3d для аппаратного ускорения)
     const cursor = document.querySelector('.custom-cursor');
     if (window.innerWidth > 900 && cursor) {
@@ -78,10 +95,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         requestAnimationFrame(renderCursor);
 
+        let cursorQueued = false;
         document.addEventListener('mousemove', (e) => {
             if (!cursor.classList.contains('active')) cursor.classList.add('active');
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+            if (cursorQueued) return;
+            cursorQueued = true;
+            requestAnimationFrame(() => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursorQueued = false;
+            });
         }, { passive: true });
         
         const interactives = document.querySelectorAll('a, button, .case, .journal-card, .close-case, input, textarea, .logo, .client-logo, .watch-case-btn, .btn-nav-premium');
@@ -99,7 +122,15 @@ document.addEventListener("DOMContentLoaded", () => {
             else nav.classList.remove('scrolled');
         };
         updateNavState();
-        window.addEventListener('scroll', updateNavState, { passive: true });
+        let navTicking = false;
+        window.addEventListener('scroll', () => {
+            if (navTicking) return;
+            navTicking = true;
+            requestAnimationFrame(() => {
+                updateNavState();
+                navTicking = false;
+            });
+        }, { passive: true });
     }
 
     // 3. МОБИЛЬНОЕ МЕНЮ
@@ -227,6 +258,8 @@ document.addEventListener("DOMContentLoaded", () => {
         iframe.setAttribute('allow', 'autoplay; fullscreen');
         iframe.setAttribute('allowfullscreen', '');
         iframe.setAttribute('title', 'Видео проекта');
+        iframe.setAttribute('loading', 'lazy');
+        iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
         iframe.style.width = '100%';
         iframe.style.height = '100%';
         iframe.style.border = '0';
