@@ -103,30 +103,43 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 7. УМНЫЕ МОДАЛКИ С ВИДЕО (защита от iframe-бомбы: iframe только по клику, полная очистка при закрытии)
+    // 7. УМНЫЕ МОДАЛКИ С ВИДЕО (iframe создается только по клику и удаляется при закрытии)
     window.openCase = function(id) {
-        const modal = document.getElementById('case-' + id);
+        const modal = document.getElementById(`case-${id}`);
         if (!modal) return;
+
         const container = modal.querySelector('.m-video-container');
         if (!container) return;
-        const dataSrc = container.getAttribute('data-src');
+
+        const dataSrc = container.dataset.src;
         container.innerHTML = '';
+
         if (dataSrc) {
-            container.innerHTML = '<iframe src="' + dataSrc + '" frameborder="0" allow="autoplay; fullscreen" style="width:100%; height:100%;"></iframe>';
+            container.innerHTML = `
+                <iframe
+                    src="${dataSrc}"
+                    frameborder="0"
+                    allow="autoplay; fullscreen"
+                    style="width:100%;height:100%;border:0;"
+                ></iframe>
+            `;
         }
+
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     };
 
     window.closeCase = function(id) {
-        const modal = document.getElementById('case-' + id);
+        const modal = document.getElementById(`case-${id}`);
         if (modal) {
             const container = modal.querySelector('.m-video-container');
-            if (container) container.innerHTML = '';
+            if (container) {
+                container.innerHTML = '';
+            }
             modal.classList.remove('active');
             document.body.style.overflow = '';
         }
-    }
+    };
 
     // 8. TOAST (ФОРМА)
     const form = document.getElementById('contactForm');
