@@ -87,3 +87,15 @@
 - **Repo hygiene:** Confirmed docs in docs/ai and docs/planning; no .DS_Store.
 - **Preserved unchanged:** All content, routes, pages, cases, media, header nav buttons, business meaning.
 - **Remaining risks:** None identified; visual-only CSS changes.
+
+
+## Rebuild Pass Update (Latest)
+
+- Rebuilt tokens to restore premium black hierarchy: `--bg-elev-1: #08080c`, `--bg-elev-2: #121217`, tuned text/border contrast and shadow tokens.
+- Rebuilt all non-header buttons again with smaller form factors (44px system; watch-case 40px), reduced bluntness, refined border/shadow grammar, restrained #9c0404 pulse/shimmer on primary only.
+- Refined contact page into calmer two-panel composition: equal split grid, compact headline, 2-column direct contacts on desktop, auto-width submit CTA, cleaner crimson restraint.
+- Rebuilt journal landing toward editorial premium: neutralized over-red tags/bars, strengthened featured article proportions (460px image), increased air and card rhythm.
+- Improved homepage rhythm: muted section labels, less template-like separators, subtle sectional depth cadence, stronger CTA block spacing.
+- Refined hero lower blend gradient for premium shell integration without muddying full frame.
+- Mobile pass: smaller button geometry, better card/button padding rhythm, improved journal/contact stacking, preserved nav/header behavior.
+- QA: no linter issues in `assets/css/style.css`, no `.DS_Store` found in repo.
