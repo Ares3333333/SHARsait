@@ -94,22 +94,21 @@ window.SHAR_LOCALES = {
       headingLine2: 'ПРОЕКТ',
       directLabel: 'Прямые контакты',
       intro: 'Оставьте короткий запрос, и команда SHAR свяжется с вами в ближайшее время.',
-      formTitle: 'БЫСТРЫЙ ЗАПРОС',
-      formNote: 'Оставьте контакты и короткий бриф. Мы вернемся с первым ответом в ближайшее время.',
+      formTitle: 'ЗАПРОС',
+      formNote: 'Оставьте имя и контакт — мы ответим в ближайшее время.',
       phone: 'ТЕЛЕФОН',
       telegram: 'TELEGRAM',
       email: 'EMAIL',
       address: 'АДРЕС',
       fieldName: 'ИМЯ',
       fieldReach: 'ТЕЛЕФОН ИЛИ TELEGRAM',
-      fieldCompany: 'КОМПАНИЯ / ПРОЕКТ (ОПЦИОНАЛЬНО)',
-      fieldMessage: 'КОРОТКО О ЗАДАЧЕ',
+      fieldContact: 'КОНТАКТ',
       placeholderName: 'Как к вам обращаться',
       placeholderReach: '+7 ... или @username',
-      placeholderCompany: 'Название бренда или проекта',
-      placeholderEmail: 'Ваш e-mail',
-      placeholderMsg: 'КРАТКО О ЗАДАЧЕ',
-      submit: 'ОТПРАВИТЬ ЗАПРОС',
+      placeholderContact: 'Телефон, Telegram или email',
+      fieldMessageOptional: 'Сообщение (необязательно)',
+      placeholderMessageOptional: 'Кратко о задаче',
+      submit: 'ОТПРАВИТЬ',
       legal: 'Нажимая кнопку, вы соглашаетесь с ',
       legalLink: 'Политикой конфиденциальности'
     },
@@ -201,7 +200,7 @@ window.SHAR_LOCALES = {
     toast: {
       success: 'Заявка успешно отправлена!',
       sending: 'ОТПРАВКА...',
-      submit: 'ОТПРАВИТЬ ЗАПРОС'
+      submit: 'ОТПРАВИТЬ'
     }
   },
   en: {
@@ -295,22 +294,21 @@ window.SHAR_LOCALES = {
       headingLine2: 'PROJECT',
       directLabel: 'Direct contact',
       intro: 'Leave a short request and the SHAR team will contact you shortly.',
-      formTitle: 'QUICK REQUEST',
-      formNote: 'Share your contact details and a short brief. We will return with a first response shortly.',
+      formTitle: 'REQUEST',
+      formNote: 'Leave your name and contact — we will reply shortly.',
       phone: 'PHONE',
       telegram: 'TELEGRAM',
       email: 'EMAIL',
       address: 'ADDRESS',
       fieldName: 'NAME',
       fieldReach: 'PHONE OR TELEGRAM',
-      fieldCompany: 'COMPANY / PROJECT (OPTIONAL)',
-      fieldMessage: 'BRIEF DESCRIPTION',
+      fieldContact: 'CONTACT',
       placeholderName: 'How should we address you?',
       placeholderReach: '+7 ... or @username',
-      placeholderCompany: 'Brand or project name',
-      placeholderEmail: 'Your email',
-      placeholderMsg: 'BRIEF DESCRIPTION',
-      submit: 'SEND REQUEST',
+      placeholderContact: 'Phone, Telegram or email',
+      fieldMessageOptional: 'Message (optional)',
+      placeholderMessageOptional: 'Brief about your project',
+      submit: 'SEND',
       legal: 'By submitting you agree to our ',
       legalLink: 'Privacy policy'
     },
@@ -402,7 +400,7 @@ window.SHAR_LOCALES = {
     toast: {
       success: 'Request sent successfully!',
       sending: 'SENDING...',
-      submit: 'SEND REQUEST'
+      submit: 'SEND'
     }
   }
 };
