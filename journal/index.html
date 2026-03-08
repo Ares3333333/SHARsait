@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Журнал | SHAR Production</title>
     <meta name="description" content="Журнал SHAR Production: аналитика, режиссерские заметки и разборы кейсов о видеопроизводстве, ИИ, CGI и 3D.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,16 +34,25 @@
     <div class="section-inner">
         <h1 class="label" data-i18n="journal.label">ЖУРНАЛ / ТЕХНОЛОГИИ</h1>
         <p class="journal-intro" data-i18n="journal.intro">Аналитика, режиссерские заметки и разборы производственных решений студии SHAR Production.</p>
-        <div class="journal-page-grid">
-            <a href="/news-1.html" class="journal-card">
-                <div class="j-img-wrap"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800" alt="AI B2B" width="800" height="450" loading="lazy" decoding="async"></div>
-                <div class="j-content"><span class="j-tag" data-i18n="journal.art1Tag">Аналитика</span><h2 class="j-title" data-i18n="journal.art1Title">Генерация на ИИ в B2B: как снизить бюджет на компьютерную графику до 40%</h2></div>
-            </a>
-            <a href="/news-2.html" class="journal-card">
+        <!-- Featured article — editorial hero treatment -->
+        <a href="/news-1.html" class="journal-featured stagger-item">
+            <div class="j-img-wrap">
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200" alt="AI B2B" width="1200" height="675" loading="eager" decoding="async">
+            </div>
+            <div class="j-content">
+                <span class="j-tag" data-i18n="journal.art1Tag">Аналитика</span>
+                <h2 class="j-title" data-i18n="journal.art1Title">Генерация на ИИ в B2B: как снизить бюджет на компьютерную графику до 40%</h2>
+                <span class="j-read-cue">Читать →</span>
+            </div>
+        </a>
+
+        <!-- Remaining articles -->
+        <div class="journal-grid-rest">
+            <a href="/news-2.html" class="journal-card stagger-item">
                 <div class="j-img-wrap"><img src="https://images.unsplash.com/photo-1535016120720-40c7467d4aac?q=80&w=800" alt="Evo" width="800" height="450" loading="lazy" decoding="async"></div>
                 <div class="j-content"><span class="j-tag" data-i18n="journal.art2Tag">Мнение режиссера</span><h2 class="j-title" data-i18n="journal.art2Title">Эволюция видеопроизводства: от съёмок к 3D-мирам</h2></div>
             </a>
-            <a href="/news-3.html" class="journal-card">
+            <a href="/news-3.html" class="journal-card stagger-item">
                 <div class="j-img-wrap"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800" alt="Click" width="800" height="450" loading="lazy" decoding="async"></div>
                 <div class="j-content"><span class="j-tag" data-i18n="journal.art3Tag">Разбор кейса</span><h2 class="j-title" data-i18n="journal.art3Title">Как мы создали аниме-киберпанк вселенную за 14 дней</h2></div>
             </a>
