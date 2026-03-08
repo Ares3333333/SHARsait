@@ -33,35 +33,41 @@
     </div>
 </nav>
 
-<main class="section contact-page" style="padding-top: calc(var(--nav-height) + var(--space-3xl));">
+<main class="section contact-page" style="padding-top: calc(var(--nav-height) + var(--space-2xl));">
     <div class="section-inner contact-inner">
-        <h1 class="contact-heading"><span class="contact-heading-line" data-i18n="order.headingLine1">ОБСУДИТЬ</span> <span class="contact-heading-accent" data-i18n="order.headingLine2">ПРОЕКТ</span></h1>
-        <p class="contact-intro" data-i18n="order.intro">Оставьте короткий запрос, и команда SHAR свяжется с вами в ближайшее время.</p>
-        <div class="contact-direct">
-            <p class="contact-direct-label" data-i18n="order.directLabel">Прямые контакты</p>
-            <div class="contact-direct-grid">
-                <div class="c-item"><p data-i18n="order.phone">ТЕЛЕФОН</p><a href="tel:+79319815484" class="c-link">+7 931 981-54-84</a></div>
-                <div class="c-item"><p data-i18n="order.telegram">TELEGRAM</p><a href="https://t.me/actorars" target="_blank" rel="noopener noreferrer" class="c-link">@actorars</a></div>
-                <div class="c-item"><p data-i18n="order.email">EMAIL</p><a href="mailto:sharproduction@yandex.com" class="c-link">sharproduction@yandex.com</a></div>
-                <div class="c-item"><p data-i18n="order.address">АДРЕС</p><span class="c-address">Краснопресненская наб., 12, Москва</span></div>
-            </div>
-        </div>
-        <div class="contact-form-wrap">
-            <form id="contactForm" class="contact-form contact-form--minimal" aria-label="Краткая заявка">
-                <p class="contact-form-note" data-i18n="order.formNote">Оставьте имя и контакт — мы ответим в ближайшее время.</p>
-                <div class="contact-form-fields">
-                    <div class="contact-field">
-                        <label class="contact-label" for="contact-name" data-i18n="order.fieldName">ИМЯ</label>
-                        <input id="contact-name" name="name" type="text" class="form-input" data-i18n-placeholder="order.placeholderName" placeholder="Как к вам обращаться" required>
-                    </div>
-                    <div class="contact-field">
-                        <label class="contact-label" for="contact-reach" data-i18n="order.fieldContact">КОНТАКТ</label>
-                        <input id="contact-reach" name="reach" type="text" class="form-input" data-i18n-placeholder="order.placeholderContact" placeholder="Телефон, Telegram или email" required>
+        <div class="contact-card">
+            <aside class="contact-aside">
+                <h1 class="contact-heading"><span class="contact-heading-line" data-i18n="order.headingLine1">ОБСУДИТЬ</span> <span class="contact-heading-accent" data-i18n="order.headingLine2">ПРОЕКТ</span></h1>
+                <p class="contact-intro" data-i18n="order.intro">Оставьте короткий запрос, и команда SHAR свяжется с вами в ближайшее время.</p>
+                <div class="contact-direct">
+                    <p class="contact-direct-label" data-i18n="order.directLabel">Прямые контакты</p>
+                    <div class="contact-direct-grid">
+                        <div class="c-item"><p data-i18n="order.phone">ТЕЛЕФОН</p><a href="tel:+79319815484" class="c-link">+7 931 981-54-84</a></div>
+                        <div class="c-item"><p data-i18n="order.telegram">TELEGRAM</p><a href="https://t.me/actorars" target="_blank" rel="noopener noreferrer" class="c-link">@actorars</a></div>
+                        <div class="c-item"><p data-i18n="order.email">EMAIL</p><a href="mailto:sharproduction@yandex.com" class="c-link">sharproduction@yandex.com</a></div>
+                        <div class="c-item"><p data-i18n="order.address">АДРЕС</p><span class="c-address">Краснопресненская наб., 12, Москва</span></div>
                     </div>
                 </div>
-                <button type="submit" class="btn-minimal btn-submit cta-primary" data-i18n="order.submit">ОТПРАВИТЬ</button>
-                <p class="form-legal"><span data-i18n="order.legal">Нажимая кнопку, вы соглашаетесь с </span><a href="/privacy" class="form-legal-link" data-i18n="order.legalLink">Политикой конфиденциальности</a>.</p>
-            </form>
+            </aside>
+            <div class="contact-form-panel">
+                <div class="contact-form-wrap">
+                    <form id="contactForm" class="contact-form contact-form--minimal" aria-label="Краткая заявка">
+                        <p class="contact-form-note" data-i18n="order.formNote">Оставьте имя и контакт — мы ответим в ближайшее время.</p>
+                        <div class="contact-form-fields">
+                            <div class="contact-field">
+                                <label class="contact-label" for="contact-name" data-i18n="order.fieldName">ИМЯ</label>
+                                <input id="contact-name" name="name" type="text" class="form-input" data-i18n-placeholder="order.placeholderName" placeholder="Как к вам обращаться" required>
+                            </div>
+                            <div class="contact-field">
+                                <label class="contact-label" for="contact-reach" data-i18n="order.fieldContact">КОНТАКТ</label>
+                                <input id="contact-reach" name="reach" type="text" class="form-input" data-i18n-placeholder="order.placeholderContact" placeholder="Телефон, Telegram или email" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-minimal btn-submit cta-primary" data-i18n="order.submit">ОТПРАВИТЬ</button>
+                        <p class="form-legal"><span data-i18n="order.legal">Нажимая кнопку, вы соглашаетесь с </span><a href="/privacy" class="form-legal-link" data-i18n="order.legalLink">Политикой конфиденциальности</a>.</p>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </main>
