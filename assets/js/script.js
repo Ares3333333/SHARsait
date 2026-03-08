@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (heroVideoWrap && !heroVideoWrap.classList.contains('video-ready')) {
                 heroVideoWrap.classList.add('video-timeout');
             }
-        }, 4500);
+        }, 3200);
     }
 
     // 3. МОБИЛЬНОЕ МЕНЮ

@@ -88,6 +88,8 @@ window.SHAR_LOCALES = {
     order: {
       heading: 'ОБСУДИТЬ<br><span>ПРОЕКТ</span>',
       intro: 'Оставьте короткий запрос, и команда SHAR свяжется с вами в ближайшее время.',
+      formTitle: 'БЫСТРЫЙ ЗАПРОС',
+      formNote: 'Оставьте контакты и короткий бриф. Мы вернемся с первым ответом в ближайшее время.',
       phone: 'ТЕЛЕФОН',
       telegram: 'TELEGRAM',
       email: 'EMAIL',
@@ -101,7 +103,7 @@ window.SHAR_LOCALES = {
       placeholderCompany: 'Название бренда или проекта',
       placeholderEmail: 'Ваш e-mail',
       placeholderMsg: 'КРАТКО О ЗАДАЧЕ',
-      submit: 'ОТПРАВИТЬ ЗАЯВКУ',
+      submit: 'ОТПРАВИТЬ ЗАПРОС',
       legal: 'Нажимая кнопку, вы соглашаетесь с ',
       legalLink: 'Политикой конфиденциальности'
     },
@@ -193,7 +195,7 @@ window.SHAR_LOCALES = {
     toast: {
       success: 'Заявка успешно отправлена!',
       sending: 'ОТПРАВКА...',
-      submit: 'ОТПРАВИТЬ ЗАЯВКУ'
+      submit: 'ОТПРАВИТЬ ЗАПРОС'
     }
   },
   en: {
@@ -281,6 +283,8 @@ window.SHAR_LOCALES = {
     order: {
       heading: 'DISCUSS<br><span>PROJECT</span>',
       intro: 'Leave a short request and the SHAR team will contact you shortly.',
+      formTitle: 'QUICK REQUEST',
+      formNote: 'Share your contact details and a short brief. We will return with a first response shortly.',
       phone: 'PHONE',
       telegram: 'TELEGRAM',
       email: 'EMAIL',

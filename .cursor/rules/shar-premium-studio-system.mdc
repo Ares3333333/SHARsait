@@ -1,0 +1,142 @@
+# SHAR Production — Premium Studio System Rule
+
+You are working on SHAR Production, a premium AI + cinematic production studio website.
+
+## Core objective
+Turn the current site into a world-class premium studio website while preserving the business essence, existing content base, and current design direction.
+
+The site must feel:
+- premium
+- minimal
+- cinematic
+- expensive
+- restrained
+- technologically refined
+- not template-like
+- not Tilda-like
+- not generic SaaS
+
+## Non-negotiable priorities
+1. Working routes before polish.
+2. Working contact flow before decorative improvements.
+3. Consistent case system before micro-animation tweaks.
+4. Premium visual system only after the site architecture is stable.
+5. Performance must improve or stay stable after every change.
+
+## Current project realities
+- Homepage exists and is already partially improved.
+- /cases exists, but some case routes are broken on live.
+- /contact exists, but form UX is degraded and must be restored.
+- Journal currently has article pages, but needs a dedicated journal landing page.
+- Repo root contains production files mixed with planning/audit markdown files and should be cleaned.
+
+## Required product standards
+
+### 1. Cases system
+- Every case card must open a real working case page.
+- No 404 pages.
+- All case pages must follow one premium studio template.
+- Each case page must include:
+  - hero/title
+  - client/project
+  - service/category
+  - timing/scope
+  - business challenge
+  - approach/solution
+  - result
+  - proof metrics
+  - media/gallery
+  - premium CTA
+  - navigation back to all cases
+
+### 2. Contact flow
+- Contact must not dump users into a weak footer pattern.
+- Restore a real premium contact form.
+- Required inputs:
+  - name
+  - phone or Telegram
+  - optional company/project field
+  - message
+- Keep Telegram, email, and phone visible.
+- Keep privacy policy visible and correctly linked.
+- Contact UX must feel premium, minimal, direct, and intentional.
+
+### 3. Journal
+- Create a dedicated journal landing page.
+- Homepage may keep only journal previews.
+- Journal index must feel editorial, clean, and premium.
+- Existing article pages must remain and be reachable from a proper journal page.
+
+### 4. Buttons
+- Non-header buttons must look expensive and refined.
+- Remove cheap dark placeholder feel.
+- Use lighter surfaces, subtle hover fill, elegant borders, precise spacing.
+- Motion must be restrained and premium.
+- No childish glow.
+- No cheap gradients.
+- No dribbble gimmicks.
+
+### 5. Typography & logo
+- Typography must feel more premium, controlled, and cinematic.
+- Improve hierarchy, rhythm, spacing, and optical balance.
+- Refine SHAR Production wordmark spacing so it feels tighter and more branded.
+
+### 6. Hero/showreel
+- Improve perceived brightness/clarity if hero media feels too dark.
+- Improve load behavior and perceived performance.
+- Preserve cinematic restraint.
+
+### 7. Performance
+- Avoid unnecessary JS.
+- Avoid duplicate listeners and route mismatches.
+- Reduce layout thrashing and heavy handlers.
+- Keep landing pages lightweight.
+- Preserve smooth scrolling and responsiveness.
+
+## Visual direction
+Reference spirit only:
+- FutureDeluxe
+- Territory Studio
+- Framestore
+- BUCK
+
+Interpretation:
+- luxury minimal tech
+- cinematic restraint
+- premium motion/design studio
+- sparse, expensive, art-directed
+- dark but not muddy
+- polished but not flashy
+
+## Workflow rules
+Always work in this order:
+1. Audit the current state.
+2. Propose the smallest safe plan.
+3. Implement one bounded phase only.
+4. Run QA for that phase.
+5. Move to the next phase.
+
+Never do everything at once.
+
+## Scope control
+Do NOT:
+- rewrite business meaning
+- make it generic SaaS
+- make it noisy
+- add trendy junk
+- introduce heavy effects that hurt performance
+- break working routes while polishing visuals
+
+## Repo hygiene
+- Move planning/audit markdown files out of the production root into /docs/ai/ or /docs/planning/.
+- Remove junk files like .DS_Store from the repo.
+- Keep the production root clean and intentional.
+
+## Output format for every task
+1. Audit
+2. Safe implementation plan
+3. Applied changes
+4. QA result
+5. Remaining risks---
+alwaysApply: true
+---
