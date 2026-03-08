@@ -78,6 +78,9 @@ window.SHAR_LOCALES = {
     },
     journal: {
       label: 'ЖУРНАЛ / ТЕХНОЛОГИИ',
+      intro: 'Аналитика, режиссерские заметки и разборы производственных решений студии SHAR Production.',
+      viewAll: 'Все статьи в журнале →',
+      backToJournal: 'Вернуться в журнал',
       art1Tag: 'Аналитика',
       art1Title: 'Генерация на ИИ в B2B: как снизить бюджет на компьютерную графику до 40%',
       art2Tag: 'Мнение режиссера',
@@ -87,6 +90,9 @@ window.SHAR_LOCALES = {
     },
     order: {
       heading: 'ОБСУДИТЬ<br><span>ПРОЕКТ</span>',
+      headingLine1: 'ОБСУДИТЬ',
+      headingLine2: 'ПРОЕКТ',
+      directLabel: 'Прямые контакты',
       intro: 'Оставьте короткий запрос, и команда SHAR свяжется с вами в ближайшее время.',
       formTitle: 'БЫСТРЫЙ ЗАПРОС',
       formNote: 'Оставьте контакты и короткий бриф. Мы вернемся с первым ответом в ближайшее время.',
@@ -273,6 +279,9 @@ window.SHAR_LOCALES = {
     },
     journal: {
       label: 'JOURNAL / TECHNOLOGY',
+      intro: 'Analytics, director notes and case breakdowns from SHAR Production.',
+      viewAll: 'All journal articles →',
+      backToJournal: 'Back to journal',
       art1Tag: 'Analytics',
       art1Title: 'AI generation in B2B: how to cut CGI budget by 40%',
       art2Tag: 'Director\'s view',
@@ -282,6 +291,9 @@ window.SHAR_LOCALES = {
     },
     order: {
       heading: 'DISCUSS<br><span>PROJECT</span>',
+      headingLine1: 'DISCUSS',
+      headingLine2: 'PROJECT',
+      directLabel: 'Direct contact',
       intro: 'Leave a short request and the SHAR team will contact you shortly.',
       formTitle: 'QUICK REQUEST',
       formNote: 'Share your contact details and a short brief. We will return with a first response shortly.',

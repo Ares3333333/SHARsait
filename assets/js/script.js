@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { passive: true });
     }
 
-    // 2.1 HERO SHOWREEL READY STATE (faster perceived load)
+    // 2.1 HERO SHOWREEL READY STATE — плавный переход по load, fallback по таймауту
     const heroShowreel = document.getElementById('hero-showreel');
     if (heroShowreel) {
         const heroVideoWrap = heroShowreel.closest('.video-bg');
@@ -123,12 +123,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (heroVideoWrap) heroVideoWrap.classList.add('video-ready');
         };
         heroShowreel.addEventListener('load', markReady, { once: true });
-        // Fallback: hide loader even if Vimeo event is delayed.
         setTimeout(() => {
             if (heroVideoWrap && !heroVideoWrap.classList.contains('video-ready')) {
                 heroVideoWrap.classList.add('video-timeout');
             }
-        }, 3200);
+        }, 2800);
     }
 
     // 3. МОБИЛЬНОЕ МЕНЮ
