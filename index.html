@@ -38,7 +38,7 @@
     <div class="nav-right" id="nav-links">
         <a href="/cases/" class="nav-link nav-closer smart-close" data-i18n="nav.projects">Кейсы</a>
         <a href="#team" class="nav-link nav-closer smart-close" data-i18n="nav.team">Команда</a>
-        <a href="#pricing" class="nav-link nav-closer smart-close" data-i18n="nav.pricing">Стоимость</a>
+        <a href="/pricing/" class="nav-link nav-closer smart-close" data-i18n="nav.pricing">Стоимость</a>
         <a href="/journal/" class="nav-link nav-closer smart-close" data-i18n="nav.journal">Журнал</a>
         <span class="lang-switcher" id="lang-switcher" aria-label="Language"><button type="button" class="lang-btn active" data-lang="ru">RU</button><button type="button" class="lang-btn" data-lang="en">EN</button></span>
         <div class="nav-actions">
@@ -88,33 +88,57 @@
     <div class="hero-content fade-in-section">
         <h1><span>SHAR</span> <span class="hero-production">PRODUCTION</span></h1>
         <p data-i18n="hero.subtitle">Кинематографическое производство с ИИ. Визуальные миры будущего — магия кино и скорость нейросетей.</p>
+        <div class="hero-actions">
+            <a href="/contact" class="btn-minimal cta-primary" data-i18n="hero.ctaPrimary">Запустить проект</a>
+            <a href="/cases/" class="btn-minimal cta-secondary" data-i18n="hero.ctaSecondary">Смотреть кейсы</a>
+        </div>
     </div>
 </section>
 
-<section class="manifesto section fade-in-section">
+<section id="for-whom" class="manifesto section fade-in-section">
     <div class="section-inner section-inner--manifesto">
-        <div class="manifesto-title" data-i18n="manifesto.title">О СТУДИИ</div>
+        <div class="manifesto-title" data-i18n="forWhom.label">ДЛЯ КОГО МЫ РАБОТАЕМ</div>
         <div>
-            <h2 class="manifesto-text" data-i18n-html="manifesto.heading">Мы решаем <span>сверхсложные задачи</span> на стыке классического кино и технологий.</h2>
-            <p class="manifesto-sub" data-i18n-html="manifesto.sub">SHAR Production — команда кинематографистов с авторским подходом. Премиальный контент через синтез <span>ИИ, компьютерной графики и 3D</span> с классическим видеопроизводством. Проекты любой сложности с сохранением глубины кадра и эстетики.</p>
+            <h2 class="manifesto-text" data-i18n-html="forWhom.heading">Мы работаем с брендами, которым нужен <span>дорогой визуальный язык</span> и управляемый продакшн-результат.</h2>
+            <p class="manifesto-sub" data-i18n="forWhom.sub">SHAR Production подключается там, где нужно быстро запускать контент, удерживая кинематографический уровень и коммерческую точность.</p>
+            <div class="for-whom-grid">
+                <article class="pitch-card stagger-item">
+                    <h3 data-i18n="forWhom.item1Title">Маркетинг-команды брендов</h3>
+                    <p data-i18n="forWhom.item1Text">Когда важен премиальный визуал, скорость и понятный процесс согласования.</p>
+                </article>
+                <article class="pitch-card stagger-item">
+                    <h3 data-i18n="forWhom.item2Title">Агентства и креативные партнеры</h3>
+                    <p data-i18n="forWhom.item2Text">Когда нужен production-партнер, который усилит идею и доведет ее до релиза.</p>
+                </article>
+                <article class="pitch-card stagger-item">
+                    <h3 data-i18n="forWhom.item3Title">B2B и технологические компании</h3>
+                    <p data-i18n="forWhom.item3Text">Когда сложный продукт нужно объяснить визуально, точно и убедительно.</p>
+                </article>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="social-proof section fade-in-section">
+<section id="what-you-get" class="section fade-in-section">
     <div class="section-inner">
-        <h2 class="label" data-i18n="stats.labelTrust">ДОВЕРИЕ В ЦИФРАХ</h2>
-        <div class="stats-grid">
-            <div class="stat-item stagger-item"><div class="stat-number" data-count="50">50</div><div class="stat-label" data-i18n="stats.projects">Проектов</div></div>
-            <div class="stat-item stagger-item"><div class="stat-number" data-count="15">15</div><div class="stat-label" data-i18n="stats.countries">Стран</div></div>
-            <div class="stat-item stagger-item"><div class="stat-number" data-count="99">99%</div><div class="stat-label" data-i18n="stats.return">% Возврата</div></div>
-        </div>
-        <h2 class="label label-spaced" data-i18n="stats.labelClients">КЛИЕНТЫ</h2>
-        <div class="clients-grid">
-            <div class="client-logo stagger-item">PINSKIY</div>
-            <div class="client-logo stagger-item">CLICK</div>
-            <div class="client-logo stagger-item">M-TECHNO</div>
-            <div class="client-logo stagger-item">YUGA</div>
+        <h2 class="label" data-i18n="outcomes.label">ЧТО ВЫ ПОЛУЧАЕТЕ</h2>
+        <div class="outcomes-grid">
+            <article class="outcome-item stagger-item">
+                <h3 data-i18n="outcomes.item1Title">Результат для продаж и бренда</h3>
+                <p data-i18n="outcomes.item1Text">Контент, который повышает воспринимаемую ценность продукта и помогает команде продаж.</p>
+            </article>
+            <article class="outcome-item stagger-item">
+                <h3 data-i18n="outcomes.item2Title">Кинематографическое качество</h3>
+                <p data-i18n="outcomes.item2Text">Сильная режиссура, выразительный кадр и премиальная визуальная дисциплина на каждом этапе.</p>
+            </article>
+            <article class="outcome-item stagger-item">
+                <h3 data-i18n="outcomes.item3Title">Быстрый production-цикл</h3>
+                <p data-i18n="outcomes.item3Text">Собранный пайплайн AI/CGI/production, который ускоряет выпуск без потери класса.</p>
+            </article>
+            <article class="outcome-item stagger-item">
+                <h3 data-i18n="outcomes.item4Title">Партнерский подход</h3>
+                <p data-i18n="outcomes.item4Text">Понятная коммуникация, прозрачные этапы и фокус на ваших бизнес-целях.</p>
+            </article>
         </div>
     </div>
 </section>
@@ -143,49 +167,86 @@
         <div class="work-more">
             <a href="/cases/" class="btn-minimal cta-secondary" data-i18n="work.viewAllCases">Все кейсы →</a>
         </div>
+        <div class="work-conversion-strip">
+            <p class="work-conversion-text" data-i18n="work.conversionText">Если нужен такой же уровень визуала под вашу бизнес-задачу — начнем с короткого брифа.</p>
+            <a href="/contact" class="btn-minimal cta-primary" data-i18n="work.conversionBtn">Обсудить ваш проект</a>
+        </div>
     </div>
 </section>
 
-<section id="team" class="section fade-in-section">
+<section id="trust" class="social-proof section fade-in-section">
     <div class="section-inner">
-        <h2 class="label" data-i18n="team.label">КОМАНДА</h2>
+        <h2 class="label" data-i18n="stats.labelTrust">ПОЧЕМУ НАМ ДОВЕРЯЮТ</h2>
+        <div class="stats-grid">
+            <div class="stat-item stagger-item"><div class="stat-number" data-count="50">50</div><div class="stat-label" data-i18n="stats.projects">Проектов</div></div>
+            <div class="stat-item stagger-item"><div class="stat-number" data-count="15">15</div><div class="stat-label" data-i18n="stats.countries">Стран</div></div>
+            <div class="stat-item stagger-item"><div class="stat-number" data-count="99">99%</div><div class="stat-label" data-i18n="stats.return">% Возврата</div></div>
+        </div>
+        <h2 class="label label-spaced" data-i18n="stats.labelClients">КЛИЕНТЫ</h2>
+        <div class="clients-grid">
+            <div class="client-logo stagger-item">PINSKIY</div>
+            <div class="client-logo stagger-item">CLICK</div>
+            <div class="client-logo stagger-item">M-TECHNO</div>
+            <div class="client-logo stagger-item">YUGA</div>
+        </div>
+        <h2 id="team" class="label label-spaced" data-i18n="team.label">КОМАНДА</h2>
         <div class="horizontal-scroll">
-        <div class="team-member"><div class="team-member-photo"></div><h4>Арсений Александров</h4><p data-i18n="team.role1">Продюсер</p></div>
-        <div class="team-member"><div class="team-member-photo"></div><h4>Саша Шер</h4><p data-i18n="team.role2">Руководитель производства. Режиссёр</p></div>
-        <div class="team-member"><div class="team-member-photo"></div><h4>Александра Черняева</h4><p data-i18n="team.role3">Продюсер</p></div>
-        <div class="team-member"><div class="team-member-photo"></div><h4>Федор Невров</h4><p data-i18n="team.role4">Оператор-постановщик</p></div>
-        <div class="team-member"><div class="team-member-photo"></div><h4>Владислава Хвесюк</h4><p data-i18n="team.role5">Менеджер проектов</p></div>
-        <div class="team-member"><div class="team-member-photo"></div><h4>SHAR ИИ-агент</h4><p data-i18n="team.role6">Архитектор ИИ</p></div>
+            <div class="team-member"><div class="team-member-photo"></div><h4>Арсений Александров</h4><p data-i18n="team.role1">Продюсер</p></div>
+            <div class="team-member"><div class="team-member-photo"></div><h4>Саша Шер</h4><p data-i18n="team.role2">Руководитель производства. Режиссёр</p></div>
+            <div class="team-member"><div class="team-member-photo"></div><h4>Александра Черняева</h4><p data-i18n="team.role3">Продюсер</p></div>
+            <div class="team-member"><div class="team-member-photo"></div><h4>Федор Невров</h4><p data-i18n="team.role4">Оператор-постановщик</p></div>
+            <div class="team-member"><div class="team-member-photo"></div><h4>Владислава Хвесюк</h4><p data-i18n="team.role5">Менеджер проектов</p></div>
+            <div class="team-member"><div class="team-member-photo"></div><h4>SHAR ИИ-агент</h4><p data-i18n="team.role6">Архитектор ИИ</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="how-we-work" class="section fade-in-section">
+    <div class="section-inner">
+        <h2 class="label" data-i18n="process.label">КАК МЫ РАБОТАЕМ</h2>
+        <div class="process-grid">
+            <article class="process-step stagger-item">
+                <span class="process-index">01</span>
+                <h3 data-i18n="process.step1Title">Бриф и задачи</h3>
+                <p data-i18n="process.step1Text">Фиксируем бизнес-цель, формат, сроки и KPI проекта.</p>
+            </article>
+            <article class="process-step stagger-item">
+                <span class="process-index">02</span>
+                <h3 data-i18n="process.step2Title">Концепт и пайплайн</h3>
+                <p data-i18n="process.step2Text">Собираем визуальную концепцию и production-сценарий под вашу задачу.</p>
+            </article>
+            <article class="process-step stagger-item">
+                <span class="process-index">03</span>
+                <h3 data-i18n="process.step3Title">Производство</h3>
+                <p data-i18n="process.step3Text">Съемка/CGI/AI-производство с контролем качества на каждом этапе.</p>
+            </article>
+            <article class="process-step stagger-item">
+                <span class="process-index">04</span>
+                <h3 data-i18n="process.step4Title">Релиз и поддержка</h3>
+                <p data-i18n="process.step4Text">Передаем финальные материалы и сопровождаем запуск.</p>
+            </article>
         </div>
     </div>
 </section>
 
 <section id="pricing" class="section fade-in-section">
-    <div class="section-inner">
+    <div class="section-inner pricing-teaser">
         <h2 class="label" data-i18n="pricing.label">СТОИМОСТЬ</h2>
-        <div class="pricing-grid">
-        <div class="price-card stagger-item">
-            <h3 data-i18n="pricing.pack1Title">01 / Интеграция</h3><div class="val" data-i18n="pricing.pack1Val">от 150 000 ₽</div>
-            <ul><li data-i18n="pricing.pack1Li1">Элементы ИИ в классическое видео</li><li data-i18n="pricing.pack1Li2">Сложные фоны и компьютерная графика</li><li data-i18n="pricing.pack1Li3">Срок: до 5 рабочих дней</li></ul>
-            <a href="/contact" class="btn-minimal cta-secondary" data-i18n="pricing.pack1Btn">Заказать проект</a>
-        </div>
-        <div class="price-card premium-pack stagger-item">
-            <h3 data-i18n="pricing.pack2Title">02 / Полное производство</h3><div class="val" data-i18n="pricing.pack2Val">от 350 000 ₽</div>
-            <ul><li data-i18n="pricing.pack2Li1">Ролик «под ключ»: ИИ и режиссура</li><li data-i18n="pricing.pack2Li2">Сценарий и концепция</li><li data-i18n="pricing.pack2Li3">Срок: до 10 рабочих дней</li></ul>
-            <a href="/contact" class="btn-minimal premium-btn cta-secondary" data-i18n="pricing.pack2Btn">Заказать проект</a>
-        </div>
-        <div class="price-card stagger-item">
-            <h3 data-i18n="pricing.pack3Title">03 / Корпоративный уровень</h3><div class="val" data-i18n="pricing.pack3Val">Индивидуально</div>
-            <ul><li data-i18n="pricing.pack3Li1">Виртуальные представители бренда</li><li data-i18n="pricing.pack3Li2">Кинотеатральное качество и визуальные эффекты</li><li data-i18n="pricing.pack3Li3">Индивидуальный процесс</li></ul>
-            <a href="/contact" class="btn-minimal cta-primary" data-i18n="pricing.pack3Btn">Обсудить проект</a>
-        </div>
-        </div>
+        <h3 class="pricing-teaser-title" data-i18n="pricing.teaserTitle">Форматы работы от точечной интеграции до полного производства.</h3>
+        <p class="pricing-teaser-text" data-i18n="pricing.teaserText">Подробные форматы, состав работ и логика бюджета — на отдельной странице.</p>
+        <ul class="pricing-teaser-list">
+            <li data-i18n="pricing.teaserLi1">Интеграция AI/CGI в текущий контент</li>
+            <li data-i18n="pricing.teaserLi2">Full production под ключ</li>
+            <li data-i18n="pricing.teaserLi3">Enterprise-формат с индивидуальным пайплайном</li>
+        </ul>
+        <a href="/pricing/" class="btn-minimal cta-secondary" data-i18n="pricing.teaserBtn">Смотреть форматы и стоимость →</a>
     </div>
 </section>
 
 <section id="journal" class="section fade-in-section">
     <div class="section-inner">
         <h2 class="label" data-i18n="journal.label">ЖУРНАЛ / ТЕХНОЛОГИИ</h2>
+        <p class="journal-teaser-intro" data-i18n="journal.teaserIntro">Экспертный слой SHAR: аналитика решений, режиссерские заметки и прикладные разборы production-практики.</p>
         <div class="horizontal-scroll">
         <a href="/news-1.html" class="journal-card">
             <div class="j-img-wrap"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800" alt="AI B2B" width="800" height="450" loading="lazy" decoding="async"></div>
@@ -209,8 +270,8 @@
 <section id="cta-block" class="section fade-in-section">
     <div class="section-inner">
         <h2 class="label" data-i18n="nav.contact">СВЯЗАТЬСЯ</h2>
-        <p class="cta-block-text" data-i18n="cta.toContact">Обсудить проект, получить расчёт или связаться с командой — на отдельной странице контактов.</p>
-        <a href="/contact" class="btn-minimal cta-primary cta-block-btn" data-i18n="cta.discuss">Обсудить проект</a>
+        <p class="cta-block-text" data-i18n="cta.toContact">Оставьте краткий запрос — мы предложим формат работы, сроки и следующий шаг по проекту.</p>
+        <a href="/contact" class="btn-minimal cta-primary cta-block-btn" data-i18n="cta.discuss">Запустить обсуждение проекта</a>
     </div>
 </section>
 

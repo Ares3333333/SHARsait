@@ -23,7 +23,7 @@
     <div class="nav-right" id="nav-links">
         <a href="/cases/" class="nav-link nav-closer" data-i18n="nav.projects">Кейсы</a>
         <a href="/#team" class="nav-link nav-closer" data-i18n="nav.team">Команда</a>
-        <a href="/#pricing" class="nav-link nav-closer" data-i18n="nav.pricing">Стоимость</a>
+        <a href="/pricing/" class="nav-link nav-closer" data-i18n="nav.pricing">Стоимость</a>
         <a href="/journal/" class="nav-link nav-closer" data-i18n="nav.journal">Журнал</a>
         <span class="lang-switcher" id="lang-switcher" aria-label="Language"><button type="button" class="lang-btn active" data-lang="ru">RU</button><button type="button" class="lang-btn" data-lang="en">EN</button></span>
         <div class="nav-actions">
@@ -35,9 +35,18 @@
 
 <main class="section contact-page" style="padding-top: calc(var(--nav-height) + var(--space-2xl));">
     <div class="section-inner contact-inner">
+        <div class="contact-decision-intro">
+            <h1 class="contact-decision-title" data-i18n="order.decisionTitle">Старт проекта с SHAR Production</h1>
+            <p class="contact-decision-text" data-i18n="order.decisionText">Опишите задачу в двух строках. Мы предложим формат работы, ориентир по срокам и следующий шаг без лишней бюрократии.</p>
+            <div class="contact-next-steps">
+                <div class="contact-next-step"><span>01</span><p data-i18n="order.next1">Короткий бриф по задаче</p></div>
+                <div class="contact-next-step"><span>02</span><p data-i18n="order.next2">Формат, сроки и команда</p></div>
+                <div class="contact-next-step"><span>03</span><p data-i18n="order.next3">Старт производства</p></div>
+            </div>
+        </div>
         <div class="contact-card">
             <aside class="contact-aside">
-                <h1 class="contact-heading"><span class="contact-heading-line" data-i18n="order.headingLine1">ОБСУДИТЬ</span> <span class="contact-heading-accent" data-i18n="order.headingLine2">ПРОЕКТ</span></h1>
+                <h2 class="contact-heading"><span class="contact-heading-line" data-i18n="order.headingLine1">ПРОЕКТ</span> <span class="contact-heading-accent" data-i18n="order.headingLine2">КОНФИДЕНЦИАЛЬНО</span></h2>
                 <p class="contact-intro" data-i18n="order.intro">Оставьте короткий запрос, и команда SHAR свяжется с вами в ближайшее время.</p>
                 <div class="contact-direct">
                     <p class="contact-direct-label" data-i18n="order.directLabel">Прямые контакты</p>
@@ -68,6 +77,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn-minimal btn-submit cta-primary" data-i18n="order.submit">ОТПРАВИТЬ</button>
+                        <p class="contact-response-time" data-i18n="order.responseTime">Обычно отвечаем в течение 24 часов.</p>
                         <p class="form-legal"><span data-i18n="order.legal">Нажимая кнопку, вы соглашаетесь с </span><a href="/privacy" class="form-legal-link" data-i18n="order.legalLink">Политикой конфиденциальности</a>.</p>
                     </form>
                 </div>

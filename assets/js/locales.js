@@ -17,12 +17,36 @@ window.SHAR_LOCALES = {
       phone: 'ТЕЛЕФОН'
     },
     hero: {
-      subtitle: 'Кинематографическое производство с ИИ. Визуальные миры будущего — магия кино и скорость нейросетей.'
+      subtitle: 'Кинематографическое производство с ИИ. Визуальные миры будущего — магия кино и скорость нейросетей.',
+      ctaPrimary: 'Запустить проект',
+      ctaSecondary: 'Смотреть кейсы'
     },
     manifesto: {
       title: 'О СТУДИИ',
       heading: 'Мы решаем <span>сверхсложные задачи</span> на стыке классического кино и технологий.',
       sub: 'SHAR Production — команда кинематографистов с авторским подходом. Премиальный контент через синтез <span>ИИ, компьютерной графики и 3D</span> с классическим видеопроизводством. Проекты любой сложности с сохранением глубины кадра и эстетики.'
+    },
+    forWhom: {
+      label: 'ДЛЯ КОГО МЫ РАБОТАЕМ',
+      heading: 'Мы работаем с брендами, которым нужен <span>дорогой визуальный язык</span> и управляемый продакшн-результат.',
+      sub: 'SHAR Production подключается там, где нужно быстро запускать контент, удерживая кинематографический уровень и коммерческую точность.',
+      item1Title: 'Маркетинг-команды брендов',
+      item1Text: 'Когда важен премиальный визуал, скорость и понятный процесс согласования.',
+      item2Title: 'Агентства и креативные партнеры',
+      item2Text: 'Когда нужен production-партнер, который усилит идею и доведет ее до релиза.',
+      item3Title: 'B2B и технологические компании',
+      item3Text: 'Когда сложный продукт нужно объяснить визуально, точно и убедительно.'
+    },
+    outcomes: {
+      label: 'ЧТО ВЫ ПОЛУЧАЕТЕ',
+      item1Title: 'Результат для продаж и бренда',
+      item1Text: 'Контент, который повышает воспринимаемую ценность продукта и помогает команде продаж.',
+      item2Title: 'Кинематографическое качество',
+      item2Text: 'Сильная режиссура, выразительный кадр и премиальная визуальная дисциплина на каждом этапе.',
+      item3Title: 'Быстрый production-цикл',
+      item3Text: 'Собранный пайплайн AI/CGI/production, который ускоряет выпуск без потери класса.',
+      item4Title: 'Партнерский подход',
+      item4Text: 'Понятная коммуникация, прозрачные этапы и фокус на ваших бизнес-целях.'
     },
     stats: {
       labelTrust: 'ДОВЕРИЕ В ЦИФРАХ',
@@ -35,6 +59,8 @@ window.SHAR_LOCALES = {
       label: 'ИЗБРАННЫЕ КЕЙСЫ',
       allCases: '← Все кейсы',
       viewAllCases: 'Все кейсы →',
+      conversionText: 'Если нужен такой же уровень визуала под вашу бизнес-задачу — начнем с короткого брифа.',
+      conversionBtn: 'Обсудить ваш проект',
       watchCase: 'СМОТРЕТЬ КЕЙС',
       showMore: 'РАЗВЕРНУТЬ ПОРТФОЛИО ↓',
       case1Tag: 'ИИ, производство. Гастрономия',
@@ -55,30 +81,64 @@ window.SHAR_LOCALES = {
       role5: 'Менеджер проектов',
       role6: 'Архитектор ИИ'
     },
+    process: {
+      label: 'КАК МЫ РАБОТАЕМ',
+      step1Title: 'Бриф и задачи',
+      step1Text: 'Фиксируем бизнес-цель, формат, сроки и KPI проекта.',
+      step2Title: 'Концепт и пайплайн',
+      step2Text: 'Собираем визуальную концепцию и production-сценарий под вашу задачу.',
+      step3Title: 'Производство',
+      step3Text: 'Съемка/CGI/AI-производство с контролем качества на каждом этапе.',
+      step4Title: 'Релиз и поддержка',
+      step4Text: 'Передаем финальные материалы и сопровождаем запуск.'
+    },
     pricing: {
       label: 'СТОИМОСТЬ',
+      pageIntro: 'Мы работаем в трех форматах: от точечной AI-интеграции до полного production-процесса. Каждый формат адаптируется под задачу и сроки.',
+      teaserTitle: 'Форматы работы от точечной интеграции до полного производства.',
+      teaserText: 'Подробные форматы, состав работ и логика бюджета — на отдельной странице.',
+      teaserLi1: 'Интеграция AI/CGI в текущий контент',
+      teaserLi2: 'Full production под ключ',
+      teaserLi3: 'Enterprise-формат с индивидуальным пайплайном',
+      teaserBtn: 'Смотреть форматы и стоимость →',
       pack1Title: '01 / Интеграция',
       pack1Val: 'от 150 000 ₽',
+      pack1Fit: 'Для брендов, которым нужно быстро усилить существующий контент AI/CGI-слоем.',
       pack1Li1: 'Элементы ИИ в классическое видео',
       pack1Li2: 'Сложные фоны и компьютерная графика',
       pack1Li3: 'Срок: до 5 рабочих дней',
       pack1Btn: 'Заказать проект',
       pack2Title: '02 / Полное производство',
       pack2Val: 'от 350 000 ₽',
+      pack2Fit: 'Для компаний, которым нужен ролик под ключ с концептом, продакшном и финальной сдачей.',
       pack2Li1: 'Ролик «под ключ»: ИИ и режиссура',
       pack2Li2: 'Сценарий и концепция',
       pack2Li3: 'Срок: до 10 рабочих дней',
       pack2Btn: 'Заказать проект',
       pack3Title: '03 / Корпоративный уровень',
       pack3Val: 'Индивидуально',
+      pack3Fit: 'Для enterprise-задач с несколькими форматами, сложным пайплайном и длительным циклом.',
       pack3Li1: 'Виртуальные представители бренда',
       pack3Li2: 'Кинотеатральное качество и визуальные эффекты',
       pack3Li3: 'Индивидуальный процесс',
-      pack3Btn: 'Обсудить проект'
+      pack3Btn: 'Обсудить проект',
+      startTitle: 'Как стартовать проект',
+      startText: 'Отправьте короткий запрос с задачей и каналом связи. Мы предложим формат работы, ориентир по срокам и следующий шаг.',
+      clarityTitle: 'Что входит в любой формат',
+      clarity1Title: 'Стратегическая рамка',
+      clarity1Text: 'Фокус на задаче бизнеса, а не только на красивой картинке.',
+      clarity2Title: 'Контроль качества',
+      clarity2Text: 'Режиссерский и продюсерский контроль на всех этапах production.',
+      clarity3Title: 'Прозрачная коммуникация',
+      clarity3Text: 'Понятные этапы, согласования и фиксированные точки решений.'
     },
     journal: {
       label: 'ЖУРНАЛ / ТЕХНОЛОГИИ',
       intro: 'Аналитика, режиссерские заметки и разборы производственных решений студии SHAR Production.',
+      teaserIntro: 'Экспертный слой SHAR: аналитика решений, режиссерские заметки и прикладные разборы production-практики.',
+      auth1: 'реализованных проектов',
+      auth2: 'стран в портфеле',
+      auth3: 'прикладная экспертиза',
       viewAll: 'Все статьи в журнале →',
       backToJournal: 'Вернуться в журнал',
       art1Tag: 'Аналитика',
@@ -90,8 +150,13 @@ window.SHAR_LOCALES = {
     },
     order: {
       heading: 'ОБСУДИТЬ<br><span>ПРОЕКТ</span>',
-      headingLine1: 'ОБСУДИТЬ',
-      headingLine2: 'ПРОЕКТ',
+      headingLine1: 'ПРОЕКТ',
+      headingLine2: 'КОНФИДЕНЦИАЛЬНО',
+      decisionTitle: 'Старт проекта с SHAR Production',
+      decisionText: 'Опишите задачу в двух строках. Мы предложим формат работы, ориентир по срокам и следующий шаг без лишней бюрократии.',
+      next1: 'Короткий бриф по задаче',
+      next2: 'Формат, сроки и команда',
+      next3: 'Старт производства',
       directLabel: 'Прямые контакты',
       intro: 'Оставьте короткий запрос, и команда SHAR свяжется с вами в ближайшее время.',
       formTitle: 'ЗАПРОС',
@@ -109,12 +174,13 @@ window.SHAR_LOCALES = {
       fieldMessageOptional: 'Сообщение (необязательно)',
       placeholderMessageOptional: 'Кратко о задаче',
       submit: 'ОТПРАВИТЬ',
+      responseTime: 'Обычно отвечаем в течение 24 часов.',
       legal: 'Нажимая кнопку, вы соглашаетесь с ',
       legalLink: 'Политикой конфиденциальности'
     },
     cta: {
-      toContact: 'Обсудить проект, получить расчёт или связаться с командой — на отдельной странице контактов.',
-      discuss: 'Обсудить проект'
+      toContact: 'Оставьте краткий запрос — мы предложим формат работы, сроки и следующий шаг по проекту.',
+      discuss: 'Запустить обсуждение проекта'
     },
     footer: {
       copyright: '© 2026 SHAR PRODUCTION'
@@ -217,12 +283,36 @@ window.SHAR_LOCALES = {
       phone: 'PHONE'
     },
     hero: {
-      subtitle: 'Cinematic production with AI. Visual worlds of the future — the magic of film and the speed of neural networks.'
+      subtitle: 'Cinematic production with AI. Visual worlds of the future — the magic of film and the speed of neural networks.',
+      ctaPrimary: 'Start project',
+      ctaSecondary: 'View cases'
     },
     manifesto: {
       title: 'ABOUT THE STUDIO',
       heading: 'We solve <span>complex challenges</span> at the intersection of classic cinema and technology.',
       sub: 'SHAR Production is a team of filmmakers with an authorial approach. Premium content through the synthesis of <span>AI, CGI and 3D</span> with classic video production. Projects of any complexity with depth of frame and aesthetics preserved.'
+    },
+    forWhom: {
+      label: 'FOR WHOM WE WORK',
+      heading: 'We work with brands that need an <span>expensive visual language</span> and a controlled production outcome.',
+      sub: 'SHAR Production steps in when content must launch fast while keeping cinematic quality and commercial precision.',
+      item1Title: 'In-house brand marketing teams',
+      item1Text: 'When premium visuals, speed and a clear approval process are critical.',
+      item2Title: 'Agencies and creative partners',
+      item2Text: 'When you need a production partner to elevate the idea and ship it confidently.',
+      item3Title: 'B2B and tech companies',
+      item3Text: 'When a complex product must be explained visually, clearly and convincingly.'
+    },
+    outcomes: {
+      label: 'WHAT YOU GET',
+      item1Title: 'Sales and brand impact',
+      item1Text: 'Content that raises perceived product value and supports your sales team.',
+      item2Title: 'Cinematic quality',
+      item2Text: 'Strong direction, expressive framing and premium visual discipline at every stage.',
+      item3Title: 'Fast production cycle',
+      item3Text: 'A combined AI/CGI/production pipeline that speeds up delivery without losing class.',
+      item4Title: 'Partner-level collaboration',
+      item4Text: 'Clear communication, transparent stages and focus on your business goals.'
     },
     stats: {
       labelTrust: 'TRUST IN NUMBERS',
@@ -235,6 +325,8 @@ window.SHAR_LOCALES = {
       label: 'SELECTED CASES',
       allCases: '← All cases',
       viewAllCases: 'All cases →',
+      conversionText: 'If you need this level of visual quality for your business goal — let us begin with a short brief.',
+      conversionBtn: 'Discuss your project',
       watchCase: 'WATCH CASE',
       showMore: 'EXPAND PORTFOLIO ↓',
       case1Tag: 'AI, production. Food',
@@ -255,30 +347,64 @@ window.SHAR_LOCALES = {
       role5: 'Project manager',
       role6: 'AI architect'
     },
+    process: {
+      label: 'HOW WE WORK',
+      step1Title: 'Brief and goals',
+      step1Text: 'We lock business goal, format, timeline and project KPIs.',
+      step2Title: 'Concept and pipeline',
+      step2Text: 'We build a visual concept and production scenario for your task.',
+      step3Title: 'Production',
+      step3Text: 'Shoot/CGI/AI production with quality control at each stage.',
+      step4Title: 'Release and support',
+      step4Text: 'We deliver final assets and support launch.'
+    },
     pricing: {
       label: 'PRICING',
+      pageIntro: 'We work in three formats: from focused AI integration to full production. Each format is tailored to your goal and timeline.',
+      teaserTitle: 'Work formats from focused integration to full production.',
+      teaserText: 'Detailed formats, scope and budget logic are on a dedicated page.',
+      teaserLi1: 'AI/CGI integration into existing content',
+      teaserLi2: 'Turnkey full production',
+      teaserLi3: 'Enterprise format with a custom pipeline',
+      teaserBtn: 'View formats and pricing →',
       pack1Title: '01 / Integration',
       pack1Val: 'from 150,000 ₽',
+      pack1Fit: 'For brands that need to quickly enhance existing content with AI/CGI.',
       pack1Li1: 'AI elements in classic video',
       pack1Li2: 'Complex backgrounds and CGI',
       pack1Li3: 'Delivery: up to 5 working days',
       pack1Btn: 'Order project',
       pack2Title: '02 / Full production',
       pack2Val: 'from 350,000 ₽',
+      pack2Fit: 'For teams that need a turnkey film with concept, production and final delivery.',
       pack2Li1: 'Turnkey spot: AI and direction',
       pack2Li2: 'Script and concept',
       pack2Li3: 'Delivery: up to 10 working days',
       pack2Btn: 'Order project',
       pack3Title: '03 / Enterprise',
       pack3Val: 'Custom',
+      pack3Fit: 'For enterprise workflows with multiple formats, complex pipelines and longer cycles.',
       pack3Li1: 'Virtual brand ambassadors',
       pack3Li2: 'Theatrical quality and VFX',
       pack3Li3: 'Custom pipeline',
-      pack3Btn: 'Discuss project'
+      pack3Btn: 'Discuss project',
+      startTitle: 'How to start',
+      startText: 'Send a short request with your task and contact channel. We will suggest the format, timeline estimate and next step.',
+      clarityTitle: 'What is included in every format',
+      clarity1Title: 'Strategic framing',
+      clarity1Text: 'Focus on business objective, not just visual aesthetics.',
+      clarity2Title: 'Quality control',
+      clarity2Text: 'Director and producer control across all production stages.',
+      clarity3Title: 'Transparent communication',
+      clarity3Text: 'Clear stages, approvals and fixed decision points.'
     },
     journal: {
       label: 'JOURNAL / TECHNOLOGY',
       intro: 'Analytics, director notes and case breakdowns from SHAR Production.',
+      teaserIntro: 'SHAR expert layer: practical analysis, director notes and production breakdowns.',
+      auth1: 'completed projects',
+      auth2: 'countries served',
+      auth3: 'applied expertise',
       viewAll: 'All journal articles →',
       backToJournal: 'Back to journal',
       art1Tag: 'Analytics',
@@ -290,8 +416,13 @@ window.SHAR_LOCALES = {
     },
     order: {
       heading: 'DISCUSS<br><span>PROJECT</span>',
-      headingLine1: 'DISCUSS',
-      headingLine2: 'PROJECT',
+      headingLine1: 'PROJECT',
+      headingLine2: 'CONFIDENTIAL',
+      decisionTitle: 'Start your project with SHAR Production',
+      decisionText: 'Describe your task in two lines. We will suggest the work format, timeline estimate and a clear next step.',
+      next1: 'Short project brief',
+      next2: 'Format, timeline and team',
+      next3: 'Production kickoff',
       directLabel: 'Direct contact',
       intro: 'Leave a short request and the SHAR team will contact you shortly.',
       formTitle: 'REQUEST',
@@ -309,12 +440,13 @@ window.SHAR_LOCALES = {
       fieldMessageOptional: 'Message (optional)',
       placeholderMessageOptional: 'Brief about your project',
       submit: 'SEND',
+      responseTime: 'We usually reply within 24 hours.',
       legal: 'By submitting you agree to our ',
       legalLink: 'Privacy policy'
     },
     cta: {
-      toContact: 'Discuss your project, get a quote or reach the team — on the contact page.',
-      discuss: 'Discuss project'
+      toContact: 'Leave a short request — we will propose work format, timeline and next project step.',
+      discuss: 'Start project discussion'
     },
     footer: {
       copyright: '© 2026 SHAR PRODUCTION'

@@ -53,6 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentLocale = getCurrentLocale();
     applyLocale(currentLocale);
 
+    // Unified pricing route: detailed pricing lives on /pricing/
+    document.querySelectorAll('a[data-i18n="nav.pricing"]').forEach((link) => {
+        link.setAttribute('href', '/pricing/');
+    });
+
     const langSwitcher = document.getElementById('lang-switcher');
     if (langSwitcher) {
         langSwitcher.querySelectorAll('.lang-btn').forEach(btn => {
