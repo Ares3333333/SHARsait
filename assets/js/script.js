@@ -218,7 +218,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function mountVideo(container) {
         if (!container) return;
         const dataSrc = container.dataset.src;
-        container.innerHTML = "";
+        // Полностью уничтожаем старый iframe, если он был
+        const existingIframe = container.querySelector('iframe');
+        if (existingIframe && typeof existingIframe.remove === 'function') {
+            existingIframe.remove();
+        } else {
+            container.innerHTML = "";
+        }
         if (!dataSrc) return;
 
         const iframe = document.createElement('iframe');
@@ -303,7 +309,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const modal = document.getElementById(`case-${id}`);
         if (modal) {
             const container = modal.querySelector('.m-video-container');
-            if (container) container.innerHTML = '';
+            if (container) {
+                const iframe = container.querySelector('iframe');
+                if (iframe && typeof iframe.remove === 'function') {
+                    iframe.remove();
+                } else {
+                    container.innerHTML = '';
+                }
+            }
             if (modal._focusTrap) {
                 modal.removeEventListener('keydown', modal._focusTrap);
                 delete modal._focusTrap;
