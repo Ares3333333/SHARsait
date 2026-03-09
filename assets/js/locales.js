@@ -135,6 +135,7 @@ window.SHAR_LOCALES = {
     awards: {
       label: 'НАГРАДЫ',
       intro: 'Формируем актуальный список фестивальных и отраслевых достижений. Блок подтверждает статус студии и будет обновляться по мере публикаций.',
+      badge: 'ОФИЦИАЛЬНЫЙ ОТБОР',
       item1Title: 'International Film Selection',
       item1Text: 'Официальный отбор в категории короткого метра.',
       item2Title: 'Best Visual Production Mention',
@@ -411,6 +412,7 @@ window.SHAR_LOCALES = {
     awards: {
       label: 'AWARDS',
       intro: 'We are compiling the current list of festival and industry recognitions. This block reinforces studio credibility and will be updated as publications go live.',
+      badge: 'OFFICIAL SELECTION',
       item1Title: 'International Film Selection',
       item1Text: 'Official selection in the short film category.',
       item2Title: 'Best Visual Production Mention',
