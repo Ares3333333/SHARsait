@@ -132,6 +132,16 @@ window.SHAR_LOCALES = {
       clarity3Title: 'Прозрачная коммуникация',
       clarity3Text: 'Понятные этапы, согласования и фиксированные точки решений.'
     },
+    awards: {
+      label: 'НАГРАДЫ',
+      intro: 'Формируем актуальный список фестивальных и отраслевых достижений. Блок подтверждает статус студии и будет обновляться по мере публикаций.',
+      item1Title: 'International Film Selection',
+      item1Text: 'Официальный отбор в категории короткого метра.',
+      item2Title: 'Best Visual Production Mention',
+      item2Text: 'Отмечены за синтез AI/CGI и режиссерский контроль.',
+      item3Title: 'Creative Technology Shortlist',
+      item3Text: 'Шортлист за премиальный production-подход в digital.'
+    },
     journal: {
       label: 'ЖУРНАЛ / ТЕХНОЛОГИИ',
       intro: 'Аналитика, режиссерские заметки и разборы производственных решений студии SHAR Production.',
@@ -397,6 +407,16 @@ window.SHAR_LOCALES = {
       clarity2Text: 'Director and producer control across all production stages.',
       clarity3Title: 'Transparent communication',
       clarity3Text: 'Clear stages, approvals and fixed decision points.'
+    },
+    awards: {
+      label: 'AWARDS',
+      intro: 'We are compiling the current list of festival and industry recognitions. This block reinforces studio credibility and will be updated as publications go live.',
+      item1Title: 'International Film Selection',
+      item1Text: 'Official selection in the short film category.',
+      item2Title: 'Best Visual Production Mention',
+      item2Text: 'Recognized for AI/CGI synthesis and directorial control.',
+      item3Title: 'Creative Technology Shortlist',
+      item3Text: 'Shortlisted for a premium production approach in digital.'
     },
     journal: {
       label: 'JOURNAL / TECHNOLOGY',
