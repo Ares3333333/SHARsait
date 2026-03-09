@@ -687,144 +687,26 @@ nav.scrolled {
 .premium-pack { border-color: rgba(255,255,255,0.12); color: #9c0404; }
 .premium-pack h3 { color: #9c0404; }
 
-/* ========== NON-HEADER BUTTONS — premium SGAER direction: refined, minimal, expensive ========== */
+/* ========== NON-HEADER BUTTONS — base hooks (sizes and effects in rebuild section) ========== */
 .btn-minimal,
 .watch-case-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 40px;
-    padding: 10px 22px;
     width: auto;
     text-align: center;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 4px;
     font-family: var(--font-heading);
-    font-size: 9px;
-    line-height: 1.25;
-    letter-spacing: 0.22em;
     text-transform: uppercase;
     font-weight: 500;
-    color: rgba(255,255,255,0.9) !important;
-    cursor: pointer;
     -webkit-font-smoothing: antialiased;
-    background: transparent;
-    box-shadow: none;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.3s var(--ease-luxe), color 0.3s var(--ease-luxe), background 0.3s var(--ease-luxe);
     transform: translateZ(0);
 }
-.watch-case-btn {
-    margin-top: var(--space-sm);
-    width: max-content;
-    min-height: 34px;
-    padding: 7px 16px;
-    font-size: 8px;
-    letter-spacing: 0.26em;
-}
-.btn-minimal::before,
-.watch-case-btn::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(170deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 38%, transparent 74%);
-    opacity: 0;
-    transition: opacity 0.3s var(--ease-luxe);
-    pointer-events: none;
-}
-.btn-minimal:hover::before,
-.watch-case-btn:hover::before { opacity: 1; }
-.btn-minimal:focus-visible,
-.watch-case-btn:focus-visible {
-    outline: 1px solid rgba(156,4,4,0.5);
-    outline-offset: 2px;
-}
-.btn-minimal:hover,
-.watch-case-btn:hover {
-    border-color: rgba(255,255,255,0.22);
-    background: rgba(255,255,255,0.03);
-    color: #fff !important;
-}
-.btn-minimal:active,
-.watch-case-btn:active {
-    background: rgba(255,255,255,0.02);
-}
-.premium-btn { border-color: rgba(156, 4, 4, 0.5) !important; }
-
 .price-card .btn-minimal,
-.btn-submit { width: 100%; }
-
-/* Primary CTA — единственный акцент, сдержанно */
-.cta-primary.btn-minimal,
-.cta-primary.watch-case-btn {
-    border: 1px solid rgba(156,4,4,0.4);
-    background: rgba(156,4,4,0.08);
-    color: #fff !important;
-    box-shadow: none;
-    animation: none;
+.btn-submit {
+    width: 100%;
 }
-.cta-primary.btn-minimal::after,
-.cta-primary.watch-case-btn::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(108deg, transparent 0%, rgba(255,255,255,0.06) 22%, rgba(255,255,255,0.14) 50%, rgba(255,255,255,0.06) 78%, transparent 100%);
-    background-size: 200% 100%;
-    background-position: 200% 50%;
-    animation: button-light-shift 6.5s ease-in-out infinite;
-    pointer-events: none;
-    border-radius: inherit;
-}
-.cta-primary.btn-minimal:hover::after,
-.cta-primary.watch-case-btn:hover::after { animation: none; opacity: 0; }
-.cta-primary.btn-minimal:hover,
-.cta-primary.watch-case-btn:hover {
-    border-color: #9c0404;
-    background: linear-gradient(180deg, rgba(156,4,4,0.6) 0%, rgba(156,4,4,0.36) 50%, rgba(156,4,4,0.16) 100%);
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.24),
-        0 32px 72px rgba(0,0,0,0.74),
-        0 14px 40px rgba(0,0,0,0.58),
-        0 0 0 1px rgba(156,4,4,0.6),
-        0 0 64px rgba(156,4,4,0.45),
-        0 0 120px rgba(156,4,4,0.18);
-    transform: translate3d(0, -2px, 0);
-    animation: none;
-}
-.cta-primary.btn-minimal:active,
-.cta-primary.watch-case-btn:active {
-    background: rgba(156,4,4,0.12);
-}
-@media (prefers-reduced-motion: reduce) {
-    .cta-primary.btn-minimal, .cta-primary.watch-case-btn { animation: none; }
-    .cta-primary.btn-minimal::after, .cta-primary.watch-case-btn::after { animation: none; opacity: 0; }
-}
-
-.cta-secondary.btn-minimal,
-.cta-secondary.watch-case-btn {
-    border: 1px solid rgba(255,255,255,0.12);
-    background: transparent;
-    box-shadow: none;
-}
-.cta-secondary.btn-minimal:hover,
-.cta-secondary.watch-case-btn:hover {
-    border-color: rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.03);
-}
-
-.cta-ghost {
-    border: 1px solid rgba(255, 255, 255, 0.14) !important;
-    background: transparent !important;
-    box-shadow: none !important;
-}
-.cta-ghost:hover {
-    border-color: rgba(255, 255, 255, 0.26) !important;
-    background: transparent !important;
-    transform: translate3d(0, -1px, 0);
-}
-.case-back.cta-ghost { border: none !important; padding: 0; background: none !important; }
-.case-back.cta-ghost:hover { border: none !important; }
 
 /* ========== КОНТАКТЫ ========== */
 .c-item { margin-bottom: var(--space-lg); }
@@ -1118,11 +1000,19 @@ nav.scrolled {
     border-radius: 999px;
     margin-bottom: 12px;
     position: relative;
-    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
     display: inline-flex;
     align-items: center;
     justify-content: center;
     contain: paint;
+}
+.award-laurel-icon {
+    width: 32px;
+    height: 16px;
+    margin-right: 6px;
+    color: #9c0404;
+    opacity: 0.9;
+    flex-shrink: 0;
 }
 .award-laurel-badge::before,
 .award-laurel-badge::after {
@@ -1131,7 +1021,7 @@ nav.scrolled {
     top: 50%;
     width: 18px;
     height: 18px;
-    border: 1px solid rgba(156,4,4,0.58);
+    border: 1px solid rgba(156,4,4,0.5);
     border-radius: 50%;
     transform: translateY(-50%);
 }
@@ -1168,6 +1058,10 @@ nav.scrolled {
     font-size: 0.93rem;
     padding-left: 12px;
     border-left: 1px solid rgba(255,255,255,0.14);
+}
+
+.award-item:hover .award-laurel-badge {
+    box-shadow: 0 0 26px rgba(156,4,4,0.28);
 }
 
 .journal-teaser-intro {
@@ -1300,8 +1194,8 @@ nav.scrolled {
     border-radius: 4px;
     font-size: 9.3px;
     letter-spacing: 0.24em;
-    background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 22px 52px rgba(0,0,0,0.58), 0 0 0 1px rgba(255,255,255,0.06);
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 18px 42px rgba(0,0,0,0.52), 0 0 0 1px rgba(255,255,255,0.06);
     transition: border-color 0.45s var(--ease-luxe), color 0.45s var(--ease-luxe), box-shadow 0.45s var(--ease-luxe), background 0.45s var(--ease-luxe), transform 0.45s var(--ease-luxe);
     isolation: isolate;
 }
@@ -1325,11 +1219,11 @@ nav.scrolled {
     inset: 0;
     border-radius: inherit;
     pointer-events: none;
-    background: linear-gradient(112deg, transparent 0%, rgba(255,255,255,0.03) 28%, rgba(255,255,255,0.16) 50%, rgba(255,255,255,0.03) 72%, transparent 100%);
+    background: linear-gradient(112deg, transparent 0%, rgba(255,255,255,0.02) 28%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.02) 72%, transparent 100%);
     background-size: 220% 100%;
     background-position: 180% 50%;
-    opacity: 0.66;
-    animation: button-light-shift 8.5s ease-in-out infinite;
+    opacity: 0.4;
+    animation: none;
 }
 .btn-minimal:active,
 .watch-case-btn:active {
@@ -1341,17 +1235,18 @@ nav.scrolled {
     border-color: rgba(156,4,4,0.82);
     background: linear-gradient(180deg, rgba(156,4,4,0.56) 0%, rgba(156,4,4,0.26) 52%, rgba(156,4,4,0.14) 100%);
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.26),
-        0 30px 70px rgba(0,0,0,0.74),
-        0 14px 38px rgba(0,0,0,0.58),
-        0 0 0 1px rgba(156,4,4,0.58),
-        0 0 66px rgba(156,4,4,0.36);
-    animation: button-pulse-crimson 7.2s ease-in-out infinite;
+        inset 0 1px 0 rgba(255,255,255,0.24),
+        0 26px 60px rgba(0,0,0,0.72),
+        0 12px 34px rgba(0,0,0,0.56),
+        0 0 0 1px rgba(156,4,4,0.5),
+        0 0 52px rgba(156,4,4,0.32);
+    animation: button-pulse-crimson 9s ease-in-out infinite;
 }
 .cta-primary.btn-minimal::after,
 .cta-primary.watch-case-btn::after {
-    background: linear-gradient(112deg, transparent 0%, rgba(255,255,255,0.08) 25%, rgba(255,255,255,0.28) 50%, rgba(255,255,255,0.08) 75%, transparent 100%);
-    opacity: 0.85;
+    background: linear-gradient(112deg, transparent 0%, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.22) 50%, rgba(255,255,255,0.06) 75%, transparent 100%);
+    opacity: 0.75;
+    animation: button-light-shift 9s ease-in-out infinite;
 }
 .cta-primary.btn-minimal:hover,
 .cta-primary.watch-case-btn:hover {
@@ -1377,13 +1272,13 @@ nav.scrolled {
 }
 .cta-ghost {
     border: 1px solid rgba(255,255,255,0.24) !important;
-    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01)) !important;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 18px 42px rgba(0,0,0,0.54) !important;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 12px 28px rgba(0,0,0,0.45) !important;
 }
 .cta-ghost:hover {
-    border-color: rgba(255,255,255,0.44) !important;
-    background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.03)) !important;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.24), 0 24px 56px rgba(0,0,0,0.62), 0 0 0 1px rgba(255,255,255,0.1) !important;
+    border-color: rgba(255,255,255,0.38) !important;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01)) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 18px 42px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08) !important;
     transform: translate3d(0, -2px, 0);
 }
 .hero-actions .btn-minimal,
