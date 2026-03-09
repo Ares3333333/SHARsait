@@ -337,33 +337,11 @@ nav.scrolled {
 .cta-block-text::before { content: ''; position: absolute; left: 0; top: -0.6em; width: 60px; height: 2px; background: linear-gradient(90deg, #9c0404, rgba(156,4,4,0.45), transparent); border-radius: 1px; }
 
 
-.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(32px, 4vw, 56px); margin-bottom: var(--space-2xl); }
-.stat-item {
-    text-align: center;
-    padding-top: var(--space-lg);
-    border: none;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    transition: opacity var(--dur) var(--ease-luxe);
-}
-.stat-item:hover { opacity: 0.92; }
-.stat-number {
-    font-family: var(--font-heading);
-    font-size: clamp(1.9rem, 3.5vw, 3rem);
-    font-weight: 400;
-    color: rgba(255,255,255,0.96);
-    margin-bottom: var(--space-xs);
-    letter-spacing: 0.02em;
-    line-height: var(--lh-tight);
-}
-.stat-label {
-    font-family: var(--font-heading);
-    font-size: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.28em;
-    color: rgba(255,255,255,0.4);
-    font-weight: 500;
-}
-#trust .section-inner > .label.label-spaced:first-of-type { margin-top: 0; }
+.stats-grid,
+.stat-item,
+.stat-number,
+.stat-label,
+#trust .section-inner > .label.label-spaced:first-of-type { /* legacy trust block styles — no longer used */ }
 .clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); margin-top: var(--space-lg); }
 .client-logo {
     aspect-ratio: 16/9;
