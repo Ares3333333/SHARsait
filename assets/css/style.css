@@ -382,8 +382,6 @@ nav.scrolled {
     object-position: center;
     background: #111;
     transition: filter 0.3s var(--ease-luxe);
-    backface-visibility: hidden;
-    transform: translateZ(0);
 }
 .case:hover img { filter: brightness(1.02); }
 .case-info { position: absolute; inset: 0; padding: var(--space-lg); display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(0deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 50%, transparent 100%); opacity: 0; transition: opacity var(--dur) var(--ease-luxe); }
@@ -690,7 +688,6 @@ nav.scrolled {
     -webkit-font-smoothing: antialiased;
     position: relative;
     overflow: hidden;
-    transform: translateZ(0);
 }
 .price-card .btn-minimal,
 .btn-submit {
