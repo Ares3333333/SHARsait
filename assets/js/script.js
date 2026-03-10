@@ -120,21 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { passive: true });
     }
 
-    // 2.1 HERO SHOWREEL READY STATE — плавный переход по load, fallback по таймауту
-    const heroShowreel = document.getElementById('hero-showreel');
-    if (heroShowreel) {
-        const heroVideoWrap = heroShowreel.closest('.video-bg');
-        const markReady = () => {
-            if (heroVideoWrap) heroVideoWrap.classList.add('video-ready');
-        };
-        heroShowreel.addEventListener('load', markReady, { once: true });
-        setTimeout(() => {
-            if (heroVideoWrap && !heroVideoWrap.classList.contains('video-ready')) {
-                heroVideoWrap.classList.add('video-timeout');
-            }
-        }, 2800);
-    }
-
     // 3. МОБИЛЬНОЕ МЕНЮ
     const hamburger = document.getElementById('hamburger');
     const navRight = document.getElementById('nav-links');

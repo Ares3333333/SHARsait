@@ -8,11 +8,6 @@
     
     <link rel="preconnect" href="https://kinescope.io" crossorigin>
     <link rel="dns-prefetch" href="//kinescope.io">
-    <link rel="preload" as="image"
-          href="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1280&q=70&fm=webp"
-          imagesrcset="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=960&q=68&fm=webp 960w, https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1280&q=70&fm=webp 1280w, https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=72&fm=webp 1920w"
-          imagesizes="100vw">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
@@ -46,39 +41,16 @@
 
 <section class="hero">
     <div class="video-bg">
-        <picture class="video-poster">
-            <source
-                srcset="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=960&q=64&fm=avif 960w, https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1280&q=66&fm=avif 1280w, https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=68&fm=avif 1920w"
-                sizes="100vw"
-                type="image/avif"
-            >
-            <source
-                srcset="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=960&q=68&fm=webp 960w, https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1280&q=70&fm=webp 1280w, https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=72&fm=webp 1920w"
-                sizes="100vw"
-                type="image/webp"
-            >
-            <img
-                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1280&q=70"
-                srcset="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=960&q=68 960w, https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1280&q=70 1280w, https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=72 1920w"
-                sizes="100vw"
-                alt=""
-                width="1920"
-                height="1080"
+        <div class="kin-player-embed-container kin-player-embed-container--hero">
+            <iframe
+                id="hero-showreel"
+                src="https://kinescope.io/embed/7CombZGRGeMHde7KAWW5Ab?playsinline=1&dnt=1"
+                title="SHAR Production Showreel"
+                frameborder="0"
                 loading="eager"
-                fetchpriority="high"
-                decoding="async"
-            >
-        </picture>
-        <div class="video-loader"></div>
-        <iframe
-            id="hero-showreel"
-            src="https://kinescope.io/embed/7CombZGRGeMHde7KAWW5Ab?background=1&autoplay=1&muted=1&loop=1&playsinline=1&preload=1&dnt=1"
-            title="SHAR Production Showreel"
-            frameborder="0"
-            loading="eager"
-            fetchpriority="high"
-            allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
-        ></iframe>
+                allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
+            ></iframe>
+        </div>
     </div>
     <div class="overlay"></div>
     <div class="hero-content fade-in-section">
