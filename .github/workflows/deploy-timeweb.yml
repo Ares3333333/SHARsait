@@ -25,11 +25,16 @@ jobs:
           # Deploy the repository root; trailing slash is required
           local-dir: ./
           server-dir: /SHAR/public_html/
-          # Upload only the static site, exclude tooling/meta
+          # Never upload git/system/dev files — prevents 553 errors on Timeweb
           exclude: |
-            **/.git*
-            **/.github/**
-            **/.cursor/**
-            **/docs/**
-            **/.DS_Store
-            .DS_Store
+            - **/.git
+            - **/.git/**
+            - **/.github
+            - **/.github/**
+            - **/.cursor
+            - **/.cursor/**
+            - **/docs
+            - **/docs/**
+            - **/.DS_Store
+            - .ftp-deploy-sync-state.json
+            - vercel.json
