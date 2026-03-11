@@ -1346,7 +1346,7 @@ nav.scrolled {
 .m-hero-tag { font-family: var(--font-heading); font-size: var(--text-xs); color: var(--brand-red); text-transform: uppercase; letter-spacing: 0.22em; font-weight: 600; display: block; margin-bottom: var(--space-sm); }
 .m-hero-title { font-family: var(--font-heading); font-size: clamp(2.2rem, 4.5vw, 3.5rem); font-weight: 600; color: #fff; line-height: var(--lh-tight); letter-spacing: var(--ls-heading); }
 
-.m-video-container { position: relative; z-index: 1; width: 100%; background: #000; margin: 0 auto var(--space-2xl); max-width: 1200px; border-radius: 3px; overflow: hidden; border: 1px solid var(--surface-border); box-shadow: 0 24px 64px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06), 0 0 40px rgba(156, 4, 4, 0.1); isolation: isolate; }
+.m-video-container { position: relative; z-index: 1; width: 100%; background: #000; margin: 0 auto var(--space-2xl); max-width: 1200px; border-radius: 3px; overflow: hidden; border: none; box-shadow: 0 24px 64px rgba(0,0,0,0.55), 0 0 40px rgba(156, 4, 4, 0.16); isolation: isolate; }
 .kin-player-embed-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; }
 .kin-player-embed-container--vertical { padding-bottom: 177.78%; }
 .kin-player-embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
