@@ -22,7 +22,8 @@ jobs:
           password: ${{ secrets.TIMEWEB_FTP_PASSWORD }}
           port: ${{ secrets.TIMEWEB_FTP_PORT }}
           protocol: ftp
-          local-dir: .
+          # Deploy the repository root; trailing slash is required
+          local-dir: ./
           server-dir: /SHAR/public_html/
           # Upload only the static site, exclude tooling/meta
           exclude: |
