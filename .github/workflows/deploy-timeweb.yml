@@ -1,0 +1,34 @@
+name: Deploy to Timeweb via FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: FTP Deploy to Timeweb
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy static site to Timeweb (FTP)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.TIMEWEB_FTP_SERVER }}
+          username: ${{ secrets.TIMEWEB_FTP_USERNAME }}
+          password: ${{ secrets.TIMEWEB_FTP_PASSWORD }}
+          port: ${{ secrets.TIMEWEB_FTP_PORT }}
+          protocol: ftp
+          local-dir: .
+          server-dir: /SHAR/public_html/
+          # Upload only the static site, exclude tooling/meta
+          exclude: |
+            **/.git*
+            **/.github/**
+            **/.cursor/**
+            **/docs/**
+            **/.DS_Store
+            .DS_Store
