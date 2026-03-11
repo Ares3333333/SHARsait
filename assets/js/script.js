@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Unified pricing route: detailed pricing lives on /pricing/
     document.querySelectorAll('a[data-i18n="nav.pricing"]').forEach((link) => {
-        link.setAttribute('href', '/pricing/');
+        link.setAttribute('href', '/pricing/index.html');
     });
 
     const langSwitcher = document.getElementById('lang-switcher');
