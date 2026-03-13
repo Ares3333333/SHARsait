@@ -278,7 +278,7 @@ nav.scrolled {
 .section { padding: var(--section-pad-y) 4%; border-top: 1px solid var(--line); position: relative; background: var(--bg); overflow-x: hidden; }
 .section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, #9c0404 0%, rgba(156,4,4,0.7) 10%, rgba(156,4,4,0.25) 25%, transparent 42%); pointer-events: none; }
 .section-inner { max-width: 1240px; margin: 0 auto; }
-.label { font-size: 0.66rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.26em; margin-bottom: clamp(56px, 7vw, 88px); display: flex; align-items: center; gap: var(--space-md); font-weight: 600; font-family: var(--font-heading); }
+.label { font-size: 0.7rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.26em; margin-bottom: clamp(68px, 8vw, 104px); display: flex; align-items: center; gap: var(--space-md); font-weight: 600; font-family: var(--font-heading); }
 .label::before { content: ''; width: 48px; height: 2px; background: #9c0404; flex-shrink: 0; border-radius: 1px; }
 .label::after { content: ''; height: 1px; flex-grow: 1; background: linear-gradient(to right, var(--line), rgba(156,4,4,0.35), transparent); }
 .label-spaced { margin-top: var(--space-2xl); }
@@ -390,7 +390,7 @@ nav.scrolled {
 }
 
 /* ========== ПРОЕКТЫ ========== */
-.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); min-height: 0; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg); min-height: 0; }
 .case {
     position: relative; aspect-ratio: 16/9; background: #000;
     overflow: hidden; border-radius: 6px; cursor: pointer;
@@ -400,11 +400,11 @@ nav.scrolled {
     contain: layout paint;
     transition: border-color var(--dur) var(--ease-luxe), box-shadow var(--dur) var(--ease-luxe);
     border: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 52px rgba(0,0,0,0.46);
 }
 .case:hover {
-    border-color: rgba(255,255,255,0.12);
-    box-shadow: 0 32px 80px rgba(0,0,0,0.55);
+    border-color: rgba(255,255,255,0.14);
+    box-shadow: 0 28px 72px rgba(0,0,0,0.54);
 }
 
 .case img {
@@ -1459,8 +1459,8 @@ nav.scrolled {
 
 .project-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); padding: var(--space-xl) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); max-width: 1200px; margin: 0 auto var(--space-xl); }
 .metric-item { text-align: center; }
-.metric-value { font-family: var(--font-heading); font-size: clamp(2rem, 3vw, 2.5rem); font-weight: 600; color: var(--brand-red); margin-bottom: var(--space-sm); letter-spacing: 0.05em; line-height: var(--lh-tight); }
-.metric-label { font-family: var(--font-heading); font-size: 9px; text-transform: uppercase; color: rgba(255,255,255,0.32); letter-spacing: var(--ls-tag); }
+.metric-value { font-family: var(--font-heading); font-size: clamp(2.1rem, 3.1vw, 2.6rem); font-weight: 600; color: var(--brand-red); margin-bottom: var(--space-sm); letter-spacing: 0.06em; line-height: var(--lh-tight); }
+.metric-label { font-family: var(--font-heading); font-size: 10px; text-transform: uppercase; color: rgba(255,255,255,0.38); letter-spacing: 0.2em; }
 
 .m-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); max-width: 1200px; margin: 0 auto var(--space-2xl); }
 .m-gallery img {
