@@ -683,7 +683,15 @@ nav.scrolled {
     box-shadow: 0 28px 64px rgba(0,0,0,0.4);
 }
 .price-card h3 { font-family: var(--font-heading); font-size: var(--text-xs); color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: var(--space-lg); letter-spacing: 0.24em; font-weight: 500; }
-.price-card .val { font-family: var(--font-heading); font-size: clamp(1.9rem, 2.6vw, 2.6rem); margin-bottom: var(--space-lg); font-weight: 500; color: #fff; letter-spacing: 0.02em; line-height: var(--lh-tight); }
+.price-card .val {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 2.2vw, 2.1rem);
+    margin-bottom: var(--space-md);
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 0.02em;
+    line-height: var(--lh-tight);
+}
 .price-card ul { list-style: none; flex-grow: 1; margin-bottom: var(--space-lg); }
 .price-card li { font-size: 12.5px; color: rgba(255,255,255,0.6); margin-bottom: var(--space-md); line-height: var(--lh-body); border-bottom: 1px solid var(--line); padding-bottom: var(--space-sm); position: relative; padding-left: 14px; }
 .price-card li::before {
@@ -1142,9 +1150,9 @@ nav.scrolled {
 }
 .pricing-fit {
     margin-bottom: var(--space-md);
-    color: rgba(255,255,255,0.67);
-    line-height: 1.78;
-    font-size: 0.94rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.82;
+    font-size: 1.02rem;
 }
 .pricing-start {
     margin-top: var(--space-2xl);
