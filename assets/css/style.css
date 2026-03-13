@@ -1263,15 +1263,15 @@ nav.scrolled {
         0 0 22px rgba(0,0,0,0.7);
 }
 
-/* Primary CTA — лёгкий медленный pulse только в тени, без заливки */
+/* Primary CTA — более яркий красный акцент */
 .cta-primary.btn-minimal,
 .cta-primary.watch-case-btn,
 .cta-primary.btn-submit {
-    border-color: rgba(156,4,4,0.6);
+    border-color: rgba(156,4,4,0.8);
     box-shadow:
-        0 0 18px rgba(156,4,4,0.26),
-        0 0 32px rgba(156,4,4,0.14);
-    background-color: transparent;
+        0 0 22px rgba(156,4,4,0.35),
+        0 0 40px rgba(156,4,4,0.16);
+    background-color: rgba(156,4,4,0.16);
 }
 
 .cta-primary.btn-minimal:hover,
@@ -1291,9 +1291,9 @@ nav.scrolled {
 .cta-secondary.btn-minimal,
 .cta-secondary.watch-case-btn,
 .cta-secondary.journal-article-back {
-    border-color: rgba(255,255,255,0.12);
-    background-color: transparent;
-    box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+    border-color: rgba(156,4,4,0.45);
+    background-color: rgba(156,4,4,0.06);
+    box-shadow: 0 0 0 1px rgba(156,4,4,0.28);
 }
 
 .cta-secondary.btn-minimal:hover,
@@ -1304,6 +1304,14 @@ nav.scrolled {
     box-shadow:
         0 0 14px rgba(156,4,4,0.22),
         0 0 26px rgba(0,0,0,0.6);
+}
+
+/* Герой — оставляем более спокойные кнопки, без яркой заливки */
+.hero-actions .cta-primary.btn-minimal,
+.hero-actions .cta-secondary.btn-minimal {
+    background-color: transparent;
+    box-shadow: 0 0 18px rgba(0,0,0,0.7);
+    border-color: rgba(255,255,255,0.22);
 }
 
 .cta-ghost {
