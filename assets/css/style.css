@@ -354,6 +354,29 @@ nav.scrolled {
 }
 .client-logo:hover { color: rgba(255,255,255,0.88); }
 
+.section-arrow {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(156,4,4,0.7);
+    background: transparent;
+    color: #9c0404;
+    font-size: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+}
+.section-arrow::before {
+    content: '➝';
+}
+.section-arrow:hover {
+    background: rgba(156,4,4,0.18);
+    box-shadow: 0 0 12px rgba(156,4,4,0.5);
+}
+
 /* ========== ПРОЕКТЫ ========== */
 .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); min-height: 0; }
 .case {
@@ -1455,7 +1478,27 @@ nav.scrolled {
     .journal-intro-lead { padding-left: var(--space-lg); border-left-width: 8px; }
     .journal-intro { margin-bottom: 60px; font-size: 1.04rem; line-height: 1.86; }
     .pricing-grid, .m-case-body { grid-template-columns: 1fr; gap: var(--space-md); }
-    .clients-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Клиенты и награды — горизонтальная лента с прокруткой на мобиле */
+    .clients-grid,
+    .awards-grid {
+        display: flex;
+        gap: var(--space-md);
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: var(--space-sm);
+    }
+    .clients-grid::-webkit-scrollbar,
+    .awards-grid::-webkit-scrollbar { display: none; }
+
+    .client-logo,
+    .award-item {
+        flex: 0 0 min(70vw, 260px);
+        scroll-snap-align: start;
+    }
+
     .team-member, .journal-card { flex: 0 0 min(85vw, 420px); }
     .m-video-container { margin-bottom: var(--space-lg); }
     .project-metrics { grid-template-columns: 1fr; gap: var(--space-md); padding: var(--space-md) 0; }

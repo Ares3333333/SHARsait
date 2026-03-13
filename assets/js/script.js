@@ -153,6 +153,16 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll('.fade-in-section, .stagger-item').forEach((el) => el.classList.add('is-visible'));
     }
 
+    // 4.1 Стрелочки для пролистывания клиентов и наград
+    document.querySelectorAll('.section-arrow[data-scroll-target]').forEach((btn) => {
+        const selector = btn.getAttribute('data-scroll-target');
+        const target = selector ? document.querySelector(selector) : null;
+        if (!target) return;
+        btn.addEventListener('click', () => {
+            target.scrollBy({ left: target.clientWidth * 0.6, behavior: 'smooth' });
+        });
+    });
+
     // 5. СЧЕТЧИКИ — статические значения (без анимации от 0, чтобы не показывать нули)
     document.querySelectorAll('[data-count]').forEach((el) => {
         const raw = el.dataset.count;
