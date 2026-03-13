@@ -351,7 +351,7 @@ nav.scrolled {
     align-items: center;
     justify-content: flex-start;
     padding-top: var(--space-md);
-    font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+    font-size: clamp(1rem, 1.6vw, 1.3rem);
     font-weight: 400;
     color: rgba(255,255,255,0.5);
     background: rgba(255,255,255,0.02);
@@ -423,7 +423,15 @@ nav.scrolled {
     transition: opacity var(--dur) var(--ease-luxe);
     min-width: 0;
 }
-.case-info h3 { font-family: var(--font-heading); font-size: clamp(1.5rem, 2vw, 2rem); font-weight: 600; color: #fff; margin-bottom: var(--space-xs); letter-spacing: var(--ls-heading); line-height: var(--lh-tight); }
+.case-info h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.05rem, 1.4vw, 1.45rem);
+    font-weight: 600;
+    color: #9c0404;
+    margin-bottom: var(--space-3xs);
+    letter-spacing: 0.08em;
+    line-height: var(--lh-tight);
+}
 .case-info p { font-family: var(--font-heading); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: var(--ls-tag); margin-bottom: var(--space-xs); }
 
 /* СМОТРЕТЬ КЕЙС — shared button system below */
@@ -693,17 +701,17 @@ nav.scrolled {
 }
 .price-card h3 {
     font-family: var(--font-heading);
-    font-size: clamp(1rem, 1.4vw, 1.4rem);
-    color: rgba(255,255,255,0.9);
+    font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+    color: rgba(255,255,255,0.88);
     text-transform: none;
-    margin-bottom: var(--space-sm);
-    letter-spacing: 0.04em;
+    margin-bottom: var(--space-xs);
+    letter-spacing: 0.06em;
     font-weight: 600;
 }
 .price-card .val {
     font-family: var(--font-heading);
-    font-size: clamp(0.7rem, 0.8vw, 0.8rem);
-    margin-bottom: var(--space-2xs);
+    font-size: clamp(0.85rem, 1vw, 1rem);
+    margin-bottom: var(--space-xs);
     font-weight: 500;
     color: #fff;
     letter-spacing: 0.02em;
@@ -913,6 +921,12 @@ nav.scrolled {
     margin-bottom: var(--space-xs);
     position: relative;
     padding-left: 16px;
+}
+.pitch-card h3 {
+    padding-left: 0;
+}
+.pitch-card h3::before {
+    display: none;
 }
 .pitch-card h3::before,
 .outcome-item h3::before,
