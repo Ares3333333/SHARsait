@@ -335,12 +335,18 @@ nav.scrolled {
 .stat-number,
 .stat-label,
 #trust .section-inner > .label.label-spaced:first-of-type { /* legacy trust block styles — no longer used */ }
-.clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); margin-top: var(--space-lg); }
+.clients-grid {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
 .client-logo {
     aspect-ratio: 16/9;
-    border: none;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    border-radius: 0;
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -348,7 +354,7 @@ nav.scrolled {
     font-size: clamp(0.9rem, 1.4vw, 1.15rem);
     font-weight: 400;
     color: rgba(255,255,255,0.5);
-    background: transparent;
+    background: rgba(255,255,255,0.02);
     transition: color var(--dur) var(--ease-luxe);
     letter-spacing: 0.03em;
 }
@@ -1480,7 +1486,6 @@ nav.scrolled {
     .pricing-grid, .m-case-body { grid-template-columns: 1fr; gap: var(--space-md); }
 
     /* Клиенты и награды — горизонтальная лента с прокруткой на мобиле */
-    .clients-grid,
     .awards-grid {
         display: flex;
         gap: var(--space-md);
@@ -1490,10 +1495,8 @@ nav.scrolled {
         -webkit-overflow-scrolling: touch;
         padding-bottom: var(--space-sm);
     }
-    .clients-grid::-webkit-scrollbar,
     .awards-grid::-webkit-scrollbar { display: none; }
 
-    .client-logo,
     .award-item {
         flex: 0 0 min(70vw, 260px);
         scroll-snap-align: start;
