@@ -297,10 +297,10 @@ nav.scrolled {
     gap: var(--space-lg);
 }
 .work-conversion-text {
-    max-width: 58ch;
-    color: rgba(255,255,255,0.82);
-    line-height: 1.9;
-    font-size: 1.06rem;
+    max-width: 62ch;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.94;
+    font-size: 1.12rem;
 }
 .site-footer { padding: var(--space-xl) 4%; text-align: center; font-size: 0.8rem; color: var(--text-tertiary); letter-spacing: 0.18em; text-transform: uppercase; border-top: 1px solid var(--line); font-family: var(--font-heading); position: relative; }
 .site-footer::before { content: ''; position: absolute; top: 0; left: 0; width: 220px; height: 2px; background: linear-gradient(90deg, #9c0404, rgba(156,4,4,0.5), transparent); border-radius: 1px; }
@@ -1389,11 +1389,16 @@ nav.scrolled {
 }
 
 .hero-actions .btn-minimal,
-.work-conversion-strip .btn-minimal,
 .cta-block-btn,
 .pricing-teaser > .btn-minimal {
     min-height: 40px;
     padding: 11px 26px;
+}
+.work-conversion-strip .btn-minimal {
+    min-height: 44px;
+    padding: 13px 30px;
+    font-size: 0.82rem;
+    letter-spacing: 0.22em;
 }
 .contact-form .btn-submit {
     min-height: 40px;
