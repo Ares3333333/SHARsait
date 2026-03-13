@@ -1138,44 +1138,7 @@ nav.scrolled {
     font-size: clamp(1rem, 1.3vw, 1.12rem);
     line-height: 1.9;
     color: rgba(255,255,255,0.74);
-    margin-bottom: var(--space-xl);
-}
-.pricing-formats {
     margin-bottom: var(--space-2xl);
-    border-top: 1px solid rgba(255,255,255,0.14);
-    padding-top: var(--space-xl);
-}
-.pricing-formats h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.2rem, 1.8vw, 1.6rem);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #fff;
-    margin-bottom: var(--space-md);
-}
-.pricing-formats ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.pricing-formats li {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 8px;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.8;
-    font-size: 0.98rem;
-}
-.pricing-formats li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.7em;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #9c0404;
-    box-shadow: 0 0 10px rgba(156,4,4,0.35);
 }
 .pricing-fit {
     margin-bottom: var(--space-md);
