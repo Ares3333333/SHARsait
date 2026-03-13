@@ -141,7 +141,7 @@ window.SHAR_LOCALES = {
       item2Title: 'Best Visual Production Mention',
       item2Text: 'Отмечены за синтез AI/CGI и режиссерский контроль.',
       item3Title: 'Creative Technology Shortlist',
-      item3Text: 'Шортлист за премиальный production-подход в digital.'
+      item3Text: 'Шортлист за работу с технологиями и визуальной частью проекта.'
     },
     journal: {
       label: 'ЖУРНАЛ',
