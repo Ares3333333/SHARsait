@@ -691,11 +691,19 @@ nav.scrolled {
     border-color: rgba(255,255,255,0.1);
     box-shadow: 0 28px 64px rgba(0,0,0,0.4);
 }
-.price-card h3 { font-family: var(--font-heading); font-size: var(--text-xs); color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: var(--space-lg); letter-spacing: 0.24em; font-weight: 500; }
+.price-card h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 1.4vw, 1.4rem);
+    color: rgba(255,255,255,0.9);
+    text-transform: none;
+    margin-bottom: var(--space-sm);
+    letter-spacing: 0.04em;
+    font-weight: 600;
+}
 .price-card .val {
     font-family: var(--font-heading);
-    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
-    margin-bottom: var(--space-xs);
+    font-size: clamp(0.7rem, 0.8vw, 0.8rem);
+    margin-bottom: var(--space-2xs);
     font-weight: 500;
     color: #fff;
     letter-spacing: 0.02em;
