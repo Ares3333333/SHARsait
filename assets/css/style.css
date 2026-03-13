@@ -296,7 +296,12 @@ nav.scrolled {
     justify-content: space-between;
     gap: var(--space-lg);
 }
-.work-conversion-text { max-width: 58ch; color: rgba(255,255,255,0.72); line-height: 1.84; font-size: 1.01rem; }
+.work-conversion-text {
+    max-width: 58ch;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.9;
+    font-size: 1.06rem;
+}
 .site-footer { padding: var(--space-xl) 4%; text-align: center; font-size: 0.8rem; color: var(--text-tertiary); letter-spacing: 0.18em; text-transform: uppercase; border-top: 1px solid var(--line); font-family: var(--font-heading); position: relative; }
 .site-footer::before { content: ''; position: absolute; top: 0; left: 0; width: 220px; height: 2px; background: linear-gradient(90deg, #9c0404, rgba(156,4,4,0.5), transparent); border-radius: 1px; }
 .manifesto-text { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.22; font-weight: 500; color: #fff; letter-spacing: 0.07em; }
@@ -309,8 +314,8 @@ nav.scrolled {
 .manifesto-text span { color: #9c0404; text-shadow: 0 0 24px rgba(156,4,4,0.28); }
 .manifesto-sub {
     margin-top: var(--space-lg);
-    font-size: clamp(1.02rem, 1.5vw, 1.16rem);
-    color: var(--text-tertiary);
+    font-size: clamp(1.06rem, 1.6vw, 1.2rem);
+    color: rgba(255,255,255,0.8);
     line-height: 1.9;
     letter-spacing: var(--ls-body);
     max-width: 52ch;
@@ -831,10 +836,10 @@ nav.scrolled {
 .contact-heading-line { display: block; }
 .contact-heading-accent { display: block; color: rgba(255,255,255,0.6); margin-top: 0.2em; letter-spacing: 0.24em; font-weight: 500; }
 .contact-intro {
-    color: var(--text-secondary);
-    max-width: 34ch;
-    font-size: clamp(0.96rem, 1.15vw, 1.06rem);
-    line-height: 1.9;
+    color: rgba(255,255,255,0.86);
+    max-width: 36ch;
+    font-size: clamp(1.02rem, 1.3vw, 1.14rem);
+    line-height: 1.92;
     font-weight: 350;
     margin-top: 0.28em;
 }
@@ -875,7 +880,7 @@ nav.scrolled {
     background: none;
 }
 .contact-form-note {
-    color: var(--text-tertiary);
+    color: rgba(255,255,255,0.76);
     margin-bottom: var(--space-md);
     font-size: clamp(0.94rem, 1.16vw, 1.04rem);
     line-height: 1.9;
@@ -963,9 +968,9 @@ nav.scrolled {
 .pitch-card p,
 .outcome-item p,
 .process-step p {
-    font-size: 1.02rem;
-    line-height: 1.84;
-    color: rgba(255,255,255,0.7);
+    font-size: 1.06rem;
+    line-height: 1.86;
+    color: rgba(255,255,255,0.8);
 }
 
 .outcomes-grid {
@@ -1242,9 +1247,9 @@ nav.scrolled {
 }
 .contact-decision-text {
     max-width: 60ch;
-    color: rgba(255,255,255,0.72);
-    line-height: 1.86;
-    font-size: 1rem;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.9;
+    font-size: 1.06rem;
     padding-left: 14px;
     border-left: 1px solid rgba(156,4,4,0.34);
 }
