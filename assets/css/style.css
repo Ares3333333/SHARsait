@@ -685,8 +685,8 @@ nav.scrolled {
 .price-card h3 { font-family: var(--font-heading); font-size: var(--text-xs); color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: var(--space-lg); letter-spacing: 0.24em; font-weight: 500; }
 .price-card .val {
     font-family: var(--font-heading);
-    font-size: clamp(1.6rem, 2.2vw, 2.1rem);
-    margin-bottom: var(--space-md);
+    font-size: clamp(1.3rem, 1.9vw, 1.8rem);
+    margin-bottom: var(--space-xs);
     font-weight: 500;
     color: #fff;
     letter-spacing: 0.02em;
