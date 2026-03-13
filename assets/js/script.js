@@ -11,8 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function getCurrentLocale() {
-        const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
-        return (stored === 'en' || stored === 'ru') ? stored : DEFAULT_LOCALE;
+        return DEFAULT_LOCALE;
     }
 
     function applyLocale(locale) {
@@ -40,14 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (val != null) el.placeholder = val;
         });
 
-        const switcher = document.getElementById('lang-switcher');
-        if (switcher) {
-            switcher.querySelectorAll('.lang-btn').forEach(btn => {
-                const lang = btn.getAttribute('data-lang');
-                btn.classList.toggle('active', lang === locale);
-                btn.setAttribute('aria-pressed', lang === locale ? 'true' : 'false');
-            });
-        }
+        // lang-switcher удалён из интерфейса, переключения языков нет
     }
 
     const currentLocale = getCurrentLocale();
@@ -58,18 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         link.setAttribute('href', '/pricing/index.html');
     });
 
-    const langSwitcher = document.getElementById('lang-switcher');
-    if (langSwitcher) {
-        langSwitcher.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const lang = btn.getAttribute('data-lang');
-                if (lang !== getCurrentLocale()) {
-                    localStorage.setItem(LOCALE_STORAGE_KEY, lang);
-                    applyLocale(lang);
-                }
-            });
-        });
-    }
+    // lang-switcher удалён, явных обработчиков не вешаем
 
     // 1. КУРСОР (GPU: translate3d, без вечного rAF-цикла — обновление только по mousemove)
     const cursor = document.querySelector('.custom-cursor');
