@@ -411,9 +411,18 @@ nav.scrolled {
     transition: filter 0.3s var(--ease-luxe);
 }
 .case:hover img { filter: brightness(1.02); }
-.case-info { position: absolute; inset: 0; padding: var(--space-lg); display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(0deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 50%, transparent 100%); opacity: 0; transition: opacity var(--dur) var(--ease-luxe); }
-.case-info { min-width: 0; }
-.case:hover .case-info { opacity: 1; }
+.case-info {
+    position: absolute;
+    inset: 0;
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+    opacity: 1;
+    transition: opacity var(--dur) var(--ease-luxe);
+    min-width: 0;
+}
 .case-info h3 { font-family: var(--font-heading); font-size: clamp(1.5rem, 2vw, 2rem); font-weight: 600; color: #fff; margin-bottom: var(--space-xs); letter-spacing: var(--ls-heading); line-height: var(--lh-tight); }
 .case-info p { font-family: var(--font-heading); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: var(--ls-tag); margin-bottom: var(--space-xs); }
 
@@ -685,7 +694,7 @@ nav.scrolled {
 .price-card h3 { font-family: var(--font-heading); font-size: var(--text-xs); color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: var(--space-lg); letter-spacing: 0.24em; font-weight: 500; }
 .price-card .val {
     font-family: var(--font-heading);
-    font-size: clamp(1.3rem, 1.9vw, 1.8rem);
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
     margin-bottom: var(--space-xs);
     font-weight: 500;
     color: #fff;
