@@ -1,86 +1,57 @@
 document.addEventListener("DOMContentLoaded", () => {
     let lastFocusedElement = null;
 
-    // 0. ЛОКАЛИЗАЦИЯ (default: ru, EN — отдельный набор строк)
-    const LOCALE_STORAGE_KEY = 'shar_locale';
-    const DEFAULT_LOCALE = 'ru';
+    // 0. Hero video — delayed load for faster first paint (poster-first)
+    const heroContainer = document.getElementById('hero-video-container');
+    if (heroContainer && heroContainer.dataset.src) {
+        const loadHeroVideo = () => {
+            const src = heroContainer.dataset.src;
+            if (!src) return;
+            heroContainer.removeAttribute('data-src');
+            const iframe = document.createElement('iframe');
+            iframe.id = 'hero-showreel';
+            iframe.src = src;
+            iframe.title = 'Showreel AI - SHAR Production';
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share');
+            iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+            iframe.setAttribute('loading', 'lazy');
+            heroContainer.appendChild(iframe);
+        };
+        if (typeof requestIdleCallback !== 'undefined') {
+            requestIdleCallback(loadHeroVideo, { timeout: 2200 });
+        } else {
+            setTimeout(loadHeroVideo, 1800);
+        }
+    }
 
+    // 1. Локализация (RU-only, данные из locales.js при наличии)
+    const DEFAULT_LOCALE = 'ru';
     function getNested(obj, path) {
         if (!obj || !path) return undefined;
         return path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : undefined), obj);
     }
-
-    function getCurrentLocale() {
-        return DEFAULT_LOCALE;
-    }
-
-    function applyLocale(locale) {
-        const L = window.SHAR_LOCALES && window.SHAR_LOCALES[locale];
-        if (!L) return;
-        window.SHAR_CURRENT_LOCALE = locale;
-        document.documentElement.lang = locale === 'en' ? 'en' : 'ru';
+    function getCurrentLocale() { return DEFAULT_LOCALE; }
+    const L = window.SHAR_LOCALES && window.SHAR_LOCALES[DEFAULT_LOCALE];
+    if (L) {
+        document.documentElement.lang = 'ru';
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc && L.meta) metaDesc.setAttribute('content', L.meta.description || '');
-        if (document.title !== undefined && L.meta) document.title = L.meta.title || document.title;
-
+        if (L.meta && L.meta.title) document.title = L.meta.title;
         document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            const val = getNested(L, key);
+            const val = getNested(L, el.getAttribute('data-i18n'));
             if (val != null) el.textContent = val;
         });
         document.querySelectorAll('[data-i18n-html]').forEach(el => {
-            const key = el.getAttribute('data-i18n-html');
-            const val = getNested(L, key);
+            const val = getNested(L, el.getAttribute('data-i18n-html'));
             if (val != null) el.innerHTML = val;
         });
         document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-            const key = el.getAttribute('data-i18n-placeholder');
-            const val = getNested(L, key);
+            const val = getNested(L, el.getAttribute('data-i18n-placeholder'));
             if (val != null) el.placeholder = val;
         });
-
-        // lang-switcher удалён из интерфейса, переключения языков нет
     }
-
-    const currentLocale = getCurrentLocale();
-    applyLocale(currentLocale);
-
-    // Unified pricing route: detailed pricing lives on /pricing/
-    document.querySelectorAll('a[data-i18n="nav.pricing"]').forEach((link) => {
-        link.setAttribute('href', '/pricing/index.html');
-    });
-
-    // lang-switcher удалён, явных обработчиков не вешаем
-
-    // 1. КУРСОР (GPU: translate3d, без вечного rAF-цикла — обновление только по mousemove)
-    const cursor = document.querySelector('.custom-cursor');
-    if (window.innerWidth > 900 && cursor) {
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let rafScheduled = false;
-
-        function updateCursorPosition() {
-            rafScheduled = false;
-            cursor.style.transform = `translate3d(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%), 0)`;
-        }
-
-        document.addEventListener('mousemove', (e) => {
-            if (!cursor.classList.contains('active')) cursor.classList.add('active');
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            if (!rafScheduled) {
-                rafScheduled = true;
-                requestAnimationFrame(updateCursorPosition);
-            }
-        }, { passive: true });
-        updateCursorPosition();
-        
-        const interactives = document.querySelectorAll('a, button, .case, .journal-card, .close-case, input, textarea, .logo, .client-logo, .watch-case-btn, .btn-nav-premium');
-        interactives.forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-        });
-    }
+    document.querySelectorAll('a[data-i18n="nav.pricing"]').forEach(link => link.setAttribute('href', '/pricing/index.html'));
 
     // 2. NAV GLASS ON SCROLL (scrolled при scrollY > 50)
     const nav = document.querySelector('nav');
@@ -144,39 +115,43 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 5. СЧЕТЧИКИ — статические значения (без анимации от 0, чтобы не показывать нули)
-    document.querySelectorAll('[data-count]').forEach((el) => {
-        const raw = el.dataset.count;
-        const num = parseInt(raw, 10);
-        if (isNaN(num) || num < 0) return;
-        el.textContent = num === 99 ? '99%' : String(num);
-    });
-
-    document.querySelectorAll('.case').forEach((card) => {
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('role', 'button');
-        card.addEventListener('keydown', (event) => {
-            if (event.key !== 'Enter' && event.key !== ' ') return;
-            event.preventDefault();
-            card.click();
+    // 5. Отложенная инициализация (не блокирует первый кадр)
+    function runDeferred() {
+        document.querySelectorAll('[data-count]').forEach((el) => {
+            const raw = el.dataset.count;
+            const num = parseInt(raw, 10);
+            if (isNaN(num) || num < 0) return;
+            el.textContent = num === 99 ? '99%' : String(num);
         });
-    });
-
-    document.querySelectorAll('.close-case').forEach((button) => {
-        button.setAttribute('tabindex', '0');
-        button.setAttribute('role', 'button');
-        button.addEventListener('keydown', (event) => {
-            if (event.key !== 'Enter' && event.key !== ' ') return;
-            event.preventDefault();
-            button.click();
+        document.querySelectorAll('.case').forEach((card) => {
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.addEventListener('keydown', (event) => {
+                if (event.key !== 'Enter' && event.key !== ' ') return;
+                event.preventDefault();
+                card.click();
+            });
         });
-    });
-
-    document.querySelectorAll('.modal').forEach((modal) => {
-        modal.setAttribute('role', 'dialog');
-        modal.setAttribute('aria-modal', 'true');
-        modal.setAttribute('aria-hidden', 'true');
-    });
+        document.querySelectorAll('.close-case').forEach((button) => {
+            button.setAttribute('tabindex', '0');
+            button.setAttribute('role', 'button');
+            button.addEventListener('keydown', (event) => {
+                if (event.key !== 'Enter' && event.key !== ' ') return;
+                event.preventDefault();
+                button.click();
+            });
+        });
+        document.querySelectorAll('.modal').forEach((modal) => {
+            modal.setAttribute('role', 'dialog');
+            modal.setAttribute('aria-modal', 'true');
+            modal.setAttribute('aria-hidden', 'true');
+        });
+    }
+    if (typeof requestIdleCallback !== 'undefined') {
+        requestIdleCallback(runDeferred, { timeout: 1200 });
+    } else {
+        setTimeout(runDeferred, 400);
+    }
 
     // 6. РАЗВЕРНУТЬ ПОРТФОЛИО
     const showMoreBtn = document.getElementById('show-more-btn');
