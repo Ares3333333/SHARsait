@@ -65,7 +65,7 @@
     --card-border: 1px solid rgba(255,255,255,0.06);
     --card-border-hover: 1px solid rgba(255,255,255,0.06);
     --card-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03);
-    --card-shadow-hover: 0 20px 52px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03);
+    --card-shadow-hover: 0 20px 52px rgba(0,0,0,0.5);
     --card-padding: clamp(24px, 2.5vw, 40px);
     --label-margin-bottom: clamp(56px, 6.5vw, 88px);
     /* Nav buttons — branded accent #9c0404 */
@@ -367,7 +367,7 @@ nav.scrolled {
     transition: color var(--dur) var(--ease-luxe), border-color var(--dur) var(--ease-luxe);
     letter-spacing: 0.03em;
 }
-.client-logo:hover { color: rgba(255,255,255,0.82); border-color: var(--card-border-hover); }
+.client-logo:hover { color: rgba(255,255,255,0.82); border-color: var(--card-border); }
 
 .section-arrow {
     margin-left: auto;
@@ -412,7 +412,7 @@ nav.scrolled {
     box-shadow: var(--card-shadow);
 }
 .case:hover {
-    border-color: var(--card-border-hover);
+    border-color: var(--card-border);
     box-shadow: var(--card-shadow-hover);
 }
 
@@ -544,7 +544,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     contain: layout paint;
 }
 .journal-card:hover {
-    border-color: var(--card-border-hover);
+    border-color: var(--card-border);
     box-shadow: var(--card-shadow-hover);
 }
 .j-img-wrap { width: 100%; aspect-ratio: 16/9; overflow: hidden; min-height: 0; contain: paint; }
@@ -641,7 +641,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     box-shadow: var(--card-shadow);
 }
 .journal-featured:hover {
-    border-color: var(--card-border-hover);
+    border-color: var(--card-border);
     box-shadow: var(--card-shadow-hover);
 }
 .journal-featured .j-img-wrap {
@@ -698,7 +698,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     box-shadow: var(--card-shadow);
 }
 .journal-grid-rest .journal-card:hover {
-    border-color: var(--card-border-hover);
+    border-color: var(--card-border);
     box-shadow: var(--card-shadow-hover);
 }
 .journal-grid-rest .j-content { padding: clamp(28px, 2.8vw, 40px); }
@@ -723,7 +723,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     box-shadow: var(--card-shadow);
 }
 .price-card:hover {
-    border-color: var(--card-border-hover);
+    border-color: var(--card-border);
     box-shadow: var(--card-shadow-hover);
 }
 .price-card h3 {
@@ -814,7 +814,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     gap: 0;
 }
 .contact-card:focus-within {
-    border-color: var(--card-border-hover);
+    border-color: var(--card-border);
     border-left-color: rgba(156,4,4,0.45);
     box-shadow: var(--card-shadow-hover);
 }
@@ -939,7 +939,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     transition: border-color var(--dur) var(--ease-luxe), box-shadow var(--dur) var(--ease-luxe);
 }
 .pitch-card:hover {
-    border-color: var(--card-border-hover);
+    border-color: var(--card-border);
     border-left-color: rgba(156,4,4,0.4);
     box-shadow: var(--card-shadow-hover);
 }
@@ -1008,7 +1008,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     transition: border-color var(--dur) var(--ease-luxe), box-shadow var(--dur) var(--ease-luxe);
 }
 .process-step:hover {
-    border-color: var(--card-border-hover);
+    border-color: var(--card-border);
     box-shadow: var(--card-shadow-hover);
 }
 .process-index {
@@ -1041,7 +1041,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     transition: border-color var(--dur) var(--ease-luxe), box-shadow var(--dur) var(--ease-luxe);
 }
 .pricing-teaser:hover {
-    border-color: var(--card-border-hover);
+    border-color: var(--card-border);
     box-shadow: var(--card-shadow-hover);
 }
 .pricing-teaser-title {
@@ -1080,7 +1080,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     transition: border-color var(--dur) var(--ease-luxe), box-shadow var(--dur) var(--ease-luxe);
 }
 .awards-block:hover {
-    border-color: var(--card-border-hover);
+    border-color: var(--card-border);
     box-shadow: var(--card-shadow-hover);
 }
 .awards-intro,
