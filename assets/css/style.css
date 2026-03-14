@@ -71,21 +71,15 @@
     --card-padding: clamp(24px, 2.5vw, 40px);
     --label-margin-bottom: clamp(56px, 6.5vw, 88px);
     --card-bg: var(--bg);
-    /* ========== Кнопки: премиум-студия — минимализм, сдержанность, один акцент ========== */
-    --btn-radius: 4px;
-    --btn-bg: #0a0a0e;
-    --btn-bg-hover: #0e0e14;
-    --btn-border: 1px solid rgba(255, 255, 255, 0.08);
-    --btn-border-hover: 1px solid rgba(156, 4, 4, 0.4);
-    --btn-border-primary: 1px solid rgba(156, 4, 4, 0.35);
-    --btn-border-primary-hover: 1px solid rgba(156, 4, 4, 0.55);
-    --btn-text: rgba(255, 255, 255, 0.95);
-    --btn-text-muted: rgba(255, 255, 255, 0.72);
+    /* ========== Кнопки: без фона, живое свечение, пульсация ========== */
+    --btn-radius: 6px;
+    --btn-text: rgba(255, 255, 255, 0.98);
+    --btn-text-muted: rgba(255, 255, 255, 0.85);
     --btn-height: 46px;
     --btn-pad-x: 22px;
     --btn-font-size: 11px;
     --btn-letter: 0.14em;
-    --btn-transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    --btn-transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.4s ease;
 }
 
 
@@ -1332,7 +1326,12 @@ a.case .case-info h3 { color: #ffffff !important; }
     font-family: var(--font-heading);
 }
 
-/* ========== Кнопки: премиум-студия — минимализм, сдержанный красный акцент ========== */
+@keyframes btn-glow-pulse {
+    0%, 100% { box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.35), 0 0 18px rgba(156, 4, 4, 0.2), 0 0 36px rgba(156, 4, 4, 0.08); }
+    50% { box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.55), 0 0 28px rgba(156, 4, 4, 0.35), 0 0 48px rgba(156, 4, 4, 0.15); }
+}
+
+/* Кнопки: без фона, живое красное свечение, пульсация */
 .btn,
 a.btn,
 button.btn,
@@ -1344,8 +1343,8 @@ button.btn,
     min-height: var(--btn-height);
     padding: 0 var(--btn-pad-x);
     border-radius: var(--btn-radius);
-    border: var(--btn-border);
-    background: var(--btn-bg);
+    border: 1px solid rgba(156, 4, 4, 0.45);
+    background: transparent !important;
     color: var(--btn-text) !important;
     text-decoration: none;
     font-family: var(--font-heading);
@@ -1356,7 +1355,8 @@ button.btn,
     white-space: nowrap;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.35), 0 0 18px rgba(156, 4, 4, 0.2), 0 0 36px rgba(156, 4, 4, 0.08);
+    animation: btn-glow-pulse 2.8s ease-in-out infinite;
     transition: var(--btn-transition);
     -webkit-tap-highlight-color: transparent;
     appearance: none;
@@ -1379,80 +1379,74 @@ button.btn:hover,
 a.btn:focus-visible,
 button.btn:focus-visible,
 [role="button"].btn:focus-visible {
-    background: var(--btn-bg-hover);
-    border: var(--btn-border-hover);
-    color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(156, 4, 4, 0.7) !important;
+    color: #fff !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.6), 0 0 32px rgba(156, 4, 4, 0.45), 0 0 56px rgba(156, 4, 4, 0.2) !important;
+    animation: none;
     outline: none;
 }
 .btn:active,
 a.btn:active,
 button.btn:active,
 [role="button"].btn:active {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.5), 0 0 20px rgba(156, 4, 4, 0.3) !important;
+    animation: none;
 }
 
-/* Primary — один тонкий красный акцент */
+/* Primary — ярче кромка и пульс */
 .btn--primary {
-    background: #0c0c10;
-    border: var(--btn-border-primary);
+    border: 1px solid rgba(156, 4, 4, 0.5) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.4), 0 0 22px rgba(156, 4, 4, 0.25), 0 0 42px rgba(156, 4, 4, 0.1);
 }
 .btn--primary:hover,
 .btn--primary:focus-visible {
-    background: #101016;
-    border: var(--btn-border-primary-hover);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.7), 0 0 36px rgba(156, 4, 4, 0.5), 0 0 64px rgba(156, 4, 4, 0.22) !important;
 }
 
-/* Secondary — тихая кромка, на hover красный */
+/* Secondary — то же свечение, чуть тише */
 .btn--secondary {
-    background: #08080c;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    color: var(--btn-text-muted);
+    border: 1px solid rgba(156, 4, 4, 0.35) !important;
+    color: var(--btn-text-muted) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.28), 0 0 14px rgba(156, 4, 4, 0.15), 0 0 30px rgba(156, 4, 4, 0.06);
 }
 .btn--secondary:hover,
 .btn--secondary:focus-visible {
-    border: var(--btn-border-hover);
-    color: var(--btn-text);
+    color: var(--btn-text) !important;
 }
 
-/* Шапка — минимально: прозрачные, маленькие, тонкая кромка */
+/* Шапка — без фона, пульсирующее свечение */
 .btn--compact {
     min-height: 36px;
     padding: 0 14px;
     font-size: 10px;
     letter-spacing: 0.15em;
     border-radius: var(--btn-radius);
-    background: transparent !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    color: rgba(255, 255, 255, 0.9) !important;
-    box-shadow: none !important;
+    border: 1px solid rgba(156, 4, 4, 0.4) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.3), 0 0 14px rgba(156, 4, 4, 0.18), 0 0 28px rgba(156, 4, 4, 0.06);
 }
 .btn--compact:hover,
 .btn--compact:focus-visible {
-    background: rgba(255, 255, 255, 0.04) !important;
-    border: 1px solid rgba(156, 4, 4, 0.35) !important;
-    color: #fff !important;
-    box-shadow: none !important;
+    border: 1px solid rgba(156, 4, 4, 0.65) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.5), 0 0 24px rgba(156, 4, 4, 0.4), 0 0 44px rgba(156, 4, 4, 0.15) !important;
 }
 
-/* Ghost — только текст/рамка при hover */
+/* Ghost — без фона, лёгкая пульсация */
 .btn--ghost {
-    background: transparent !important;
-    border: 1px solid transparent !important;
-    box-shadow: none !important;
-    color: var(--btn-text-muted);
+    border: 1px solid rgba(156, 4, 4, 0.2) !important;
+    color: var(--btn-text-muted) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.15), 0 0 12px rgba(156, 4, 4, 0.1);
 }
 .btn--ghost:hover,
 .btn--ghost:focus-visible {
-    background: rgba(255, 255, 255, 0.03) !important;
-    border-color: rgba(255, 255, 255, 0.08) !important;
-    color: var(--btn-text);
+    border: 1px solid rgba(156, 4, 4, 0.45) !important;
+    color: var(--btn-text) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.35), 0 0 20px rgba(156, 4, 4, 0.25) !important;
 }
 
 .btn--block { display: inline-flex; width: 100%; }
 .btn__icon { display: inline-flex; margin-left: 10px; opacity: 0.82; transition: opacity 0.22s ease; }
 .btn:hover .btn__icon, .btn:focus-visible .btn__icon { opacity: 1; }
-.btn[disabled], .btn.is-disabled, button.btn:disabled { opacity: 0.45; cursor: not-allowed; box-shadow: none; }
+.btn[disabled], .btn.is-disabled, button.btn:disabled { opacity: 0.5; cursor: not-allowed; animation: none; box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.15); }
 a.btn:visited { color: var(--btn-text); }
 
 /* Legacy: не даём старым классам влиять */
@@ -1460,35 +1454,32 @@ a.btn:visited { color: var(--btn-text); }
 .cta:hover, .button:hover, .nav-cta:hover, .btn-link:hover, a[role="button"]:hover { outline: none !important; }
 .cta::before, .cta::after, .button::before, .button::after, .nav-cta::before, .nav-cta::after, .btn-link::before, .btn-link::after { content: none !important; display: none !important; }
 
-/* Hero — крупнее, тот же минималистичный стиль */
+/* Hero — крупнее, без фона, пульсирующее свечение */
 .hero-actions .btn {
     min-height: 50px;
     padding: 0 28px;
     font-size: 12px;
     letter-spacing: 0.14em;
     border-radius: var(--btn-radius);
+    background: transparent !important;
 }
 .hero-actions .btn--primary {
-    background: #0c0c12;
-    border: 1px solid rgba(156, 4, 4, 0.4);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(156, 4, 4, 0.5) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.45), 0 0 26px rgba(156, 4, 4, 0.28), 0 0 50px rgba(156, 4, 4, 0.12);
 }
 .hero-actions .btn--primary:hover,
 .hero-actions .btn--primary:focus-visible {
-    background: #101018;
-    border: 1px solid rgba(156, 4, 4, 0.55);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.7), 0 0 40px rgba(156, 4, 4, 0.5), 0 0 72px rgba(156, 4, 4, 0.22) !important;
 }
 .hero-actions .btn--secondary {
-    background: #08080c;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(156, 4, 4, 0.4) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.32), 0 0 20px rgba(156, 4, 4, 0.2), 0 0 40px rgba(156, 4, 4, 0.08);
 }
 .hero-actions .btn--secondary:hover,
 .hero-actions .btn--secondary:focus-visible {
-    background: #0c0c12;
-    border: 1px solid rgba(156, 4, 4, 0.4);
-    color: #fff;
+    color: #fff !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.6), 0 0 32px rgba(156, 4, 4, 0.4), 0 0 56px rgba(156, 4, 4, 0.15) !important;
 }
 .cta-block .btn, .pricing-teaser > .btn { min-height: 46px; padding: 0 22px; font-size: 11px; }
 .work-conversion-strip .btn { min-height: 46px; padding: 0 24px; font-size: 11px; }
