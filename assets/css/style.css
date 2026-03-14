@@ -1066,8 +1066,8 @@ nav.scrolled {
 }
 .awards-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: clamp(12px, 1.2vw, 20px);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(16px, 1.5vw, 24px);
     align-items: center;
     justify-items: center;
 }
@@ -1081,12 +1081,14 @@ nav.scrolled {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 0;
 }
 .award-logo {
+    display: block;
     width: auto;
     height: auto;
-    max-width: 140px;
-    max-height: 88px;
+    max-width: 120px;
+    max-height: 72px;
     object-fit: contain;
     object-position: center;
     filter: brightness(0.98);
