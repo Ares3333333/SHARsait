@@ -1425,23 +1425,23 @@ button.btn:active,
     box-shadow: var(--btn-depth-hover), var(--btn-edge-glow-hover);
 }
 
-/* Компактный для шапки */
+/* Компактный для шапки — не чёрная заливка: полупрозрачная база + выраженная красная кромка */
 .btn--compact {
     min-height: 40px;
     padding: 0 18px;
     font-size: 10px;
     letter-spacing: 0.18em;
-    background: #030406;
-    border: 1px solid rgba(156, 4, 4, 0.14);
-    color: rgba(255, 255, 255, 0.92);
-    box-shadow: var(--btn-depth), 0 0 0 1px rgba(156, 4, 4, 0.08), 0 0 14px rgba(156, 4, 4, 0.06);
+    background: rgba(12, 12, 16, 0.72);
+    border: 1px solid rgba(156, 4, 4, 0.28);
+    color: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.18), 0 0 20px rgba(156, 4, 4, 0.12), 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 .btn--compact:hover,
 .btn--compact:focus-visible {
-    background: #08080e;
-    border: 1px solid rgba(156, 4, 4, 0.28);
+    background: rgba(18, 18, 24, 0.85);
+    border: 1px solid rgba(156, 4, 4, 0.42);
     color: #fff;
-    box-shadow: var(--btn-depth-hover), 0 0 0 1px rgba(156, 4, 4, 0.16), 0 0 20px rgba(156, 4, 4, 0.1);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.28), 0 0 28px rgba(156, 4, 4, 0.18), 0 5px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Ghost — в той же семье: без заливки, лёгкая красная кромка на hover */
@@ -1472,6 +1472,31 @@ a.btn:visited { color: var(--btn-text); }
 
 /* Контекст: hero, CTA, стоимость, кейсы */
 .hero-actions .btn { min-height: 54px; padding: 0 28px; font-size: 12px; letter-spacing: 0.14em; }
+/* Hero: не чёрная заливка — полупрозрачная база + выраженная красная кромка (как референс) */
+.hero-actions .btn--primary {
+    background: linear-gradient(180deg, rgba(156, 4, 4, 0.18) 0%, rgba(156, 4, 4, 0.06) 50%, transparent 100%), rgba(10, 10, 14, 0.78);
+    border: 1px solid rgba(156, 4, 4, 0.38);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.22), 0 0 32px rgba(156, 4, 4, 0.16), 0 5px 24px rgba(0, 0, 0, 0.4);
+}
+.hero-actions .btn--primary:hover,
+.hero-actions .btn--primary:focus-visible {
+    background: linear-gradient(180deg, rgba(156, 4, 4, 0.24) 0%, rgba(156, 4, 4, 0.1) 50%, transparent 100%), rgba(16, 16, 22, 0.88);
+    border: 1px solid rgba(156, 4, 4, 0.52);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.32), 0 0 40px rgba(156, 4, 4, 0.2), 0 6px 28px rgba(0, 0, 0, 0.45);
+}
+.hero-actions .btn--secondary {
+    background: rgba(10, 10, 14, 0.72);
+    border: 1px solid rgba(156, 4, 4, 0.22);
+    color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.14), 0 0 24px rgba(156, 4, 4, 0.1), 0 4px 20px rgba(0, 0, 0, 0.38);
+}
+.hero-actions .btn--secondary:hover,
+.hero-actions .btn--secondary:focus-visible {
+    background: rgba(16, 16, 22, 0.88);
+    border: 1px solid rgba(156, 4, 4, 0.38);
+    color: #fff;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.24), 0 0 32px rgba(156, 4, 4, 0.14), 0 5px 24px rgba(0, 0, 0, 0.42);
+}
 .cta-block .btn, .pricing-teaser > .btn { min-height: 50px; padding: 0 24px; }
 .work-conversion-strip .btn { min-height: 50px; padding: 0 26px; font-size: 12px; }
 .price-card .btn, .contact-form .btn[type="submit"] { width: 100%; }
