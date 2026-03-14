@@ -71,25 +71,25 @@
     --card-padding: clamp(24px, 2.5vw, 40px);
     --label-margin-bottom: clamp(56px, 6.5vw, 88px);
     --card-bg: var(--bg);
-    /* ========== Кнопки: дорогой объект, мягкое красное свечение по кромке (референс) ========== */
+    /* ========== Единая система кнопок: премиальный объект + светящаяся красная кромка (референс → SHAR) ========== */
     --btn-radius: 5px;
-    --btn-bg: #050508;
-    --btn-bg-hover: #0a0a0f;
-    --btn-border: 1px solid rgba(156, 4, 4, 0.18);
-    --btn-border-hover: 1px solid rgba(156, 4, 4, 0.32);
-    --btn-border-primary: 1px solid rgba(156, 4, 4, 0.28);
-    --btn-border-primary-hover: 1px solid rgba(156, 4, 4, 0.42);
-    --btn-edge-glow: 0 0 0 1px rgba(156, 4, 4, 0.12), 0 0 20px rgba(156, 4, 4, 0.08);
-    --btn-edge-glow-hover: 0 0 0 1px rgba(156, 4, 4, 0.2), 0 0 28px rgba(156, 4, 4, 0.12);
-    --btn-depth: inset 0 1px 0 rgba(255, 255, 255, 0.02), 0 4px 16px rgba(0, 0, 0, 0.5);
-    --btn-depth-hover: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 6px 24px rgba(0, 0, 0, 0.55);
-    --btn-text: rgba(255, 255, 255, 0.95);
-    --btn-text-muted: rgba(255, 255, 255, 0.78);
+    --btn-bg: #040507;
+    --btn-bg-hover: #08090d;
+    --btn-border: 1px solid rgba(156, 4, 4, 0.2);
+    --btn-border-hover: 1px solid rgba(156, 4, 4, 0.36);
+    --btn-border-primary: 1px solid rgba(156, 4, 4, 0.3);
+    --btn-border-primary-hover: 1px solid rgba(156, 4, 4, 0.48);
+    --btn-edge-glow: 0 0 0 1px rgba(156, 4, 4, 0.14), 0 0 22px rgba(156, 4, 4, 0.09);
+    --btn-edge-glow-hover: 0 0 0 1px rgba(156, 4, 4, 0.24), 0 0 30px rgba(156, 4, 4, 0.14);
+    --btn-depth: inset 0 1px 0 rgba(255, 255, 255, 0.025), 0 4px 18px rgba(0, 0, 0, 0.52);
+    --btn-depth-hover: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 6px 26px rgba(0, 0, 0, 0.58);
+    --btn-text: rgba(255, 255, 255, 0.96);
+    --btn-text-muted: rgba(255, 255, 255, 0.8);
     --btn-height: 48px;
     --btn-pad-x: 24px;
     --btn-font-size: 12px;
     --btn-letter: 0.13em;
-    --btn-transition: background-color 0.28s ease, border-color 0.28s ease, box-shadow 0.3s ease, color 0.28s ease;
+    --btn-transition: background-color 0.26s ease, border-color 0.26s ease, box-shadow 0.28s ease, color 0.26s ease;
 }
 
 
@@ -420,8 +420,9 @@ nav a.nav-link:active { text-decoration: none !important; }
 }
 .section-arrow::before { content: '➝' !important; }
 .section-arrow:hover {
-    background: rgba(156,4,4,0.1);
-    box-shadow: var(--btn-depth-hover);
+    background: rgba(156,4,4,0.12);
+    border-color: rgba(156, 4, 4, 0.28);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.12), 0 0 14px rgba(156, 4, 4, 0.08);
     opacity: 1;
 }
 
@@ -917,7 +918,7 @@ a.case .case-info h3 { color: #ffffff !important; }
 .contact-label { display: block; font-family: var(--font-heading); font-size: 9px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: var(--ls-tag); margin-bottom: var(--space-xs); font-weight: 600; }
 .contact-form .form-input { display: block; width: 100%; margin-bottom: 0; }
 .contact-form .form-input--message { min-height: 94px; resize: vertical; }
-.contact-form .btn[type="submit"] { width: auto; min-width: 200px; margin-top: var(--space-md); }
+.contact-form .btn[type="submit"] { width: auto; min-width: 200px; margin-top: var(--space-md); min-height: var(--btn-height); }
 .contact-form .form-legal { margin-top: var(--space-lg); margin-bottom: 0; text-align: left; color: rgba(255,255,255,0.42); }
 .form-legal-link:hover { color: #fff; }
 @media (max-width: 900px) {
@@ -928,7 +929,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     .contact-form-panel { padding: var(--space-2xl) var(--space-xl); align-items: flex-start; }
     .contact-form-wrap { max-width: 100%; }
     .contact-form .form-input { min-height: 50px; padding: 15px 0 17px; font-size: 16px; border-bottom-width: 2px; }
-    .contact-form .btn[type="submit"] { min-height: 44px; padding: 11px 22px; width: 100%; max-width: 260px; }
+    .contact-form .btn[type="submit"] { min-height: 48px; padding: 14px 22px; width: 100%; max-width: 280px; }
     .contact-form .form-legal { margin-top: var(--space-lg); font-size: 10px; text-align: left; }
 }
 
@@ -1443,18 +1444,18 @@ button.btn:active,
     box-shadow: var(--btn-depth-hover), 0 0 0 1px rgba(156, 4, 4, 0.16), 0 0 20px rgba(156, 4, 4, 0.1);
 }
 
-/* Ghost */
+/* Ghost — в той же семье: без заливки, лёгкая красная кромка на hover */
 .btn--ghost {
     background: transparent !important;
-    border: 1px solid transparent !important;
+    border: 1px solid rgba(156, 4, 4, 0.08) !important;
     box-shadow: none !important;
     color: var(--btn-text-muted);
 }
 .btn--ghost:hover,
 .btn--ghost:focus-visible {
-    background: rgba(0, 0, 0, 0.25) !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
+    background: rgba(0, 0, 0, 0.28) !important;
+    border-color: rgba(156, 4, 4, 0.22) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.1), 0 0 16px rgba(156, 4, 4, 0.06) !important;
     color: var(--btn-text);
 }
 
@@ -1503,15 +1504,11 @@ a.btn:visited { color: var(--btn-text); }
     .contact-decision-intro { margin-bottom: var(--space-lg); }
     .contact-card { border-radius: 6px; border-left-width: 1px; }
     .btn {
-        min-height: 44px;
-        font-size: 12px;
-        letter-spacing: 0.1em;
+        min-height: 46px;
+        font-size: 11px;
+        letter-spacing: 0.12em;
         padding: 0 var(--space-lg);
         border-radius: var(--btn-radius);
-    }
-    .btn--lg {
-        min-height: 48px;
-        padding: 0 20px;
     }
     .hero-actions .btn,
     .work-conversion-strip .btn,
@@ -1684,8 +1681,8 @@ a.btn:visited { color: var(--btn-text); }
     .modal { padding: var(--space-3xl) 4% var(--space-xl); }
     .m-gallery { grid-template-columns: 1fr; gap: var(--space-md); }
 
-    .btn { width: auto; min-height: 44px; padding: 11px var(--space-lg); font-size: 8.5px; letter-spacing: 0.24em; border-radius: 4px; }
-    .price-card .btn, .contact-form .btn[type="submit"] { width: 100%; padding: 11px var(--space-lg); min-height: 44px; }
+    .btn { width: auto; min-height: 44px; padding: 12px var(--space-lg); font-size: 11px; letter-spacing: 0.14em; border-radius: var(--btn-radius); }
+    .price-card .btn, .contact-form .btn[type="submit"] { width: 100%; padding: 12px var(--space-lg); min-height: 46px; }
     .contact-heading { font-size: clamp(0.8rem, 4vw, 0.96rem); }
     .contact-card { margin-bottom: 0; }
     .contact-form-panel { padding: clamp(52px, 10vw, 72px) var(--space-xl); }
@@ -1703,5 +1700,5 @@ a.btn:visited { color: var(--btn-text); }
     .section, .manifesto { padding: 56px 5% 72px; }
     .journal-featured .j-img-wrap { height: 280px; }
     .journal-intro { font-size: 1rem; line-height: 1.84; margin-bottom: 52px; }
-    .contact-form .btn[type="submit"] { width: 100%; min-width: 0; max-width: none; min-height: 48px; padding: 15px; }
+    .contact-form .btn[type="submit"] { width: 100%; min-width: 0; max-width: none; min-height: 48px; padding: 14px 20px; }
 }
