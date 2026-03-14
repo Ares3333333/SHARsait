@@ -1085,8 +1085,8 @@ nav.scrolled {
 .award-logo {
     width: auto;
     height: auto;
-    max-width: 100px;
-    max-height: 64px;
+    max-width: 140px;
+    max-height: 88px;
     object-fit: contain;
     object-position: center;
     filter: brightness(0.98);
@@ -1600,11 +1600,11 @@ nav.scrolled {
         scroll-snap-align: start;
     }
     .award-item--logo {
-        flex: 0 0 min(88px, 22vw);
+        flex: 0 0 min(120px, 26vw);
     }
     .award-item--logo .award-logo {
-        max-width: 88px;
-        max-height: 56px;
+        max-width: 120px;
+        max-height: 76px;
     }
 
     .team-member, .journal-card { flex: 0 0 min(85vw, 420px); }
