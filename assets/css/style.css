@@ -1066,9 +1066,10 @@ nav.scrolled {
 }
 .awards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: clamp(24px, 2.4vw, 32px);
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: clamp(16px, 1.8vw, 24px);
     align-items: center;
+    justify-items: center;
 }
 .award-item {
     border-top: 1px solid rgba(255,255,255,0.14);
@@ -1082,11 +1083,12 @@ nav.scrolled {
     justify-content: center;
 }
 .award-logo {
-    width: 100%;
-    max-width: 160px;
+    width: auto;
     height: auto;
-    aspect-ratio: 1;
+    max-width: 100px;
+    max-height: 64px;
     object-fit: contain;
+    object-position: center;
     filter: brightness(0.98);
     transition: filter var(--dur) var(--ease-luxe);
 }
@@ -1598,10 +1600,11 @@ nav.scrolled {
         scroll-snap-align: start;
     }
     .award-item--logo {
-        flex: 0 0 min(120px, 28vw);
+        flex: 0 0 min(88px, 22vw);
     }
     .award-item--logo .award-logo {
-        max-width: 120px;
+        max-width: 88px;
+        max-height: 56px;
     }
 
     .team-member, .journal-card { flex: 0 0 min(85vw, 420px); }
