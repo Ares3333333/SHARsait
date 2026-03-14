@@ -506,6 +506,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     margin-bottom: var(--space-md);
     order: 1;
 }
+.team-member h3.team-name,
 .team-member h4 {
     order: 2;
     font-family: var(--font-heading);

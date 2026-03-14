@@ -3,3 +3,9 @@
 
 # Editor / IDE
 .cursor/
+
+# Deployment / FTP (do not commit; do not deploy)
+.ftp-deploy-sync-state.json
+.env
+.env.*
+!.env.example
