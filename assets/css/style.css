@@ -61,10 +61,10 @@
     /* Высота глобальной шапки: sticky-панель кейса прилипает под ней */
     --nav-height: 72px;
     --section-pad-y: clamp(96px, 11vw, 160px);
-    /* Unified card/surface system — один стиль для всех блоков */
+    /* Unified card/surface — без белой обводки при наведении */
     --card-radius: 6px;
-    --card-border: 1px solid var(--line);
-    --card-border-hover: 1px solid var(--line-strong);
+    --card-border: 1px solid transparent;
+    --card-border-hover: 1px solid transparent;
     --card-shadow: 0 16px 40px rgba(0,0,0,0.4);
     --card-shadow-hover: 0 20px 52px rgba(0,0,0,0.5);
     --card-padding: clamp(24px, 2.5vw, 40px);
