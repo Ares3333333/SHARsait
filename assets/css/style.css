@@ -75,8 +75,8 @@
     --btn-radius: 6px;
     --btn-text: rgba(255, 255, 255, 0.98);
     --btn-text-muted: rgba(255, 255, 255, 0.85);
-    --btn-height: 46px;
-    --btn-pad-x: 22px;
+    --btn-height: 23px;
+    --btn-pad-x: 14px;
     --btn-font-size: 11px;
     --btn-letter: 0.14em;
     --btn-transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.4s ease;
@@ -918,7 +918,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     .contact-form-panel { padding: var(--space-2xl) var(--space-xl); align-items: flex-start; }
     .contact-form-wrap { max-width: 100%; }
     .contact-form .form-input { min-height: 50px; padding: 15px 0 17px; font-size: 16px; border-bottom-width: 2px; }
-    .contact-form .btn[type="submit"] { min-height: 48px; padding: 14px 22px; width: 100%; max-width: 280px; }
+    .contact-form .btn[type="submit"] { min-height: 24px; padding: 10px 14px; width: 100%; max-width: 280px; }
     .contact-form .form-legal { margin-top: var(--space-lg); font-size: 10px; text-align: left; }
 }
 
@@ -1416,8 +1416,8 @@ button.btn:active,
 
 /* Шапка — без фона, пульсирующее свечение */
 .btn--compact {
-    min-height: 36px;
-    padding: 0 14px;
+    min-height: 18px;
+    padding: 0 10px;
     font-size: 10px;
     letter-spacing: 0.15em;
     border-radius: var(--btn-radius);
@@ -1454,11 +1454,11 @@ a.btn:visited { color: var(--btn-text); }
 .cta:hover, .button:hover, .nav-cta:hover, .btn-link:hover, a[role="button"]:hover { outline: none !important; }
 .cta::before, .cta::after, .button::before, .button::after, .nav-cta::before, .nav-cta::after, .btn-link::before, .btn-link::after { content: none !important; display: none !important; }
 
-/* Hero — крупнее, без фона, пульсирующее свечение */
+/* Hero — без фона, пульсирующее свечение */
 .hero-actions .btn {
-    min-height: 50px;
-    padding: 0 28px;
-    font-size: 12px;
+    min-height: 25px;
+    padding: 0 18px;
+    font-size: 10px;
     letter-spacing: 0.14em;
     border-radius: var(--btn-radius);
     background: transparent !important;
@@ -1481,18 +1481,18 @@ a.btn:visited { color: var(--btn-text); }
     color: #fff !important;
     box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.6), 0 0 32px rgba(156, 4, 4, 0.4), 0 0 56px rgba(156, 4, 4, 0.15) !important;
 }
-.cta-block .btn, .pricing-teaser > .btn { min-height: 46px; padding: 0 22px; font-size: 11px; }
-.work-conversion-strip .btn { min-height: 46px; padding: 0 24px; font-size: 11px; }
+.cta-block .btn, .pricing-teaser > .btn { min-height: 23px; padding: 0 14px; font-size: 10px; }
+.work-conversion-strip .btn { min-height: 23px; padding: 0 16px; font-size: 10px; }
 .price-card .btn, .contact-form .btn[type="submit"] { width: 100%; }
-.contact-form .btn[type="submit"] { min-height: 46px; padding: 0 22px; }
-.cta-block .btn { width: auto; min-width: 160px; margin-top: var(--space-md); }
-.case .btn { min-height: 34px; padding: 0 14px; font-size: 10px; letter-spacing: 0.12em; }
+.contact-form .btn[type="submit"] { min-height: 23px; padding: 0 14px; }
+.cta-block .btn { width: auto; min-width: 120px; margin-top: var(--space-md); }
+.case .btn { min-height: 17px; padding: 0 10px; font-size: 9px; letter-spacing: 0.12em; width: 100%; max-width: 100%; display: flex; }
 .journal-teaser-more .btn { width: auto; }
 @media (max-width: 767px) {
     .hero-actions .btn {
-        min-height: 46px;
-        padding: 0 22px;
-        font-size: 11px;
+        min-height: 23px;
+        padding: 0 14px;
+        font-size: 10px;
         letter-spacing: 0.12em;
     }
 }
@@ -1513,21 +1513,21 @@ a.btn:visited { color: var(--btn-text); }
     .contact-decision-intro { margin-bottom: var(--space-lg); }
     .contact-card { border-radius: 6px; border-left-width: 1px; }
     .btn {
-        min-height: 46px;
-        font-size: 11px;
+        min-height: 23px;
+        font-size: 10px;
         letter-spacing: 0.12em;
-        padding: 0 var(--space-lg);
+        padding: 0 var(--space-md);
         border-radius: var(--btn-radius);
     }
-    .hero-actions .btn { min-height: 50px; padding: 0 24px; width: auto; max-width: none; }
+    .hero-actions .btn { min-height: 25px; padding: 0 16px; width: auto; max-width: none; }
     .work-conversion-strip .btn,
     .cta-block .btn,
     .pricing-teaser > .btn {
-        min-height: 52px;
+        min-height: 26px;
         width: 100%;
         max-width: 360px;
     }
-    .case .btn { min-height: 34px; }
+    .case .btn { min-height: 17px; width: 100%; }
     .horizontal-scroll { overflow-x: auto; overscroll-behavior-x: contain; }
     .team-member, .journal-card { flex: 0 0 min(85vw, 420px); }
 }
@@ -1639,7 +1639,7 @@ a.btn:visited { color: var(--btn-text); }
     .nav-link { font-size: 15px; color: rgba(255,255,255,0.88); opacity: 1; letter-spacing: var(--ls-heading); }
     .lang-switcher { font-size: 10px; padding: var(--space-xs) 0; }
     .nav-actions { flex-direction: column; gap: var(--space-sm); align-items: center; }
-    .nav-actions .btn { font-size: 10px; padding: 8px 12px; min-height: 36px; border-radius: var(--btn-radius); width: auto; }
+    .nav-actions .btn { font-size: 9px; padding: 6px 10px; min-height: 18px; border-radius: var(--btn-radius); width: auto; }
     .hamburger { display: flex; z-index: 9002; }
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
@@ -1690,8 +1690,8 @@ a.btn:visited { color: var(--btn-text); }
     .modal { padding: var(--space-3xl) 4% var(--space-xl); }
     .m-gallery { grid-template-columns: 1fr; gap: var(--space-md); }
 
-    .btn { width: auto; min-height: 44px; padding: 12px var(--space-lg); font-size: 11px; letter-spacing: 0.14em; border-radius: var(--btn-radius); }
-    .price-card .btn, .contact-form .btn[type="submit"] { width: 100%; padding: 12px var(--space-lg); min-height: 46px; }
+    .btn { width: auto; min-height: 22px; padding: 8px var(--space-md); font-size: 10px; letter-spacing: 0.12em; border-radius: var(--btn-radius); }
+    .price-card .btn, .contact-form .btn[type="submit"] { width: 100%; padding: 8px var(--space-md); min-height: 23px; }
     .contact-heading { font-size: clamp(0.8rem, 4vw, 0.96rem); }
     .contact-card { margin-bottom: 0; }
     .contact-form-panel { padding: clamp(52px, 10vw, 72px) var(--space-xl); }
@@ -1709,5 +1709,5 @@ a.btn:visited { color: var(--btn-text); }
     .section, .manifesto { padding: 56px 5% 72px; }
     .journal-featured .j-img-wrap { height: 280px; }
     .journal-intro { font-size: 1rem; line-height: 1.84; margin-bottom: 52px; }
-    .contact-form .btn[type="submit"] { width: 100%; min-width: 0; max-width: none; min-height: 48px; padding: 14px 20px; }
+    .contact-form .btn[type="submit"] { width: 100%; min-width: 0; max-width: none; min-height: 24px; padding: 10px 16px; }
 }
