@@ -1066,12 +1066,32 @@ nav.scrolled {
 }
 .awards-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: clamp(24px, 2.4vw, 32px);
+    align-items: center;
 }
 .award-item {
     border-top: 1px solid rgba(255,255,255,0.14);
     padding-top: var(--space-md);
+}
+.award-item--logo {
+    padding-top: 0;
+    border-top: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.award-logo {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+    filter: brightness(0.98);
+    transition: filter var(--dur) var(--ease-luxe);
+}
+.award-item--logo:hover .award-logo {
+    filter: brightness(1.08);
 }
 .award-laurel-badge {
     width: 84px;
@@ -1576,6 +1596,12 @@ nav.scrolled {
     .award-item {
         flex: 0 0 min(70vw, 260px);
         scroll-snap-align: start;
+    }
+    .award-item--logo {
+        flex: 0 0 min(120px, 28vw);
+    }
+    .award-item--logo .award-logo {
+        max-width: 120px;
     }
 
     .team-member, .journal-card { flex: 0 0 min(85vw, 420px); }
