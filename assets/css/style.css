@@ -71,23 +71,25 @@
     --card-padding: clamp(24px, 2.5vw, 40px);
     --label-margin-bottom: clamp(56px, 6.5vw, 88px);
     --card-bg: var(--bg);
-    /* ========== Единая система кнопок: editorial luxury control ========== */
-    --btn-radius: 2px;
-    --btn-bg: #030305;
-    --btn-bg-hover: #07070a;
-    --btn-border: 1px solid rgba(255, 255, 255, 0.04);
-    --btn-border-hover: 1px solid rgba(156, 4, 4, 0.26);
-    --btn-border-primary: 1px solid rgba(156, 4, 4, 0.22);
-    --btn-border-primary-hover: 1px solid rgba(156, 4, 4, 0.36);
-    --btn-text: rgba(255, 255, 255, 0.94);
-    --btn-text-muted: rgba(255, 255, 255, 0.75);
-    --btn-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2), 0 2px 10px rgba(0, 0, 0, 0.55);
-    --btn-shadow-hover: inset 0 1px 0 rgba(0, 0, 0, 0.15), 0 3px 14px rgba(0, 0, 0, 0.6);
-    --btn-height: 46px;
-    --btn-pad-x: 22px;
+    /* ========== Кнопки: дорогой объект, мягкое красное свечение по кромке (референс) ========== */
+    --btn-radius: 5px;
+    --btn-bg: #050508;
+    --btn-bg-hover: #0a0a0f;
+    --btn-border: 1px solid rgba(156, 4, 4, 0.18);
+    --btn-border-hover: 1px solid rgba(156, 4, 4, 0.32);
+    --btn-border-primary: 1px solid rgba(156, 4, 4, 0.28);
+    --btn-border-primary-hover: 1px solid rgba(156, 4, 4, 0.42);
+    --btn-edge-glow: 0 0 0 1px rgba(156, 4, 4, 0.12), 0 0 20px rgba(156, 4, 4, 0.08);
+    --btn-edge-glow-hover: 0 0 0 1px rgba(156, 4, 4, 0.2), 0 0 28px rgba(156, 4, 4, 0.12);
+    --btn-depth: inset 0 1px 0 rgba(255, 255, 255, 0.02), 0 4px 16px rgba(0, 0, 0, 0.5);
+    --btn-depth-hover: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 6px 24px rgba(0, 0, 0, 0.55);
+    --btn-text: rgba(255, 255, 255, 0.95);
+    --btn-text-muted: rgba(255, 255, 255, 0.78);
+    --btn-height: 48px;
+    --btn-pad-x: 24px;
     --btn-font-size: 12px;
-    --btn-letter: 0.12em;
-    --btn-transition: background-color 0.24s ease, border-color 0.24s ease, color 0.24s ease, box-shadow 0.26s ease;
+    --btn-letter: 0.13em;
+    --btn-transition: background-color 0.28s ease, border-color 0.28s ease, box-shadow 0.3s ease, color 0.28s ease;
 }
 
 
@@ -419,7 +421,7 @@ nav a.nav-link:active { text-decoration: none !important; }
 .section-arrow::before { content: '➝' !important; }
 .section-arrow:hover {
     background: rgba(156,4,4,0.1);
-    box-shadow: var(--btn-shadow-hover);
+    box-shadow: var(--btn-depth-hover);
     opacity: 1;
 }
 
@@ -1334,7 +1336,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     font-family: var(--font-heading);
 }
 
-/* ========== Единая система кнопок: editorial luxury control ========== */
+/* ========== Кнопки: дорогой объект, мягкое красное свечение по кромке ========== */
 .btn,
 a.btn,
 button.btn,
@@ -1358,7 +1360,7 @@ button.btn,
     white-space: nowrap;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: var(--btn-shadow);
+    box-shadow: var(--btn-depth), var(--btn-edge-glow);
     transition: var(--btn-transition);
     -webkit-tap-highlight-color: transparent;
     appearance: none;
@@ -1384,61 +1386,61 @@ button.btn:focus-visible,
     background: var(--btn-bg-hover);
     border: var(--btn-border-hover);
     color: #fff;
-    box-shadow: var(--btn-shadow-hover);
+    box-shadow: var(--btn-depth-hover), var(--btn-edge-glow-hover);
     outline: none;
 }
 .btn:active,
 a.btn:active,
 button.btn:active,
 [role="button"].btn:active {
-    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--btn-depth), var(--btn-edge-glow);
 }
 
-/* Основной CTA */
+/* Основной CTA — объём + красная кромка */
 .btn--primary {
-    background: linear-gradient(180deg, rgba(156, 4, 4, 0.08) 0%, transparent 100%), #020204;
+    background: linear-gradient(180deg, rgba(156, 4, 4, 0.1) 0%, rgba(156, 4, 4, 0.02) 50%, transparent 100%), #040408;
     border: var(--btn-border-primary);
-    box-shadow: var(--btn-shadow);
+    box-shadow: var(--btn-depth), 0 0 0 1px rgba(156, 4, 4, 0.16), 0 0 24px rgba(156, 4, 4, 0.1);
 }
 .btn--primary:hover,
 .btn--primary:focus-visible {
-    background: linear-gradient(180deg, rgba(156, 4, 4, 0.12) 0%, transparent 100%), #08080c;
+    background: linear-gradient(180deg, rgba(156, 4, 4, 0.14) 0%, rgba(156, 4, 4, 0.04) 50%, transparent 100%), #0c0c12;
     border: var(--btn-border-primary-hover);
-    box-shadow: var(--btn-shadow-hover);
+    box-shadow: var(--btn-depth-hover), 0 0 0 1px rgba(156, 4, 4, 0.24), 0 0 32px rgba(156, 4, 4, 0.14);
 }
 
-/* Вторичный */
+/* Вторичный — тёмная база, красная кромка на hover */
 .btn--secondary {
-    background: #020204;
-    border: var(--btn-border);
+    background: #040408;
+    border: 1px solid rgba(156, 4, 4, 0.12);
     color: var(--btn-text-muted);
-    box-shadow: var(--btn-shadow);
+    box-shadow: var(--btn-depth), 0 0 0 1px rgba(156, 4, 4, 0.06), 0 0 16px rgba(156, 4, 4, 0.05);
 }
 .btn--secondary:hover,
 .btn--secondary:focus-visible {
-    background: #060608;
+    background: #08080e;
     border: var(--btn-border-hover);
     color: var(--btn-text);
-    box-shadow: var(--btn-shadow-hover);
+    box-shadow: var(--btn-depth-hover), var(--btn-edge-glow-hover);
 }
 
 /* Компактный для шапки */
 .btn--compact {
-    min-height: 38px;
-    padding: 0 16px;
+    min-height: 40px;
+    padding: 0 18px;
     font-size: 10px;
     letter-spacing: 0.18em;
-    background: #010203;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    color: rgba(255, 255, 255, 0.88);
-    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.55);
+    background: #030406;
+    border: 1px solid rgba(156, 4, 4, 0.14);
+    color: rgba(255, 255, 255, 0.92);
+    box-shadow: var(--btn-depth), 0 0 0 1px rgba(156, 4, 4, 0.08), 0 0 14px rgba(156, 4, 4, 0.06);
 }
 .btn--compact:hover,
 .btn--compact:focus-visible {
-    background: #050508;
-    border: 1px solid rgba(156, 4, 4, 0.24);
+    background: #08080e;
+    border: 1px solid rgba(156, 4, 4, 0.28);
     color: #fff;
-    box-shadow: var(--btn-shadow-hover);
+    box-shadow: var(--btn-depth-hover), 0 0 0 1px rgba(156, 4, 4, 0.16), 0 0 20px rgba(156, 4, 4, 0.1);
 }
 
 /* Ghost */
@@ -1468,13 +1470,13 @@ a.btn:visited { color: var(--btn-text); }
 .cta::before, .cta::after, .button::before, .button::after, .nav-cta::before, .nav-cta::after, .btn-link::before, .btn-link::after { content: none !important; display: none !important; }
 
 /* Контекст: hero, CTA, стоимость, кейсы */
-.hero-actions .btn { min-height: 52px; padding: 0 26px; font-size: 12px; letter-spacing: 0.14em; }
-.cta-block .btn, .pricing-teaser > .btn { min-height: 48px; padding: 0 22px; }
-.work-conversion-strip .btn { min-height: 48px; padding: 0 24px; font-size: 12px; }
+.hero-actions .btn { min-height: 54px; padding: 0 28px; font-size: 12px; letter-spacing: 0.14em; }
+.cta-block .btn, .pricing-teaser > .btn { min-height: 50px; padding: 0 24px; }
+.work-conversion-strip .btn { min-height: 50px; padding: 0 26px; font-size: 12px; }
 .price-card .btn, .contact-form .btn[type="submit"] { width: 100%; }
-.contact-form .btn[type="submit"] { min-height: 46px; padding: 0 22px; }
-.cta-block .btn { width: auto; min-width: 172px; margin-top: var(--space-md); }
-.case .btn { min-height: 34px; padding: 0 16px; font-size: 10px; letter-spacing: 0.14em; }
+.contact-form .btn[type="submit"] { min-height: 48px; padding: 0 24px; }
+.cta-block .btn { width: auto; min-width: 180px; margin-top: var(--space-md); }
+.case .btn { min-height: 36px; padding: 0 18px; font-size: 10px; letter-spacing: 0.14em; }
 .journal-teaser-more .btn { width: auto; }
 @media (max-width: 767px) {
     .hero-actions .btn {
