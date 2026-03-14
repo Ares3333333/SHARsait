@@ -140,18 +140,18 @@ nav {
     position: fixed; top: 0; left: 0; width: 100%; padding: var(--space-md) 4%;
     display: flex; justify-content: space-between; align-items: center;
     z-index: 1000010;
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-bottom: none;
+    background: rgba(0, 0, 0, 0.01);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     isolation: isolate;
-    transition: background var(--dur-slow) var(--ease-luxe), backdrop-filter var(--dur-slow) var(--ease-luxe);
+    transition: background var(--dur-slow) var(--ease-luxe), backdrop-filter var(--dur-slow) var(--ease-luxe), border-color var(--dur-slow) var(--ease-luxe);
 }
 nav.scrolled {
-    background: rgba(0, 0, 0, 0.88);
+    background: rgba(0, 0, 0, 0.30);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .nav-actions { display: flex; align-items: center; gap: 16px; }
 .logo {
@@ -438,7 +438,7 @@ nav.scrolled {
     font-family: var(--font-heading);
     font-size: clamp(1.05rem, 1.4vw, 1.45rem);
     font-weight: 600;
-    color: #9c0404;
+    color: #fff;
     margin-bottom: var(--space-3xs);
     letter-spacing: 0.08em;
     line-height: var(--lh-tight);
