@@ -99,7 +99,7 @@
     --top-btn-shadow-hover: 0 2px 0 rgba(0, 0, 0, 0.38), 0 14px 36px rgba(0, 0, 0, 0.4);
     --top-btn-glow: 0 0 0 1px rgba(156, 4, 4, 0.05), 0 0 16px rgba(156, 4, 4, 0.05);
     --top-btn-glow-hover: 0 0 0 1px rgba(156, 4, 4, 0.12), 0 0 22px rgba(156, 4, 4, 0.10);
-    --top-btn-radius: 999px;
+    --top-btn-radius: 2px;
     --top-btn-transition: background-color 260ms ease, border-color 260ms ease, color 260ms ease, box-shadow 300ms ease, transform 240ms ease;
 }
 
@@ -1590,7 +1590,7 @@ a[role="button"]:focus-visible {
     display: none !important;
 }
 
-/* ========== TOP-TIER STUDIO: header + hero buttons (one system) ========== */
+/* ========== TOP-TIER STUDIO: header + hero — sharp rect, dark material, no pill ========== */
 .top-btn,
 a.top-btn,
 button.top-btn,
@@ -1600,7 +1600,7 @@ button.top-btn,
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    border-radius: 999px;
+    border-radius: var(--top-btn-radius);
     font-family: var(--font-heading);
     line-height: 1;
     white-space: nowrap;
@@ -1621,84 +1621,84 @@ button.top-btn::after {
     display: none !important;
 }
 
-/* --- Header: contact + phone — visibly dark pills, crisp edge, crimson on hover --- */
+/* --- Header: premium studio control — sharp rect, dark, tight --- */
 .nav-actions .top-btn,
 .top-btn--header {
-    min-height: 44px !important;
-    padding: 0 22px !important;
-    font-size: 12px !important;
+    min-height: 40px !important;
+    padding: 0 18px !important;
+    font-size: 11px !important;
     font-weight: 600 !important;
-    letter-spacing: 0.15em !important;
-    background: #040406 !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    color: rgba(255, 255, 255, 0.92) !important;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 4px 16px rgba(0, 0, 0, 0.6) !important;
-    transition: background-color 0.28s ease, border-color 0.28s ease, color 0.28s ease, box-shadow 0.32s ease !important;
+    letter-spacing: 0.16em !important;
+    background: #020204 !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02), 0 2px 6px rgba(0, 0, 0, 0.55) !important;
+    border-radius: var(--top-btn-radius) !important;
+    transition: background-color 0.24s ease, border-color 0.24s ease, color 0.24s ease, box-shadow 0.26s ease !important;
 }
 .nav-actions .top-btn:hover,
 .nav-actions .top-btn:focus-visible,
 .top-btn--header:hover,
 .top-btn--header:focus-visible {
-    background: #0a0a0e !important;
-    border: 1px solid rgba(156, 4, 4, 0.5) !important;
+    background: #060608 !important;
+    border: 1px solid rgba(156, 4, 4, 0.36) !important;
     color: #fff !important;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 0 1px rgba(156, 4, 4, 0.18), 0 6px 20px rgba(0, 0, 0, 0.6) !important;
-    transform: translateY(-0.5px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 0 0 1px rgba(156, 4, 4, 0.1), 0 3px 10px rgba(0, 0, 0, 0.55) !important;
 }
 
-/* --- Hero primary — visibly main CTA: crimson border + soft glow at rest --- */
+/* --- Hero primary — premium studio CTA: sharp rect, dark, restrained crimson --- */
 .hero-actions .top-btn--hero-primary,
 .top-btn--hero-primary {
-    min-height: 58px !important;
-    padding: 0 34px !important;
-    font-size: 14px !important;
+    min-height: 56px !important;
+    padding: 0 28px !important;
+    font-size: 13px !important;
     font-weight: 600 !important;
-    letter-spacing: 0.13em !important;
-    background: linear-gradient(180deg, rgba(156, 4, 4, 0.24) 0%, rgba(156, 4, 4, 0.06) 100%), #060608 !important;
-    border: 1px solid rgba(156, 4, 4, 0.48) !important;
+    letter-spacing: 0.14em !important;
+    background: linear-gradient(180deg, rgba(156, 4, 4, 0.12) 0%, rgba(156, 4, 4, 0.03) 100%), #020204 !important;
+    border: 1px solid rgba(156, 4, 4, 0.32) !important;
     color: #fff !important;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 0 0 1px rgba(156, 4, 4, 0.15), 0 0 28px rgba(156, 4, 4, 0.14), 0 10px 36px rgba(0, 0, 0, 0.6) !important;
-    transition: background-color 0.28s ease, border-color 0.28s ease, box-shadow 0.32s ease, transform 0.24s ease !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02), 0 0 0 1px rgba(156, 4, 4, 0.06), 0 4px 14px rgba(0, 0, 0, 0.55) !important;
+    border-radius: var(--top-btn-radius) !important;
+    transition: background-color 0.24s ease, border-color 0.24s ease, box-shadow 0.26s ease !important;
 }
 .hero-actions .top-btn--hero-primary:hover,
 .hero-actions .top-btn--hero-primary:focus-visible,
 .top-btn--hero-primary:hover,
 .top-btn--hero-primary:focus-visible {
-    background: linear-gradient(180deg, rgba(156, 4, 4, 0.32) 0%, rgba(156, 4, 4, 0.1) 100%), #0e0e12 !important;
-    border: 1px solid rgba(156, 4, 4, 0.6) !important;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 0 0 1px rgba(156, 4, 4, 0.25), 0 0 32px rgba(156, 4, 4, 0.18), 0 12px 40px rgba(0, 0, 0, 0.65) !important;
-    transform: translateY(-0.5px);
+    background: linear-gradient(180deg, rgba(156, 4, 4, 0.18) 0%, rgba(156, 4, 4, 0.05) 100%), #08080a !important;
+    border: 1px solid rgba(156, 4, 4, 0.44) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 0 0 1px rgba(156, 4, 4, 0.12), 0 5px 18px rgba(0, 0, 0, 0.58) !important;
 }
 
-/* --- Hero secondary — visibly secondary: dark pill, defined edge, crimson on hover --- */
+/* --- Hero secondary — premium studio control: sharp rect, dark, crimson on hover --- */
 .hero-actions .top-btn--hero-secondary,
 .top-btn--hero-secondary {
-    min-height: 58px !important;
-    padding: 0 34px !important;
-    font-size: 14px !important;
+    min-height: 56px !important;
+    padding: 0 28px !important;
+    font-size: 13px !important;
     font-weight: 600 !important;
-    letter-spacing: 0.13em !important;
-    background: #040406 !important;
-    border: 1px solid rgba(255, 255, 255, 0.11) !important;
-    color: rgba(255, 255, 255, 0.85) !important;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 6px 28px rgba(0, 0, 0, 0.55) !important;
-    transition: background-color 0.28s ease, border-color 0.28s ease, color 0.28s ease, box-shadow 0.32s ease, transform 0.24s ease !important;
+    letter-spacing: 0.14em !important;
+    background: #020204 !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    color: rgba(255, 255, 255, 0.82) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02), 0 3px 12px rgba(0, 0, 0, 0.5) !important;
+    border-radius: var(--top-btn-radius) !important;
+    transition: background-color 0.24s ease, border-color 0.24s ease, color 0.24s ease, box-shadow 0.26s ease !important;
 }
 .hero-actions .top-btn--hero-secondary:hover,
 .hero-actions .top-btn--hero-secondary:focus-visible,
 .top-btn--hero-secondary:hover,
 .top-btn--hero-secondary:focus-visible {
-    background: #0a0a0e !important;
-    border: 1px solid rgba(156, 4, 4, 0.38) !important;
+    background: #060608 !important;
+    border: 1px solid rgba(156, 4, 4, 0.28) !important;
     color: #fff !important;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 0 0 1px rgba(156, 4, 4, 0.12), 0 0 20px rgba(156, 4, 4, 0.1), 0 8px 32px rgba(0, 0, 0, 0.6) !important;
-    transform: translateY(-0.5px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 0 0 1px rgba(156, 4, 4, 0.06), 0 4px 14px rgba(0, 0, 0, 0.55) !important;
 }
 
 .top-btn:active,
 a.top-btn:active,
 button.top-btn:active {
-    transform: translateY(0);
+    transform: none;
 }
 
 .top-btn__icon {
