@@ -75,12 +75,12 @@
     --btn-radius: 8px;
     --btn-bg: #040507;
     --btn-bg-hover: #08090d;
-    --btn-border: 1px solid rgba(156, 4, 4, 0.2);
-    --btn-border-hover: 1px solid rgba(156, 4, 4, 0.36);
-    --btn-border-primary: 1px solid rgba(156, 4, 4, 0.3);
-    --btn-border-primary-hover: 1px solid rgba(156, 4, 4, 0.48);
-    --btn-edge-glow: 0 0 0 1px rgba(156, 4, 4, 0.14), 0 0 22px rgba(156, 4, 4, 0.09);
-    --btn-edge-glow-hover: 0 0 0 1px rgba(156, 4, 4, 0.24), 0 0 30px rgba(156, 4, 4, 0.14);
+    --btn-border: 1px solid rgba(156, 4, 4, 0.5);
+    --btn-border-hover: 1px solid rgba(156, 4, 4, 0.75);
+    --btn-border-primary: 1px solid rgba(156, 4, 4, 0.6);
+    --btn-border-primary-hover: 1px solid rgba(200, 20, 20, 0.9);
+    --btn-edge-glow: 0 0 0 1px rgba(156, 4, 4, 0.45), 0 0 28px rgba(156, 4, 4, 0.28);
+    --btn-edge-glow-hover: 0 0 0 1px rgba(156, 4, 4, 0.6), 0 0 36px rgba(156, 4, 4, 0.38);
     --btn-depth: inset 0 1px 0 rgba(255, 255, 255, 0.025), 0 4px 18px rgba(0, 0, 0, 0.52);
     --btn-depth-hover: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 6px 26px rgba(0, 0, 0, 0.58);
     --btn-text: rgba(255, 255, 255, 0.96);
@@ -1397,52 +1397,52 @@ button.btn:active,
     box-shadow: var(--btn-depth), var(--btn-edge-glow);
 }
 
-/* Основной CTA — объём + красная кромка */
+/* Основной CTA — яркий, видимый: объём + сильное красное свечение */
 .btn--primary {
-    background: linear-gradient(180deg, rgba(156, 4, 4, 0.1) 0%, rgba(156, 4, 4, 0.02) 50%, transparent 100%), #040408;
+    background: linear-gradient(180deg, rgba(156, 4, 4, 0.25) 0%, rgba(156, 4, 4, 0.08) 50%, transparent 100%), #08080c;
     border: var(--btn-border-primary);
-    box-shadow: var(--btn-depth), 0 0 0 1px rgba(156, 4, 4, 0.16), 0 0 24px rgba(156, 4, 4, 0.1);
+    box-shadow: var(--btn-depth), 0 0 0 1px rgba(156, 4, 4, 0.5), 0 0 32px rgba(156, 4, 4, 0.35);
 }
 .btn--primary:hover,
 .btn--primary:focus-visible {
-    background: linear-gradient(180deg, rgba(156, 4, 4, 0.14) 0%, rgba(156, 4, 4, 0.04) 50%, transparent 100%), #0c0c12;
+    background: linear-gradient(180deg, rgba(156, 4, 4, 0.35) 0%, rgba(156, 4, 4, 0.12) 50%, transparent 100%), #0e0e14;
     border: var(--btn-border-primary-hover);
-    box-shadow: var(--btn-depth-hover), 0 0 0 1px rgba(156, 4, 4, 0.24), 0 0 32px rgba(156, 4, 4, 0.14);
+    box-shadow: var(--btn-depth-hover), 0 0 0 1px rgba(156, 4, 4, 0.65), 0 0 44px rgba(156, 4, 4, 0.45);
 }
 
-/* Вторичный — тёмная база, красная кромка на hover */
+/* Вторичный — яркая красная кромка и свечение */
 .btn--secondary {
-    background: #040408;
-    border: 1px solid rgba(156, 4, 4, 0.12);
-    color: var(--btn-text-muted);
-    box-shadow: var(--btn-depth), 0 0 0 1px rgba(156, 4, 4, 0.06), 0 0 16px rgba(156, 4, 4, 0.05);
+    background: #060608;
+    border: 1px solid rgba(156, 4, 4, 0.45);
+    color: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--btn-depth), 0 0 0 1px rgba(156, 4, 4, 0.3), 0 0 24px rgba(156, 4, 4, 0.22);
 }
 .btn--secondary:hover,
 .btn--secondary:focus-visible {
-    background: #08080e;
+    background: #0a0a0e;
     border: var(--btn-border-hover);
-    color: var(--btn-text);
+    color: #fff;
     box-shadow: var(--btn-depth-hover), var(--btn-edge-glow-hover);
 }
 
-/* Шапка: в 2 раза меньше (40→20) + как референс */
+/* Шапка: прозрачные, в 2 раза меньше, свечение как у референса */
 .btn--compact {
     min-height: 20px;
     padding: 0 10px;
     font-size: 8px;
     letter-spacing: 0.16em;
     border-radius: var(--btn-radius);
-    background: rgba(10, 10, 14, 0.78);
-    border: 1px solid rgba(156, 4, 4, 0.3);
-    color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.2), 0 0 14px rgba(156, 4, 4, 0.12), 0 2px 10px rgba(0, 0, 0, 0.4);
+    background: transparent !important;
+    border: 1px solid rgba(156, 4, 4, 0.5) !important;
+    color: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.35), 0 0 20px rgba(156, 4, 4, 0.25), 0 0 40px rgba(156, 4, 4, 0.12) !important;
 }
 .btn--compact:hover,
 .btn--compact:focus-visible {
-    background: rgba(16, 16, 22, 0.88);
-    border: 1px solid rgba(156, 4, 4, 0.44);
-    color: #fff;
-    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.28), 0 0 20px rgba(156, 4, 4, 0.18), 0 3px 12px rgba(0, 0, 0, 0.45);
+    background: rgba(156, 4, 4, 0.08) !important;
+    border: 1px solid rgba(156, 4, 4, 0.7) !important;
+    color: #fff !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.5), 0 0 28px rgba(156, 4, 4, 0.4), 0 0 50px rgba(156, 4, 4, 0.18) !important;
 }
 
 /* Ghost — в той же семье: без заливки, лёгкая красная кромка на hover */
@@ -1471,31 +1471,37 @@ a.btn:visited { color: var(--btn-text); }
 .cta:hover, .button:hover, .nav-cta:hover, .btn-link:hover, a[role="button"]:hover { outline: none !important; }
 .cta::before, .cta::after, .button::before, .button::after, .nav-cta::before, .nav-cta::after, .btn-link::before, .btn-link::after { content: none !important; display: none !important; }
 
-/* Hero: в 2 раза меньше (54→27) + как референс */
-.hero-actions .btn { min-height: 27px; padding: 0 14px; font-size: 10px; letter-spacing: 0.14em; border-radius: var(--btn-radius); }
+/* Hero: квадратные, большие, стиль референса (тёмная база + яркое свечение по периметру) */
+.hero-actions .btn {
+    min-height: 56px;
+    padding: 0 32px;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    border-radius: 0;
+}
 .hero-actions .btn--primary {
-    background: linear-gradient(180deg, rgba(156, 4, 4, 0.2) 0%, rgba(156, 4, 4, 0.06) 50%, transparent 100%), rgba(10, 10, 14, 0.82);
-    border: 1px solid rgba(156, 4, 4, 0.4);
-    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.24), 0 0 24px rgba(156, 4, 4, 0.16), 0 4px 18px rgba(0, 0, 0, 0.45);
+    background: linear-gradient(180deg, rgba(156, 4, 4, 0.3) 0%, rgba(156, 4, 4, 0.1) 50%, transparent 100%), #0a0a0e;
+    border: 1px solid rgba(156, 4, 4, 0.65);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.5), 0 0 36px rgba(156, 4, 4, 0.4), 0 6px 24px rgba(0, 0, 0, 0.5);
 }
 .hero-actions .btn--primary:hover,
 .hero-actions .btn--primary:focus-visible {
-    background: linear-gradient(180deg, rgba(156, 4, 4, 0.26) 0%, rgba(156, 4, 4, 0.1) 50%, transparent 100%), rgba(16, 16, 22, 0.9);
-    border: 1px solid rgba(156, 4, 4, 0.54);
-    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.34), 0 0 32px rgba(156, 4, 4, 0.22), 0 5px 22px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(180deg, rgba(156, 4, 4, 0.4) 0%, rgba(156, 4, 4, 0.15) 50%, transparent 100%), #0e0e14;
+    border: 1px solid rgba(200, 30, 30, 0.85);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.65), 0 0 48px rgba(156, 4, 4, 0.5), 0 8px 28px rgba(0, 0, 0, 0.55);
 }
 .hero-actions .btn--secondary {
-    background: rgba(10, 10, 14, 0.78);
-    border: 1px solid rgba(156, 4, 4, 0.26);
-    color: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.16), 0 0 18px rgba(156, 4, 4, 0.1), 0 3px 14px rgba(0, 0, 0, 0.4);
+    background: #08080c;
+    border: 1px solid rgba(156, 4, 4, 0.55);
+    color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.4), 0 0 28px rgba(156, 4, 4, 0.3), 0 4px 20px rgba(0, 0, 0, 0.45);
 }
 .hero-actions .btn--secondary:hover,
 .hero-actions .btn--secondary:focus-visible {
-    background: rgba(16, 16, 22, 0.9);
-    border: 1px solid rgba(156, 4, 4, 0.4);
+    background: #0c0c12;
+    border: 1px solid rgba(156, 4, 4, 0.8);
     color: #fff;
-    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.26), 0 0 24px rgba(156, 4, 4, 0.16), 0 4px 18px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.55), 0 0 36px rgba(156, 4, 4, 0.4), 0 6px 24px rgba(0, 0, 0, 0.5);
 }
 .cta-block .btn, .pricing-teaser > .btn { min-height: 50px; padding: 0 24px; }
 .work-conversion-strip .btn { min-height: 50px; padding: 0 26px; font-size: 12px; }
@@ -1506,9 +1512,9 @@ a.btn:visited { color: var(--btn-text); }
 .journal-teaser-more .btn { width: auto; }
 @media (max-width: 767px) {
     .hero-actions .btn {
-        min-height: 24px;
-        padding: 0 12px;
-        font-size: 9px;
+        min-height: 48px;
+        padding: 0 24px;
+        font-size: 12px;
         letter-spacing: 0.1em;
     }
 }
@@ -1535,7 +1541,7 @@ a.btn:visited { color: var(--btn-text); }
         padding: 0 var(--space-lg);
         border-radius: var(--btn-radius);
     }
-    .hero-actions .btn { min-height: 27px; padding: 0 14px; width: auto; max-width: none; }
+    .hero-actions .btn { min-height: 52px; padding: 0 28px; width: auto; max-width: none; }
     .work-conversion-strip .btn,
     .cta-block .btn,
     .pricing-teaser > .btn {
