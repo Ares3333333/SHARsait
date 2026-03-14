@@ -13,9 +13,9 @@
     --text-primary: #FFFFFF;
     --text-secondary: rgba(255, 255, 255, 0.96);
     --text-tertiary: rgba(255, 255, 255, 0.78);
-    --line: rgba(255, 255, 255, 0.08);
-    --line-strong: rgba(255, 255, 255, 0.12);
-    --surface-border: rgba(255, 255, 255, 0.28);
+    --line: rgba(0, 0, 0, 0.4);
+    --line-strong: rgba(0, 0, 0, 0.55);
+    --surface-border: rgba(0, 0, 0, 0.6);
     --surface-fill: rgba(255, 255, 255, 0.07);
     --shadow-premium: 0 40px 88px rgba(0,0,0,0.75), 0 18px 48px rgba(0,0,0,0.58);
     --shadow-premium-hover: 0 56px 128px rgba(0,0,0,0.82), 0 24px 64px rgba(0,0,0,0.65);
@@ -126,6 +126,34 @@ a.case:focus-visible,
     outline-offset: 2px;
     box-shadow: 0 0 0 3px rgba(156, 4, 4, 0.15);
 }
+
+/* No white frames: cards/surfaces — transparent border only, no white outline/shadow */
+.case:hover, .case:focus, .case:active,
+.journal-card:hover, .journal-card:focus, .journal-card:active,
+.price-card:hover, .price-card:focus, .price-card:active,
+.pitch-card:hover, .pitch-card:focus, .pitch-card:active,
+.process-step:hover, .process-step:focus, .process-step:active,
+.outcome-item:hover, .outcome-item:focus, .outcome-item:active,
+.client-logo:hover, .client-logo:focus, .client-logo:active,
+.team-member:hover, .team-member:focus, .team-member:active,
+.awards-block:hover, .awards-block:focus, .awards-block:active,
+.pricing-teaser:hover, .pricing-teaser:focus, .pricing-teaser:active,
+.journal-featured:hover, .journal-featured:focus, .journal-featured:active,
+.award-item:hover, .award-item:focus, .award-item:active,
+.award-item--logo:hover, .award-item--logo:focus, .award-item--logo:active,
+.contact-card:hover, .contact-card:focus, .contact-card:active {
+    border-color: transparent !important;
+    outline: none !important;
+    outline-offset: 0 !important;
+}
+.case:hover, .journal-card:hover, .price-card:hover, .pitch-card:hover,
+.process-step:hover, .outcome-item:hover, .client-logo:hover, .team-member:hover,
+.awards-block:hover, .pricing-teaser:hover, .journal-featured:hover {
+    box-shadow: var(--card-shadow-hover);
+}
+.case, .journal-card, .price-card, .pitch-card, .process-step,
+.outcome-item, .client-logo, .team-member, .awards-block, .pricing-teaser,
+.journal-featured { border-color: transparent !important; }
 
 /* Кастомный курсор отключён для производительности */
 .custom-cursor { display: none !important; }
@@ -326,7 +354,7 @@ nav.scrolled {
 .section-inner { max-width: 1240px; margin: 0 auto; }
 .label { font-size: 0.7rem; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 0.22em; margin-bottom: var(--label-margin-bottom); display: flex; align-items: center; gap: var(--space-md); font-weight: 600; font-family: var(--font-heading); text-shadow: var(--text-shadow-read); }
 .label::before { content: ''; width: 40px; height: 2px; background: #9c0404; flex-shrink: 0; border-radius: 1px; }
-.label::after { content: ''; height: 1px; flex-grow: 1; background: linear-gradient(to right, var(--line), rgba(156,4,4,0.3), transparent); }
+.label::after { content: ''; height: 1px; flex-grow: 1; background: linear-gradient(to right, var(--line), rgba(156,4,4,0.25), transparent); }
 .label-spaced { margin-top: 0; }
 
 .manifesto { padding: var(--section-pad-y) 4%; border-top: 1px solid var(--line); }
@@ -827,7 +855,7 @@ a.case .case-info h3 { color: #ffffff !important; }
 .c-link, .c-address { font-size: clamp(1.04rem, 1.8vw, 1.2rem); font-weight: 350; display: block; width: fit-content; transition: color var(--dur) var(--ease-luxe), transform var(--dur) var(--ease-luxe) !important; color: rgba(255,255,255,0.82) !important; }
 .c-link:hover { color: rgba(255,255,255,0.95) !important; text-shadow: 0 0 8px rgba(156,4,4,0.12); }
 
-.form-input { width: 100%; background: transparent; border: none; border-bottom: 2px solid rgba(255,255,255,0.26); color: #fff; padding: var(--space-sm) 0 var(--space-md); font-size: 15px; margin-bottom: var(--space-lg); outline: none; transition: border-color var(--dur) var(--ease-luxe), box-shadow var(--dur) var(--ease-luxe), background var(--dur) var(--ease-luxe); font-family: inherit; }
+.form-input { width: 100%; background: transparent; border: none; border-bottom: 2px solid rgba(156,4,4,0.22); color: #fff; padding: var(--space-sm) 0 var(--space-md); font-size: 15px; margin-bottom: var(--space-lg); outline: none; transition: border-color var(--dur) var(--ease-luxe), box-shadow var(--dur) var(--ease-luxe), background var(--dur) var(--ease-luxe); font-family: inherit; }
 .form-input::placeholder { color: rgba(255,255,255,0.42); letter-spacing: 0.08em; font-size: 11px; text-transform: uppercase; }
 .form-input:focus { border-bottom-color: #9c0404; box-shadow: 0 2px 0 0 rgba(156, 4, 4, 0.5); }
 .contact-form .form-input { border-bottom-width: 2px; border-bottom-color: var(--surface-border); }
@@ -1174,13 +1202,13 @@ a.case .case-info h3 { color: #ffffff !important; }
 .award-laurel-badge {
     width: 84px;
     height: 32px;
-    border: 1px solid rgba(255,255,255,0.22);
+    border: 1px solid rgba(0,0,0,0.5);
     border-left-color: rgba(156,4,4,0.55);
     border-right-color: rgba(156,4,4,0.55);
     border-radius: 999px;
     margin-bottom: 12px;
     position: relative;
-    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+    background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.1));
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1237,7 +1265,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     line-height: 1.84;
     font-size: 0.96rem;
     padding-left: 12px;
-    border-left: 1px solid rgba(255,255,255,0.14);
+    border-left: 1px solid rgba(0,0,0,0.45);
 }
 
 .award-item:hover .award-laurel-badge {
