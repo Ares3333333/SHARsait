@@ -62,8 +62,8 @@
     --section-pad-y: clamp(96px, 11vw, 160px);
     /* Unified card/surface system — без белой обводки */
     --card-radius: 6px;
-    --card-border: 1px solid rgba(255,255,255,0.03);
-    --card-border-hover: 1px solid rgba(255,255,255,0.03);
+    --card-border: 1px solid transparent;
+    --card-border-hover: 1px solid transparent;
     --card-shadow: 0 16px 40px rgba(0,0,0,0.4);
     --card-shadow-hover: 0 20px 52px rgba(0,0,0,0.5);
     --card-padding: clamp(24px, 2.5vw, 40px);
@@ -82,9 +82,30 @@ h1, h2, h3 { font-family: var(--font-heading); letter-spacing: var(--ls-heading)
 img, picture, video, iframe { display: block; max-width: 100%; }
 img { height: auto; }
 
-/* Убираем белое кольцо фокуса браузера при клике */
+/* Убираем белое кольцо фокуса/обводку при клике и наведении */
 *:focus {
-    outline: none;
+    outline: none !important;
+}
+a:hover,
+a:focus,
+a.case:hover,
+a.case:focus,
+.journal-card:hover,
+.journal-card:focus,
+.price-card:hover,
+.price-card:focus,
+.pitch-card:hover,
+.pitch-card:focus,
+.process-step:hover,
+.process-step:focus,
+.award-item:hover,
+.award-item:focus,
+.award-item--logo:hover,
+.award-item--logo:focus,
+.client-logo:hover,
+.client-logo:focus {
+    outline: none !important;
+    outline-width: 0 !important;
 }
 /* Клавиатурный фокус — только красное кольцо */
 *:focus-visible {
