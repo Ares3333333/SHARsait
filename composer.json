@@ -1,0 +1,10 @@
+{
+    "name": "shar/sharprod-site",
+    "description": "SHAR Production site — contact form mailer",
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}

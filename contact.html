@@ -49,8 +49,7 @@
             </aside>
             <div class="contact-form-panel">
                 <div class="contact-form-wrap">
-                    <!-- Чтобы заявки приходили на start@sharprod.com: зарегистрируйтесь на formspree.io, создайте форму и укажите email получателя start@sharprod.com, скопируйте Form ID и вставьте в data-formspree-id="ВАШ_ID" -->
-                    <form id="contactForm" class="contact-form contact-form--minimal" aria-label="Краткая заявка" data-formspree-id="">
+                    <form id="contactForm" class="contact-form contact-form--minimal" aria-label="Краткая заявка" action="/send.php" method="post">
                         <p class="contact-form-note" data-i18n="order.formNote">Оставьте имя и контакт — мы ответим в ближайшее время.</p>
                         <div class="contact-form-fields">
                             <div class="contact-field">
@@ -59,7 +58,7 @@
                             </div>
                             <div class="contact-field">
                                 <label class="contact-label" for="contact-reach" data-i18n="order.fieldContact">КОНТАКТ</label>
-                                <input id="contact-reach" name="reach" type="text" class="form-input" data-i18n-placeholder="order.placeholderContact" placeholder="Телефон, Telegram или email" required>
+                                <input id="contact-reach" name="contact" type="text" class="form-input" data-i18n-placeholder="order.placeholderContact" placeholder="Телефон, Telegram или email" required>
                             </div>
                             <div class="contact-field contact-field--optional">
                                 <label class="contact-label" for="contact-message">КОРОТКО О ЗАПРОСЕ (ОПЦИОНАЛЬНО)</label>

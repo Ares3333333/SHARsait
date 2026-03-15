@@ -9,3 +9,6 @@
 .env
 .env.*
 !.env.example
+
+# SMTP / mail config (real credentials — do not commit)
+config.php

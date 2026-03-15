@@ -1697,7 +1697,7 @@ a.btn:visited { color: var(--btn-text); }
 .m-cta-wrap .btn { width: auto; }
 @media (max-width: 767px) {
     .hero-actions .btn {
-        min-height: 40px;
+    min-height: 40px;
         padding: 0 22px;
         font-size: 11px;
         letter-spacing: 0.12em;
@@ -1798,6 +1798,7 @@ a.btn:visited { color: var(--btn-text); }
 /* ТОСТ */
 .toast { position: fixed; bottom: var(--space-lg); right: var(--space-lg); padding: var(--space-md) var(--space-md); background: rgba(0,0,0,0.94); border: 1px solid rgba(156, 4, 4, 0.3); border-radius: 2px; font-size: 11px; z-index: 500000; opacity: 0; transform: translate3d(0, 8px, 0); transition: opacity var(--dur-slow) var(--ease-luxe), transform var(--dur-slow) var(--ease-luxe); box-shadow: 0 6px 24px rgba(0,0,0,0.5); color: rgba(255,255,255,0.95); text-transform: uppercase; letter-spacing: var(--ls-tag); font-weight: 600; }
 .toast.show { opacity: 1; transform: translate3d(0, 0, 0); }
+.toast.toast--error { border-color: rgba(180, 50, 50, 0.6); color: rgba(255, 220, 220, 0.98); }
 
 /* === CASE PAGES (standalone) === */
 .case-page-wrap { padding: calc(var(--nav-height) + var(--space-3xl)) 4% var(--space-2xl); min-height: 100vh; }

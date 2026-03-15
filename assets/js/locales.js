@@ -297,7 +297,8 @@ window.SHAR_LOCALES = {
     toast: {
       success: 'Заявка успешно отправлена!',
       sending: 'ОТПРАВКА...',
-      submit: 'ОТПРАВИТЬ'
+      submit: 'ОТПРАВИТЬ',
+      error: 'Ошибка отправки. Попробуйте позже или напишите нам напрямую.'
     }
   },
   en: {
@@ -593,6 +594,7 @@ window.SHAR_LOCALES = {
     toast: {
       success: 'Request sent successfully!',
       sending: 'SENDING...',
+      error: 'Something went wrong. Please try again or contact us directly.',
       submit: 'SEND'
     }
   }

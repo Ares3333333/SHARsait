@@ -137,31 +137,59 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(runDeferred, 400);
     }
 
-    // 6. ФОРМА КОНТАКТА — отправка на Formspree (письма на Start@sharprod.com), затем тост
+    // 6. ФОРМА КОНТАКТА — отправка на send.php (SMTP) или Formspree, затем тост
     const form = document.getElementById('contactForm');
-    if(form) {
+    if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = form.querySelector('button[type="submit"]');
             if (!btn) return;
             const loc = window.SHAR_LOCALES && window.SHAR_LOCALES[getCurrentLocale()];
             const sending = (loc && loc.toast && loc.toast.sending) ? loc.toast.sending : 'ОТПРАВКА...';
-            const success = (loc && loc.toast && loc.toast.success) ? loc.toast.success : 'Заявка успешно отправлена!';
+            const successMsg = (loc && loc.toast && loc.toast.success) ? loc.toast.success : 'Заявка успешно отправлена!';
+            const errorMsg = (loc && loc.toast && loc.toast.error) ? loc.toast.error : 'Ошибка отправки. Попробуйте позже или напишите нам напрямую.';
             const submitLabel = (loc && loc.toast && loc.toast.submit) ? loc.toast.submit : 'ОТПРАВИТЬ';
             const formspreeId = (form.dataset.formspreeId || '').trim();
+            const action = (form.getAttribute('action') || '').trim();
+            const useSendPhp = action.indexOf('send.php') !== -1;
+
             btn.disabled = true;
             btn.textContent = sending;
-            function showToastAndReset(msg) {
+
+            function showToastAndReset(msg, isError) {
                 const toast = document.getElementById('toast');
                 if (toast) {
                     toast.textContent = msg;
                     toast.classList.add('show');
-                    setTimeout(() => toast.classList.remove('show'), 3000);
+                    if (isError) toast.classList.add('toast--error');
+                    setTimeout(() => {
+                        toast.classList.remove('show', 'toast--error');
+                    }, 4000);
                 }
                 form.reset();
                 btn.textContent = submitLabel;
                 btn.disabled = false;
             }
+
+            if (useSendPhp) {
+                try {
+                    const res = await fetch(action || 'send.php', {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    const data = await res.json().catch(() => ({}));
+                    if (data.success) {
+                        showToastAndReset(successMsg, false);
+                    } else {
+                        showToastAndReset(data.error || errorMsg, true);
+                    }
+                } catch (err) {
+                    showToastAndReset(errorMsg, true);
+                }
+                return;
+            }
+
             if (formspreeId) {
                 try {
                     const res = await fetch('https://formspree.io/f/' + formspreeId, {
@@ -169,16 +197,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         body: new FormData(form),
                         headers: { 'Accept': 'application/json' }
                     });
-                    if (res.ok) {
-                        showToastAndReset(success);
-                    } else {
-                        showToastAndReset(success);
-                    }
+                    showToastAndReset(res.ok ? successMsg : errorMsg, !res.ok);
                 } catch (err) {
-                    showToastAndReset(success);
+                    showToastAndReset(errorMsg, true);
                 }
             } else {
-                setTimeout(() => showToastAndReset(success), 800);
+                showToastAndReset(errorMsg, true);
             }
         });
     }
