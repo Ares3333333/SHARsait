@@ -603,12 +603,12 @@ a.case .case-info h3 { color: #ffffff !important; }
     text-decoration: none;
     justify-content: center;
     align-items: center;
-    transform: translateX(-3cm);
+    transform: translateX(-1cm);
     border: none !important;
     outline: none !important;
-    background: rgba(0, 0, 0, 0.45) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.22) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     box-shadow: none !important;
 }
 .team-member--cta::before { display: none; }
@@ -616,22 +616,22 @@ a.case .case-info h3 { color: #ffffff !important; }
 .team-member--cta:focus {
     border: none !important;
     outline: none !important;
-    background: rgba(0, 0, 0, 0.55) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.32) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     box-shadow: none !important;
 }
 .team-member-cta-label {
     font-family: var(--font-heading);
     font-size: 0.75rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.95);
+    color: rgba(255, 255, 255, 0.78);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     text-shadow: none;
 }
 .team-member--cta:hover .team-member-cta-label {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .about-block-cta {
@@ -2334,23 +2334,23 @@ a.btn[href^="tel:"]:focus-visible,
     0 1px 0 rgba(255, 255, 255, 0.05) inset !important;
 }
 
-/* «Все кейсы →» — матовое стекло как хидер */
+/* «Все кейсы →» — матовая кнопка еле заметная */
 .work-more .btn {
   border: none !important;
-  background: rgba(0, 0, 0, 0.45) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.22) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   box-shadow: none !important;
-  color: rgba(255, 255, 255, 0.95) !important;
+  color: rgba(255, 255, 255, 0.78) !important;
 }
 .work-more .btn:hover,
 .work-more .btn:focus-visible {
   border: none !important;
-  background: rgba(0, 0, 0, 0.55) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.32) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   box-shadow: none !important;
-  color: #fff !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .btn__icon,
