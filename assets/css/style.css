@@ -607,9 +607,9 @@ a.case .case-info h3 { color: #ffffff !important; }
     flex: 0 0 auto !important;
     width: auto !important;
     min-width: 0;
-    min-height: 31px !important;
-    padding: 8px 17px !important;
-    font-size: 0.7rem !important;
+    min-height: 38px !important;
+    padding: 0 22px !important;
+    font-size: 11px !important;
     align-self: center;
     text-decoration: none;
     justify-content: center;
@@ -635,7 +635,7 @@ a.case .case-info h3 { color: #ffffff !important; }
 }
 .team-member-cta-label {
     font-family: var(--font-heading);
-    font-size: 0.7rem;
+    font-size: 11px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.78);
     letter-spacing: 0.14em;
@@ -654,10 +654,10 @@ a.case .case-info h3 { color: #ffffff !important; }
     padding-bottom: var(--space-md);
 }
 .about-block-cta .btn {
-    min-height: 44px;
-    padding: 0 28px;
-    font-size: 0.75rem;
-    letter-spacing: 0.14em;
+    min-height: 38px !important;
+    padding: 0 22px !important;
+    font-size: 11px !important;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     font-weight: 600;
 }
@@ -1432,12 +1432,6 @@ a.case .case-info h3 { color: #ffffff !important; }
 .pricing-page-label { color: #9c0404; }
 .pricing-page .price-card li { font-size: 14px; }
 /* Кнопки на странице стоимости — как «Все кейсы» на главной */
-.pricing-page .price-card .btn,
-.pricing-page .pricing-start .btn {
-  min-height: 31px !important;
-  padding: 8px 17px !important;
-  font-size: 0.7rem !important;
-}
 .pricing-page-intro {
     max-width: 60ch;
     font-size: clamp(1rem, 1.3vw, 1.12rem);
@@ -1681,43 +1675,39 @@ a.btn:visited { color: var(--btn-text); }
     background: rgba(0, 0, 0, 0.28) !important;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.09), 0 0 14px rgba(0, 0, 0, 0.14) !important;
 }
-.cta-block .btn, .pricing-teaser > .btn { min-height: 38px; padding: 0 20px; font-size: 11px; }
-.work-conversion-strip .btn { min-height: 38px; padding: 0 22px; font-size: 11px; }
+/* Единый размер и стиль CTA как «Запустить обсуждение проекта» на главной */
+.cta-block .btn,
+.work-conversion-strip .btn,
+.work-more .btn,
+.journal-teaser-more .btn,
+.pricing-teaser > .btn,
+.price-card .btn,
+.about-block-cta .btn,
+.about-hero .btn,
+.m-cta-wrap .btn {
+  min-height: 38px !important;
+  padding: 0 22px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.12em;
+}
 .price-card .btn, .contact-form .btn[type="submit"] { width: 100%; }
-.contact-form .btn[type="submit"] { min-height: 38px; padding: 0 20px; }
+.contact-form .btn[type="submit"] { min-height: 38px !important; padding: 0 22px !important; }
 .cta-block .btn { width: auto; min-width: 140px; margin-top: var(--space-md); }
-/* Кнопки на карточках кейсов: без рамки/бокса, по центру, шире и выше */
 .case .btn {
-  min-height: 44px !important;
-  padding: 0 20px !important;
-  font-size: 10px !important;
+  min-height: 38px !important;
+  padding: 0 22px !important;
+  font-size: 11px !important;
   letter-spacing: 0.12em;
   width: auto !important;
   max-width: 90% !important;
   display: inline-flex !important;
   align-self: center !important;
-  box-shadow: none !important;
-  animation: none !important;
-  background: transparent !important;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border: none !important;
-  box-shadow: none !important;
-  animation: none !important;
-  background: transparent !important;
-  color: rgba(255, 255, 255, 0.95) !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-}
-.case .btn:hover,
-.case .btn:focus-visible {
-  border: none !important;
-  box-shadow: none !important;
-  color: #fff !important;
 }
 .case-info .btn {
   margin-top: var(--space-xs);
 }
 .journal-teaser-more .btn { width: auto; }
+.m-cta-wrap .btn { width: auto; }
 @media (max-width: 767px) {
     .hero-actions .btn {
         min-height: 40px;
@@ -1757,7 +1747,7 @@ a.btn:visited { color: var(--btn-text); }
         width: 100%;
         max-width: 360px;
     }
-    .case .btn { min-height: 44px; width: auto; max-width: 90%; }
+    .case .btn { min-height: 38px; width: auto; max-width: 90%; }
     .horizontal-scroll { overflow-x: auto; overscroll-behavior-x: contain; }
     .team-member, .journal-card { flex: 0 0 min(85vw, 420px); }
 }
@@ -2366,39 +2356,21 @@ a.btn[href^="tel:"]:focus-visible,
 }
 
 /* «Все кейсы →» — матовая кнопка, тонкое чистое свечение, плотное тёмное тело */
-.work-more .btn {
-  border: none !important;
-  background: rgba(0, 0, 0, 0.38) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 0 12px rgba(156, 4, 4, 0.58) !important;
-  color: rgba(255, 255, 255, 0.78) !important;
-  animation: btn-matte-shadow-pulse 5s ease-in-out infinite;
-  min-height: 31px !important;
-  padding: 8px 17px !important;
-  font-size: 0.7rem !important;
-}
-.work-more .btn:hover,
-.work-more .btn:focus-visible {
-  border: none !important;
-  background: rgba(0, 0, 0, 0.5) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 0 18px rgba(156, 4, 4, 0.7) !important;
-  color: rgba(255, 255, 255, 0.9) !important;
-  animation: none;
-}
-
-/* Все кнопки кроме хидера и хиро: без рамки, матовое стекло, свечение на 50% ярче, еле заметная долгая пульсация (кейсы — без свечения, см. ниже) */
+/* Все CTA (кроме хидера и хиро): один вид — матовое стекло, красное свечение, пульсация */
 .cta-block .btn,
 .work-conversion-strip .btn,
+.work-more .btn,
+.journal-teaser-more .btn,
 .contact-form .btn,
 .contact-form button[type="submit"],
-.journal-teaser-more .btn,
 .pricing-teaser > .btn,
 .price-card .btn,
 .about-hero .btn,
 .about-page .cta-block .btn,
+.about-block-cta .btn,
+.team-member--cta,
+.m-cta-wrap .btn,
+.case .btn,
 .journal-article-back,
 .page-shell .btn,
 .modal .btn {
@@ -2414,12 +2386,14 @@ a.btn[href^="tel:"]:focus-visible,
 .cta-block .btn:focus-visible,
 .work-conversion-strip .btn:hover,
 .work-conversion-strip .btn:focus-visible,
+.work-more .btn:hover,
+.work-more .btn:focus-visible,
+.journal-teaser-more .btn:hover,
+.journal-teaser-more .btn:focus-visible,
 .contact-form .btn:hover,
 .contact-form .btn:focus-visible,
 .contact-form button[type="submit"]:hover,
 .contact-form button[type="submit"]:focus-visible,
-.journal-teaser-more .btn:hover,
-.journal-teaser-more .btn:focus-visible,
 .pricing-teaser > .btn:hover,
 .pricing-teaser > .btn:focus-visible,
 .price-card .btn:hover,
@@ -2428,6 +2402,14 @@ a.btn[href^="tel:"]:focus-visible,
 .about-hero .btn:focus-visible,
 .about-page .cta-block .btn:hover,
 .about-page .cta-block .btn:focus-visible,
+.about-block-cta .btn:hover,
+.about-block-cta .btn:focus-visible,
+.team-member--cta:hover,
+.team-member--cta:focus-visible,
+.m-cta-wrap .btn:hover,
+.m-cta-wrap .btn:focus-visible,
+.case .btn:hover,
+.case .btn:focus-visible,
 .journal-article-back:hover,
 .journal-article-back:focus-visible,
 .page-shell .btn:hover,
@@ -2441,29 +2423,6 @@ a.btn[href^="tel:"]:focus-visible,
   box-shadow: 0 0 18px rgba(156, 4, 4, 0.9) !important;
   color: #fff !important;
   animation: none !important;
-}
-
-/* Обложки кейсов: кнопки без красного свечения */
-.case .btn,
-.case .btn:hover,
-.case .btn:focus-visible {
-  box-shadow: none !important;
-  animation: none !important;
-  background: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-.case .btn:hover,
-.case .btn:focus-visible {
-  background: rgba(0, 0, 0, 0.15) !important;
-}
-
-/* «Все статьи» — как кнопка «Все кейсы»: размер и стиль */
-.journal-teaser-more .btn {
-  min-height: 31px !important;
-  padding: 8px 17px !important;
-  font-size: 0.7rem !important;
-  letter-spacing: 0.12em;
 }
 
 .btn__icon,
