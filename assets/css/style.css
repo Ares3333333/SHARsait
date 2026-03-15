@@ -384,7 +384,7 @@ nav a.nav-link:active { text-decoration: none !important; }
     max-width: 62ch;
     color: rgba(255,255,255,0.88);
     line-height: 1.94;
-    font-size: 1.12rem;
+    font-size: 2.24rem;
 }
 .site-footer { padding: var(--space-xl) 4%; text-align: center; font-size: 0.8rem; color: var(--text-tertiary); letter-spacing: 0.18em; text-transform: uppercase; border-top: 1px solid var(--line); font-family: var(--font-heading); position: relative; }
 .site-footer::before { content: ''; position: absolute; top: 0; left: 0; width: 220px; height: 2px; background: linear-gradient(90deg, #9c0404, rgba(156,4,4,0.5), transparent); border-radius: 1px; }
@@ -1815,6 +1815,12 @@ a.btn:visited { color: var(--btn-text); }
 /* === CASE PAGES (standalone) === */
 .case-page-wrap { padding: calc(var(--nav-height) + var(--space-3xl)) 4% var(--space-2xl); min-height: 100vh; }
 .case-back { font-family: var(--font-heading); font-size: 10px; letter-spacing: var(--ls-tag); font-weight: 600; text-transform: uppercase; color: var(--text-secondary) !important; display: inline-block; margin-bottom: var(--space-xl); transition: color var(--dur) var(--ease-luxe); }
+.case-page-wrap .case-back {
+  min-height: 38px !important;
+  padding: 0 22px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.12em;
+}
 .case-back:hover { color: rgba(255,255,255,0.95) !important; }
 .case-page-wrap .m-hero { position: relative; top: auto; }
 
