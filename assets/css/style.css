@@ -350,6 +350,9 @@ nav a.nav-link:active { text-decoration: none !important; }
 .label::after { content: ''; height: 1px; flex-grow: 1; background: linear-gradient(to right, var(--line), rgba(156,4,4,0.25), transparent); }
 .label-spaced { margin-top: 0; }
 .team-label { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--line); }
+.about-block-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--line); }
+.about-block-header .team-label { margin-top: 0; margin-bottom: 0; padding-top: 0; border-top: none; }
+.about-block-btn { flex-shrink: 0; }
 
 .manifesto { padding: var(--section-pad-y) 4%; border-top: 1px solid var(--line); }
 .section-inner--manifesto { display: grid; grid-template-columns: 1fr 1.5fr; gap: 10%; align-items: center; }
