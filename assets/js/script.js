@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let lastFocusedElement = null;
-
     // 0. Hero video — delayed load for faster first paint (poster-first)
     const heroContainer = document.getElementById('hero-video-container');
     if (heroContainer && heroContainer.dataset.src) {
@@ -132,20 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 card.click();
             });
         });
-        document.querySelectorAll('.close-case').forEach((button) => {
-            button.setAttribute('tabindex', '0');
-            button.setAttribute('role', 'button');
-            button.addEventListener('keydown', (event) => {
-                if (event.key !== 'Enter' && event.key !== ' ') return;
-                event.preventDefault();
-                button.click();
-            });
-        });
-        document.querySelectorAll('.modal').forEach((modal) => {
-            modal.setAttribute('role', 'dialog');
-            modal.setAttribute('aria-modal', 'true');
-            modal.setAttribute('aria-hidden', 'true');
-        });
     }
     if (typeof requestIdleCallback !== 'undefined') {
         requestIdleCallback(runDeferred, { timeout: 1200 });
@@ -153,148 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(runDeferred, 400);
     }
 
-    // 6. РАЗВЕРНУТЬ ПОРТФОЛИО
-    const showMoreBtn = document.getElementById('show-more-btn');
-    if(showMoreBtn) {
-        showMoreBtn.addEventListener('click', function() {
-            document.querySelectorAll('.hidden-case').forEach(el => {
-                el.style.display = 'block';
-                setTimeout(() => el.classList.add('show'), 50);
-            });
-            this.style.display = 'none';
-        });
-    }
-
-    // 7. УМНЫЕ МОДАЛКИ С ВИДЕО (iframe создается только по клику и удаляется при закрытии)
-    function mountVideo(container) {
-        if (!container) return;
-        const dataSrc = container.dataset.src;
-        // Полностью уничтожаем старый iframe, если он был
-        const existingIframe = container.querySelector('iframe');
-        if (existingIframe && typeof existingIframe.remove === 'function') {
-            existingIframe.remove();
-        } else {
-            container.innerHTML = "";
-        }
-        if (!dataSrc) return;
-
-        const iframe = document.createElement('iframe');
-        iframe.src = dataSrc;
-        iframe.setAttribute('frameborder', '0');
-        iframe.setAttribute('allow', 'autoplay; fullscreen');
-        iframe.setAttribute('allowfullscreen', '');
-        iframe.setAttribute('title', 'Видео проекта');
-        iframe.setAttribute('loading', 'lazy');
-        iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        iframe.style.border = '0';
-        container.appendChild(iframe);
-    }
-
-    window.openCase = function(id) {
-        const modal = document.getElementById(`case-${id}`);
-        if (!modal) return;
-
-        const container = modal.querySelector('.m-video-container');
-        if (!container) return;
-
-        mountVideo(container);
-
-        lastFocusedElement = document.activeElement && document.body.contains(document.activeElement) ? document.activeElement : null;
-        modal.classList.add('active');
-        modal.scrollTop = 0;
-        const navEl = document.querySelector('nav');
-        if (navEl) navEl.classList.add('scrolled');
-        modal.setAttribute('aria-hidden', 'false');
-        const scrollY = window.scrollY || window.pageYOffset;
-        document.body.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollY}px`;
-        document.body.style.left = '0';
-        document.body.style.right = '0';
-        document.body.style.width = '100%';
-        document.body.dataset.scrollY = String(scrollY);
-
-        requestAnimationFrame(() => {
-            const closeBtn = modal.querySelector('.close-case');
-            if (closeBtn && typeof closeBtn.focus === 'function') closeBtn.focus();
-        });
-
-        function focusTrap(e) {
-            if (e.key !== 'Tab') return;
-            const focusables = modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
-            const list = Array.from(focusables).filter(el => el.offsetParent !== null && !el.disabled);
-            if (list.length === 0) return;
-            const first = list[0];
-            const last = list[list.length - 1];
-            if (e.shiftKey) {
-                if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-            } else {
-                if (document.activeElement === last) { e.preventDefault(); first.focus(); }
-            }
-        }
-        modal.addEventListener('keydown', focusTrap);
-        modal._focusTrap = focusTrap;
-    };
-
-
-    document.querySelectorAll('.modal').forEach((modal) => {
-        modal.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                const id = modal.id.replace('case-', '');
-                closeCase(id);
-            }
-        });
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key !== 'Escape') return;
-        const activeModal = document.querySelector('.modal.active');
-        if (!activeModal) return;
-        const id = activeModal.id.replace('case-', '');
-        closeCase(id);
-    });
-
-    window.closeCase = function(id) {
-        const modal = document.getElementById(`case-${id}`);
-        if (modal) {
-            const container = modal.querySelector('.m-video-container');
-            if (container) {
-                const iframe = container.querySelector('iframe');
-                if (iframe && typeof iframe.remove === 'function') {
-                    iframe.remove();
-                } else {
-                    container.innerHTML = '';
-                }
-            }
-            if (modal._focusTrap) {
-                modal.removeEventListener('keydown', modal._focusTrap);
-                delete modal._focusTrap;
-            }
-            modal.classList.remove('active');
-            modal.setAttribute('aria-hidden', 'true');
-            const scrollY = document.body.dataset.scrollY ? parseInt(document.body.dataset.scrollY, 10) : 0;
-            document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.left = '';
-            document.body.style.right = '';
-            document.body.style.width = '';
-            delete document.body.dataset.scrollY;
-            if (!isNaN(scrollY)) window.scrollTo(0, scrollY);
-            requestAnimationFrame(() => {
-                const navEl = document.querySelector('nav');
-                if (navEl) {
-                    if (window.scrollY > 50) navEl.classList.add('scrolled');
-                    else navEl.classList.remove('scrolled');
-                }
-                if (lastFocusedElement && document.body.contains(lastFocusedElement) && typeof lastFocusedElement.focus === 'function') lastFocusedElement.focus();
-            });
-        }
-    };
-
-    // 8. ФОРМА КОНТАКТА — отправка на Formspree (письма на Start@sharprod.com), затем тост
+    // 6. ФОРМА КОНТАКТА — отправка на Formspree (письма на Start@sharprod.com), затем тост
     const form = document.getElementById('contactForm');
     if(form) {
         form.addEventListener('submit', async (e) => {
@@ -340,21 +183,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 9. ПЛАВНЫЙ СКРОЛЛ (из модалки — скролл к якорю после закрытия, чтобы не уводило не туда)
+    // 7. ПЛАВНЫЙ СКРОЛЛ по якорям
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if (href === '#' || href === '') return;
-            if (this.closest('.modal')) {
-                e.preventDefault();
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        const target = document.querySelector(href);
-                        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    });
-                });
-                return;
-            }
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });

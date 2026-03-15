@@ -39,6 +39,7 @@
     --ease-luxe: cubic-bezier(0.16, 1, 0.3, 1);
     --dur-fast: 0.25s;
     /* Spacing scale — единый ритм */
+    --space-3xs: 4px;
     --space-xs: 8px;
     --space-sm: 16px;
     --space-md: 24px;
@@ -80,6 +81,7 @@
     --btn-font-size: 11px;
     --btn-letter: 0.14em;
     --btn-transition: border-color 0.28s ease, color 0.28s ease, box-shadow 0.32s ease;
+    --btn-border: 1px solid rgba(156, 4, 4, 0.25);
 }
 
 
@@ -163,8 +165,6 @@ a.case:focus-visible,
 .case, .journal-card, .price-card, .pitch-card, .process-step,
 .outcome-item, .client-logo, .team-member, .awards-block, .pricing-teaser,
 .journal-featured { border-color: transparent !important; }
-.about-manifesto-card { border: none !important; outline: none !important; }
-.about-team-card:hover, .about-team-card:focus, .about-manifesto-card:hover, .about-manifesto-card:focus { outline: none !important; }
 
 /* Кастомный курсор отключён для производительности */
 .custom-cursor { display: none !important; }
@@ -413,7 +413,6 @@ nav a.nav-link:active { text-decoration: none !important; }
 .stat-item,
 .stat-number,
 .stat-label,
-#trust .section-inner > .label.label-spaced:first-of-type { /* legacy trust block styles — no longer used */ }
 .clients-grid {
     display: flex;
     gap: var(--space-md);
@@ -494,7 +493,7 @@ nav a.nav-link:active { text-decoration: none !important; }
 .case-info {
     position: absolute;
     inset: 0;
-    padding: var(--space-lg);
+    padding: 0 0 14px 14px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -645,22 +644,6 @@ a.case .case-info h3 { color: #ffffff !important; }
 }
 .team-member--cta:hover .team-member-cta-label {
     color: rgba(255, 255, 255, 0.9);
-}
-
-.about-block-cta {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: var(--space-xl);
-    padding-bottom: var(--space-md);
-}
-.about-block-cta .btn {
-    min-height: 38px !important;
-    padding: 0 22px !important;
-    font-size: 11px !important;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 600;
 }
 
 .journal-card {
@@ -1683,8 +1666,6 @@ a.btn:visited { color: var(--btn-text); }
 .journal-teaser-more .btn,
 .pricing-teaser > .btn,
 .price-card .btn,
-.about-block-cta .btn,
-.about-hero .btn,
 .m-cta-wrap .btn {
   min-height: 38px !important;
   padding: 0 22px !important;
@@ -2381,9 +2362,6 @@ a.btn[href^="tel:"]:focus-visible,
 .contact-form button[type="submit"],
 .pricing-teaser > .btn,
 .price-card .btn,
-.about-hero .btn,
-.about-page .cta-block .btn,
-.about-block-cta .btn,
 .team-member--cta,
 .m-cta-wrap .btn,
 .case .btn,
@@ -2414,12 +2392,6 @@ a.btn[href^="tel:"]:focus-visible,
 .pricing-teaser > .btn:focus-visible,
 .price-card .btn:hover,
 .price-card .btn:focus-visible,
-.about-hero .btn:hover,
-.about-hero .btn:focus-visible,
-.about-page .cta-block .btn:hover,
-.about-page .cta-block .btn:focus-visible,
-.about-block-cta .btn:hover,
-.about-block-cta .btn:focus-visible,
 .team-member--cta:hover,
 .team-member--cta:focus-visible,
 .m-cta-wrap .btn:hover,
@@ -2505,201 +2477,3 @@ a.btn[href^="tel:"]:focus-visible,
   }
 }
 
-/* ========== СТРАНИЦА «О НАС» — минималистичная ========== */
-.about-page { padding-top: var(--nav-height); background: var(--bg); min-height: 100vh; }
-.about-hero { padding: var(--section-pad-y) 4%; border-bottom: 1px solid var(--line); }
-.about-hero-label {
-  font-family: var(--font-heading);
-  font-size: 0.7rem;
-  color: var(--brand-red);
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-weight: 600;
-  margin-bottom: var(--space-sm);
-}
-.about-hero-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: var(--ls-heading);
-  margin-bottom: var(--space-md);
-  text-shadow: var(--text-shadow-soft);
-}
-.about-hero-sub {
-  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.88);
-  max-width: 44ch;
-  margin-bottom: var(--space-xl);
-  text-shadow: var(--text-shadow-read);
-}
-
-/* Шоурил — место под видео */
-.about-showreel { padding: var(--section-pad-y) 4%; }
-.about-showreel-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 4px;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-}
-.about-showreel-player { position: absolute; inset: 0; width: 100%; height: 100%; }
-.about-showreel-player:not([data-src=""]) { z-index: 1; }
-.about-showreel-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.3);
-  color: rgba(255, 255, 255, 0.25);
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-.about-showreel-player[data-src]:not([data-src=""]) + .about-showreel-placeholder { display: none; }
-
-/* Манифест — в стиле сайта (тёмная база, красный акцент, минимализм) */
-.about-manifesto { padding: var(--section-pad-y) 4%; border-top: 1px solid var(--line); }
-.about-manifesto-inner { max-width: 900px; }
-.about-manifesto-label {
-  font-family: var(--font-heading);
-  font-size: 0.7rem;
-  color: var(--brand-red);
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-weight: 600;
-  margin-bottom: var(--space-md);
-}
-.about-manifesto-heading {
-  font-family: var(--font-heading);
-  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
-  font-weight: 600;
-  color: #fff;
-  line-height: 1.35;
-  letter-spacing: 0.02em;
-  margin-bottom: var(--space-md);
-  text-shadow: var(--text-shadow-soft);
-}
-.about-manifesto-sub {
-  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
-  line-height: 1.65;
-  color: var(--text-tertiary);
-  margin-bottom: var(--space-xl);
-  text-shadow: var(--text-shadow-read);
-}
-.about-manifesto-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
-}
-.about-manifesto-card {
-  padding: var(--space-lg) 0;
-  border-top: 1px solid var(--line);
-  background: transparent;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
-  transition: none;
-}
-.about-manifesto-card h3 {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.95);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: var(--space-sm);
-}
-.about-manifesto-card p {
-  font-size: 0.9rem;
-  line-height: 1.65;
-  color: var(--text-tertiary);
-  text-shadow: var(--text-shadow-read);
-}
-@media (max-width: 768px) {
-  .about-manifesto-cards { grid-template-columns: 1fr; }
-}
-
-/* Команда — шаблон: Имя / Должность / абзацы / ⸻ */
-.about-team-section .section-inner { max-width: 720px; }
-.about-team-list { display: flex; flex-direction: column; gap: var(--space-2xl); }
-.about-team-card {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: var(--space-lg);
-  align-items: start;
-  padding-bottom: var(--space-xl);
-  border-bottom: 1px solid var(--line);
-}
-.about-team-card:last-child { border-bottom: none; padding-bottom: 0; }
-/* Страница «О компании»: без белых рамок при наведении */
-.about-page .about-team-card:hover,
-.about-page .about-team-card:focus,
-.about-page .about-team-card:active,
-.about-page .about-showreel-wrap:hover,
-.about-page .about-manifesto-card:hover,
-.about-page .about-manifesto-card:focus,
-.about-page .about-manifesto-card:active {
-  outline: none !important;
-  border-color: inherit !important;
-  box-shadow: none !important;
-}
-.about-page a:hover,
-.about-page a:focus,
-.about-page button:hover,
-.about-page button:focus {
-  outline: none !important;
-}
-.about-team-photo {
-  width: 100px;
-  height: 100px;
-  border-radius: 4px;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.4);
-  flex-shrink: 0;
-}
-.about-team-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.about-team-photo--placeholder { background: rgba(255, 255, 255, 0.06); }
-.about-team-bio { min-width: 0; }
-.about-team-name {
-  font-family: var(--font-heading);
-  font-size: clamp(1.1rem, 1.35vw, 1.28rem);
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: var(--space-xs);
-  letter-spacing: 0.02em;
-}
-.about-team-role {
-  font-family: var(--font-heading);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--brand-red);
-  margin-bottom: var(--space-md);
-  font-weight: 600;
-}
-.about-team-desc {
-  font-size: 0.9rem;
-  line-height: 1.75;
-  color: var(--text-tertiary);
-  text-shadow: var(--text-shadow-read);
-}
-.about-team-desc p { margin-bottom: 0.65em; }
-.about-team-desc p:last-of-type { margin-bottom: 0; }
-.about-team-sep {
-  display: block;
-  margin-top: var(--space-md);
-  color: rgba(255, 255, 255, 0.2);
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-}
-@media (max-width: 640px) {
-  .about-team-card { grid-template-columns: 1fr; gap: var(--space-md); }
-  .about-team-photo { width: 80px; height: 80px; }
-}
