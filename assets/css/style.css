@@ -1487,7 +1487,7 @@ a.btn:visited { color: var(--btn-text); }
 .price-card .btn, .contact-form .btn[type="submit"] { width: 100%; }
 .contact-form .btn[type="submit"] { min-height: 38px; padding: 0 20px; }
 .cta-block .btn { width: auto; min-width: 140px; margin-top: var(--space-md); }
-.case .btn { min-height: 28px; padding: 0 12px; font-size: 9px; letter-spacing: 0.12em; width: 100%; max-width: 100%; display: flex; }
+.case .btn { min-height: 28px; padding: 0 14px; font-size: 9px; letter-spacing: 0.12em; width: auto; max-width: 72%; display: inline-flex; }
 .journal-teaser-more .btn { width: auto; }
 @media (max-width: 767px) {
     .hero-actions .btn {
@@ -1528,7 +1528,7 @@ a.btn:visited { color: var(--btn-text); }
         width: 100%;
         max-width: 360px;
     }
-    .case .btn { min-height: 28px; width: 100%; }
+    .case .btn { min-height: 28px; width: auto; max-width: 72%; }
     .horizontal-scroll { overflow-x: auto; overscroll-behavior-x: contain; }
     .team-member, .journal-card { flex: 0 0 min(85vw, 420px); }
 }
@@ -2065,36 +2065,55 @@ button.btn {
   outline: none !important;
 }
 
-/* Кнопка «ТЕЛЕФОН» — всегда лёгкое красное свечение (~5%) */
+/* Кнопка «ТЕЛЕФОН» на хидере — дорогое пульсирующее свечение, всегда заметна */
+@keyframes shar-phone-glow {
+  0%, 100% {
+    box-shadow:
+      0 6px 16px rgba(0, 0, 0, 0.12),
+      0 1px 0 rgba(255, 255, 255, 0.03) inset,
+      0 0 12px rgba(156, 4, 4, 0.12),
+      0 0 24px rgba(156, 4, 4, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 6px 16px rgba(0, 0, 0, 0.12),
+      0 1px 0 rgba(255, 255, 255, 0.03) inset,
+      0 0 18px rgba(156, 4, 4, 0.22),
+      0 0 36px rgba(156, 4, 4, 0.14);
+  }
+}
 a.btn[href^="tel:"],
 .nav-actions a[href^="tel:"] {
+  animation: shar-phone-glow 2.4s ease-in-out infinite !important;
   box-shadow:
     0 6px 16px rgba(0, 0, 0, 0.12),
     0 1px 0 rgba(255, 255, 255, 0.03) inset,
-    0 0 14px rgba(156, 4, 4, 0.05) !important;
+    0 0 12px rgba(156, 4, 4, 0.12),
+    0 0 24px rgba(156, 4, 4, 0.08) !important;
 }
 a.btn[href^="tel:"]:hover,
 a.btn[href^="tel:"]:focus-visible,
 .nav-actions a[href^="tel:"]:hover,
 .nav-actions a[href^="tel:"]:focus-visible {
+  animation: none !important;
   box-shadow:
     0 10px 20px rgba(0, 0, 0, 0.18),
     0 1px 0 rgba(255, 255, 255, 0.04) inset,
-    0 0 0 1px rgba(156, 4, 4, 0.08),
-    0 0 14px rgba(156, 4, 4, 0.08),
-    0 0 20px rgba(156, 4, 4, 0.05) !important;
+    0 0 0 1px rgba(156, 4, 4, 0.12),
+    0 0 20px rgba(156, 4, 4, 0.2),
+    0 0 40px rgba(156, 4, 4, 0.1) !important;
 }
 
-/* Hero: «Смотреть кейсы» — без красной рамки */
+/* Hero: «Смотреть кейсы» — без рамки */
 .hero-actions .btn--secondary {
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border: none !important;
   box-shadow:
     0 8px 18px rgba(0, 0, 0, 0.14),
     0 1px 0 rgba(255, 255, 255, 0.03) inset !important;
 }
 .hero-actions .btn--secondary:hover,
 .hero-actions .btn--secondary:focus-visible {
-  border-color: rgba(255, 255, 255, 0.2) !important;
+  border: none !important;
   box-shadow:
     0 12px 24px rgba(0, 0, 0, 0.20),
     0 1px 0 rgba(255, 255, 255, 0.04) inset !important;
