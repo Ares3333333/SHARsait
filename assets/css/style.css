@@ -237,7 +237,7 @@ nav a.nav-link:active { text-decoration: none !important; }
 .nav-right { display: flex; align-items: center; gap: var(--space-lg); }
 .nav-link {
     font-family: var(--font-heading);
-    font-size: 10px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: var(--ls-tag);
     font-weight: 500;
@@ -1418,16 +1418,21 @@ button.btn:active,
     color: var(--btn-text) !important;
 }
 
-/* Шапка — отличаются: скруглённые (не квадрат), тоньше кромка, без пульса */
+/* Шапка — кнопки +10% (логотип не трогаем) */
 .btn--compact {
-    min-height: 32px;
-    padding: 0 14px;
-    font-size: 10px;
+    min-height: 35px;
+    padding: 0 15px;
+    font-size: 11px;
     letter-spacing: 0.16em;
     border-radius: 3px;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
     box-shadow: none !important;
     animation: none !important;
+}
+/* Кнопка телефона — всегда с постоянной пульсацией (переопределяет .btn--compact) */
+a.btn--compact[href^="tel:"],
+.nav-actions a.btn[href^="tel:"] {
+  animation: shar-phone-glow 2.6s ease-in-out infinite !important;
 }
 .btn--compact:hover,
 .btn--compact:focus-visible {
@@ -1666,10 +1671,10 @@ a.btn:visited { color: var(--btn-text); }
     nav { padding: var(--space-md) 5%; }
     .nav-right { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: rgba(0,0,0,0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); flex-direction: column; justify-content: center; gap: var(--space-lg); transition: right var(--dur-slow) var(--ease-luxe); z-index: 9001; }
     .nav-right.active { right: 0; }
-    .nav-link { font-size: 15px; color: rgba(255,255,255,0.88); opacity: 1; letter-spacing: var(--ls-heading); }
-    .lang-switcher { font-size: 10px; padding: var(--space-xs) 0; }
+    .nav-link { font-size: 16px; color: rgba(255,255,255,0.88); opacity: 1; letter-spacing: var(--ls-heading); }
+    .lang-switcher { font-size: 11px; padding: var(--space-xs) 0; }
     .nav-actions { flex-direction: column; gap: var(--space-sm); align-items: center; }
-    .nav-actions .btn { font-size: 10px; padding: 8px 12px; min-height: 32px; border-radius: 3px; width: auto; }
+    .nav-actions .btn { font-size: 11px; padding: 9px 13px; min-height: 35px; border-radius: 3px; width: auto; }
     .hamburger { display: flex; z-index: 9002; }
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
@@ -2014,15 +2019,15 @@ button.btn:focus-visible {
     0 0 16px rgba(156, 4, 4, 0.08);
 }
 
-/* Шапка и hero — на 25% меньше */
+/* Шапка и hero — кнопки хедера +10% к размеру (кроме логотипа) */
 .btn--compact,
 .nav-cta,
 .header .btn,
 .header .cta,
 .header .button {
-  min-height: 28px !important;
-  padding: 0 11px !important;
-  font-size: 10px !important;
+  min-height: 31px !important;
+  padding: 0 12px !important;
+  font-size: 11px !important;
   letter-spacing: var(--shar-btn-letter-sm);
   border-radius: 10px;
   background:
@@ -2094,34 +2099,34 @@ button.btn {
   outline: none !important;
 }
 
-/* Кнопка «ТЕЛЕФОН» на хидере — лёгкая заливка цветом рамки + постоянная мягкая пульсация */
+/* Кнопка «ТЕЛЕФОН» на хидере — заливка цветом рамки + постоянная пульсация */
 @keyframes shar-phone-glow {
   0%, 100% {
     border-color: rgba(156, 4, 4, 0.5);
-    background-color: rgba(156, 4, 4, 0.1);
+    background-color: rgba(156, 4, 4, 0.12);
     box-shadow:
       0 6px 16px rgba(0, 0, 0, 0.1),
-      0 0 10px rgba(156, 4, 4, 0.08),
-      0 0 20px rgba(156, 4, 4, 0.04);
+      0 0 12px rgba(156, 4, 4, 0.1),
+      0 0 24px rgba(156, 4, 4, 0.06);
   }
   50% {
-    border-color: rgba(156, 4, 4, 0.75);
-    background-color: rgba(156, 4, 4, 0.18);
+    border-color: rgba(156, 4, 4, 0.8);
+    background-color: rgba(156, 4, 4, 0.22);
     box-shadow:
       0 6px 16px rgba(0, 0, 0, 0.1),
-      0 0 14px rgba(156, 4, 4, 0.12),
-      0 0 28px rgba(156, 4, 4, 0.06);
+      0 0 18px rgba(156, 4, 4, 0.18),
+      0 0 36px rgba(156, 4, 4, 0.08);
   }
 }
 a.btn[href^="tel:"],
 .nav-actions a[href^="tel:"] {
   border: 1px solid rgba(156, 4, 4, 0.5) !important;
-  background: rgba(156, 4, 4, 0.1) !important;
-  animation: shar-phone-glow 2.8s ease-in-out infinite !important;
+  background: rgba(156, 4, 4, 0.12) !important;
+  animation: shar-phone-glow 2.6s ease-in-out infinite !important;
   box-shadow:
     0 6px 16px rgba(0, 0, 0, 0.1),
-    0 0 10px rgba(156, 4, 4, 0.08),
-    0 0 20px rgba(156, 4, 4, 0.04) !important;
+    0 0 12px rgba(156, 4, 4, 0.1),
+    0 0 24px rgba(156, 4, 4, 0.06) !important;
 }
 a.btn[href^="tel:"]:hover,
 a.btn[href^="tel:"]:focus-visible,
