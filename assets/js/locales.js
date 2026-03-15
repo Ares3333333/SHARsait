@@ -153,11 +153,11 @@ window.SHAR_LOCALES = {
       viewAll: 'Все статьи в журнале →',
       backToJournal: 'Вернуться в журнал',
       art1Tag: 'Аналитика',
-      art1Title: 'Будущее рекламы: как бренды используют AI‑видео',
+      art1Title: 'Будущее рекламы: как бренды используют ИИ‑видео',
       art2Tag: 'Аналитика',
-      art2Title: 'Как AI снижает стоимость рекламного видео до 40%',
+      art2Title: 'Как ИИ снижает стоимость рекламного видео до 40%',
       art3Tag: 'Аналитика',
-      art3Title: 'AI‑видео vs классическая видеосъёмка: что выбрать бренду'
+      art3Title: 'ИИ‑видео или классическая видеосъёмка: что выбрать бренду в 2026 году'
     },
     order: {
       heading: 'ОБСУДИТЬ<br><span>ПРОЕКТ</span>',
@@ -448,11 +448,11 @@ window.SHAR_LOCALES = {
       viewAll: 'All journal articles →',
       backToJournal: 'Back to journal',
       art1Tag: 'Analytics',
-      art1Title: 'AI generation in B2B: how to cut CGI budget by 40%',
+      art1Title: 'The future of advertising: how brands use AI video',
       art2Tag: 'Director\'s view',
-      art2Title: 'Evolution of production: from shoot to 3D worlds',
+      art2Title: 'How AI reduces commercial video cost by up to 40%',
       art3Tag: 'Case study',
-      art3Title: 'How we built an anime-cyberpunk universe in 14 days'
+      art3Title: 'AI video vs classic video production: what to choose in 2026'
     },
     order: {
       heading: 'DISCUSS<br><span>PROJECT</span>',
