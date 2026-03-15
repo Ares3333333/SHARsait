@@ -493,7 +493,7 @@ nav a.nav-link:active { text-decoration: none !important; }
 .case-info {
     position: absolute;
     inset: 0;
-    padding: 0 0 20px 20px;
+    padding: 0 24px 28px 24px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -505,7 +505,7 @@ nav a.nav-link:active { text-decoration: none !important; }
     min-width: 0;
 }
 .case-info .btn {
-    align-self: flex-start !important;
+    align-self: center !important;
     margin-top: 0;
 }
 .case-info h3 {
