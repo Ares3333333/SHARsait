@@ -197,7 +197,7 @@ a.case:focus-visible,
   50% { box-shadow: 0 0 16px rgba(156, 4, 4, 0.9); }
 }
 
-/* ========== НАВИГАЦИЯ — прозрачная до скролла; ::after убирает белую полоску при скролле ========== */
+/* ========== НАВИГАЦИЯ — прозрачная до скролла; полоска под навом убирает белую линию ========== */
 nav {
     position: fixed; top: 0; left: 0; width: 100%; padding: var(--space-md) 4%;
     display: flex; justify-content: space-between; align-items: center;
@@ -209,24 +209,26 @@ nav {
     isolation: isolate;
     transition: background var(--dur-slow) var(--ease-luxe), backdrop-filter var(--dur-slow) var(--ease-luxe);
 }
-/* Тёмная полоска под навом всегда — перекрывает зазор, убирает белую полоску при скролле */
+/* Тёмная полоса под навом: до скролла — тонкая, после — сплошная, убирает белую полоску */
 nav::after {
     content: '';
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 3px;
-    background: rgba(0, 0, 0, 0.45);
+    height: 4px;
+    background: rgba(0, 0, 0, 0.35);
     pointer-events: none;
-}
-nav.scrolled {
-    background: rgba(0, 0, 0, 0.52);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    z-index: 1;
 }
 nav.scrolled::after {
-    background: rgba(0, 0, 0, 0.65);
+    height: 14px;
+    background: #060606;
+}
+nav.scrolled {
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 .nav-actions { display: flex; align-items: center; gap: 16px; }
 
