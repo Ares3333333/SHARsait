@@ -153,11 +153,12 @@ a.case:focus-visible,
     outline: none !important;
     outline-offset: 0 !important;
 }
-.case:hover, .journal-card:hover, .price-card:hover, .pitch-card:hover,
+.journal-card:hover, .price-card:hover, .pitch-card:hover,
 .process-step:hover, .outcome-item:hover, .client-logo:hover, .team-member:hover,
 .awards-block:hover, .pricing-teaser:hover, .journal-featured:hover {
     box-shadow: var(--card-shadow-hover);
 }
+.case:hover { box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.3) !important; }
 .case, .journal-card, .price-card, .pitch-card, .process-step,
 .outcome-item, .client-logo, .team-member, .awards-block, .pricing-teaser,
 .journal-featured { border-color: transparent !important; }
@@ -430,11 +431,11 @@ nav a.nav-link:active { text-decoration: none !important; }
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.3);
 }
 .case:hover {
-    border-color: rgba(0, 0, 0, 0.9) !important;
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 0, 0, 0.6) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.3);
 }
 .case { border-color: rgba(0, 0, 0, 0.6) !important; }
-.case:hover { border-color: rgba(0, 0, 0, 0.9) !important; }
+.case:hover { border-color: rgba(0, 0, 0, 0.6) !important; }
 
 .case img {
     display: block;
@@ -2093,32 +2094,32 @@ button.btn {
   outline: none !important;
 }
 
-/* Кнопка «ТЕЛЕФОН» на хидере — красная пульсирующая рамка + мягкое свечение */
+/* Кнопка «ТЕЛЕФОН» на хидере — лёгкая заливка цветом рамки + постоянная мягкая пульсация */
 @keyframes shar-phone-glow {
   0%, 100% {
-    border-color: rgba(156, 4, 4, 0.4);
+    border-color: rgba(156, 4, 4, 0.5);
+    background-color: rgba(156, 4, 4, 0.1);
     box-shadow:
       0 6px 16px rgba(0, 0, 0, 0.1),
-      0 1px 0 rgba(255, 255, 255, 0.02) inset,
       0 0 10px rgba(156, 4, 4, 0.08),
       0 0 20px rgba(156, 4, 4, 0.04);
   }
   50% {
-    border-color: rgba(156, 4, 4, 0.7);
+    border-color: rgba(156, 4, 4, 0.75);
+    background-color: rgba(156, 4, 4, 0.18);
     box-shadow:
       0 6px 16px rgba(0, 0, 0, 0.1),
-      0 1px 0 rgba(255, 255, 255, 0.02) inset,
-      0 0 14px rgba(156, 4, 4, 0.14),
-      0 0 28px rgba(156, 4, 4, 0.07);
+      0 0 14px rgba(156, 4, 4, 0.12),
+      0 0 28px rgba(156, 4, 4, 0.06);
   }
 }
 a.btn[href^="tel:"],
 .nav-actions a[href^="tel:"] {
-  border: 1px solid rgba(156, 4, 4, 0.4) !important;
-  animation: shar-phone-glow 3s ease-in-out infinite !important;
+  border: 1px solid rgba(156, 4, 4, 0.5) !important;
+  background: rgba(156, 4, 4, 0.1) !important;
+  animation: shar-phone-glow 2.8s ease-in-out infinite !important;
   box-shadow:
     0 6px 16px rgba(0, 0, 0, 0.1),
-    0 1px 0 rgba(255, 255, 255, 0.02) inset,
     0 0 10px rgba(156, 4, 4, 0.08),
     0 0 20px rgba(156, 4, 4, 0.04) !important;
 }
@@ -2128,10 +2129,9 @@ a.btn[href^="tel:"]:focus-visible,
 .nav-actions a[href^="tel:"]:focus-visible {
   animation: none !important;
   border-color: rgba(156, 4, 4, 0.9) !important;
+  background: rgba(156, 4, 4, 0.22) !important;
   box-shadow:
     0 10px 20px rgba(0, 0, 0, 0.18),
-    0 1px 0 rgba(255, 255, 255, 0.04) inset,
-    0 0 0 1px rgba(156, 4, 4, 0.2),
     0 0 20px rgba(156, 4, 4, 0.2),
     0 0 40px rgba(156, 4, 4, 0.1) !important;
 }
