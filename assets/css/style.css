@@ -1273,8 +1273,8 @@ a.case .case-info h3 { color: #ffffff !important; }
     display: block;
     width: auto !important;
     height: auto !important;
-    max-width: 110px !important;
-    max-height: 70px !important;
+    max-width: 127px !important;
+    max-height: 81px !important;
     object-fit: contain !important;
     object-position: center;
     opacity: 0.82;
@@ -1863,11 +1863,11 @@ a.btn:visited { color: var(--btn-text); }
         scroll-snap-align: start;
     }
     .award-item--logo {
-        flex: 0 0 min(120px, 26vw);
+        flex: 0 0 min(138px, 30vw);
     }
     .award-item--logo .award-logo {
-        max-width: 120px;
-        max-height: 76px;
+        max-width: 138px;
+        max-height: 87px;
     }
 
     .team-member, .journal-card { flex: 0 0 min(85vw, 420px); }
