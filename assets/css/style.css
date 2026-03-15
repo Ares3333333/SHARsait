@@ -609,7 +609,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     background: rgba(0, 0, 0, 0.22) !important;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 0 20px rgba(156, 4, 4, 0.24) !important;
+    box-shadow: 0 0 20px rgba(156, 4, 4, 0.36) !important;
 }
 .team-member--cta::before { display: none; }
 .team-member--cta:hover,
@@ -619,7 +619,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     background: rgba(0, 0, 0, 0.32) !important;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 0 28px rgba(156, 4, 4, 0.28) !important;
+    box-shadow: 0 0 28px rgba(156, 4, 4, 0.42) !important;
 }
 .team-member-cta-label {
     font-family: var(--font-heading);
@@ -2340,7 +2340,7 @@ a.btn[href^="tel:"]:focus-visible,
   background: rgba(0, 0, 0, 0.22) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 0 20px rgba(156, 4, 4, 0.24) !important;
+  box-shadow: 0 0 20px rgba(156, 4, 4, 0.36) !important;
   color: rgba(255, 255, 255, 0.78) !important;
 }
 .work-more .btn:hover,
@@ -2349,7 +2349,7 @@ a.btn[href^="tel:"]:focus-visible,
   background: rgba(0, 0, 0, 0.32) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 0 28px rgba(156, 4, 4, 0.28) !important;
+  box-shadow: 0 0 28px rgba(156, 4, 4, 0.42) !important;
   color: rgba(255, 255, 255, 0.9) !important;
 }
 
