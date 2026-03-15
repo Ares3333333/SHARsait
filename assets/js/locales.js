@@ -146,7 +146,7 @@ window.SHAR_LOCALES = {
     journal: {
       label: 'ЖУРНАЛ',
       intro: 'Практические заметки о продакшне: как принимать решения по видео, что влияет на результат и где видео помогает бизнесу сильнее всего.',
-      teaserIntro: 'Короткие разборы кейсов, продакшн‑решений и визуальной коммуникации без лишнего пафоса и теории.',
+      teaserIntro: '',
       auth1: 'реализованных проектов',
       auth2: 'стран, где работали наши команды',
       auth3: 'опыт в видео, графике и ИИ',
@@ -441,7 +441,7 @@ window.SHAR_LOCALES = {
     journal: {
       label: 'JOURNAL / TECHNOLOGY',
       intro: 'Analytics, director notes and case breakdowns from SHAR Production.',
-      teaserIntro: 'SHAR expert layer: practical analysis, director notes and production breakdowns.',
+      teaserIntro: '',
       auth1: 'completed projects',
       auth2: 'countries served',
       auth3: 'applied expertise',
