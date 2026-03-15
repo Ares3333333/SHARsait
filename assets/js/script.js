@@ -1,5 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 0. Hero video — delayed load for faster first paint (poster-first)
+    // 0. Сообщение после редиректа с send.php (нативная отправка с телефона)
+    var contactForm = document.getElementById('contactForm');
+    if (contactForm && window.location.search) {
+        var params = new URLSearchParams(window.location.search);
+        var sent = params.get('sent');
+        var toastEl = document.getElementById('toast');
+        if (toastEl && (sent === '1' || sent === '0')) {
+            toastEl.textContent = sent === '1' ? 'Заявка успешно отправлена!' : 'Ошибка отправки. Попробуйте позже или напишите нам напрямую.';
+            toastEl.classList.toggle('toast--error', sent === '0');
+            toastEl.classList.add('show');
+            setTimeout(function() {
+                toastEl.classList.remove('show', 'toast--error');
+            }, 4000);
+            if (window.history && window.history.replaceState) {
+                window.history.replaceState({}, '', window.location.pathname);
+            }
+        }
+    }
+
+    // 1. Hero video — delayed load for faster first paint (poster-first)
     const heroContainer = document.getElementById('hero-video-container');
     if (heroContainer && heroContainer.dataset.src) {
         const loadHeroVideo = () => {
@@ -172,13 +191,14 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (useSendPhp) {
+                var submitUrl = form.action || (window.location.origin + '/send.php');
                 try {
-                    const res = await fetch(action || 'send.php', {
+                    var res = await fetch(submitUrl, {
                         method: 'POST',
                         body: new FormData(form),
                         headers: { 'Accept': 'application/json' }
                     });
-                    const data = await res.json().catch(() => ({}));
+                    var data = await res.json().catch(function() { return {}; });
                     if (data.success) {
                         showToastAndReset(successMsg, false);
                     } else {
