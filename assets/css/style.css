@@ -504,6 +504,7 @@ nav a.nav-link:active { text-decoration: none !important; }
     transition: opacity var(--dur) var(--ease-luxe);
     min-width: 0;
 }
+.case-info .btn { align-self: flex-start; }
 .case-info h3 {
     font-family: var(--font-heading);
     font-size: clamp(1.05rem, 1.4vw, 1.45rem);
@@ -2437,6 +2438,14 @@ a.btn[href^="tel:"]:focus-visible,
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 0 18px rgba(156, 4, 4, 0.9) !important;
   color: #fff !important;
+  animation: none !important;
+}
+
+/* Обложки кейсов: кнопки без красного свечения */
+.case .btn,
+.case .btn:hover,
+.case .btn:focus-visible {
+  box-shadow: none !important;
   animation: none !important;
 }
 
