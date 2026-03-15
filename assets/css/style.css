@@ -610,11 +610,9 @@ a.case .case-info h3 { color: #ffffff !important; }
     min-height: 28px !important;
     padding: 8px 20px !important;
     align-self: center;
-    margin-left: auto;
     text-decoration: none;
     justify-content: center;
     align-items: center;
-    transform: translateX(0.5cm);
     border: none !important;
     outline: none !important;
     background: rgba(0, 0, 0, 0.38) !important;
@@ -2451,11 +2449,11 @@ a.btn[href^="tel:"]:focus-visible,
   background: rgba(0, 0, 0, 0.15) !important;
 }
 
-/* «Все статьи в журнале» — увеличен в два раза */
+/* «Все статьи» — как кнопка «Все кейсы»: размер и стиль */
 .journal-teaser-more .btn {
-  min-height: 44px !important;
-  padding: 12px 28px !important;
-  font-size: 0.75rem !important;
+  min-height: 31px !important;
+  padding: 8px 17px !important;
+  font-size: 0.7rem !important;
   letter-spacing: 0.12em;
 }
 
