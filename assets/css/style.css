@@ -322,8 +322,13 @@ nav a.nav-link:active { text-decoration: none !important; }
 .label-spaced { margin-top: 0; }
 
 .manifesto { padding: var(--section-pad-y) 4%; border-top: 1px solid var(--line); }
-.section-inner--manifesto { display: grid; grid-template-columns: 1fr 1.5fr; gap: 10%; align-items: center; }
-.manifesto-title { font-family: var(--font-heading); font-size: 0.7rem; color: #9c0404; text-transform: uppercase; letter-spacing: 0.22em; font-weight: 600; }
+/* Блок «Для кого мы работаем» — в стиле блока «Как мы работаем»: одна колонка, карточки, текст не растягивается */
+.section-inner--manifesto { display: block; max-width: 100%; }
+.manifesto-title { font-family: var(--font-heading); font-size: 0.7rem; color: #9c0404; text-transform: uppercase; letter-spacing: 0.22em; font-weight: 600; margin-bottom: var(--space-xl); display: flex; align-items: center; gap: var(--space-sm); }
+.manifesto-title::after { content: ''; height: 1px; flex-grow: 1; max-width: 40%; background: linear-gradient(to right, var(--line), transparent); }
+.manifesto .manifesto-text--compact,
+.manifesto .manifesto-sub { max-width: 52ch; }
+.manifesto .for-whom-grid { margin-top: var(--space-xl); }
 .work-more { text-align: center; margin-top: var(--space-3xl); padding-bottom: var(--space-lg); }
 .work-conversion-strip {
     margin-top: var(--space-3xl);
@@ -344,19 +349,19 @@ nav a.nav-link:active { text-decoration: none !important; }
 .site-footer::before { content: ''; position: absolute; top: 0; left: 0; width: 220px; height: 2px; background: linear-gradient(90deg, #9c0404, rgba(156,4,4,0.5), transparent); border-radius: 1px; }
 .manifesto-text { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.22; font-weight: 600; color: #fff; letter-spacing: 0.07em; text-shadow: var(--text-shadow-soft); }
 .manifesto-text--compact {
-    font-size: clamp(1.12rem, 2vw, 1.78rem);
-    line-height: 1.52;
-    letter-spacing: 0.045em;
-    max-width: 44ch;
+    font-size: clamp(1.08rem, 1.5vw, 1.35rem);
+    line-height: 1.48;
+    letter-spacing: 0.04em;
+    max-width: 48ch;
 }
 .manifesto-text span { color: #9c0404; text-shadow: 0 0 24px rgba(156,4,4,0.28); }
 .manifesto-sub {
-    margin-top: var(--space-lg);
-    font-size: clamp(1.06rem, 1.6vw, 1.2rem);
+    margin-top: var(--space-md);
+    font-size: clamp(0.98rem, 1.25vw, 1.1rem);
     color: rgba(255,255,255,0.8);
-    line-height: 1.9;
+    line-height: 1.78;
     letter-spacing: var(--ls-body);
-    max-width: 52ch;
+    max-width: 48ch;
 }
 #cta-block.section { padding-top: var(--section-pad-y); padding-bottom: var(--section-pad-y); }
 .cta-block-text { position: relative; }
@@ -511,8 +516,8 @@ a.case .case-info h3 { color: #ffffff !important; }
     box-shadow: var(--card-shadow-hover);
 }
 .team-member-photo {
-    width: 64px;
-    height: 64px;
+    width: 120px;
+    height: 120px;
     border-radius: var(--card-radius);
     background: rgba(0,0,0,0.3);
     margin-bottom: var(--space-md);
@@ -1094,7 +1099,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     border-color: var(--card-border-hover);
     box-shadow: var(--card-shadow-hover);
 }
-.awards-intro,
+.awards-intro { display: none !important; }
 .journal-teaser-intro {
     max-width: 58ch;
     color: var(--text-tertiary);
@@ -1682,7 +1687,7 @@ a.btn:visited { color: var(--btn-text); }
     
     .hero { padding: 0 6% clamp(72px, 12vw, 100px) 6%; }
     .manifesto { padding: var(--space-2xl) 6%; }
-    .section-inner--manifesto { grid-template-columns: 1fr; gap: var(--space-xl); }
+    .section-inner--manifesto { display: block; }
     .section { padding: 88px 6% 100px; }
     .label { margin-bottom: var(--space-xl); }
     .grid { grid-template-columns: 1fr; gap: 40px; }
