@@ -11,6 +11,7 @@ window.SHAR_LOCALES = {
     nav: {
       projects: 'Кейсы',
       team: 'Команда',
+      about: 'О нас',
       pricing: 'Стоимость',
       journal: 'Журнал',
       contact: 'Связаться',
@@ -73,7 +74,7 @@ window.SHAR_LOCALES = {
       case8Tag: 'Корпоративный уровень. Компьютерная графика'
     },
     team: {
-      label: 'КОМАНДА',
+      label: 'О НАС',
       role1: 'Основатель, генеральный директор',
       role2: 'Сооснователь, руководитель производства, режиссёр',
       role3: 'Продюсер',
@@ -306,6 +307,7 @@ window.SHAR_LOCALES = {
     nav: {
       projects: 'Projects',
       team: 'Team',
+      about: 'About us',
       pricing: 'Pricing',
       journal: 'Journal',
       contact: 'CONTACT',
