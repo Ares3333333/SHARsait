@@ -607,8 +607,8 @@ a.case .case-info h3 { color: #ffffff !important; }
     flex: 0 0 auto !important;
     width: auto !important;
     min-width: 0;
-    min-height: 28px !important;
-    padding: 8px 20px !important;
+    min-height: 31px !important;
+    padding: 8px 17px !important;
     align-self: center;
     text-decoration: none;
     justify-content: center;
@@ -634,7 +634,7 @@ a.case .case-info h3 { color: #ffffff !important; }
 }
 .team-member-cta-label {
     font-family: var(--font-heading);
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.78);
     letter-spacing: 0.14em;
@@ -1429,6 +1429,14 @@ a.case .case-info h3 { color: #ffffff !important; }
 /* ========== Pricing page ========== */
 .pricing-page .section-inner { max-width: 1200px; }
 .pricing-page-label { color: #9c0404; }
+/* Кнопки на странице стоимость — в два раза меньше, не отвлекают */
+.pricing-page .price-card .btn,
+.pricing-page .pricing-start .btn {
+  min-height: 22px !important;
+  padding: 6px 14px !important;
+  font-size: 0.6rem !important;
+  letter-spacing: 0.1em;
+}
 .pricing-page-intro {
     max-width: 60ch;
     font-size: clamp(1rem, 1.3vw, 1.12rem);
