@@ -4,6 +4,8 @@
  * Отправка через встроенную mail(). Настройки в config.php.
  */
 header('Content-Type: application/json; charset=utf-8');
+header('X-Content-Type-Options: nosniff');
+header('X-Frame-Options: DENY');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -20,6 +22,11 @@ require __DIR__ . '/config.php';
 $name    = isset($_POST['name']) ? trim((string) $_POST['name']) : '';
 $contact = isset($_POST['contact']) ? trim((string) $_POST['contact']) : (isset($_POST['reach']) ? trim((string) $_POST['reach']) : '');
 $message = isset($_POST['message']) ? trim((string) $_POST['message']) : '';
+
+// Защита от header injection: удаляем переводы строк и возврат каретки из заголовков
+$name    = str_replace(["\r", "\n", "%0d", "%0a"], '', $name);
+$contact = str_replace(["\r", "\n", "%0d", "%0a"], '', $contact);
+$message = str_replace(["\r", "\n", "%0d", "%0a"], '', $message);
 
 if ($name === '') {
     echo json_encode(['success' => false, 'error' => 'Укажите имя.']);
@@ -45,6 +52,8 @@ if ($to === '') {
 
 $from = defined('MAIL_FROM') ? MAIL_FROM : $to;
 $fromName = defined('MAIL_FROM_NAME') ? MAIL_FROM_NAME : 'SHAR Production';
+$from = str_replace(["\r", "\n", "%0d", "%0a"], '', $from);
+$fromName = str_replace(["\r", "\n", "%0d", "%0a"], '', $fromName);
 $headers = [
     'From: ' . $fromName . ' <' . $from . '>',
     'Reply-To: ' . $from,
