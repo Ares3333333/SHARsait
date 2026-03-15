@@ -74,7 +74,7 @@ window.SHAR_LOCALES = {
     },
     team: {
       label: 'КОМАНДА',
-      role1: 'Продюсер',
+      role1: 'Основатель, генеральный директор',
       role2: 'Руководитель производства. Режиссёр',
       role3: 'Продюсер',
       role4: 'Оператор-постановщик',
@@ -369,7 +369,7 @@ window.SHAR_LOCALES = {
     },
     team: {
       label: 'TEAM',
-      role1: 'Producer',
+      role1: 'Founder, CEO',
       role2: 'Head of production. Director',
       role3: 'Producer',
       role4: 'Director of photography',
