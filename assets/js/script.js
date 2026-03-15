@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                     var data = await res.json().catch(function() { return {}; });
                     if (data.success) {
-                        showToastAndReset(successMsg, false);
+                        showToastAndReset(data.message || successMsg, false);
                     } else {
                         showToastAndReset(data.error || errorMsg, true);
                     }
