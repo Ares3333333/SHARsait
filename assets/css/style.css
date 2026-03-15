@@ -1712,3 +1712,401 @@ a.btn:visited { color: var(--btn-text); }
     .journal-intro { font-size: 1rem; line-height: 1.84; margin-bottom: 52px; }
     .contact-form .btn[type="submit"] { width: 100%; min-width: 0; max-width: none; min-height: 38px; padding: 10px 18px; }
 }
+
+/* =========================
+   SHAR — кнопки C + D
+   luxury-tech dark + red edge glow
+   ========================= */
+
+:root {
+  --shar-btn-bg: rgba(14, 14, 18, 0.72);
+  --shar-btn-bg-strong: rgba(18, 18, 24, 0.84);
+  --shar-btn-bg-hover: rgba(20, 20, 26, 0.92);
+
+  --shar-btn-text: rgba(255, 255, 255, 0.94);
+  --shar-btn-text-soft: rgba(255, 255, 255, 0.82);
+
+  --shar-btn-border: rgba(255, 255, 255, 0.10);
+  --shar-btn-border-hover: rgba(156, 4, 4, 0.46);
+
+  --shar-btn-red: rgba(156, 4, 4, 0.92);
+  --shar-btn-red-soft: rgba(156, 4, 4, 0.18);
+  --shar-btn-red-soft-2: rgba(156, 4, 4, 0.10);
+
+  --shar-btn-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.03) inset;
+
+  --shar-btn-shadow-hover:
+    0 14px 30px rgba(0, 0, 0, 0.24),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset;
+
+  --shar-btn-edge:
+    0 0 0 1px rgba(156, 4, 4, 0.08),
+    0 0 18px rgba(156, 4, 4, 0.10);
+
+  --shar-btn-edge-hover:
+    0 0 0 1px rgba(156, 4, 4, 0.16),
+    0 0 22px rgba(156, 4, 4, 0.14);
+
+  --shar-btn-radius: 14px;
+  --shar-btn-height: 46px;
+  --shar-btn-height-lg: 50px;
+  --shar-btn-height-sm: 38px;
+
+  --shar-btn-pad-x: 20px;
+  --shar-btn-pad-x-lg: 24px;
+  --shar-btn-pad-x-sm: 14px;
+
+  --shar-btn-font: 12px;
+  --shar-btn-font-lg: 13px;
+  --shar-btn-font-sm: 11px;
+
+  --shar-btn-letter: 0.10em;
+  --shar-btn-letter-sm: 0.11em;
+
+  --shar-btn-transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 220ms ease,
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.btn,
+.cta,
+.button,
+.nav-cta,
+a[role="button"],
+button,
+.button-link,
+a.btn,
+button.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--shar-btn-height);
+  padding: 0 var(--shar-btn-pad-x);
+  border-radius: var(--shar-btn-radius);
+  border: 1px solid var(--shar-btn-border);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0.00) 100%
+    ),
+    var(--shar-btn-bg);
+  color: var(--shar-btn-text);
+  text-decoration: none;
+  line-height: 1;
+  font-size: var(--shar-btn-font);
+  font-weight: 500;
+  letter-spacing: var(--shar-btn-letter);
+  white-space: nowrap;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  backdrop-filter: blur(10px) saturate(120%);
+  box-shadow: var(--shar-btn-shadow), var(--shar-btn-edge);
+  transition: var(--shar-btn-transition);
+}
+
+.btn::before,
+.btn::after,
+.cta::before,
+.cta::after,
+.button::before,
+.button::after,
+.nav-cta::before,
+.nav-cta::after,
+a[role="button"]::before,
+a[role="button"]::after,
+button::before,
+button::after,
+.button-link::before,
+.button-link::after,
+a.btn::before,
+a.btn::after,
+button.btn::before,
+button.btn::after {
+  content: none !important;
+}
+
+.btn:hover,
+.btn:focus-visible,
+.cta:hover,
+.cta:focus-visible,
+.button:hover,
+.button:focus-visible,
+.nav-cta:hover,
+.nav-cta:focus-visible,
+a[role="button"]:hover,
+a[role="button"]:focus-visible,
+button:hover,
+button:focus-visible,
+.button-link:hover,
+.button-link:focus-visible,
+a.btn:hover,
+a.btn:focus-visible,
+button.btn:hover,
+button.btn:focus-visible {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(156, 4, 4, 0.08) 0%,
+      rgba(156, 4, 4, 0.03) 100%
+    ),
+    var(--shar-btn-bg-hover);
+  border-color: var(--shar-btn-border-hover);
+  color: #fff;
+  outline: none !important;
+  transform: translateY(-1px);
+  box-shadow: var(--shar-btn-shadow-hover), var(--shar-btn-edge-hover);
+}
+
+.btn:active,
+.cta:active,
+.button:active,
+.nav-cta:active,
+a[role="button"]:active,
+button:active,
+.button-link:active,
+a.btn:active,
+button.btn:active {
+  transform: translateY(0);
+}
+
+.btn:hover,
+.cta:hover,
+.button:hover,
+.nav-cta:hover,
+a[role="button"]:hover,
+button:hover,
+.button-link:hover,
+.btn:focus,
+.btn:focus-visible,
+.cta:focus,
+.cta:focus-visible,
+.button:focus,
+.button:focus-visible,
+.nav-cta:focus,
+.nav-cta:focus-visible,
+a[role="button"]:focus,
+a[role="button"]:focus-visible,
+button:focus,
+button:focus-visible,
+.button-link:focus,
+.button-link:focus-visible,
+a.btn:focus,
+a.btn:focus-visible,
+button.btn:focus,
+button.btn:focus-visible {
+  outline: none !important;
+}
+
+.btn--primary,
+.cta--primary,
+.button--primary {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(156, 4, 4, 0.12) 0%,
+      rgba(156, 4, 4, 0.04) 100%
+    ),
+    var(--shar-btn-bg-strong);
+  border-color: rgba(156, 4, 4, 0.28);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.20),
+    0 1px 0 rgba(255, 255, 255, 0.03) inset,
+    0 0 0 1px rgba(156, 4, 4, 0.10),
+    0 0 18px rgba(156, 4, 4, 0.10);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible,
+.cta--primary:hover,
+.cta--primary:focus-visible,
+.button--primary:hover,
+.button--primary:focus-visible {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(156, 4, 4, 0.16) 0%,
+      rgba(156, 4, 4, 0.06) 100%
+    ),
+    var(--shar-btn-bg-hover);
+  border-color: rgba(156, 4, 4, 0.46);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.26),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 0 0 1px rgba(156, 4, 4, 0.16),
+    0 0 22px rgba(156, 4, 4, 0.14);
+}
+
+.btn--secondary,
+.cta--secondary,
+.button--secondary {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.015) 0%,
+      rgba(255, 255, 255, 0.00) 100%
+    ),
+    rgba(12, 12, 16, 0.56);
+  color: var(--shar-btn-text-soft);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.14),
+    0 1px 0 rgba(255, 255, 255, 0.03) inset;
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus-visible,
+.cta--secondary:hover,
+.cta--secondary:focus-visible,
+.button--secondary:hover,
+.button--secondary:focus-visible {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(156, 4, 4, 0.06) 0%,
+      rgba(156, 4, 4, 0.02) 100%
+    ),
+    rgba(14, 14, 18, 0.76);
+  color: #fff;
+  border-color: rgba(156, 4, 4, 0.28);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.20),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 0 0 1px rgba(156, 4, 4, 0.08),
+    0 0 16px rgba(156, 4, 4, 0.08);
+}
+
+.btn--compact,
+.nav-cta,
+.header .btn,
+.header .cta,
+.header .button {
+  min-height: var(--shar-btn-height-sm);
+  padding: 0 var(--shar-btn-pad-x-sm);
+  font-size: var(--shar-btn-font-sm);
+  letter-spacing: var(--shar-btn-letter-sm);
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.015) 0%,
+      rgba(255, 255, 255, 0.00) 100%
+    ),
+    rgba(10, 10, 14, 0.44);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.03) inset;
+}
+
+.btn--compact:hover,
+.nav-cta:hover,
+.header .btn:hover,
+.header .cta:hover,
+.header .button:hover,
+.btn--compact:focus-visible,
+.nav-cta:focus-visible,
+.header .btn:focus-visible,
+.header .cta:focus-visible,
+.header .button:focus-visible {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(156, 4, 4, 0.07) 0%,
+      rgba(156, 4, 4, 0.02) 100%
+    ),
+    rgba(14, 14, 18, 0.68);
+  border-color: rgba(156, 4, 4, 0.30);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 0 0 1px rgba(156, 4, 4, 0.08),
+    0 0 14px rgba(156, 4, 4, 0.08);
+}
+
+.btn--hero,
+.hero .btn,
+.hero .cta,
+.hero .button {
+  min-height: var(--shar-btn-height-lg);
+  padding: 0 var(--shar-btn-pad-x-lg);
+  font-size: var(--shar-btn-font-lg);
+  letter-spacing: 0.09em;
+  border-radius: 14px;
+}
+
+.btn,
+.cta,
+.button,
+.nav-cta,
+a[role="button"],
+button,
+.button-link,
+a.btn,
+button.btn {
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+[class*="btn"]:hover,
+[class*="cta"]:hover,
+[class*="button"]:hover,
+[class*="nav-cta"]:hover {
+  outline: none !important;
+}
+
+.btn__icon,
+.button__icon,
+.cta__icon {
+  display: inline-flex;
+  margin-left: 10px;
+  opacity: 0.84;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.btn:hover .btn__icon,
+.btn:focus-visible .btn__icon,
+.cta:hover .cta__icon,
+.cta:focus-visible .cta__icon,
+.button:hover .button__icon,
+.button:focus-visible .button__icon {
+  transform: translateX(2px);
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .btn,
+  .cta,
+  .button,
+  .nav-cta,
+  a[role="button"],
+  button,
+  .button-link,
+  a.btn,
+  button.btn {
+    min-height: 42px;
+    padding: 0 16px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    border-radius: 12px;
+  }
+
+  .btn--hero,
+  .hero .btn,
+  .hero .cta,
+  .hero .button {
+    min-height: 46px;
+    padding: 0 18px;
+    font-size: 12px;
+    border-radius: 13px;
+  }
+}
