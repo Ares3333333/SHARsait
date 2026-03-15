@@ -187,6 +187,16 @@ a.case:focus-visible,
 /* Пульс — мягкое дыхание, сдержаннее */
 @keyframes text-aura-hover { from { text-shadow: 0 0 6px var(--aura-base); } to { text-shadow: 0 0 10px rgba(156,4,4,0.25); color: rgba(255,255,255,0.98); } }
 
+/* Еле заметная долгая пульсация свечения на матовых кнопках */
+@keyframes btn-matte-shadow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(156, 4, 4, 0.36); }
+  50% { box-shadow: 0 0 24px rgba(156, 4, 4, 0.44); }
+}
+@keyframes btn-matte-shadow-pulse-bright {
+  0%, 100% { box-shadow: 0 0 20px rgba(156, 4, 4, 0.54); }
+  50% { box-shadow: 0 0 24px rgba(156, 4, 4, 0.66); }
+}
+
 /* ========== НАВИГАЦИЯ — эталонная прозрачность, isolation чтобы не было артефактов с hero ========== */
 nav {
     position: fixed; top: 0; left: 0; width: 100%; padding: var(--space-md) 4%;
@@ -610,6 +620,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 0 20px rgba(156, 4, 4, 0.36) !important;
+    animation: btn-matte-shadow-pulse 5s ease-in-out infinite;
 }
 .team-member--cta::before { display: none; }
 .team-member--cta:hover,
@@ -620,6 +631,7 @@ a.case .case-info h3 { color: #ffffff !important; }
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 0 28px rgba(156, 4, 4, 0.42) !important;
+    animation: none;
 }
 .team-member-cta-label {
     font-family: var(--font-heading);
@@ -2334,7 +2346,7 @@ a.btn[href^="tel:"]:focus-visible,
     0 1px 0 rgba(255, 255, 255, 0.05) inset !important;
 }
 
-/* «Все кейсы →» — матовая кнопка, слабое фирменное свечение без рамки */
+/* «Все кейсы →» — матовая кнопка, слабое фирменное свечение без рамки, еле заметная долгая пульсация */
 .work-more .btn {
   border: none !important;
   background: rgba(0, 0, 0, 0.22) !important;
@@ -2342,6 +2354,7 @@ a.btn[href^="tel:"]:focus-visible,
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 0 20px rgba(156, 4, 4, 0.36) !important;
   color: rgba(255, 255, 255, 0.78) !important;
+  animation: btn-matte-shadow-pulse 5s ease-in-out infinite;
 }
 .work-more .btn:hover,
 .work-more .btn:focus-visible {
@@ -2351,9 +2364,10 @@ a.btn[href^="tel:"]:focus-visible,
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 0 28px rgba(156, 4, 4, 0.42) !important;
   color: rgba(255, 255, 255, 0.9) !important;
+  animation: none;
 }
 
-/* Все кнопки кроме хидера и хиро: без рамки, матовое стекло, свечение на 50% ярче чем у «Все кейсы»/«О нас» */
+/* Все кнопки кроме хидера и хиро: без рамки, матовое стекло, свечение на 50% ярче, еле заметная долгая пульсация */
 .cta-block .btn,
 .work-conversion-strip .btn,
 .contact-form .btn,
@@ -2373,6 +2387,7 @@ a.btn[href^="tel:"]:focus-visible,
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 0 20px rgba(156, 4, 4, 0.54) !important;
   color: rgba(255, 255, 255, 0.9) !important;
+  animation: btn-matte-shadow-pulse-bright 5s ease-in-out infinite;
 }
 .cta-block .btn:hover,
 .cta-block .btn:focus-visible,
@@ -2406,6 +2421,7 @@ a.btn[href^="tel:"]:focus-visible,
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 0 28px rgba(156, 4, 4, 0.63) !important;
   color: #fff !important;
+  animation: none !important;
 }
 
 .btn__icon,
