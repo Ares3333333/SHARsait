@@ -73,9 +73,9 @@ window.SHAR_LOCALES = {
       case8Tag: 'Корпоративный уровень. Компьютерная графика'
     },
     team: {
-      label: 'ОСНОВАТЕЛИ',
-      role1: 'Генеральный директор',
-      role2: 'Руководитель производства',
+      label: 'КОМАНДА',
+      role1: 'Основатель и генеральный директор',
+      role2: 'Сооснователь и руководитель производства и режиссёр',
       role3: 'Продюсер',
       role4: 'Оператор-постановщик',
       role5: 'Менеджер проектов',
@@ -368,9 +368,9 @@ window.SHAR_LOCALES = {
       case8Tag: 'Enterprise. CGI'
     },
     team: {
-      label: 'FOUNDERS',
-      role1: 'General Director',
-      role2: 'Head of production',
+      label: 'TEAM',
+      role1: 'Founder & CEO',
+      role2: 'Co-founder, Head of production & Director',
       role3: 'Producer',
       role4: 'Director of photography',
       role5: 'Project manager',
