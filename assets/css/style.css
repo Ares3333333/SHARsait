@@ -417,21 +417,24 @@ nav a.nav-link:active { text-decoration: none !important; }
 
 /* ========== ПРОЕКТЫ ========== */
 .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg); min-height: 0; }
+/* Обложки кейсов — чёрные, в тон сайта, без серой рамки */
 .case {
-    position: relative; aspect-ratio: 16/9; background: #000;
+    position: relative; aspect-ratio: 16/9; background: #000000 !important;
     overflow: hidden; border-radius: var(--card-radius); cursor: pointer;
     display: block;
     min-height: 0;
     isolation: isolate;
     contain: layout paint;
     transition: var(--card-transition);
-    border: var(--card-border);
-    box-shadow: var(--card-shadow);
+    border: 1px solid rgba(0, 0, 0, 0.6) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.3);
 }
 .case:hover {
-    border-color: var(--card-border-hover);
-    box-shadow: var(--card-shadow-hover);
+    border-color: rgba(0, 0, 0, 0.9) !important;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 0, 0, 0.4);
 }
+.case { border-color: rgba(0, 0, 0, 0.6) !important; }
+.case:hover { border-color: rgba(0, 0, 0, 0.9) !important; }
 
 .case img {
     display: block;
@@ -439,7 +442,7 @@ nav a.nav-link:active { text-decoration: none !important; }
     height: 100%;
     object-fit: cover;
     object-position: center;
-    background: #111;
+    background: #000000;
 }
 .case-info {
     position: absolute;
@@ -2090,9 +2093,10 @@ button.btn {
   outline: none !important;
 }
 
-/* Кнопка «ТЕЛЕФОН» на хидере — постоянная мягкая пульсация */
+/* Кнопка «ТЕЛЕФОН» на хидере — красная пульсирующая рамка + мягкое свечение */
 @keyframes shar-phone-glow {
   0%, 100% {
+    border-color: rgba(156, 4, 4, 0.4);
     box-shadow:
       0 6px 16px rgba(0, 0, 0, 0.1),
       0 1px 0 rgba(255, 255, 255, 0.02) inset,
@@ -2100,6 +2104,7 @@ button.btn {
       0 0 20px rgba(156, 4, 4, 0.04);
   }
   50% {
+    border-color: rgba(156, 4, 4, 0.7);
     box-shadow:
       0 6px 16px rgba(0, 0, 0, 0.1),
       0 1px 0 rgba(255, 255, 255, 0.02) inset,
@@ -2109,6 +2114,7 @@ button.btn {
 }
 a.btn[href^="tel:"],
 .nav-actions a[href^="tel:"] {
+  border: 1px solid rgba(156, 4, 4, 0.4) !important;
   animation: shar-phone-glow 3s ease-in-out infinite !important;
   box-shadow:
     0 6px 16px rgba(0, 0, 0, 0.1),
@@ -2121,10 +2127,11 @@ a.btn[href^="tel:"]:focus-visible,
 .nav-actions a[href^="tel:"]:hover,
 .nav-actions a[href^="tel:"]:focus-visible {
   animation: none !important;
+  border-color: rgba(156, 4, 4, 0.9) !important;
   box-shadow:
     0 10px 20px rgba(0, 0, 0, 0.18),
     0 1px 0 rgba(255, 255, 255, 0.04) inset,
-    0 0 0 1px rgba(156, 4, 4, 0.12),
+    0 0 0 1px rgba(156, 4, 4, 0.2),
     0 0 20px rgba(156, 4, 4, 0.2),
     0 0 40px rgba(156, 4, 4, 0.1) !important;
 }
