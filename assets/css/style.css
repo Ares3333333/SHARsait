@@ -1991,9 +1991,9 @@ button.btn:focus-visible {
 .header .btn,
 .header .cta,
 .header .button {
-  min-height: 28px;
-  padding: 0 11px;
-  font-size: 10px;
+  min-height: 28px !important;
+  padding: 0 11px !important;
+  font-size: 10px !important;
   letter-spacing: var(--shar-btn-letter-sm);
   border-radius: 10px;
   background:
@@ -2038,11 +2038,11 @@ button.btn:focus-visible {
 .hero .btn,
 .hero .cta,
 .hero .button {
-  min-height: var(--shar-btn-height-lg);
-  padding: 0 var(--shar-btn-pad-x-lg);
-  font-size: var(--shar-btn-font-lg);
+  min-height: 38px !important;
+  padding: 0 18px !important;
+  font-size: 12px !important;
   letter-spacing: 0.09em;
-  border-radius: 14px;
+  border-radius: 12px;
 }
 
 .btn,
@@ -2063,6 +2063,41 @@ button.btn {
 [class*="button"]:hover,
 [class*="nav-cta"]:hover {
   outline: none !important;
+}
+
+/* Кнопка «ТЕЛЕФОН» — всегда лёгкое красное свечение (~5%) */
+a.btn[href^="tel:"],
+.nav-actions a[href^="tel:"] {
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.03) inset,
+    0 0 14px rgba(156, 4, 4, 0.05) !important;
+}
+a.btn[href^="tel:"]:hover,
+a.btn[href^="tel:"]:focus-visible,
+.nav-actions a[href^="tel:"]:hover,
+.nav-actions a[href^="tel:"]:focus-visible {
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 0 0 1px rgba(156, 4, 4, 0.08),
+    0 0 14px rgba(156, 4, 4, 0.08),
+    0 0 20px rgba(156, 4, 4, 0.05) !important;
+}
+
+/* Hero: «Смотреть кейсы» — без красной рамки */
+.hero-actions .btn--secondary {
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.14),
+    0 1px 0 rgba(255, 255, 255, 0.03) inset !important;
+}
+.hero-actions .btn--secondary:hover,
+.hero-actions .btn--secondary:focus-visible {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.20),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset !important;
 }
 
 .btn__icon,
