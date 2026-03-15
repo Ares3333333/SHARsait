@@ -1430,6 +1430,13 @@ a.case .case-info h3 { color: #ffffff !important; }
 /* ========== Pricing page ========== */
 .pricing-page .section-inner { max-width: 1200px; }
 .pricing-page-label { color: #9c0404; }
+/* Кнопки на странице стоимости — крупнее */
+.pricing-page .price-card .btn,
+.pricing-page .pricing-start .btn {
+  min-height: 48px !important;
+  padding: 14px 24px !important;
+  font-size: 0.85rem !important;
+}
 .pricing-page-intro {
     max-width: 60ch;
     font-size: clamp(1rem, 1.3vw, 1.12rem);
