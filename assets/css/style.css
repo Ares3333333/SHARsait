@@ -143,6 +143,7 @@ a.case:focus-visible,
 .outcome-item:hover, .outcome-item:focus, .outcome-item:active,
 .client-logo:hover, .client-logo:focus, .client-logo:active,
 .team-member:hover, .team-member:focus, .team-member:active,
+.team-member--cta:hover, .team-member--cta:focus, .team-member--cta:active,
 .awards-block:hover, .awards-block:focus, .awards-block:active,
 .pricing-teaser:hover, .pricing-teaser:focus, .pricing-teaser:active,
 .journal-featured:hover, .journal-featured:focus, .journal-featured:active,
@@ -591,6 +592,28 @@ a.case .case-info h3 { color: #ffffff !important; }
     letter-spacing: 0.22em;
     font-weight: 500;
 }
+
+.team-member--cta {
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+.team-member--cta::before { display: none; }
+.team-member--cta:hover {
+    border-color: var(--card-border-hover) !important;
+    box-shadow: var(--card-shadow-hover);
+    outline: none !important;
+}
+.team-member-cta-label {
+    font-family: var(--font-heading);
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+.team-member--cta:hover .team-member-cta-label { color: #fff; }
 
 .about-block-cta {
     display: flex;
