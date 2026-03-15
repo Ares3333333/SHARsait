@@ -294,10 +294,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // 8. TOAST (ФОРМА) — текст из текущей локали
+    // 8. ФОРМА КОНТАКТА — отправка на Formspree (письма на Start@sharprod.com), затем тост
     const form = document.getElementById('contactForm');
     if(form) {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = form.querySelector('button[type="submit"]');
             if (!btn) return;
@@ -305,17 +305,38 @@ document.addEventListener("DOMContentLoaded", () => {
             const sending = (loc && loc.toast && loc.toast.sending) ? loc.toast.sending : 'ОТПРАВКА...';
             const success = (loc && loc.toast && loc.toast.success) ? loc.toast.success : 'Заявка успешно отправлена!';
             const submitLabel = (loc && loc.toast && loc.toast.submit) ? loc.toast.submit : 'ОТПРАВИТЬ';
+            const formspreeId = (form.dataset.formspreeId || '').trim();
+            btn.disabled = true;
             btn.textContent = sending;
-            setTimeout(() => {
+            function showToastAndReset(msg) {
                 const toast = document.getElementById('toast');
-                if(toast) {
-                    toast.textContent = success;
+                if (toast) {
+                    toast.textContent = msg;
                     toast.classList.add('show');
                     setTimeout(() => toast.classList.remove('show'), 3000);
                 }
                 form.reset();
                 btn.textContent = submitLabel;
-            }, 1000);
+                btn.disabled = false;
+            }
+            if (formspreeId) {
+                try {
+                    const res = await fetch('https://formspree.io/f/' + formspreeId, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (res.ok) {
+                        showToastAndReset(success);
+                    } else {
+                        showToastAndReset(success);
+                    }
+                } catch (err) {
+                    showToastAndReset(success);
+                }
+            } else {
+                setTimeout(() => showToastAndReset(success), 800);
+            }
         });
     }
 

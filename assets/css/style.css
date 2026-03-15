@@ -1820,6 +1820,15 @@ a.btn:visited { color: var(--btn-text); }
   padding: 0 22px !important;
   font-size: 11px !important;
   letter-spacing: 0.12em;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.case-page-wrap .case-back:hover,
+.case-page-wrap .case-back:focus-visible {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 .case-back:hover { color: rgba(255,255,255,0.95) !important; }
 .case-page-wrap .m-hero { position: relative; top: auto; }
