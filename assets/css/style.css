@@ -356,7 +356,28 @@ nav a.nav-link:active { text-decoration: none !important; }
 
 .manifesto { padding: var(--section-pad-y) 4%; border-top: 1px solid var(--line); }
 .section-inner--manifesto { display: grid; grid-template-columns: 1fr 1.5fr; gap: 10%; align-items: center; }
+.manifesto-head-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md); }
 .manifesto-title { font-family: var(--font-heading); font-size: 0.7rem; color: #9c0404; text-transform: uppercase; letter-spacing: 0.22em; font-weight: 600; }
+.manifesto-about-link {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  border: none;
+  background: none;
+  box-shadow: none;
+  transition: color 0.2s ease;
+}
+.manifesto-about-link:hover,
+.manifesto-about-link:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
 .work-more { text-align: center; margin-top: var(--space-3xl); padding-bottom: var(--space-lg); }
 .work-conversion-strip {
     margin-top: var(--space-3xl);
