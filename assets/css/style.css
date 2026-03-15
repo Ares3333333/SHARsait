@@ -1430,6 +1430,7 @@ a.case .case-info h3 { color: #ffffff !important; }
 /* ========== Pricing page ========== */
 .pricing-page .section-inner { max-width: 1200px; }
 .pricing-page-label { color: #9c0404; }
+.pricing-page .price-card li { font-size: 14px; }
 /* Кнопки на странице стоимости — как «Все кейсы» на главной */
 .pricing-page .price-card .btn,
 .pricing-page .pricing-start .btn {
