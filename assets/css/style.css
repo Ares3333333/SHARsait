@@ -2353,6 +2353,61 @@ a.btn[href^="tel:"]:focus-visible,
   color: rgba(255, 255, 255, 0.9) !important;
 }
 
+/* Все кнопки кроме хидера и хиро: без рамки, матовое стекло, свечение на 50% ярче чем у «Все кейсы»/«О нас» */
+.cta-block .btn,
+.work-conversion-strip .btn,
+.contact-form .btn,
+.contact-form button[type="submit"],
+.journal-teaser-more .btn,
+.case .btn,
+.pricing-teaser > .btn,
+.price-card .btn,
+.about-hero .btn,
+.about-page .cta-block .btn,
+.journal-article-back,
+.page-shell .btn,
+.modal .btn {
+  border: none !important;
+  background: rgba(0, 0, 0, 0.22) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(156, 4, 4, 0.54) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+.cta-block .btn:hover,
+.cta-block .btn:focus-visible,
+.work-conversion-strip .btn:hover,
+.work-conversion-strip .btn:focus-visible,
+.contact-form .btn:hover,
+.contact-form .btn:focus-visible,
+.contact-form button[type="submit"]:hover,
+.contact-form button[type="submit"]:focus-visible,
+.journal-teaser-more .btn:hover,
+.journal-teaser-more .btn:focus-visible,
+.case .btn:hover,
+.case .btn:focus-visible,
+.pricing-teaser > .btn:hover,
+.pricing-teaser > .btn:focus-visible,
+.price-card .btn:hover,
+.price-card .btn:focus-visible,
+.about-hero .btn:hover,
+.about-hero .btn:focus-visible,
+.about-page .cta-block .btn:hover,
+.about-page .cta-block .btn:focus-visible,
+.journal-article-back:hover,
+.journal-article-back:focus-visible,
+.page-shell .btn:hover,
+.page-shell .btn:focus-visible,
+.modal .btn:hover,
+.modal .btn:focus-visible {
+  border: none !important;
+  background: rgba(0, 0, 0, 0.32) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 0 28px rgba(156, 4, 4, 0.63) !important;
+  color: #fff !important;
+}
+
 .btn__icon,
 .button__icon,
 .cta__icon {
