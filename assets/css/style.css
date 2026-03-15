@@ -79,7 +79,7 @@
     --btn-pad-x: 20px;
     --btn-font-size: 11px;
     --btn-letter: 0.14em;
-    --btn-transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.4s ease;
+    --btn-transition: border-color 0.28s ease, color 0.28s ease, box-shadow 0.32s ease;
 }
 
 
@@ -1422,7 +1422,7 @@ button.btn:focus-visible,
 [role="button"].btn:focus-visible {
     border: 1px solid rgba(156, 4, 4, 0.7) !important;
     color: #fff !important;
-    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.6), 0 0 32px rgba(156, 4, 4, 0.45), 0 0 56px rgba(156, 4, 4, 0.2) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.58), 0 0 24px rgba(156, 4, 4, 0.32), 0 0 44px rgba(156, 4, 4, 0.12) !important;
     animation: none;
     outline: none;
 }
@@ -1434,47 +1434,53 @@ button.btn:active,
     animation: none;
 }
 
-/* Primary — ярче кромка и пульс */
+/* Primary — кромка и глубина, благородное свечение */
 .btn--primary {
-    border: 1px solid rgba(156, 4, 4, 0.5) !important;
-    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.4), 0 0 22px rgba(156, 4, 4, 0.25), 0 0 42px rgba(156, 4, 4, 0.1);
+    border: 1px solid rgba(156, 4, 4, 0.52) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.42), 0 0 20px rgba(156, 4, 4, 0.22), 0 0 38px rgba(156, 4, 4, 0.08);
 }
 .btn--primary:hover,
 .btn--primary:focus-visible {
-    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.7), 0 0 36px rgba(156, 4, 4, 0.5), 0 0 64px rgba(156, 4, 4, 0.22) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.65), 0 0 28px rgba(156, 4, 4, 0.38), 0 0 50px rgba(156, 4, 4, 0.14) !important;
 }
 
-/* Secondary — то же свечение, чуть тише */
+/* Secondary — тише primary, спокойнее */
 .btn--secondary {
-    border: 1px solid rgba(156, 4, 4, 0.35) !important;
+    border: 1px solid rgba(156, 4, 4, 0.32) !important;
     color: var(--btn-text-muted) !important;
-    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.28), 0 0 14px rgba(156, 4, 4, 0.15), 0 0 30px rgba(156, 4, 4, 0.06);
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.24), 0 0 12px rgba(156, 4, 4, 0.12), 0 0 26px rgba(156, 4, 4, 0.05);
 }
 .btn--secondary:hover,
 .btn--secondary:focus-visible {
     color: var(--btn-text) !important;
 }
 
-/* Шапка — кнопки +10% (логотип не трогаем) */
+/* Шапка — читаемость на видеофоне, собранный контур, лёгкая глубина */
 .btn--compact {
     min-height: 35px;
     padding: 0 15px;
     font-size: 11px;
     letter-spacing: 0.16em;
     border-radius: 3px;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28), 0 1px 0 rgba(255, 255, 255, 0.04) inset !important;
     animation: none !important;
+    transition: border-color 0.28s ease, box-shadow 0.32s ease, background 0.28s ease;
 }
-/* Кнопка телефона — всегда с постоянной пульсацией (переопределяет .btn--compact) */
+.nav-actions .btn--compact,
+.nav-actions a.btn {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+/* Кнопка телефона — пульсация, благородное красное свечение */
 a.btn--compact[href^="tel:"],
 .nav-actions a.btn[href^="tel:"] {
   animation: shar-phone-glow 2.6s ease-in-out infinite !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 .btn--compact:hover,
 .btn--compact:focus-visible {
-    border: 1px solid rgba(156, 4, 4, 0.5) !important;
-    box-shadow: 0 0 12px rgba(156, 4, 4, 0.2) !important;
+    border: 1px solid rgba(156, 4, 4, 0.48) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22), 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 0 0 1px rgba(156, 4, 4, 0.12), 0 0 14px rgba(156, 4, 4, 0.1) !important;
 }
 
 /* Ghost — без фона, лёгкая пульсация */
@@ -1501,7 +1507,7 @@ a.btn:visited { color: var(--btn-text); }
 .cta:hover, .button:hover, .nav-cta:hover, .btn-link:hover, a[role="button"]:hover { outline: none !important; }
 .cta::before, .cta::after, .button::before, .button::after, .nav-cta::before, .nav-cta::after, .btn-link::before, .btn-link::after { content: none !important; display: none !important; }
 
-/* Hero — квадратные, побольше */
+/* Hero — иерархия: primary увереннее, secondary спокойнее (полиш) */
 .hero-actions .btn {
     min-height: 44px;
     padding: 0 26px;
@@ -1509,24 +1515,25 @@ a.btn:visited { color: var(--btn-text); }
     letter-spacing: 0.14em;
     border-radius: var(--btn-radius);
     background: transparent !important;
+    transition: border-color 0.28s ease, box-shadow 0.32s ease, color 0.28s ease;
 }
 .hero-actions .btn--primary {
-    border: 1px solid rgba(156, 4, 4, 0.5) !important;
-    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.45), 0 0 26px rgba(156, 4, 4, 0.28), 0 0 50px rgba(156, 4, 4, 0.12);
+    border: 1px solid rgba(156, 4, 4, 0.52) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.44), 0 0 22px rgba(156, 4, 4, 0.24), 0 0 42px rgba(156, 4, 4, 0.09);
 }
 .hero-actions .btn--primary:hover,
 .hero-actions .btn--primary:focus-visible {
-    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.7), 0 0 40px rgba(156, 4, 4, 0.5), 0 0 72px rgba(156, 4, 4, 0.22) !important;
+    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.62), 0 0 28px rgba(156, 4, 4, 0.36), 0 0 52px rgba(156, 4, 4, 0.14) !important;
 }
 .hero-actions .btn--secondary {
-    border: 1px solid rgba(156, 4, 4, 0.4) !important;
-    color: rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.32), 0 0 20px rgba(156, 4, 4, 0.2), 0 0 40px rgba(156, 4, 4, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    color: rgba(255, 255, 255, 0.88) !important;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 0 14px rgba(0, 0, 0, 0.12);
 }
 .hero-actions .btn--secondary:hover,
 .hero-actions .btn--secondary:focus-visible {
-    color: #fff !important;
-    box-shadow: 0 0 0 1px rgba(156, 4, 4, 0.6), 0 0 32px rgba(156, 4, 4, 0.4), 0 0 56px rgba(156, 4, 4, 0.15) !important;
+    color: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 0 18px rgba(0, 0, 0, 0.16) !important;
 }
 .cta-block .btn, .pricing-teaser > .btn { min-height: 38px; padding: 0 20px; font-size: 11px; }
 .work-conversion-strip .btn { min-height: 38px; padding: 0 22px; font-size: 11px; }
@@ -2056,7 +2063,7 @@ button.btn:focus-visible {
     0 0 16px rgba(156, 4, 4, 0.08);
 }
 
-/* Шапка и hero — кнопки хедера +10% к размеру (кроме логотипа) */
+/* Шапка — отделение от фона, материал, контур (полиш) */
 .btn--compact,
 .nav-cta,
 .header .btn,
@@ -2070,14 +2077,15 @@ button.btn:focus-visible {
   background:
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.015) 0%,
-      rgba(255, 255, 255, 0.00) 100%
+      rgba(255, 255, 255, 0.022) 0%,
+      rgba(255, 255, 255, 0.005) 100%
     ),
-    rgba(10, 10, 14, 0.44);
-  border-color: rgba(255, 255, 255, 0.08);
+    rgba(12, 12, 16, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
   box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.12),
-    0 1px 0 rgba(255, 255, 255, 0.03) inset;
+    0 4px 14px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.05) inset;
+  transition: border-color 0.28s ease, box-shadow 0.32s ease, background 0.28s ease;
 }
 
 .btn--compact:hover,
@@ -2093,16 +2101,16 @@ button.btn:focus-visible {
   background:
     linear-gradient(
       180deg,
-      rgba(156, 4, 4, 0.07) 0%,
+      rgba(156, 4, 4, 0.06) 0%,
       rgba(156, 4, 4, 0.02) 100%
     ),
-    rgba(14, 14, 18, 0.68);
-  border-color: rgba(156, 4, 4, 0.30);
+    rgba(14, 14, 18, 0.62);
+  border-color: rgba(156, 4, 4, 0.28) !important;
   box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.18),
+    0 6px 20px rgba(0, 0, 0, 0.24),
     0 1px 0 rgba(255, 255, 255, 0.04) inset,
-    0 0 0 1px rgba(156, 4, 4, 0.08),
-    0 0 14px rgba(156, 4, 4, 0.08);
+    0 0 0 1px rgba(156, 4, 4, 0.1),
+    0 0 12px rgba(156, 4, 4, 0.08);
 }
 
 .btn--hero,
@@ -2136,23 +2144,27 @@ button.btn {
   outline: none !important;
 }
 
-/* Кнопка «ТЕЛЕФОН» на хидере — заливка цветом рамки + постоянная пульсация */
+/* Кнопка «ТЕЛЕФОН» — пульсация, благородное красное свечение (полиш) */
 @keyframes shar-phone-glow {
   0%, 100% {
     border-color: rgba(156, 4, 4, 0.5);
     background-color: rgba(156, 4, 4, 0.12);
     box-shadow:
-      0 6px 16px rgba(0, 0, 0, 0.1),
-      0 0 12px rgba(156, 4, 4, 0.1),
-      0 0 24px rgba(156, 4, 4, 0.06);
+      0 4px 14px rgba(0, 0, 0, 0.28),
+      0 1px 0 rgba(255, 255, 255, 0.03) inset,
+      0 0 0 1px rgba(156, 4, 4, 0.35),
+      0 0 10px rgba(156, 4, 4, 0.08),
+      0 0 20px rgba(156, 4, 4, 0.04);
   }
   50% {
-    border-color: rgba(156, 4, 4, 0.8);
-    background-color: rgba(156, 4, 4, 0.22);
+    border-color: rgba(156, 4, 4, 0.72);
+    background-color: rgba(156, 4, 4, 0.18);
     box-shadow:
-      0 6px 16px rgba(0, 0, 0, 0.1),
-      0 0 18px rgba(156, 4, 4, 0.18),
-      0 0 36px rgba(156, 4, 4, 0.08);
+      0 4px 14px rgba(0, 0, 0, 0.28),
+      0 1px 0 rgba(255, 255, 255, 0.03) inset,
+      0 0 0 1px rgba(156, 4, 4, 0.45),
+      0 0 14px rgba(156, 4, 4, 0.14),
+      0 0 28px rgba(156, 4, 4, 0.06);
   }
 }
 a.btn[href^="tel:"],
@@ -2161,36 +2173,43 @@ a.btn[href^="tel:"],
   background: rgba(156, 4, 4, 0.12) !important;
   animation: shar-phone-glow 2.6s ease-in-out infinite !important;
   box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.1),
-    0 0 12px rgba(156, 4, 4, 0.1),
-    0 0 24px rgba(156, 4, 4, 0.06) !important;
+    0 4px 14px rgba(0, 0, 0, 0.28),
+    0 1px 0 rgba(255, 255, 255, 0.03) inset,
+    0 0 0 1px rgba(156, 4, 4, 0.35),
+    0 0 10px rgba(156, 4, 4, 0.08),
+    0 0 20px rgba(156, 4, 4, 0.04) !important;
+  transition: border-color 0.28s ease, box-shadow 0.32s ease, background 0.28s ease;
 }
 a.btn[href^="tel:"]:hover,
 a.btn[href^="tel:"]:focus-visible,
 .nav-actions a[href^="tel:"]:hover,
 .nav-actions a[href^="tel:"]:focus-visible {
   animation: none !important;
-  border-color: rgba(156, 4, 4, 0.9) !important;
-  background: rgba(156, 4, 4, 0.22) !important;
+  border-color: rgba(156, 4, 4, 0.85) !important;
+  background: rgba(156, 4, 4, 0.2) !important;
   box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.18),
-    0 0 20px rgba(156, 4, 4, 0.2),
-    0 0 40px rgba(156, 4, 4, 0.1) !important;
+    0 6px 20px rgba(0, 0, 0, 0.24),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 0 0 1px rgba(156, 4, 4, 0.25),
+    0 0 16px rgba(156, 4, 4, 0.14),
+    0 0 32px rgba(156, 4, 4, 0.06) !important;
 }
 
-/* Hero: «Смотреть кейсы» — без рамки */
+/* Hero: «Смотреть кейсы» — спокойнее, без красной рамки (полиш) */
 .hero-actions .btn--secondary {
   border: none !important;
+  color: rgba(255, 255, 255, 0.9) !important;
   box-shadow:
-    0 8px 18px rgba(0, 0, 0, 0.14),
-    0 1px 0 rgba(255, 255, 255, 0.03) inset !important;
+    0 6px 16px rgba(0, 0, 0, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset !important;
 }
 .hero-actions .btn--secondary:hover,
 .hero-actions .btn--secondary:focus-visible {
   border: none !important;
+  color: rgba(255, 255, 255, 0.98) !important;
   box-shadow:
-    0 12px 24px rgba(0, 0, 0, 0.20),
-    0 1px 0 rgba(255, 255, 255, 0.04) inset !important;
+    0 8px 22px rgba(0, 0, 0, 0.22),
+    0 1px 0 rgba(255, 255, 255, 0.05) inset !important;
 }
 
 /* «Все кейсы →» — без рамки */
