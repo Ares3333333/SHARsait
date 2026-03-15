@@ -1985,16 +1985,17 @@ button.btn:focus-visible {
     0 0 16px rgba(156, 4, 4, 0.08);
 }
 
+/* Шапка и hero — на 25% меньше */
 .btn--compact,
 .nav-cta,
 .header .btn,
 .header .cta,
 .header .button {
-  min-height: var(--shar-btn-height-sm);
-  padding: 0 var(--shar-btn-pad-x-sm);
-  font-size: var(--shar-btn-font-sm);
+  min-height: 28px;
+  padding: 0 11px;
+  font-size: 10px;
   letter-spacing: var(--shar-btn-letter-sm);
-  border-radius: 12px;
+  border-radius: 10px;
   background:
     linear-gradient(
       180deg,
@@ -2100,13 +2101,22 @@ button.btn {
     border-radius: 12px;
   }
 
+  .btn--compact,
+  .header .btn,
+  .header .cta,
+  .header .button {
+    min-height: 26px;
+    padding: 0 10px;
+    font-size: 9px;
+  }
+
   .btn--hero,
   .hero .btn,
   .hero .cta,
   .hero .button {
-    min-height: 46px;
-    padding: 0 18px;
-    font-size: 12px;
-    border-radius: 13px;
+    min-height: 34px;
+    padding: 0 16px;
+    font-size: 11px;
+    border-radius: 12px;
   }
 }
