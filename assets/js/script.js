@@ -156,24 +156,17 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(runDeferred, 400);
     }
 
-    // 6. ФОРМА КОНТАКТА — отправка на send.php (SMTP) или Formspree, затем тост
+    // 6. ФОРМА КОНТАКТА — отправка на send.php (mail()), тост "Заявка отправлена" / "Ошибка отправки"
     const form = document.getElementById('contactForm');
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = form.querySelector('button[type="submit"]');
             if (!btn) return;
-            const loc = window.SHAR_LOCALES && window.SHAR_LOCALES[getCurrentLocale()];
-            const sending = (loc && loc.toast && loc.toast.sending) ? loc.toast.sending : 'ОТПРАВКА...';
-            const successMsg = (loc && loc.toast && loc.toast.success) ? loc.toast.success : 'Заявка успешно отправлена!';
-            const errorMsg = (loc && loc.toast && loc.toast.error) ? loc.toast.error : 'Ошибка отправки. Попробуйте позже или напишите нам напрямую.';
-            const submitLabel = (loc && loc.toast && loc.toast.submit) ? loc.toast.submit : 'ОТПРАВИТЬ';
-            const formspreeId = (form.dataset.formspreeId || '').trim();
-            const action = (form.getAttribute('action') || '').trim();
-            const useSendPhp = action.indexOf('send.php') !== -1;
+            const submitLabel = (window.SHAR_LOCALES && window.SHAR_LOCALES[getCurrentLocale()] && window.SHAR_LOCALES[getCurrentLocale()].toast && window.SHAR_LOCALES[getCurrentLocale()].toast.submit) ? window.SHAR_LOCALES[getCurrentLocale()].toast.submit : 'ОТПРАВИТЬ';
 
             btn.disabled = true;
-            btn.textContent = sending;
+            btn.textContent = 'ОТПРАВКА...';
 
             function showToastAndReset(msg, isError) {
                 const toast = document.getElementById('toast');
@@ -181,48 +174,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     toast.textContent = msg;
                     toast.classList.add('show');
                     if (isError) toast.classList.add('toast--error');
-                    setTimeout(() => {
-                        toast.classList.remove('show', 'toast--error');
-                    }, 4000);
+                    setTimeout(() => { toast.classList.remove('show', 'toast--error'); }, 4000);
                 }
                 form.reset();
                 btn.textContent = submitLabel;
                 btn.disabled = false;
             }
 
-            if (useSendPhp) {
-                var submitUrl = form.action || (window.location.origin + '/send.php');
-                try {
-                    var res = await fetch(submitUrl, {
-                        method: 'POST',
-                        body: new FormData(form),
-                        headers: { 'Accept': 'application/json' }
-                    });
-                    var data = await res.json().catch(function() { return {}; });
-                    if (data.success) {
-                        showToastAndReset(data.message || successMsg, false);
-                    } else {
-                        showToastAndReset(data.error || errorMsg, true);
-                    }
-                } catch (err) {
-                    showToastAndReset(errorMsg, true);
+            try {
+                const res = await fetch(form.action || '/send.php', { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+                const data = await res.json().catch(() => ({}));
+                if (data.success) {
+                    showToastAndReset('Заявка отправлена', false);
+                } else {
+                    showToastAndReset('Ошибка отправки', true);
                 }
-                return;
-            }
-
-            if (formspreeId) {
-                try {
-                    const res = await fetch('https://formspree.io/f/' + formspreeId, {
-                        method: 'POST',
-                        body: new FormData(form),
-                        headers: { 'Accept': 'application/json' }
-                    });
-                    showToastAndReset(res.ok ? successMsg : errorMsg, !res.ok);
-                } catch (err) {
-                    showToastAndReset(errorMsg, true);
-                }
-            } else {
-                showToastAndReset(errorMsg, true);
+            } catch (err) {
+                showToastAndReset('Ошибка отправки', true);
             }
         });
     }
