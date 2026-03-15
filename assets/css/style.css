@@ -162,6 +162,8 @@ a.case:focus-visible,
 .case, .journal-card, .price-card, .pitch-card, .process-step,
 .outcome-item, .client-logo, .team-member, .awards-block, .pricing-teaser,
 .journal-featured { border-color: transparent !important; }
+.about-manifesto-card { border: none !important; outline: none !important; }
+.about-team-card:hover, .about-team-card:focus, .about-manifesto-card:hover, .about-manifesto-card:focus { outline: none !important; }
 
 /* Кастомный курсор отключён для производительности */
 .custom-cursor { display: none !important; }
@@ -590,29 +592,20 @@ a.case .case-info h3 { color: #ffffff !important; }
     font-weight: 500;
 }
 
-.team-member--link {
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.08) !important;
-    box-shadow: none !important;
+.about-block-cta {
+    display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: var(--space-xl);
+    padding-bottom: var(--space-md);
 }
-.team-member--link:hover,
-.team-member--link:focus {
-    border-color: rgba(255,255,255,0.18) !important;
-    box-shadow: none !important;
-}
-.team-member--link::before { display: none; }
-.team-member-link-label {
-    font-family: var(--font-heading);
-    font-size: clamp(1.05rem, 1.4vw, 1.28rem);
-    font-weight: 500;
-    color: rgba(255,255,255,0.92);
-    letter-spacing: 0.04em;
-}
-.team-member--link:hover .team-member-link-label,
-.team-member--link:focus .team-member-link-label {
-    color: #fff;
+.about-block-cta .btn {
+    min-height: 44px;
+    padding: 0 28px;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 .journal-card {
@@ -2336,9 +2329,18 @@ a.btn[href^="tel:"]:focus-visible,
   }
 }
 
-/* ========== СТРАНИЦА «О НАС» ========== */
+/* ========== СТРАНИЦА «О НАС» — минималистичная ========== */
 .about-page { padding-top: var(--nav-height); background: var(--bg); min-height: 100vh; }
 .about-hero { padding: var(--section-pad-y) 4%; border-bottom: 1px solid var(--line); }
+.about-hero-label {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  color: var(--brand-red);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
 .about-hero-title {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 3rem);
@@ -2349,151 +2351,179 @@ a.btn[href^="tel:"]:focus-visible,
   text-shadow: var(--text-shadow-soft);
 }
 .about-hero-sub {
-  font-size: clamp(1.1rem, 1.8vw, 1.28rem);
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.95);
-  max-width: 56ch;
-  margin-bottom: var(--space-md);
-  text-shadow: var(--text-shadow-read);
-}
-.about-hero-intro {
-  font-size: clamp(1rem, 1.4vw, 1.12rem);
-  line-height: 1.75;
-  color: var(--text-tertiary);
-  max-width: 52ch;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 44ch;
   margin-bottom: var(--space-xl);
   text-shadow: var(--text-shadow-read);
 }
-.about-who-text { max-width: 56ch; }
-.about-who-text p {
-  font-size: clamp(1.05rem, 1.5vw, 1.15rem);
-  line-height: 1.8;
-  color: var(--text-secondary);
+
+/* Шоурил — место под видео */
+.about-showreel { padding: var(--section-pad-y) 4%; }
+.about-showreel-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+.about-showreel-player { position: absolute; inset: 0; width: 100%; height: 100%; }
+.about-showreel-player:not([data-src=""]) { z-index: 1; }
+.about-showreel-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.25);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.about-showreel-player[data-src]:not([data-src=""]) + .about-showreel-placeholder { display: none; }
+
+/* Манифест — в стиле сайта (тёмная база, красный акцент, минимализм) */
+.about-manifesto { padding: var(--section-pad-y) 4%; border-top: 1px solid var(--line); }
+.about-manifesto-inner { max-width: 900px; }
+.about-manifesto-label {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  color: var(--brand-red);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+.about-manifesto-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-md);
+  text-shadow: var(--text-shadow-soft);
+}
+.about-manifesto-sub {
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.65;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-xl);
   text-shadow: var(--text-shadow-read);
 }
-.about-team-grid {
+.about-manifesto-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
 }
-.about-team-card {
-  border: var(--card-border);
-  border-radius: var(--card-radius);
-  padding: var(--card-padding);
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  transition: var(--card-transition);
+.about-manifesto-card {
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  transition: none;
 }
-.about-team-card:hover {
-  border-color: var(--card-border-hover);
-  box-shadow: var(--card-shadow-hover);
+.about-manifesto-card h3 {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-sm);
+}
+.about-manifesto-card p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-tertiary);
+  text-shadow: var(--text-shadow-read);
+}
+@media (max-width: 768px) {
+  .about-manifesto-cards { grid-template-columns: 1fr; }
+}
+
+/* Команда — шаблон: Имя / Должность / абзацы / ⸻ */
+.about-team-section .section-inner { max-width: 720px; }
+.about-team-list { display: flex; flex-direction: column; gap: var(--space-2xl); }
+.about-team-card {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--line);
+}
+.about-team-card:last-child { border-bottom: none; padding-bottom: 0; }
+/* Страница «О компании»: без белых рамок при наведении */
+.about-page .about-team-card:hover,
+.about-page .about-team-card:focus,
+.about-page .about-team-card:active,
+.about-page .about-showreel-wrap:hover,
+.about-page .about-manifesto-card:hover,
+.about-page .about-manifesto-card:focus,
+.about-page .about-manifesto-card:active {
+  outline: none !important;
+  border-color: inherit !important;
+  box-shadow: none !important;
+}
+.about-page a:hover,
+.about-page a:focus,
+.about-page button:hover,
+.about-page button:focus {
+  outline: none !important;
 }
 .about-team-photo {
   width: 100px;
   height: 100px;
-  border-radius: var(--card-radius);
+  border-radius: 4px;
   overflow: hidden;
-  margin-bottom: var(--space-md);
   background: rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
 }
 .about-team-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .about-team-photo--placeholder { background: rgba(255, 255, 255, 0.06); }
+.about-team-bio { min-width: 0; }
 .about-team-name {
   font-family: var(--font-heading);
-  font-size: clamp(1.1rem, 1.3vw, 1.25rem);
+  font-size: clamp(1.1rem, 1.35vw, 1.28rem);
   font-weight: 600;
   color: #fff;
   margin-bottom: var(--space-xs);
-  letter-spacing: var(--ls-heading);
+  letter-spacing: 0.02em;
 }
 .about-team-role {
   font-family: var(--font-heading);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--brand-red);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
   font-weight: 600;
 }
 .about-team-desc {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--text-tertiary);
-  text-shadow: var(--text-shadow-read);
-}
-.about-exp-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--space-md);
-}
-.about-exp-card {
-  border: var(--card-border);
-  border-radius: var(--card-radius);
-  padding: var(--card-padding);
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  transition: var(--card-transition);
-}
-.about-exp-card:hover {
-  border-color: var(--card-border-hover);
-  box-shadow: var(--card-shadow-hover);
-}
-.about-exp-card h3 {
-  font-family: var(--font-heading);
-  font-size: clamp(1rem, 1.2vw, 1.15rem);
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: var(--space-sm);
-  letter-spacing: 0.04em;
-}
-.about-exp-card p {
-  font-size: 0.92rem;
-  line-height: 1.7;
-  color: var(--text-tertiary);
-  text-shadow: var(--text-shadow-read);
-}
-.about-who-intro {
-  max-width: 52ch;
-  margin-bottom: var(--space-xl);
-  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  font-size: 0.9rem;
   line-height: 1.75;
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
   text-shadow: var(--text-shadow-read);
 }
-.about-audience-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-md);
+.about-team-desc p { margin-bottom: 0.65em; }
+.about-team-desc p:last-of-type { margin-bottom: 0; }
+.about-team-sep {
+  display: block;
+  margin-top: var(--space-md);
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
 }
-.about-values-list {
-  list-style: none;
-  max-width: 44ch;
-}
-.about-values-list li {
-  position: relative;
-  padding-left: 1.25rem;
-  margin-bottom: var(--space-sm);
-  font-size: clamp(1rem, 1.2vw, 1.1rem);
-  line-height: 1.65;
-  color: var(--text-secondary);
-  text-shadow: var(--text-shadow-read);
-}
-.about-values-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.5em;
-  width: 5px;
-  height: 5px;
-  background: var(--brand-red);
-  border-radius: 50%;
-  box-shadow: 0 0 8px rgba(156, 4, 4, 0.35);
-}
-@media (max-width: 900px) {
-  .about-exp-grid { grid-template-columns: repeat(2, 1fr); }
-  .about-audience-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 767px) {
-  .about-team-grid { grid-template-columns: 1fr; }
-  .about-exp-grid { grid-template-columns: 1fr; }
+@media (max-width: 640px) {
+  .about-team-card { grid-template-columns: 1fr; gap: var(--space-md); }
+  .about-team-photo { width: 80px; height: 80px; }
 }
