@@ -598,11 +598,16 @@ a.case .case-info h3 { color: #ffffff !important; }
     justify-content: center;
     align-items: center;
     min-height: 100%;
+    transform: translateX(-3cm);
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
 }
 .team-member--cta::before { display: none; }
-.team-member--cta:hover {
-    border-color: var(--card-border-hover) !important;
-    box-shadow: var(--card-shadow-hover);
+.team-member--cta:hover,
+.team-member--cta:focus {
+    border: none !important;
+    box-shadow: none !important;
     outline: none !important;
 }
 .team-member-cta-label {
@@ -664,6 +669,36 @@ a.case .case-info h3 { color: #ffffff !important; }
 .journal-card:hover .j-img-wrap img { opacity: 1; }
 .j-content { padding: var(--space-md); display: flex; flex-direction: column; flex-grow: 1; }
 .j-content { min-width: 0; }
+
+/* Главная: подпись под карточкой журнала показывается при наведении на фото */
+.journal-card--hover-label { position: relative; }
+.journal-card--hover-label .j-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  flex-grow: 0;
+  padding: var(--space-lg) var(--space-md);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+.journal-card--hover-label:hover .j-content { opacity: 1; }
+.journal-card--hover-label .j-tag { color: rgba(255, 255, 255, 0.7); }
+.journal-card--hover-label .j-title { color: #fff; margin-bottom: 0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+/* Кнопка «Все статьи в журнале» — без обводки */
+.journal-teaser-more .btn {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.journal-teaser-more .btn:hover,
+.journal-teaser-more .btn:focus {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
 .j-tag { font-family: var(--font-heading); font-size: var(--text-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: var(--space-sm); font-weight: 600; text-shadow: var(--text-shadow-read); }
 .j-title { font-family: var(--font-heading); font-size: clamp(1.18rem, 1.55vw, 1.45rem); font-weight: 600; line-height: 1.42; color: var(--text-primary); margin-bottom: var(--space-md); letter-spacing: var(--ls-body); text-shadow: var(--text-shadow-soft); }
 .case-info h3,
